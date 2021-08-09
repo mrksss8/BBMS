@@ -28,8 +28,9 @@
         <!-- menu header -->
         <li class="menu-header">Dashboard</li>
         <!-- menu item -->
-        <li><a class="nav-link" href = ""><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
-        <li><a class="nav-link" href = ""><i class="fas fa-users"></i><span>Residence</span></a></li>
+        <li><a class="nav-link" href = "{{route ('home')}}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+        <li><a class="nav-link" href ="{{route ('residence.index')}}"><i class="fas fa-users"></i><span>Residence</span></a></li>
+        <li><a class="nav-link" href ="{{route('certificate')}}"><i class="fas fa-file-alt"></i><span>Certificates</span></a></li>
       </ul>
     </aside>
   </div>

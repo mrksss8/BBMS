@@ -20,13 +20,13 @@ class CreateResidenceTable extends Migration
             $table->string('middle_name');
             $table->string('gender');
             $table->date('birthday');
+            $table->string('civil_status');
             
 
             $table->integer('house_number');
             $table->string('purok');
             $table->string('street');
 
-            $table->string('civil_status');
             $table->string('occupation');
             $table->string('type_of_house');
             $table->timestamps();
