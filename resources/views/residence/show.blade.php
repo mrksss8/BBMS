@@ -9,32 +9,44 @@
         <div class="section-body">
             <h2 class="section-title">Mr/Ms {{ $resident->first_name }} {{ $resident->middle_name }}
                 {{ $resident->last_name }} </h2>
-            <p class="section-lead">
+            {{-- <p class="section-lead">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nulla.
-            </p>
+            </p> --}}
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-12 col-lg-8">
                     <div class="card profile-widget">
                         <div class="profile-widget-header d-flex justify-content-center p-5">
-                            <img alt="image" src="{{ asset('img/avatar-mark.jpg') }}" class="rounded-circle"
+                            <img alt="image" src="{{$resident->path}}" class="rounded-circle"
                                 height="300px" width="300px">
 
                         </div>
-                        <div class="profile-widget-description">
+                        <div class="profile-widget-description ml-5">
                             <div class="profile-widget-name">{{ $resident->last_name }} {{ $resident->first_name }}
                                 {{ $resident->middle_name }} <div class="text-muted d-inline font-weight-normal">
                                     <div class="slash"></div>{{ $resident->occupation }}
                                 </div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, iste? Blanditiis quis quas in
-                                quisquam facere corrupti impedit quae repudiandae pariatur quaerat voluptatum officia
-                                tempora recusandae quam reiciendis excepturi, fugit rerum aut, eos reprehenderit repellat
-                                perferendis. Cupiditate sint perferendis esse obcaecati, vel provident veritatis voluptates,
-                                maiores ut enim labore saepe?</p>
+                        <div class = "row">
+                            <div class = "col-sm-12 col-lg-6">
+                                <p class = "ml-5"> 
+                                    <strong>Age: </strong>{{\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y')}}<br>
+                                    <strong>Birthday: </strong>{{date('M d, Y', strtotime($resident->birthday))}}<br>
+                                    <strong>Sex: </strong>{{$resident->gender}}<br>
+                                    <strong>Status: </strong>{{$resident->civil_status}}
+                                <p>
+                            </div>
+                            <div class ="col-sm-12 col-lg-6">
+                                <p> 
+                                    <strong>Address: </strong>{{$resident->house_number}} {{$resident->purok}} {{$resident->street}} Bayog, Los Baños <br>
+                                    <strong>Type of house: </strong>{{$resident->type_of_house}}<br>
+                                <p>
+                            </div>
+                        </div>
+                           
                         </div>
                         <div class="card-footer text-center">
-                            <div class="font-weight-bold mb-2">Follow Ujang On</div>
+                            {{-- <div class="font-weight-bold mb-2">Follow Ujang On</div> --}}
 
                             <div class=" d-flex justify-content-end pt-5 pb-2">
                                 <a href="#" class="btn btn-icon icon-left btn-primary mr-3"><i
@@ -73,7 +85,7 @@
                                                 <button type="submit" class="btn btn-icon icon-left btn-danger mr-3"><i
                                                         class="fas fa-trash"></i> Confirm </button>
                                             </form>
-                                            <a href="{{ route('home') }}" data-dismiss="modal"
+                                            <a href="{{ route('dashboard.index') }}" data-dismiss="modal"
                                                 class="btn btn-icon icon-left btn-primary mr-3"><i class="fas fa-ban"></i>
                                                 Cancel</a>
                                         </div>

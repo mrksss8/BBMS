@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    {{-- teporary for datatables cdn... it must be added locally --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    
+    
+    {{--  --}}
+
+
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>@yield('title') | {{ config('app.name') }}</title>
@@ -18,7 +26,7 @@
     <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
 
-@yield('page_css')
+    @yield('page_css')
 <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
@@ -50,9 +58,10 @@
 </div>
 
 @include('profile.change_password')
-@include('profile.edit_profile')
-
+@include('profile.edit_profile')<script src="{{asset('node_modules\html2pdf.js\dist\html2pdf.js')}}"></script>
 </body>
+
+<script src="{{ asset('node_modules\html2pdf.js\dist\html2pdf.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -60,6 +69,7 @@
 <script src="{{ asset('assets/js/iziToast.min.js') }}"></script>
 <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nicescroll.js') }}"></script>
+
 
 <!-- Template JS File -->
 <script src="{{ asset('web/js/stisla.js') }}"></script>
@@ -83,5 +93,15 @@
         };
     }(jQuery));
 </script>
+
+{{-- Temporary! --}}
+<script>
+    $(document).ready( function () {
+    $('#table').DataTable();
+    } );
+    </script>
+{{-- Temporary! --}}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </html>

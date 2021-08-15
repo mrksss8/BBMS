@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="card-body">
                                       <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered" id = "table">
                                         <thead>
                                           <tr>
                                             <th>View</th>
@@ -36,9 +36,7 @@
                                             <th>Civil Status</th>
                                             <th>Occupation</th>
                                             <th>Type of House</th> --}}
-                                  
-                                
-                                            
+                         
                                           </tr>
                                         </thead>
                                         <tbody>  
@@ -50,14 +48,14 @@
                                                   </div></td>
                                                     <td>
                                                       <figure class="avatar avatar-md">
-                                                      <img src="{{ asset('img/avatar-mark.jpg') }}" >
+                                                      <img src="{{$residence->path}}" >
                                                     </figure>
                                                     </td>
                                                     <td>{{$residence->last_name}}</td>
                                                     <td>{{$residence->first_name}}</td>
                                                     <td>{{$residence->middle_name}}</td>
                                                     <td>{{$residence->gender}}</td>
-                                                    <td>{{date('M d, Y', strtotime($residence->birthday))}}</td>
+                                                    <td>{{\Carbon\Carbon::parse($residence->birthday)->format('F d, Y')}}</td>
                                                     <td>{{\Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y')}}</td>
                                                     {{-- <td>{{$residence->house_number }} purok {{$residence->purok}}  {{$residence->street }}</td>
                                                     <td>{{$residence->civil_status}}</td>
@@ -106,5 +104,11 @@
                 </div>
             </div>
         </div>
+
+    <script>
+      $(document).ready( function () {
+      $('#table').DataTable();
+      } );
+      </script>
     </section>
 @endsection

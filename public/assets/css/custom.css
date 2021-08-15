@@ -1,6 +1,11 @@
 body{
     color: black !important;
 }
+
+body label{
+     color: black !important;
+}
+
 body button{
     color: black !important;
 }

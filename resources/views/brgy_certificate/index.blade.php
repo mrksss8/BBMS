@@ -17,10 +17,12 @@
                       </div>
                 </div>
                 
+                
+
                 <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Brgy Bussiness Permit</h5>
+                          <h5 class="card-title">Brgy Business Clearance</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -30,7 +32,18 @@
                 <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Indigency Certificate</h5>
+                          <h5 class="card-title">Brgy Building Clearance</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+
+        
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Brgy Meralco Clearance</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -40,7 +53,7 @@
                 <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
+                          <h5 class="card-title">Brgy Franchise Clearance</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -50,7 +63,67 @@
                 <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
+                          <h5 class="card-title">Good Moral Certification</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                  <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Indidency Certification</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+              </div>
+
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Live In Certification</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+                
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                  <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">PUI - PUM Certification</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+              </div>
+
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Residency Certification</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                  <div class="card text-center" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Income Certification</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+              </div>
+
+                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                    <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Fencing Permit</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -60,67 +133,7 @@
                 <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
-                    <div class="card text-center" style="width: 18rem;">
-                        <div class="card-body">
-                          <h5 class="card-title">Special title treatment</h5>
+                          <h5 class="card-title">Digging Permit</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>

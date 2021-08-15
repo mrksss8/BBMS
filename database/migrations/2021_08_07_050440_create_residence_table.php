@@ -29,6 +29,9 @@ class CreateResidenceTable extends Migration
 
             $table->string('occupation');
             $table->string('type_of_house');
+
+            $table->string('image');
+            $table->string('path');
             $table->timestamps();
         });
     }

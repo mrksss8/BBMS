@@ -53,6 +53,21 @@ class ResidenceController extends Controller
             $residence->street = $request->street;
             $residence->occupation = $request->occupation;
             $residence->type_of_house = $request->type_of_house;
+
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+              ]);
+      
+
+            if ($request->file('image')) {
+                $imagePath = $request->file('image');
+                $imageName = $imagePath->getClientOriginalName();
+      
+                $path = $request->file('image')->storeAs('residence', $imageName, 'public');
+              }
+      
+              $residence->image = $imageName;
+              $residence->path = '/storage/'.$path;
     
             $residence->save();       
     }

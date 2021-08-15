@@ -16,7 +16,7 @@
                                    
                                     <div class="card-body">
                                       <div class="table-responsive">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered" id = "table">
                                         <thead>
                                           <tr>
                                             <th>View</th>
@@ -45,33 +45,36 @@
                                                       <a href ="{{route('brgy_clearance.create', $residence->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-file-alt"></i> Give Clearance</a>
                                                   </div>
                                                 </td>
-                                                    <td>
-                                                      <figure class="avatar avatar-md">
-                                                      <img src="{{ asset('img/avatar-mark.jpg') }}" >
-                                                    </figure>
-                                                    </td>
+                                                <td>
+                                                  <figure class="avatar avatar-md">
+                                                  <img src="{{$residence->path}}" >
+                                                </figure>
+                                                </td>
                                                     <td>{{$residence->last_name}}</td>
                                                     <td>{{$residence->first_name}}</td>
                                                     <td>{{$residence->middle_name}}</td>
                                                     <td>{{$residence->gender}}</td>
-                                                    <td>{{date('M d, Y', strtotime($residence->birthday))}}</td>
+                                                    <td>{{\Carbon\Carbon::parse($residence->birthday)->format('F d, Y')}}</td>
+                                                    {{-- age --}}
                                                     <td>{{\Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y')}}</td>
-                                                    {{-- <td>{{$residence->house_number }} purok {{$residence->purok}}  {{$residence->street }}</td>
-                                                    <td>{{$residence->civil_status}}</td>
-                                                    <td>{{$residence->occupation}}</td>
-                                                    <td>{{$residence->type_of_house}}</td> --}}
-                                                    {{-- <td>
-                                                      <div class = "row" >
-                                                        <a class="btn btn-primary btn-sm"  data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i> Edit </a>
-                                               
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <div class = "row" >
-                                                       
-                                                        <a class="btn btn-danger btn-sm"  data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i > Delete </a>
-                                                      </div>
-                                                    </td> --}}
+                                                    {{-- age --}}
+                                                    
+                                                          {{-- <td>{{$residence->house_number }} purok {{$residence->purok}}  {{$residence->street }}</td>
+                                                          <td>{{$residence->civil_status}}</td>
+                                                          <td>{{$residence->occupation}}</td>
+                                                          <td>{{$residence->type_of_house}}</td> --}}
+                                                          {{-- <td>
+                                                            <div class = "row" >
+                                                              <a class="btn btn-primary btn-sm"  data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i> Edit </a>
+                                                    
+                                                            </div>
+                                                          </td>
+                                                          <td>
+                                                            <div class = "row" >
+                                                            
+                                                              <a class="btn btn-danger btn-sm"  data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i > Delete </a>
+                                                            </div>
+                                                          </td> --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -104,5 +107,11 @@
             </div>
         </div>
     </section>
+
+    <script>
+      $(document).ready( function () {
+      $('#table').DataTable();
+      } );
+      </script>
 @endsection
 
