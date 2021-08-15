@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Certificates / Brgy Clearance
+@endsection
 
 @section('content')
     <section class="section">

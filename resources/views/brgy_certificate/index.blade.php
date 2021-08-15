@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+Certificates
+@endsection
 @section('content')
     <section class="section">
         <div class="section-header">

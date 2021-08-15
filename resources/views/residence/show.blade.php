@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Residence Profile
+@endsection
 
 @section('content')
     <section class="section">
