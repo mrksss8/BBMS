@@ -20,7 +20,7 @@ Residence Registration
                                         <div class="col-12 ">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h4 class = "text-dark">Personal Information</h4>
+                                                    <h4>Personal Information</h4>
                                                 </div>
                                                 <form action ="{{route('residence.store')}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
@@ -162,7 +162,7 @@ Residence Registration
                                                         </div>
 
                                                         <div class="card-header">
-                                                            <h4>Address</h4>
+                                                            <h4> Address</h4>
                                                         </div>
 
                                                         <div class="col-sm-12 col-lg-6">
@@ -219,14 +219,6 @@ Residence Registration
                                                         <div class="col-sm-12 col-lg-6">
                                                             <div class="form-group">
                                                                 <label>Type of house</label>
-                                                                {{-- <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-address-card"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="text" name = "type_of_house" class="form-control phone-number">
-                                                                </div> --}}
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text">
                                                                         <i class="fas fa-address-card"></i>
@@ -238,6 +230,42 @@ Residence Registration
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="card-header">
+                                                            <h4> Other Information</h4>
+                                                        </div>
+                                                        <div class="col-sm-12 col-lg-6"> 
+                                                            <div class="col-sm-12 col-lg-6">   
+                                                                <div class="form-group">
+                                                                    <label>PWD</label>
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <i class="fas fa-venus-mars"></i>
+                                                                        </div>
+                                                                        <select class="form-control" name = "pwd">
+                                                                            <option value="">none</option>
+                                                                            <option value="Yes">Yes</option>
+                                                                            <option value="No">No</option>
+                                                                          </select>
+                                                                    </div>
+                                                                  </div>
+                                                            </div> 
+                                                        </div>
+                                                            <div class="form-group">
+                                                                <label>Membership Program</label>
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-venus-mars"></i>
+                                                                    </div>
+                                                                    <select class="form-control" name = "membership_prog">
+                                                                        <option value="4Ps">none</option>
+                                                                        <option value="4Ps">4Ps</option>
+                                                                        <option value="TUPAD">TUPAD</option>
+                                                                      </select>
+                                                                </div>
+                                                              </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>           
                                             </div>
@@ -248,7 +276,7 @@ Residence Registration
                             <div class="card-footer text-right">
                                 <div class="container d-flex justify-content-center">
                                     <button type = "submit"  class="btn btn-icon icon-left btn-primary mr-3"><i class="far fa-save"></i> Save</button>
-                                    <a href="{{ route('home') }}" class="btn btn-icon icon-left btn-danger mr-3"><i class="fas fa-ban"></i> Cancel</a>
+                                    <a href="{{ route('residence.index') }}" class="btn btn-icon icon-left btn-danger mr-3"><i class="fas fa-ban"></i> Cancel</a>
                                 </div>
                             </div>
                         </form>

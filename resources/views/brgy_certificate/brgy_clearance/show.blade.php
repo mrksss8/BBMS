@@ -25,15 +25,11 @@
         .certificate-container {
             width: 60vw;
             display: flex;
-            justify-content: center;
-            
+            justify-content: center;      
             color: black;
         }
 
-        #logo-img {
-            width: 80px;
-            height: auto;
-        }
+        
 
         .page {
             /* padding: 10px; */
@@ -75,9 +71,13 @@
             padding: 5px;
             text-align: center;
         }
+        #logo-img {
+            width: 80px;
+            height: auto;
+        }
 
         .officials p {
-            padding-top: 8px;
+            padding-top: 6px;
             line-height: 20px;
             font-size: 15px;
         }
@@ -231,7 +231,6 @@
             <div class="page" style="width: 8in;" id="element-to-print">
                 <div class="wrapper">
                     <div class="header">
-
                         <p>REPUBLIC OF THE PHILIPPINES <br>
                             PROVINCE OF LAGUNA <br>
                             MUNICIPLITY LOS BAÑOS <br>
@@ -248,8 +247,8 @@
                             <div class="official-wrapper">
                                 <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
                                 <p>
-                                    <strong>HON. CRISANTO A. TANDANG</strong>
-                                    Barangay Chairman
+                                    <strong> HON. {{ $b_cap->brgy_official_name }}</strong><br>
+                                    {{ $b_cap->brgy_official_position }}
                                 </p>
 
                                 </p>
@@ -257,71 +256,76 @@
                                     <strong>COUNCILORS</strong><br>
                                 </p>
                                 <p>
-                                    <strong>HON. DIONISIO L. SALAZAR</strong><br>
-                                    Gender and Development
+                                    <strong> HON. {{ $b_councelor1->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor1->brgy_official_role }}
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. BERNARDO M. VASQUEZ</strong><br>
-                                    Appropriation
+                                    <strong> HON. {{ $b_councelor2->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor2->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. VIRGILIO A. TANDANG</strong><br>
-                                    Peace and Order
+                                    <strong> HON. {{ $b_councelor3->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor3->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. VICTORIO N. CARILLAGA</strong><br>
-                                    Health and Sanitation
+                                    <strong> HON. {{ $b_councelor4->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor4->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. WENCESLAO C. TANDANG</strong><br>
-                                    Education
+                                    <strong> HON. {{ $b_councelor5->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor5->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. EFREN M. EUGENIO JR.</strong><br>
-                                    Tourism and Environment
+                                    <strong> HON. {{ $b_councelor6->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor6->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. LUISITO P. LAPITAN</strong><br>
-                                    Tourism and Environment
+                                    <strong> HON. {{ $b_councelor7->brgy_official_name }}</strong><br>
+                                    {{ $b_councelor7->brgy_official_role }}
+                                </p>
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>HON. LESLIE ANN B. MATEO</strong><br>
-                                    SK Chairperson – Sports and Development
+                                    <strong> HON. {{ $b_sk->brgy_official_name }}</strong><br>
+                                    {{ $b_sk->brgy_official_position }} – {{ $b_sk->brgy_official_role }}
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>ARTHUR PAUL JOHN L. GAZA</strong><br>
-                                    Barangay Secretary
+                                    <strong> HON. {{ $b_sec->brgy_official_name }}</strong><br>
+                                    {{ $b_sec->brgy_official_position }}
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>TERESA P. LOPEZ</strong><br>
-                                    Barangay Treasurer
+                                    <strong> HON. {{ $b_tres->brgy_official_name }}</strong><br>
+                                    {{ $b_tres->brgy_official_position }}
                                 </p>
 
                                 </p>
                                 <p>
-                                    <strong>LEA C. TANDANG</strong><br>
-                                    Barangay Clerk
+                                    <strong> HON. {{ $b_clerk->brgy_official_name }}</strong><br>
+                                    {{ $b_clerk->brgy_official_position }}
                                 </p>
 
-                                </p>
                             </div>
                         </div>
 
@@ -444,7 +448,31 @@
             </div>
         </div>
     </div>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+        integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        function generatepdf() {
+            var element = document.getElementById('element-to-print');
+            var opt = {
+                margin: .25,
+                filename: 'BarangayClearance.pdf',
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                },
+                html2canvas: {
+                    scale: 2
+                },
+                jsPDF: {
+                    unit: 'in',
+                    format: 'letter',
+                    orientation: 'portrait'
+                }
+            };
+            html2pdf().set(opt).from(element).save();
+        };
+    </script>
     
     <script>
         'use strict';
@@ -486,34 +514,9 @@
         });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
-        integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    
 </body>
-<script type="text/javascript">
-    function generatepdf() {
-        var element = document.getElementById('element-to-print');
 
-        var opt = {
-            margin: .25,
-            filename: 'BarangayClearance.pdf',
-            image: {
-                type: 'jpeg',
-                quality: 0.98
-            },
-            html2canvas: {
-                scale: 2
-            },
-            jsPDF: {
-                unit: 'in',
-                format: 'letter',
-                orientation: 'portrait'
-            }
-        };
-        html2pdf().set(opt).from(element).save();
-    };
-</script>
 
 
 </html>

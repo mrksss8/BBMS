@@ -4,8 +4,6 @@
 
     {{-- teporary for datatables cdn... it must be added locally --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    
-    
     {{--  --}}
 
 
@@ -34,6 +32,9 @@
 
 
     @yield('css')
+    {{-- custom by mark -- page level style of officials--}}
+    {{-- @yield('page_level_style') --}}
+    {{--  --}}
 </head>
 <body>
 
@@ -101,7 +102,8 @@
     } );
     </script>
 {{-- Temporary! --}}
+
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </html>

@@ -17,15 +17,22 @@ class ResidenceSeeder extends Seeder
             'first_name' => 'Mark Anthony',
             'middle_name' => 'Noza',
             'gender' => 'Male',
-            'birthday' => Carbon::create('2000', '01', '01'),
+            'birthday' => Carbon::create('1999', '09', '08'),
+            'civil_status' => 'Single',
 
-            'house_number' => '132',
+            'house_number' => '123',
             'purok' => '1',
             'street' => 'Silangan',
 
-            'civil_status' => 'Single',
+            
             'occupation' => 'Vendor',
             'type_of_house' => 'Owned',
+
+            'pwd' => 'Yes',
+            'membership_prog' => 'TUPAD',
+
+            'image' => 'avatar-mark.jpg',
+            'path' => '/storage/residence/avatar-mark.jpg',
 
         ]);
     }

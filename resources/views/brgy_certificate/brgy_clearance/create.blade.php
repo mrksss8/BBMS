@@ -13,8 +13,27 @@ Brgy Clearance Issuance
                     <h2 class="section-title">Mr/Ms {{ $resident->first_name}} {{ $resident->middle_name }}
                         {{ $resident->last_name }} </h2>
                     <p class="section-lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, nulla.
+                        Requesting for Brgy Clearance Certificate
                     </p>
+
+
+                    @foreach ($resident_with_blotter->blotter as $blotter)
+
+                            @if ($blotter === null)
+                            @else  
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-8 ">
+                                    <div class="alert alert-danger">
+                                            <h5 class = "text-center text-dark">This Person has a Blotter Record !</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif 
+
+                    @endforeach
+
+           
+                    
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
@@ -34,15 +53,47 @@ Brgy Clearance Issuance
                                             <div class="slash"></div>{{ $resident->occupation }}
                                         </div>
                                     </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, iste? Blanditiis quis
-                                        quas in
-                                        quisquam facere corrupti impedit quae repudiandae pariatur quaerat voluptatum
-                                        officia
-                                        tempora recusandae quam reiciendis excepturi, fugit rerum aut, eos reprehenderit
-                                        repellat
-                                        perferendis. Cupiditate sint perferendis esse obcaecati, vel provident veritatis
-                                        voluptates,
-                                        maiores ut enim labore saepe?</p>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-lg-6">
+                                            <p class="ml-5">
+                                                <strong>Age:
+                                                </strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}<br>
+                                                <strong>Birthday:
+                                                </strong>{{ date('M d, Y', strtotime($resident->birthday)) }}<br>
+                                                <strong>Sex: </strong>{{ $resident->gender }}<br>
+                                                <strong>Status: </strong>{{ $resident->civil_status }}
+                                            <p>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-6">
+                                            <p>
+                                                <strong>Address: </strong>{{ $resident->house_number }}
+                                                {{ $resident->purok }} {{ $resident->street }} Bayog, Los Baños <br>
+                                                <strong>Type of house: </strong>{{ $resident->type_of_house }}<br>
+                                            <p>
+                                        </div>
+                                    </div>
+ {{-- blotters --}}
+                                   
+
+                                    <div class="row">
+                                        <div class="col-sm-12 col-lg-12 mt-5">
+                                            <h5 class = "text-center text-danger">Blotters Information</h5>
+                                            <p class="ml-5">
+                                                @foreach ($resident_with_blotter->blotter as $blotter)
+                                                <strong>Complained By: 
+                                                </strong>{{$blotter->complainant_name}}<br>
+                                                <strong>Blotter Complain: 
+                                                </strong>{{$blotter->Blotters_info}}<br>
+                                                <strong>Incident: 
+                                                </strong>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}
+                                                @endforeach
+                                            <p>
+                                        </div>
+                                        
+                                    </div>  
+                                    
+                                   
+                                    
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="font-weight-bold mb-2">Follow Ujang On</div>
@@ -82,17 +133,10 @@ Brgy Clearance Issuance
                                     <div class="card-footer d-flex justify-content-center">
                                         <button type = "submit"  class="btn btn-lg btn-icon icon-left btn-success"><i class="far fa-edit"></i> Generate Brgy Clearance </a>      
                                     </div>
-                                    </form>
-
-                                
+                                    </form>                
                             </div>
-                        </div>
-{{-- <a href ="{{route('brgy_clearance.show', $resident->id)}}" class="btn btn-lg btn-icon icon-left btn-success mr-5"><i class="far fa-edit"></i> Generate Brgy Clearance </a> --}}
-                        
+                        </div>                     
                     </div>
-
-
-
                 </div>
             </div>
 

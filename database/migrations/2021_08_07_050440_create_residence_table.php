@@ -14,7 +14,7 @@ class CreateResidenceTable extends Migration
     public function up()
     {
         Schema::create('residence', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('last_name');
             $table->string('first_name');
             $table->string('middle_name');
@@ -30,8 +30,13 @@ class CreateResidenceTable extends Migration
             $table->string('occupation');
             $table->string('type_of_house');
 
-            $table->string('image');
-            $table->string('path');
+            $table->string('pwd');
+            $table->string('membership_prog');
+
+
+
+            $table->string('image')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }
