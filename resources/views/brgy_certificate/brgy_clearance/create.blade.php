@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Brgy Clearance Issuance
+    Brgy Clearance Issuance
 @endsection
 @section('content')
     <section class="section">
@@ -10,7 +10,7 @@ Brgy Clearance Issuance
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">Mr/Ms {{ $resident->first_name}} {{ $resident->middle_name }}
+                    <h2 class="section-title">Mr/Ms {{ $resident->first_name }} {{ $resident->middle_name }}
                         {{ $resident->last_name }} </h2>
                     <p class="section-lead">
                         Requesting for Brgy Clearance Certificate
@@ -19,31 +19,31 @@ Brgy Clearance Issuance
 
                     @foreach ($resident_with_blotter->blotter as $blotter)
 
-                            @if ($blotter === null)
-                            @else  
+                        @if ($blotter->status === 'Settled')
+                        @else
                             <div class="row d-flex justify-content-center">
                                 <div class="col-8 ">
                                     <div class="alert alert-danger">
-                                            <h5 class = "text-center text-dark">This Person has a Blotter Record !</h5>
+                                        <h5 class="text-center text-dark">This Person has a Blotter Record !</h5>
                                     </div>
                                 </div>
                             </div>
-                            @endif 
+                        @endif
 
                     @endforeach
 
-           
-                    
+
+
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
                             <div class="card profile-widget">
                                 <div class="profile-widget-header d-flex justify-content-center p-5">
-     
-                                
-                               
-                                    <img alt="image" src="{{$resident->path}}" class="rounded-circle"
-                                        height="300px" width="300px">
+
+
+
+                                    <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
+                                        width="300px">
 
                                 </div>
                                 <div class="profile-widget-description">
@@ -72,35 +72,26 @@ Brgy Clearance Issuance
                                             <p>
                                         </div>
                                     </div>
- {{-- blotters --}}
-                                   
+                                    @foreach ($resident_with_blotter->blotter as $blotter)
 
+                                    @if ($blotter->status === 'Settled')
+                                    @else
                                     <div class="row">
                                         <div class="col-sm-12 col-lg-12 mt-5">
-                                            <h5 class = "text-center text-danger">Blotters Information</h5>
+                                            <h5 class="text-center text-danger">Blotters Information</h5>
                                             <p class="ml-5">
-                                                @foreach ($resident_with_blotter->blotter as $blotter)
-                                                <strong>Complained By: 
-                                                </strong>{{$blotter->complainant_name}}<br>
-                                                <strong>Blotter Complain: 
-                                                </strong>{{$blotter->Blotters_info}}<br>
-                                                <strong>Incident: 
+                                                <strong>Complained By:
+                                                </strong>{{ $blotter->complainant_name }}<br>
+                                                <strong>Blotter Complain:
+                                                </strong>{{ $blotter->Blotters_info }}<br>
+                                                <strong>Incident:
                                                 </strong>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}
-                                                @endforeach
                                             <p>
                                         </div>
-                                        
-                                    </div>  
-                                    
-                                   
-                                    
+                                    </div>
+                                    @endif   
+                                    @endforeach
                                 </div>
-                                <div class="card-footer text-center">
-                                    <div class="font-weight-bold mb-2">Follow Ujang On</div>
-
-
-                                </div>
-
                             </div>
                         </div>
 
@@ -109,7 +100,8 @@ Brgy Clearance Issuance
                                 <div class="card-header">
                                     <h4> Requesting for </h4>
                                 </div>
-                                <form action="{{route('brgy_clearance.show', $resident->id)}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('brgy_clearance.show', $resident->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="row">
@@ -122,8 +114,8 @@ Brgy Clearance Issuance
                                                                 <i class="fas fa-user"></i>
                                                             </div>
                                                         </div>
-                                                        <input type="text" name="purpose" 
-                                                            class="form-control phone-number" required>
+                                                        <input type="text" name="purpose" class="form-control phone-number"
+                                                            required>
                                                     </div>
                                                 </div>
 
@@ -131,11 +123,12 @@ Brgy Clearance Issuance
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex justify-content-center">
-                                        <button type = "submit"  class="btn btn-lg btn-icon icon-left btn-success"><i class="far fa-edit"></i> Generate Brgy Clearance </a>      
+                                        <button type="submit" class="btn btn-lg btn-icon icon-left btn-success"><i
+                                                class="far fa-edit"></i> Generate Brgy Clearance </a>
                                     </div>
-                                    </form>                
+                                </form>
                             </div>
-                        </div>                     
+                        </div>
                     </div>
                 </div>
             </div>

@@ -20,6 +20,7 @@
                             <div class="mr-5">
                                 <a href="{{ route('blotters.create') }}" class="btn btn-outline-primary mr-3"><i
                                     class="far fa-edit"></i> Write Blotter </a>
+                                    <a href="" class="btn btn-outline-success btn-sm px-3">Generate Blotters Report</a>
                             </div>
                         </div>
 
@@ -29,10 +30,12 @@
                                     <thead>
                                         <tr>
                                             <th>View</th>
+                                            <th>Case Number</th>
                                             <th>Complained Person</th>
                                             <th>Blotter Information</th>
                                             <th>Complainant</th>
                                             <th>Incident Date</th>
+                                            <th>Case Type</th>
                                             
                                         </tr>
                                     </thead>
@@ -40,6 +43,7 @@
                                         
                                         @foreach ($blotters as $blotter)
                                         <tr>
+                                            
                                             <td>
                                                 <div class="row d-flex justify-content-center">
                                                     <a href="{{route('blotters.show', $blotter->id)}}"
@@ -48,10 +52,12 @@
 
                                                 </div>
                                             </td>
+                                            <td>{{$blotter->id}}</td>
                                             <td>{{$blotter->residence->last_name}} {{$blotter->residence->first_name}} {{$blotter->residence->middle_name}}</td>
                                             <td>{{$blotter->Blotters_info}}</td>
                                             <td>{{$blotter->complainant_name}}</td>
                                             <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>
+                                            <td>{{$blotter->case_type}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

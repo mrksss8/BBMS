@@ -99,8 +99,6 @@ class OfficialsController extends Controller
          $bclerk= Officials::findOrfail($bclerk_id);
          $bclerk->brgy_official_name = $request->bclerk_name;
          $bclerk->save();
-
- 
         
 
     }

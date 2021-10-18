@@ -81,8 +81,8 @@
                                 {{-- <div class="font-weight-bold mb-2">Follow Ujang On</div> --}}
 
                                 <div class=" d-flex justify-content-end pt-5 pb-2">
-                                    <a href="#" class="btn btn-icon icon-left btn-primary mr-3"><i
-                                            class="fas fa-pencil-alt"></i> Edit</a>
+                                    {{-- <a href="#" class="btn btn-icon icon-left btn-primary mr-3"><i
+                                            class="fas fa-pencil-alt"></i> Edit</a> --}}
 
                                     <button type="button" class="btn btn-icon icon-left btn-danger mr-3" data-toggle="modal"
                                         data-target="#deleteModal"><i class="fas fa-trash"></i>
@@ -150,7 +150,7 @@
                 <div class="col-12 col-md-8 col-lg-4">
                     <div class="card">
                         <div class="card-header justify-content-center">
-                            <h5>Give Certification</h5>
+                            <h5>Issue Certification</h5>
 
                         </div>
                         <div class="card-body d-flex flex-column align-items-center">

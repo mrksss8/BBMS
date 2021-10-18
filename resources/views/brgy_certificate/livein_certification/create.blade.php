@@ -87,6 +87,32 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group">
+                                                    <label>Live in Partner</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" name="partner" 
+                                                            class="form-control phone-number" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Taon ng pagsasama</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-user"></i>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" name="long" 
+                                                            class="form-control phone-number" required>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

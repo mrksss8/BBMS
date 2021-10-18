@@ -107,6 +107,22 @@ Residence Registration
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        {{-- <div class="col-sm-12 col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Birth Place</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <i class="fas fa-calendar"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="text" name = "birthplace" class="form-control phone-number" required>
+                                                                </div>
+                                                            </div>
+                                                        </div> --}}
+
+
                                                         <div class="col-sm-12 col-lg-6">
                                                             <div class="form-group">
                                                                 <label>Civil Status</label>
@@ -243,7 +259,6 @@ Residence Registration
                                                                             <i class="fas fa-venus-mars"></i>
                                                                         </div>
                                                                         <select class="form-control" name = "pwd">
-                                                                            <option value="">none</option>
                                                                             <option value="Yes">Yes</option>
                                                                             <option value="No">No</option>
                                                                           </select>
@@ -252,13 +267,13 @@ Residence Registration
                                                             </div> 
                                                         </div>
                                                             <div class="form-group">
-                                                                <label>Membership Program</label>
+                                                                <label>Subsidy Program</label>
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text">
                                                                         <i class="fas fa-venus-mars"></i>
                                                                     </div>
                                                                     <select class="form-control" name = "membership_prog">
-                                                                        <option value="4Ps">none</option>
+                                                                        <option value="None">none</option>
                                                                         <option value="4Ps">4Ps</option>
                                                                         <option value="TUPAD">TUPAD</option>
                                                                       </select>

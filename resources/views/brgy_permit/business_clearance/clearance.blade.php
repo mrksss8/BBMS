@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-Brgy Live-In Issuance
+Brgy Income Issuance
 @endsection
 @section('content')
 
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Brgy Live-In Certificate</h3>
+            <h3 class="page__heading">Brgy Business Clearance Certificate</h3>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-center">
             <div class="certificate-container">
                 <div class="page" style="width: 8in;" id="element-to-print">
                     <div class="wrapper">
@@ -20,11 +20,10 @@ Brgy Live-In Issuance
                                 BARANGAY BAYOG <br>
                             </p>
                             <div class="title-wrapper">
-                                <h1>SERTIPIKASYON NG PAGSASAMA</h1>
+                                <h1>Brgy Business Clearance Certificate</h1>
                             </div>
                         </div>
-    
-    
+       
                         <div class="body">
                             <div class="officials" style="width: 2.95in;">
                                 <div class="official-wrapper">
@@ -114,37 +113,47 @@ Brgy Live-In Issuance
                             <div class="content" style="width: 5.55in;">
                                 <div class="content-wrapper">
                                     <div class="top-part">
-                                        {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
-                                        <div id="resident-picture">
-                                            {{-- webcam video snapshot --}}
-                                            <canvas id="canvas" width="120" height="120"></canvas>
-                                        </div>
+                                    <p style = "margin-left:auto; margin-right:50px;">2021-BAYOG-113</p>
                                     </div>
     
                                     <div class="text-part">
-                                        <p id="to-whom">Sa Kinauukulan,</p>
-                                        <p id="content">
-                                            Ito ay pagpapatunay na sila <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }} at {{ $partner }}</strong> nasa hustong taong gulang, residente ng <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna</strong> ay nagsasama bilang mag asawa.
-                                            Pagpapatunay pa din na sila ay nagsasama ng humigit kumulang <strong>{{$long}}</strong>  ng nagsama bilang mag asawa requirement para sa {{$purpose}}.                                                                                                                                                                      
-                               
-                                           
-                                        <P id="issue-for">
-                                            This certification is being issued upon the request of <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> for <strong><Strong>{{$purpose}}</Strong></strong>.
-                                        </P>
-                                        
-                                        <p id="witness">
-                                            Given this <strong> {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
+                                        <p style= "text-align:center; line-height:4px;">
+                                            CYNTHIA ANGKO FOOD PRODUCTS
+                                               <p style= "text-align:center;"><strong>  BUSINESS NAME </strong></p> <br>
                                         </p>
-    
-                                       
-                                        <p id="witness" style="margin-top: 70px;">
-                                            Certify By:
-                                         </p>
+
+                                        <p style= "text-align:center; line-height:4px;">
+                                            TAGPUAN ST BAYOG LOS BAÑOS LAGUNA </p>
+                                               <p style= "text-align:center;"> <strong> BUSINESS ADDRESS </strong> </p> <br>
+                                        </p>
+                                        <p>
+                                           <p style= "text-align:center; line-height:4px;">CYNTHIA LLANDER CARIÑO</p> 
+                                           <p style= "text-align:center;"><strong> NAME OF OWNER</strong></p>
+                                            
+                                        </p>
+                                        <P id="issue-for">
+                                            This certifies that the above Business Establishment conforms to the requirement for putting up business enterprises with the jurisdiction of this Barangay.
+                                        </P>
+                                        <br>
+                                        <p style="text-align:center; font-size: 18px;">
+                                            Issued this 6TH  day of AUGUST, 2021.
+                                        </p>
+ 
+                                        <p id="witness" style="margin-top: 30px;">
+                                            CONFORMED BY: 
+                                        </p>
+                                        <br>
+                                        <br>
+                                        <p><strong>
+                                            <p style= "line-height:4px; margin-left:50px;">
+                                                CYNTHIA L. CARIÑO </p>
+                                                   <p style= "margin-left:80px;"> <strong> APPLICANT</strong> </p> <br>
+                                            </p>
+                                        </strong>
+                                        </p>                            
                                     </div>
 
-
+                                    
                                     <div class="cap-sign-part">           
                                         <div class="cap-sign-wrapper">
                                             
@@ -156,27 +165,63 @@ Brgy Live-In Issuance
                                             </p>
                                         </div>
                                     </div>
+                                    <p id="witness" style="margin-top: 30px; text-align:center;">
+                                        RELEASE BY: 
+                                    </p>
+                                    <br>
+                                    <div class="cap-sign-part">           
+                                        <div class="cap-sign-wrapper"> 
+                                            <p>
+                                                <strong> TERESA P. LOPEZ </strong>  
+                                            </p>
+                                            <p>
+                                                Treasurer
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="issued">
+                                        <div class="issued-wrapper">
+                                            <p>
+                                                CTC No.:
+                                            </p>
+                                            <p id="year">
+                                               2021
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>   
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
+            {{-- <div class="camera-container d-flex mt-5 border border-dark p-3">
+        
                 <div class="camera-wrapper">
-                    <h3 class="text-center">Take a Picture</h3>
-                    {{-- stream video via webcam --}}
+                    <h3 class = "text-center">Take a Picture</h3>
+                    
                     <div class="video-wrap">
                         <video id="video" playsinline autoplay></video>
                     </div>
-                    {{-- Trigger canvas web API --}}
-                    <div class="controller d-flex justify-content-center mt-3">
-                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button> 
-                        <button class="btn btn-md btn-icon icon-left btn-success" onclick="generatepdf()">Download</button> 
+             
+                    <div class="download-container d-flex justify-content-center mt-3">
+                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button>
+                        <button class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</button>
                     </div>
+                  
                 </div>
+            </div> --}}
+        </div>
+        <div>
+            <div class="camera-container d-flex mt-5 justify-content-center">
+        
+            <div class="camera-wrapper">
+            
+                    <button class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</button>
+              
             </div>
         </div>
+    </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
                 integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -186,7 +231,7 @@ Brgy Live-In Issuance
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin: .25,
-                    filename: 'LiveIn.pdf',
+                    filename: 'Income.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
@@ -202,45 +247,6 @@ Brgy Live-In Issuance
                 };
                 html2pdf().set(opt).from(element).save();
             };
-        </script>
-        <script>
-            'use strict';
-
-            const video = document.getElementById('video');
-            const canvas = document.getElementById('canvas');
-            const snap = document.getElementById('snap');
-            const errorMsgElement = document.getElementById('spanErrorMsg');
-
-            const constraints = {
-                audio: false,
-                video: {
-                    width: 400,
-                    height: 400
-                }
-            };
-
-            async function init() {
-                try {
-                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                    handleSuccess(stream);
-                } catch (e) {
-                    errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
-                }
-            }
-            //success
-            function handleSuccess(stream) {
-                window.stream = stream;
-                video.srcObject = stream;
-            }
-
-            //load init()
-            init();
-
-            //draw image
-            var context = canvas.getContext('2d');
-            snap.addEventListener("click", function() {
-                context.drawImage(video, 0, 0, 120, 120);
-            });
         </script>
     </section>
     <style>
@@ -360,7 +366,7 @@ Brgy Live-In Issuance
     
         /* content text-part */
         .content-wrapper .text-part {
-            margin-top: 50px;
+            margin-top: 20px;
         }
     
         #to-whom {
@@ -378,6 +384,7 @@ Brgy Live-In Issuance
             text-indent: 50px;
             margin-top: 20px;
             line-height: 25px;
+            font-size: 18px;
         }
     
         #transform-upppercase {
@@ -421,7 +428,7 @@ Brgy Live-In Issuance
         .cap-sign-part {
             display: flex;
             justify-content: flex-end;
-            margin-top: 70px;
+            margin-top: 10px;
         }
     
         .cap-sign-part .cap-sign-wrapper {
@@ -437,6 +444,16 @@ Brgy Live-In Issuance
         /* content issue */
         .issued {
             margin-top: 40px;
+        }
+        .issued-wrapper{
+            display: flex;
+            justify-content: space-between;
+        }
+        #year{
+            font-size:48px;
+            padding: 15px;
+            border: 1px solid green;
+            margin-right: 50px;
         }
     </style>
 @endsection

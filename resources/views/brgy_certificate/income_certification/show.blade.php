@@ -8,7 +8,7 @@ Brgy Income Issuance
         <div class="section-header">
             <h3 class="page__heading">Brgy Income Certificate</h3>
         </div>
-        <div class="section-body d-flex">
+        <div class="d-flex">
             <div class="certificate-container">
                 <div class="page" style="width: 8in;" id="element-to-print">
                     <div class="wrapper">
@@ -124,12 +124,12 @@ Brgy Income Issuance
                                         <p id="to-whom">Sa Kinauukulan,</p>
                                         <p id="content">
                                             Ito ay pagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong>,   <strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}</strong> taong gulang  ipinanganak noong {{ date('M d, Y', strtotime($resident->birthday)) }} sa BIÑAN LAGUNA at nakatira sa <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna.</strong>.                                                                                
+                                                {{ $resident->last_name }}</strong>,   <strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}</strong> taong gulang  ipinanganak noong <strong>{{ date('M d, Y', strtotime($resident->birthday)) }} sa BIÑAN LAGUNA at nakatira sa <strong>Purok-{{ $resident->purok}} {{ $resident->street}}</strong>, Barangay Bayog, Los Baños, Laguna.</strong>.                                                                                
                                
                                            
                                         <P id="issue-for">
                                             Pagpapatunay din na si  <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong>, ay CONTRACTOR  na kanyang pinagkakakitaan requirement para sa <strong>{{ $purpose}}</strong>.
+                                                {{ $resident->last_name }}</strong>, ay {{ $resident->occupation}}  na kanyang pinagkakakitaan requirement para sa <strong>{{ $purpose}}</strong>.
                                         </P>
                                         
                                         <p id="witness">
@@ -160,9 +160,18 @@ Brgy Income Issuance
                     </div>
                 </div>
             </div>
-            <div class="card ml-3">
-                <div class="card-body">
-                    <a href="#" class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</a>
+            <div class="camera-container d-flex mt-5 border border-dark p-3">
+                <div class="camera-wrapper">
+                    <h3 class="text-center">Take a Picture</h3>
+                    {{-- stream video via webcam --}}
+                    <div class="video-wrap">
+                        <video id="video" playsinline autoplay></video>
+                    </div>
+                    {{-- Trigger canvas web API --}}
+                    <div class="controller d-flex justify-content-center mt-3">
+                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button> 
+                        <button class="btn btn-md btn-icon icon-left btn-success" onclick="generatepdf()">Download</button> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,6 +201,46 @@ Brgy Income Issuance
                 html2pdf().set(opt).from(element).save();
             };
         </script>
+
+    <script>
+    'use strict';
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const snap = document.getElementById('snap');
+    const errorMsgElement = document.getElementById('spanErrorMsg');
+
+    const constraints = {
+        audio: false,
+        video: {
+            width: 400,
+            height: 400
+        }
+    };
+
+    async function init() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            handleSuccess(stream);
+        } catch (e) {
+            errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+        }
+    }
+    //success
+    function handleSuccess(stream) {
+        window.stream = stream;
+        video.srcObject = stream;
+    }
+
+    //load init()
+    init();
+
+    //draw image
+    var context = canvas.getContext('2d');
+    snap.addEventListener("click", function() {
+        context.drawImage(video, 0, 0, 120, 120);
+    });
+    </script>
     </section>
     <style>
         p {

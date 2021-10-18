@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('title')
-Brgy Live-In Issuance
+Brgy Blotter Settlement Agreement
 @endsection
 @section('content')
 
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Brgy Live-In Certificate</h3>
+            <h3 class="page__heading">Brgy Blotter Settlement Agreement</h3>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-center">
             <div class="certificate-container">
                 <div class="page" style="width: 8in;" id="element-to-print">
                     <div class="wrapper">
@@ -20,11 +20,10 @@ Brgy Live-In Issuance
                                 BARANGAY BAYOG <br>
                             </p>
                             <div class="title-wrapper">
-                                <h1>SERTIPIKASYON NG PAGSASAMA</h1>
+                                <h1>Barangay Blotters Settlement Agreement</h1>
                             </div>
                         </div>
-    
-    
+       
                         <div class="body">
                             <div class="officials" style="width: 2.95in;">
                                 <div class="official-wrapper">
@@ -114,31 +113,13 @@ Brgy Live-In Issuance
                             <div class="content" style="width: 5.55in;">
                                 <div class="content-wrapper">
                                     <div class="top-part">
-                                        {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
-                                        <div id="resident-picture">
-                                            {{-- webcam video snapshot --}}
-                                            <canvas id="canvas" width="120" height="120"></canvas>
-                                        </div>
+                                       
                                     </div>
     
                                     <div class="text-part">
-                                        <p id="to-whom">Sa Kinauukulan,</p>
                                         <p id="content">
-                                            Ito ay pagpapatunay na sila <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }} at {{ $partner }}</strong> nasa hustong taong gulang, residente ng <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna</strong> ay nagsasama bilang mag asawa.
-                                            Pagpapatunay pa din na sila ay nagsasama ng humigit kumulang <strong>{{$long}}</strong>  ng nagsama bilang mag asawa requirement para sa {{$purpose}}.                                                                                                                                                                      
-                               
-                                           
-                                        <P id="issue-for">
-                                            This certification is being issued upon the request of <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> for <strong><Strong>{{$purpose}}</Strong></strong>.
-                                        </P>
-                                        
-                                        <p id="witness">
-                                            Given this <strong> {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
+                                            {{$blotter->agreement}}
                                         </p>
-    
-                                       
                                         <p id="witness" style="margin-top: 70px;">
                                             Certify By:
                                          </p>
@@ -162,19 +143,11 @@ Brgy Live-In Issuance
                     </div>
                 </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
-                <div class="camera-wrapper">
-                    <h3 class="text-center">Take a Picture</h3>
-                    {{-- stream video via webcam --}}
-                    <div class="video-wrap">
-                        <video id="video" playsinline autoplay></video>
-                    </div>
-                    {{-- Trigger canvas web API --}}
-                    <div class="controller d-flex justify-content-center mt-3">
-                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button> 
-                        <button class="btn btn-md btn-icon icon-left btn-success" onclick="generatepdf()">Download</button> 
-                    </div>
-                </div>
+           
+        </div>
+        <div class="camera-container d-flex justify-content-center mt-5 p-3">
+            <div class="camera-wrapper">
+                    <button class="btn btn-md btn-icon icon-left btn-success" onclick="generatepdf()">Download</button> 
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
@@ -186,7 +159,7 @@ Brgy Live-In Issuance
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin: .25,
-                    filename: 'LiveIn.pdf',
+                    filename: 'Income.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
@@ -203,45 +176,8 @@ Brgy Live-In Issuance
                 html2pdf().set(opt).from(element).save();
             };
         </script>
-        <script>
-            'use strict';
 
-            const video = document.getElementById('video');
-            const canvas = document.getElementById('canvas');
-            const snap = document.getElementById('snap');
-            const errorMsgElement = document.getElementById('spanErrorMsg');
-
-            const constraints = {
-                audio: false,
-                video: {
-                    width: 400,
-                    height: 400
-                }
-            };
-
-            async function init() {
-                try {
-                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
-                    handleSuccess(stream);
-                } catch (e) {
-                    errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
-                }
-            }
-            //success
-            function handleSuccess(stream) {
-                window.stream = stream;
-                video.srcObject = stream;
-            }
-
-            //load init()
-            init();
-
-            //draw image
-            var context = canvas.getContext('2d');
-            snap.addEventListener("click", function() {
-                context.drawImage(video, 0, 0, 120, 120);
-            });
-        </script>
+    
     </section>
     <style>
         p {

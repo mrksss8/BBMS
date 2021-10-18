@@ -17,8 +17,8 @@
                             <h4>List of Residence</h4>
                             </div>
                             <div class="mr-5">
-                                <a href="{{ route('residence.create') }}" class="btn btn-outline-primary mr-3"><i
-                                    class="far fa-edit"></i> Register Residence </a>
+                                <a href="{{ route('residence.import') }}" class="btn btn-outline-primary mr-3"><i class="far fa-edit"></i> Import Residence </a>
+                                <a href="{{ route('residence.create') }}" class="btn btn-outline-primary mr-3"><i class="far fa-edit"></i> Register Residence </a>
                             </div>
                         </div>
 

@@ -80,6 +80,24 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-sm-12">
+                                         <div class="form-group">
+                                            <label>Case Type</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <select class="form-control" name = "case_type" >
+                                                    <option disabled selected></option>       
+                                                    <option value = "civil"> Civil </option>      
+                                                    <option value = "crime"> Crime </option>                                  
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     {{-- unsettled --}}
                                     <input type="text" name="status" value = "Unsettled" hidden>
 

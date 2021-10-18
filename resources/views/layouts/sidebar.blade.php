@@ -32,7 +32,8 @@
         <li><a class="nav-link" href ="{{route ('residence.index')}}"><i class="fas fa-users"></i><span>Residence Records</span></a></li>
         <li><a class="nav-link" href ="{{route('blotters.index')}}"><i class="fas fa-user-lock"></i><span>Blotters Records</span></a></li>
         <li><a class="nav-link" href ="{{route('certificate')}}"><i class="fas fa-file-alt"></i><span>Brgy Permit Records</span></a></li>
-        <li><a class="nav-link" href ="{{route('officials.index')}}"><i class="fas fa-user-tie"></i><span>Officials</span></a></li>
+        <li><a class="nav-link" href ="{{route('officials.index')}}"><i class="fas fa-user-tie"></i><span>Brgy Officials</span></a></li>
+        <li><a class="nav-link" href ="#"><i class="fas fa-file"></i><span>Reports</span></a></li>
       </ul>
     </aside>
   </div>

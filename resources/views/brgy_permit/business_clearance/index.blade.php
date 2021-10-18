@@ -12,6 +12,38 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                          <div>
+                          <h4>Notice</h4>
+                          </div>
+                        </div>
+
+                          <div class="card-body d-flex">
+                            <div class="card border border-danger mb-3 mr-3" style="max-width: 18rem;">
+                                <div class="card-header">No. of Expired Business Clearance</div>
+                                <div class="card-body border-top border-danger text-danger">
+                                  <h2 class = "text-danger text-center">{{$expired_business}}</h2>
+                                </div>
+                              </div>
+                              {{-- <div class="card border border-danger mb-3 mr-3" style="max-width: 18rem;">
+                                <div class="card-header">No. of Expired Business Clearance</div>
+                                <div class="card-body border-top border-danger text-danger">
+                                  <h2 class = "text-danger text-center">5</h2>
+                                </div>
+                              </div>
+                              <div class="card border border-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-header">No. of Expired Business Clearance</div>
+                                <div class="card-body border-top border-danger text-danger">
+                                  <h2 class = "text-danger text-center">5</h2>
+                                </div>
+                              </div> --}}
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card">
                       <div class="card-header d-flex justify-content-between mb-4">
                         <div>
                         <h4>List of Business</h4>
@@ -36,6 +68,12 @@
                                             <th>
                                                 Business Address
                                             </th>
+                                            <th>
+                                                Business Type
+                                            </th>
+                                            <th>
+                                                Business Date of Registration
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,6 +94,12 @@
                                             </td>
                                             <td>
                                                 {{$business->business_address}}
+                                            </td>
+                                            <td>
+                                                {{$business->business_type}}
+                                            </td>
+                                            <td>
+                                                {{ \Carbon\Carbon::parse($business->regs_date)->format('F d, Y') }}
                                             </td>
                                         </tr>
                                             

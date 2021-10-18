@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Business</h3>
+            <h3 class="page__heading">Building</h3>
         </div>
         <div class="section-body">
         
@@ -14,17 +14,16 @@
                     <div class="col-8">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Business Information</h4>
+                                <h4>Building Information</h4>
                             </div>
                             <div class="card-body">
-                                <p><strong>  Business: </strong> {{ $business->business_name }}</p>
-                                <p><strong>  Business Owner: </strong> {{ $business->residence->last_name }},
-                                        {{ $business->residence->first_name }}</p>
-                                <p><strong>  Business Address: </strong> {{ $business->business_address }}</p>
-                                <p><strong>  Business Type: </strong> Gulay Trading</p>
+                                <p> Building Owner: <strong> {{ $building->building_owner }}</strong></p>
+                                <p> Building Address: <strong> {{ $building->building_address }}</strong></p>
+                                {{-- <p> Registration Date: <strong> {{ $business->business_address }}</strong></p> --}}
+                                <p>Date Register: {{ \Carbon\Carbon::parse($building->regs_date)->format('F d, Y') }}</p>
                             </div>
                             <div class="card-footer">
-                                <p><strong>  Date Register: </strong>{{ \Carbon\Carbon::parse($business->regs_date)->format('F d, Y') }}</p>
+                                
                                 
                             </div>
                         </div>
@@ -36,10 +35,10 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class = "text-center">Issue Business Clearance</h4>
+                                <h4 class = "text-center">Issue Building Clearance</h4>
                             </div>
                             <div class="card-body text-center">
-                                <a href="{{route('business_clearance.show_clearance', $business->id)}}" class="btn btn-success">Generate Certificate</a>
+                                <a href="" class="btn btn-success">Generate Certificate</a>
                             </div>
                         </div>
 

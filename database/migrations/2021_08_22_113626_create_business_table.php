@@ -20,6 +20,8 @@ class CreateBusinessTable extends Migration
             $table->foreign('business_owner_id')->references('id')->on('residence');
             $table->string('business_name');
             $table->string('business_address');
+            $table->string('business_type')->nullable();
+            $table->date('regs_date');
             $table->timestamps();
         });
 

@@ -24,11 +24,10 @@ Brgy Permits
                         <div class="card-body">
                           <h5 class="card-title">Brgy Building Permit Records</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go to Business Records</a>
+                          <a href="{{route('building_permit.index')}}" class="btn btn-primary">Go to Building Records</a>
                         </div>
                       </div>
                 </div>
-
         
                 {{-- <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">

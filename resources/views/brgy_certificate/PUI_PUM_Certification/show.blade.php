@@ -8,7 +8,7 @@ Brgy PUI-PUM Issuance
         <div class="section-header">
             <h3 class="page__heading">Brgy PUI-PUM Certificate</h3>
         </div>
-        <div class="section-body d-flex">
+        <div class="d-flex">
             <div class="certificate-container">
                 <div class="page" style="width: 8in;" id="element-to-print">
                     <div class="wrapper">
@@ -164,11 +164,21 @@ Brgy PUI-PUM Issuance
                     </div>
                 </div>
             </div>
-            <div class="card ml-3">
-                <div class="card-body">
-                    <a href="#" class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</a>
+            <div class="camera-container d-flex mt-5 border border-dark p-3">
+                <div class="camera-wrapper">
+                    <h3 class="text-center">Take a Picture</h3>
+                    {{-- stream video via webcam --}}
+                    <div class="video-wrap">
+                        <video id="video" playsinline autoplay></video>
+                    </div>
+                    {{-- Trigger canvas web API --}}
+                    <div class="controller d-flex justify-content-center mt-3">
+                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button> 
+                        <button class="btn btn-md btn-icon icon-left btn-success" onclick="generatepdf()">Download</button> 
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
                 integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
@@ -195,6 +205,45 @@ Brgy PUI-PUM Issuance
                 };
                 html2pdf().set(opt).from(element).save();
             };
+        </script>
+        <script>
+            'use strict';
+
+            const video = document.getElementById('video');
+            const canvas = document.getElementById('canvas');
+            const snap = document.getElementById('snap');
+            const errorMsgElement = document.getElementById('spanErrorMsg');
+
+            const constraints = {
+                audio: false,
+                video: {
+                    width: 400,
+                    height: 400
+                }
+            };
+
+            async function init() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                    handleSuccess(stream);
+                } catch (e) {
+                    errorMsgElement.innerHTML = `navigator.getUserMedia.error:${e.toString()}`;
+                }
+            }
+            //success
+            function handleSuccess(stream) {
+                window.stream = stream;
+                video.srcObject = stream;
+            }
+
+            //load init()
+            init();
+
+            //draw image
+            var context = canvas.getContext('2d');
+            snap.addEventListener("click", function() {
+                context.drawImage(video, 0, 0, 120, 120);
+            });
         </script>
     </section>
     <style>

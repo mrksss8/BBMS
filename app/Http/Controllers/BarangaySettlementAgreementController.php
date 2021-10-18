@@ -5,15 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Residence;
 use App\Model\Officials;
+use App\Model\Blotter;
 
-class BarangayLiveinController extends Controller
+class BarangaySettlementAgreementController extends Controller
 {
-    public function create($id){
-        $resident = Residence::findOrfail($id);  
-        return view('brgy_certificate.livein_certification.create',compact('resident')); 
-    }
-
-
     public function show($id, Request $request){
         // officials
         $b_cap = Officials::where('brgy_official_position','Barangay Chairman')->first();
@@ -30,12 +25,7 @@ class BarangayLiveinController extends Controller
         $b_clerk = Officials::where('brgy_official_position','Barangay Clerk')->first();
         //
 
-        $resident = Residence::findOrfail($id); 
-
-        $purpose = $request->purpose;
-        $partner = $request->partner;
-        $long = $request->long;
-
-        return view('brgy_certificate.livein_certification.show',compact('resident', 'purpose','partner','long', 'b_cap','b_councelor1','b_councelor2','b_councelor3','b_councelor4','b_councelor5','b_councelor6' ,'b_councelor7', 'b_sk', 'b_sec' , 'b_tres', 'b_clerk')); 
+        $blotter = Blotter::with('residence')->findOrfail($id);
+        return view('brgy_certificate.brgy_settle_agreement.show',compact('b_cap','b_councelor1','b_councelor2','b_councelor3','b_councelor4','b_councelor5','b_councelor6' ,'b_councelor7', 'b_sk', 'b_sec' , 'b_tres', 'b_clerk', 'blotter')); 
     }
 }

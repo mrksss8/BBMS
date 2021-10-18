@@ -15,11 +15,13 @@ class CreateResidenceTable extends Migration
     {
         Schema::create('residence', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('res_num')->nullable();
             $table->string('last_name');
             $table->string('first_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('gender');
             $table->date('birthday');
+            $table->string('birthplace');
             $table->string('civil_status');
             
 
@@ -33,7 +35,7 @@ class CreateResidenceTable extends Migration
             $table->string('pwd');
             $table->string('membership_prog');
 
-
+            
 
             $table->string('image')->nullable();
             $table->string('path')->nullable();
