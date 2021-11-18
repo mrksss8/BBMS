@@ -10,7 +10,7 @@ Brgy Good Moral Issuance
         </div>
         <div class="d-flex">
             <div class="certificate-container">
-                <div class="page" style="width: 8in;" id="element-to-print">
+                <div class="page" style="width: 8.5in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">  
                             <p>REPUBLIC OF THE PHILIPPINES <br>
@@ -182,7 +182,7 @@ Brgy Good Moral Issuance
             function generatepdf() {
                 var element = document.getElementById('element-to-print');
                 var opt = {
-                    margin: .25,
+                    margin: 0,
                     filename: 'Goodmoral.pdf',
                     image: {
                         type: 'jpeg',
@@ -294,7 +294,7 @@ Brgy Good Moral Issuance
         .body {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin: 10px;
         }
     
         /* officials */

@@ -2,10 +2,9 @@
 <html>
 <head>
 
-    {{-- teporary for datatables cdn... it must be added locally --}}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-    {{--  --}}
-
+    @yield('data_tables_css')
+    
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
@@ -16,25 +15,25 @@
 
     <!-- Bootstrap 4.1.1 -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    
     <!-- Ionicons -->
     <link href="//fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
     <link href="{{ asset('assets/css/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
+    <link  href="{{ asset('assets/css/iziToast.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
 
     @yield('page_css')
+
+
 <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
-
-
     @yield('css')
-    {{-- custom by mark -- page level style of officials--}}
-    {{-- @yield('page_level_style') --}}
-    {{--  --}}
+    
 </head>
 <body>
 
@@ -58,10 +57,8 @@
 </div>
 
 @include('profile.change_password')
-@include('profile.edit_profile')<script src="{{asset('node_modules\html2pdf.js\dist\html2pdf.js')}}"></script>
+@include('profile.edit_profile')
 </body>
-
-<script src="{{ asset('node_modules\html2pdf.js\dist\html2pdf.js')}}"></script>
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -78,6 +75,7 @@
 <script src="{{ mix('assets/js/custom/custom.js') }}"></script>
 @yield('page_js')
 @yield('scripts')
+
 <script>
     let loggedInUser =@json(\Illuminate\Support\Facades\Auth::user());
     let loginUrl = '{{ route('login') }}';
@@ -94,15 +92,10 @@
     }(jQuery));
 </script>
 
-{{-- Temporary! --}}
-<script>
-    $(document).ready( function () {
-    $('#table').DataTable();
-    } );
-    </script>
-{{-- Temporary! --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+@yield('data_tables_script')
+@yield('report_css')
 
 
 </html>

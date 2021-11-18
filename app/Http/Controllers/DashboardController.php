@@ -13,6 +13,9 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index(){
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
+
         // officials
         $b_cap = Officials::where('brgy_official_position','Barangay Chairman')->first();
         $b_councelor1 = Officials::where('brgy_official_position','Councilor 1')->first();
@@ -75,6 +78,6 @@ class DashboardController extends Controller
         }
 
         return view('dashboard.index', compact('b_cap','b_councelor1','b_councelor2','b_councelor3','b_councelor4','b_councelor5','b_councelor6' ,'b_councelor7', 'b_sk', 'b_sec' ,'b_tres', 'b_clerk',
-         'total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','total_blotters','unsettled_blotters','settled_blotters'));
+         'total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','total_blotters','unsettled_blotters','settled_blotters','b_officials'));
     }
 }

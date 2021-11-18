@@ -51,6 +51,9 @@ class ResidenceController extends Controller
             $residence->purok = $request->purok;
             $residence->street = $request->street;
             $residence->occupation = $request->occupation;
+            $residence->student = $request->student;
+
+           
             $residence->type_of_house = $request->type_of_house;
             $residence->pwd = $request->pwd;
             $residence->membership_prog = $request->membership_prog;
@@ -68,9 +71,9 @@ class ResidenceController extends Controller
     
             $residence->save();   
 
-            return back();
+            return redirect()->route('residence.index')->with('swal', 'Residence added sucessfully!');
             
-            // return view('residence.index');
+            // ;
     }
 
     /**

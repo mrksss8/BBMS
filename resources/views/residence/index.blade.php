@@ -3,22 +3,54 @@
     Residence
 @endsection
 
+@section('data_tables_css')
+    <link href="{{ asset('assets/datatable_css/datatable.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content')
+
+
+
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Residence</h3>
         </div>
         <div class="section-body">
+
+            @if (Session::has('swal'))
+                {{-- <div class="row ">
+                    <div class="col-12">
+                        <div class="alert alert-success">
+                            {{ Session::get('swal') }}
+                        </div>
+                    </div>
+                </div> --}}
+                <script>
+                    window.addEventListener("load", ok, false);
+
+                    function ok() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Residence Added',
+                            showConfirmButton: true,
+                        })
+                    }
+                </script>
+            @endif
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
-                            <h4>List of Residence</h4>
+                                <h4>List of Residence</h4>
                             </div>
                             <div class="mr-5">
-                                <a href="{{ route('residence.import') }}" class="btn btn-outline-primary mr-3"><i class="far fa-edit"></i> Import Residence </a>
-                                <a href="{{ route('residence.create') }}" class="btn btn-outline-primary mr-3"><i class="far fa-edit"></i> Register Residence </a>
+                                <a href="{{ route('residence.import') }}" class="btn btn-outline-primary mr-3"><i
+                                        class="far fa-edit"></i> Import Residence </a>
+                                <a href="{{ route('residence.create') }}" class="btn btn-outline-primary mr-3"><i
+                                        class="far fa-edit"></i> Register Residence </a>
                             </div>
                         </div>
 
@@ -62,7 +94,8 @@
                                                 <td>{{ $residence->first_name }}</td>
                                                 <td>{{ $residence->middle_name }}</td>
                                                 <td>{{ $residence->gender }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($residence->birthday)->format('F d, Y') }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($residence->birthday)->format('F d, Y') }}
+                                                </td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                 </td>
                                                 {{-- <td>{{$residence->house_number }} purok {{$residence->purok}}  {{$residence->street }}</td>
@@ -91,7 +124,8 @@
                             <nav class="d-inline-block">
                                 <ul class="pagination mb-0">
                                     <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                                        <a class="page-link" href="#" tabindex="-1"><i
+                                                class="fas fa-chevron-left"></i></a>
                                     </li>
                                     <li class="page-item active"><a class="page-link" href="#">1 <span
                                                 class="sr-only">(current)</span></a></li>
@@ -111,9 +145,29 @@
         </div>
 
         <script>
+            function ok() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Student Passed!',
+                    showConfirmButton: true,
+                })
+            }
+        </script>
+        <script>
             $(document).ready(function() {
                 $('#table').DataTable();
             });
         </script>
+
+
     </section>
+@endsection
+
+@section('data_tables_script')
+    <script type="text/javascript" charset="utf8" src="{{ asset('assets/datatable_js/datatable.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
 @endsection

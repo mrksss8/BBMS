@@ -3,6 +3,10 @@
     Permit / Brgy Business Clearance
 @endsection
 
+@section('data_tables_css')
+    <link href="{{ asset('assets/datatable_css/datatable.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -70,6 +74,15 @@
         </div>
     </section>
 
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+@endsection
+
+@section('data_tables_script')
+    <script type="text/javascript" charset="utf8" src="{{ asset('assets/datatable_js/datatable.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#table').DataTable();

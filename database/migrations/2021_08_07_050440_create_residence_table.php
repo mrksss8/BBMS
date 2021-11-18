@@ -21,7 +21,7 @@ class CreateResidenceTable extends Migration
             $table->string('middle_name')->nullable();
             $table->string('gender');
             $table->date('birthday');
-            $table->string('birthplace');
+            $table->string('birthplace')->nullable();
             $table->string('civil_status');
             
 
@@ -30,6 +30,7 @@ class CreateResidenceTable extends Migration
             $table->string('street');
 
             $table->string('occupation');
+            $table->string('student');
             $table->string('type_of_house');
 
             $table->string('pwd');

@@ -11,7 +11,7 @@
         </div>
         <div class="d-flex">
             <div class="certificate-container">
-                <div class="page" style="width: 8in;" id="element-to-print">
+                <div class="page" style="width: 8.5in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">
 
@@ -196,7 +196,7 @@
             function generatepdf() {
                 var element = document.getElementById('element-to-print');
                 var opt = {
-                    margin: .25,
+                    margin: 0,
                     filename: 'LiveIn.pdf',
                     image: {
                         type: 'jpeg',
@@ -310,7 +310,7 @@
         .body {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin: 10px;
         }
 
         /* officials */

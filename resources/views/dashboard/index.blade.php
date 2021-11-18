@@ -44,7 +44,7 @@
 
     </style>
     <section class="section">
-        <div class="section-header">
+        <div class="section-header d-flex justify-content-between">
             <h3 class="page__heading">Dashboard</h3>
         </div>
         <div class="section-body">

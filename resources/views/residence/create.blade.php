@@ -25,6 +25,36 @@ Residence Registration
                                                 <form action ="{{route('residence.store')}}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                 <div class="card-body">
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Image</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <div class="input-group-text">
+                                                                            <i class="fas fa-briefcase"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                    {{-- <input type="file" name = "image" class="form-control phone-number"> --}}
+                                                                    <input id="cat_image" type="file" class="form-control" name="image">
+                                                                    <img src="#" id="category-img-tag" width="200px" />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">                                               
+                                                                    <div id="results" name = "image">Your captured image will appear here...</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                  
                                                     <div class="row">
                                                         <div class="col-sm-12 col-lg-6">
                                                             <div class="form-group">
@@ -162,20 +192,21 @@ Residence Registration
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-sm-12 col-lg-6">
                                                             <div class="form-group">
-                                                                <label>Image</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <div class="input-group-text">
-                                                                            <i class="fas fa-briefcase"></i>
-                                                                        </div>
+                                                                <label>Student</label>
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-address-card"></i>
                                                                     </div>
-                                                                    <input type="file" name = "image" class="form-control phone-number">
+                                                                    <select class="form-control" name = "student">
+                                                                        <option value = "Yes">Yes</option>
+                                                                        <option value = "No">No</option>                                                       
+                                                                      </select>
                                                                 </div>
                                                             </div>
                                                         </div>
+
 
                                                         <div class="card-header">
                                                             <h4> Address</h4>
@@ -210,11 +241,11 @@ Residence Registration
                                                                         <i class="fas fa-address-card"></i>
                                                                     </div>
                                                                     <select class="form-control"  name = "purok">
-                                                                        <option value = "Purok1">Purok 1</option>
-                                                                        <option value = "Purok2">Purok 2</option>
-                                                                        <option value = "Purok3">Purok 4</option>
-                                                                        <option value = "Purok4">Purok 5</option>
-                                                                        <option value = "Purok5">Purok 6</option>
+                                                                        <option value = "Purok1">1</option>
+                                                                        <option value = "Purok2">2</option>
+                                                                        <option value = "Purok3">4</option>
+                                                                        <option value = "Purok4">5</option>
+                                                                        <option value = "Purok5">6</option>
                                                                       </select>
                                                                 </div>
                                                             </div>
@@ -273,12 +304,13 @@ Residence Registration
                                                                         <i class="fas fa-venus-mars"></i>
                                                                     </div>
                                                                     <select class="form-control" name = "membership_prog">
-                                                                        <option value="None">none</option>
+                                                                        <option value="None">None</option>
                                                                         <option value="4Ps">4Ps</option>
                                                                         <option value="TUPAD">TUPAD</option>
                                                                       </select>
                                                                 </div>
                                                               </div>
+                                                          
                                                         </div>
 
                                                     </div>
@@ -298,9 +330,50 @@ Residence Registration
                         </div>
                     </div>
                 </div>
+                {{-- <div class="">
+                    <div id="my_camera"></div>
+                    <br/>
+                    <input type=button class="btn btn-sm btn-primary" value="Take Snapshot" onClick="take_snapshot()">
+                    <input type="hidden"  name="image" class="image-tag">
+                    
+                </div> --}}
             </div>
         </div>
-        </div>
-        </div>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+        <script language="JavaScript">
+            Webcam.set({
+                width: 490,
+                height: 390,
+                image_format: 'jpeg',
+                jpeg_quality: 90
+            });
+            Webcam.attach( '#my_camera' );
+            function take_snapshot() {
+                Webcam.snap( function(data_uri) {
+                    $(".image-tag").val(data_uri);
+                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+                } );
+            }
+        </script> --}}
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+                function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#category-img-tag').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#cat_image").change(function(){
+        readURL(this);
+    });
+        </script>
     </section>
 @endsection

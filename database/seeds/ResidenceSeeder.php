@@ -28,6 +28,7 @@ class ResidenceSeeder extends Seeder
 
             
             'occupation' => 'Vendor',
+            'Student' => 'Yes',
             'type_of_house' => 'Owned',
 
             'pwd' => 'Yes',

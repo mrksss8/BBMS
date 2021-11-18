@@ -20,6 +20,9 @@ class CreateOfficialsTable extends Migration
             $table->string('brgy_official_name');
             $table->string('brgy_official_position');
             $table->string('brgy_official_role')->nullable();
+            $table->string('path')->nullable();
+            $table->string('img')->nullable();
+            $table->integer('batch_id')->nullable();
 
             $table->timestamps();
 

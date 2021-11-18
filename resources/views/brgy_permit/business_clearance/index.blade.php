@@ -3,6 +3,10 @@
     Certificates / Brgy Business Clearance
 @endsection
 
+@section('data_tables_css')
+    <link href="{{ asset('assets/datatable_css/datatable.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('content')
     <section class="section">
         <div class="section-header">
@@ -25,18 +29,6 @@
                                   <h2 class = "text-danger text-center">{{$expired_business}}</h2>
                                 </div>
                               </div>
-                              {{-- <div class="card border border-danger mb-3 mr-3" style="max-width: 18rem;">
-                                <div class="card-header">No. of Expired Business Clearance</div>
-                                <div class="card-body border-top border-danger text-danger">
-                                  <h2 class = "text-danger text-center">5</h2>
-                                </div>
-                              </div>
-                              <div class="card border border-danger mb-3" style="max-width: 18rem;">
-                                <div class="card-header">No. of Expired Business Clearance</div>
-                                <div class="card-body border-top border-danger text-danger">
-                                  <h2 class = "text-danger text-center">5</h2>
-                                </div>
-                              </div> --}}
                           </div>
                           
                         </div>
@@ -116,9 +108,17 @@
         </div>
     </section>
 
+    
+@endsection
+
+@section('data_tables_script')
+    <script type="text/javascript" charset="utf8" src="{{ asset('assets/datatable_js/datatable.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#table').DataTable();
         });
     </script>
 @endsection
+
+
+

@@ -12,10 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/welcome', function(){
+  return view('welcome');
+});
+
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
+
+
+ //Analytics
+ Route::group(['prefix' => 'Brgy-Analytics','middleware' => 'auth'], function(){
+  Route::get('/index', [App\Http\Controllers\AnalyticsController::class, 'index'])->name('analytics.index');
+});
+
 
 
     Route::group(['prefix' => 'residence','middleware' => 'auth'], function(){
@@ -83,6 +95,14 @@ use Illuminate\Support\Facades\Route;
       // Route::delete('/delete/{id}', [App\Http\Controllers\ResidenceController::class, 'destroy'])->name('residence.delete');
     });
 
+    //Reports
+    Route::group(['prefix' => 'Reports','middleware' => 'auth'], function(){
+      Route::get('/index', [App\Http\Controllers\ReportController::class, 'index'])->name('reports.index');
+
+      Route::get('/residents-report', [App\Http\Controllers\ReportController::class, 'residents_report'])->name('residents.report');
+      Route::get('/blotters-report', [App\Http\Controllers\ReportController::class, 'blotters_report'])->name('blotters.report');
+    });
+
     Route::get('/permits', function () {
       return view('brgy_permit.index');
     })->name('certificate');
@@ -92,11 +112,9 @@ use Illuminate\Support\Facades\Route;
       Route::get('/index', [App\Http\Controllers\OfficialsController::class, 'index'])->name('officials.index');
       Route::get('/edit', [App\Http\Controllers\OfficialsController::class, 'edit'])->name('officials.edit');
       Route::put('/update/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}/{id7}/{id8}/{id9}/{id10}/{id11}/{id12}', [App\Http\Controllers\OfficialsController::class, 'update'])->name('officials.update');
-      
-      // Route::get('/create', [App\Http\Controllers\BlottersController::class, 'create'])->name('blotters.create');
-      // Route::post('/store', [App\Http\Controllers\BlottersController::class, 'store'])->name('blotters.store');
-      // Route::get('/show/{id}', [App\Http\Controllers\ResidenceController::class, 'show'])->name('residence.show');
-      // Route::delete('/delete/{id}', [App\Http\Controllers\ResidenceController::class, 'destroy'])->name('residence.delete');
+      Route::get('/create', [App\Http\Controllers\OfficialsController::class, 'create'])->name('officials.create');
+      Route::post('/store', [App\Http\Controllers\OfficialsController::class, 'store'])->name('officials.store');
+
     });
 
 
