@@ -210,5 +210,7 @@ class OfficialsController extends Controller
 
         Officials::insert($officials);
 
+        return redirect()->route('officials.index');
+
     }
 }

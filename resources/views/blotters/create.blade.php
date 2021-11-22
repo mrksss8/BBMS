@@ -21,7 +21,7 @@
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-8">
                                     <div class="col-sm-12">
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label>Person to Complain</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -35,8 +35,18 @@
                                                     <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</option>     
                                                     @endforeach                                       
                                                   </select>
+                                                  <input type="text" class="form-control">
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <div class="form-group">
+                                            <label>Select2 Multiple</label>
+                                            <select class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="width: 100%">
+                                                @foreach ($residence as $resident)
+                                                <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</option>     
+                                                @endforeach
+                                            </select>
+                                          
+                                          </div>
                                     </div>
 
                                     <div class="col-sm-12">
@@ -51,7 +61,7 @@
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Complainant Person</label>
+                                            <label>Respondent</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">

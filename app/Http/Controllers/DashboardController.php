@@ -13,22 +13,11 @@ use Carbon\Carbon;
 class DashboardController extends Controller
 {
     public function index(){
-        $latest_id= Officials::max('batch_id');
-        $b_officials= Officials::where('batch_id',$latest_id)->get();
+        
 
         // officials
-        $b_cap = Officials::where('brgy_official_position','Barangay Chairman')->first();
-        $b_councelor1 = Officials::where('brgy_official_position','Councilor 1')->first();
-        $b_councelor2 = Officials::where('brgy_official_position','Councilor 2')->first();
-        $b_councelor3 = Officials::where('brgy_official_position','Councilor 3')->first();
-        $b_councelor4 = Officials::where('brgy_official_position','Councilor 4')->first();
-        $b_councelor5 = Officials::where('brgy_official_position','Councilor 5')->first();
-        $b_councelor6 = Officials::where('brgy_official_position','Councilor 6')->first();
-        $b_councelor7 = Officials::where('brgy_official_position','Councilor 7')->first();
-        $b_sk = Officials::where('brgy_official_position','SK Chairperson')->first();
-        $b_sec = Officials::where('brgy_official_position','Barangay Secretary')->first();
-        $b_tres = Officials::where('brgy_official_position','Barangay Treasurer')->first();
-        $b_clerk = Officials::where('brgy_official_position','Barangay Clerk')->first();
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
         //
 
         $total_res = Residence::get()->count();
@@ -77,7 +66,6 @@ class DashboardController extends Controller
             
         }
 
-        return view('dashboard.index', compact('b_cap','b_councelor1','b_councelor2','b_councelor3','b_councelor4','b_councelor5','b_councelor6' ,'b_councelor7', 'b_sk', 'b_sec' ,'b_tres', 'b_clerk',
-         'total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','total_blotters','unsettled_blotters','settled_blotters','b_officials'));
+        return view('dashboard.index', compact('total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','total_blotters','unsettled_blotters','settled_blotters','b_officials'));
     }
 }

@@ -4,13 +4,10 @@
 @endsection
 
 @section('data_tables_css')
-    <link href="{{ asset('assets/datatable_css/datatable.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/css/datatables/datatable.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
-
-
-
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Residence</h3>
@@ -18,16 +15,8 @@
         <div class="section-body">
 
             @if (Session::has('swal'))
-                {{-- <div class="row ">
-                    <div class="col-12">
-                        <div class="alert alert-success">
-                            {{ Session::get('swal') }}
-                        </div>
-                    </div>
-                </div> --}}
                 <script>
                     window.addEventListener("load", ok, false);
-
                     function ok() {
                         Swal.fire({
                             icon: 'success',
@@ -37,8 +26,7 @@
                     }
                 </script>
             @endif
-
-
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -67,11 +55,6 @@
                                             <th>Gender</th>
                                             <th>Birthday</th>
                                             <th>Age</th>
-                                            {{-- <th>Address</th>
-                                            <th>Civil Status</th>
-                                            <th>Occupation</th>
-                                            <th>Type of House</th> --}}
-
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,76 +81,27 @@
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                 </td>
-                                                {{-- <td>{{$residence->house_number }} purok {{$residence->purok}}  {{$residence->street }}</td>
-                                                    <td>{{$residence->civil_status}}</td>
-                                                    <td>{{$residence->occupation}}</td>
-                                                    <td>{{$residence->type_of_house}}</td> --}}
-                                                {{-- <td>
-                                                      <div class = "row" >
-                                                        <a class="btn btn-primary btn-sm"  data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i> Edit </a>
-                                               
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <div class = "row" >
-                                                       
-                                                        <a class="btn btn-danger btn-sm"  data-toggle="tooltip" title="Delete"><i class="fas fa-trash"></i > Delete </a>
-                                                      </div>
-                                                    </td> --}}
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer text-right">
-                            <nav class="d-inline-block">
-                                <ul class="pagination mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1"><i
-                                                class="fas fa-chevron-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1 <span
-                                                class="sr-only">(current)</span></a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script>
-            function ok() {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Student Passed!',
-                    showConfirmButton: true,
-                })
-            }
-        </script>
-        <script>
-            $(document).ready(function() {
-                $('#table').DataTable();
-            });
-        </script>
-
-
+        
     </section>
 @endsection
 
 @section('data_tables_script')
-    <script type="text/javascript" charset="utf8" src="{{ asset('assets/datatable_js/datatable.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#table').DataTable();
         });
     </script>
+
+    <script type="text/javascript" charset="utf8" src="{{ asset('vendor/js/datatables/datatable.js') }}"></script>
 @endsection

@@ -5,7 +5,7 @@
 
 
 @section('data_tables_css')
-<link href="{{ asset('assets/datatable_css/datatable.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('vendor/css/datatables/datatable.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -81,11 +81,12 @@
 @endsection
 
 @section('data_tables_script')
-<script type="text/javascript" charset="utf8" src="{{ asset('assets/datatable_js/datatable.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable();
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    });
+</script>
+
+<script type="text/javascript" charset="utf8" src="{{ asset('vendor/js/datatables/datatable.js') }}"></script>
 @endsection
 

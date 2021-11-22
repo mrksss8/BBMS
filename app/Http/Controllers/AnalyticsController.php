@@ -18,6 +18,7 @@ class AnalyticsController extends Controller
                 $senior_Cnt = $senior_Cnt + 1;
             }  
         }
+        $std_Cnt = Residence::where('student' ,'=', 'Yes')->count();
         $pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->count();
         $fourPs_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->count();
         $tupad_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->count();
@@ -64,23 +65,23 @@ class AnalyticsController extends Controller
             //senior by purok
         $purok1_senior_Cnt = 0; $purok2_senior_Cnt = 0; $purok3_senior_Cnt = 0; $purok4_senior_Cnt = 0; $purok5_senior_Cnt = 0;
             foreach($residence as $resident){
-                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok =  "1"))){
+                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "1"))){
                     $purok1_senior_Cnt = $purok1_senior_Cnt + 1;
                 }
 
-                elseif (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok =  "2"))){
+                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "2"))){
                     $purok2_senior_Cnt = $purok2_senior_Cnt + 1;
                 } 
 
-                elseif (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok =  "3"))){
+                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "3"))){
                     $purok3_senior_Cnt = $purok3_senior_Cnt + 1;
                 } 
 
-                elseif (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok =  "4"))){
+                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok == "4"))){
                     $purok4_senior_Cnt = $purok4_senior_Cnt + 1;
                 } 
 
-                elseif (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok =  "5"))){
+                if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "5"))){
                     $purok5_senior_Cnt = $purok5_senior_Cnt + 1;
                 } 
             }
@@ -115,7 +116,7 @@ class AnalyticsController extends Controller
 
 
 
-        return view('analytics.index',compact('senior_Cnt','pwd_Cnt','fourPs_Cnt','tupad_Cnt','MembershipProgram_None_Cnt',
+        return view('analytics.index',compact('std_Cnt','senior_Cnt','pwd_Cnt','fourPs_Cnt','tupad_Cnt','MembershipProgram_None_Cnt',
         'purok_1_Cnt','purok_2_Cnt','purok_3_Cnt','purok_4_Cnt','purok_5_Cnt',
         'children_Cnt','teenage_Cnt','adult_Cnt',
         'purok1_senior_Cnt','purok2_senior_Cnt','purok3_senior_Cnt','purok4_senior_Cnt','purok5_senior_Cnt',

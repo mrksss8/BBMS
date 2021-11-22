@@ -27,7 +27,7 @@ Residence Registration
                                                 <div class="card-body">
 
                                                     <div class="row">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-8">
                                                             <div class="form-group">
                                                                 <label>Image</label>
                                                                 <div class="input-group">
@@ -46,9 +46,9 @@ Residence Registration
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-lg-6">
+                                                        <div class="col-lg-12">
                                                             <div class="form-group">                                               
-                                                                    <div id="results" name = "image">Your captured image will appear here...</div>
+                                                                    <div id="results" name = "image"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -241,11 +241,12 @@ Residence Registration
                                                                         <i class="fas fa-address-card"></i>
                                                                     </div>
                                                                     <select class="form-control"  name = "purok">
-                                                                        <option value = "Purok1">1</option>
-                                                                        <option value = "Purok2">2</option>
-                                                                        <option value = "Purok3">4</option>
-                                                                        <option value = "Purok4">5</option>
-                                                                        <option value = "Purok5">6</option>
+                                                                        <option value = "1">Purok 1</option>
+                                                                        <option value = "2">Purok 2</option>
+                                                                        <option value = "3">Purok 3</option>
+                                                                        <option value = "4">Purok 4</option>
+                                                                        <option value = "5">Purok 5</option>
+                                                                        
                                                                       </select>
                                                                 </div>
                                                             </div>

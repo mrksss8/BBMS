@@ -7,422 +7,365 @@
 
 
 
-<section class="section">
-    <div class="section-header">
-        <h3 class="page__heading">Brgy Clearance Certificate</h3>
-    </div>
-    <div class="d-flex">
-        <div class="certificate-container">
-            <div class="page" style="width: 8.5in;" id="element-to-print">
-                <div class="wrapper">
-                    <div class="header">
-                        <p>REPUBLIC OF THE PHILIPPINES <br>
-                            PROVINCE OF LAGUNA <br>
-                            MUNICIPLITY LOS BAÑOS <br>
-                            BARANGAY BAYOG <br>
-                        </p>
-                        <div class="title-wrapper">
-                            <h1>Barangay Clearance Certificate</h1>
-                        </div>
-                    </div>
-
-
-                    <div class="body">
-                        <div class="officials" style="width: 2.95in;">
-                            <div class="official-wrapper">
-                                <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
-                                <p>
-                                    <strong> HON. {{ $b_cap->brgy_official_name }}</strong><br>
-                                    {{ $b_cap->brgy_official_position }}
-                                </p>
-
-                                </p>
-                                <p id="councelor-label">
-                                    <strong>COUNCILORS</strong><br>
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor1->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor1->brgy_official_role }}
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor2->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor2->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor3->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor3->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor4->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor4->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor5->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor5->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor6->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor6->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_councelor7->brgy_official_name }}</strong><br>
-                                    {{ $b_councelor7->brgy_official_role }}
-                                </p>
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_sk->brgy_official_name }}</strong><br>
-                                    {{ $b_sk->brgy_official_position }} – {{ $b_sk->brgy_official_role }}
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_sec->brgy_official_name }}</strong><br>
-                                    {{ $b_sec->brgy_official_position }}
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_tres->brgy_official_name }}</strong><br>
-                                    {{ $b_tres->brgy_official_position }}
-                                </p>
-
-                                </p>
-                                <p>
-                                    <strong> HON. {{ $b_clerk->brgy_official_name }}</strong><br>
-                                    {{ $b_clerk->brgy_official_position }}
-                                </p>
-
+    <section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">Brgy Clearance Certificate</h3>
+        </div>
+        <div class="d-flex">
+            <div class="certificate-container">
+                <div class="page" style="width: 8.5in;" id="element-to-print">
+                    <div class="wrapper">
+                        <div class="header">
+                            <p>REPUBLIC OF THE PHILIPPINES <br>
+                                PROVINCE OF LAGUNA <br>
+                                MUNICIPLITY LOS BAÑOS <br>
+                                BARANGAY BAYOG <br>
+                            </p>
+                            <div class="title-wrapper">
+                                <h1>Barangay Clearance Certificate</h1>
                             </div>
                         </div>
 
-                        <div class="content" style="width: 5.55in;">
-                            <div class="content-wrapper">
-                                <div class="top-part">
-                                    <p id="bayog">BAYOG 2021-1186</p>
-                                    {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
-                                    <div id="resident-picture">
-                                        {{-- webcam video snapshot --}}
-                                        <canvas id="canvas" width="120" height="120"></canvas>
-                                    </div>
+
+                        <div class="body">
+                            <div class="officials" style="width: 2.95in;">
+                                <div class="official-wrapper">
+                                    <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
+                                        alt="brgy-bayog-logo">
+                                    @foreach ($b_officials as $b_official)
+
+                                        @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                            <p>
+                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_position }}
+                                            </p>
+
+                                            <p id="councelor-label">
+                                                <strong>COUNCILORS</strong><br>
+                                            </p>
+
+                                        @else
+                                            <p>
+                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_position }}
+                                            </p>
+                                        @endif
+
+                                    @endforeach
+
+
                                 </div>
-
-                                <div class="text-part">
-                                    <p id="to-whom">TO WHOM IT MAY CONCERN,</p>
-                                    <p id="content">
-
-                                        This is to certify that according to our records available in this barangay and
-                                        to
-                                        the
-                                        best
-                                        of
-                                        my actual knowledge, reliable information and honest belief that <strong>
-                                            {{ $resident->first_name }} {{ $resident->middle_name }}
-                                            {{ $resident->last_name }}, </strong> <strong>
-                                            {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
-                                            years
-                                            old,</strong>
-                                        <strong> {{ $resident->civil_status }} </strong> residing and with postal
-                                        address at <strong> {{ $resident->house_number }} {{ $resident->street }}
-                                            Bayog,
-                                            Los
-                                            Baños, Laguna</strong>
-                                        is a person of good moral character and reputation He/She is peacefull and law
-                                        abiding
-                                        citizen.
-                                    <P id="issue-for">
-                                        Issued upon request of subject person in connection with his/her application for
-                                        <strong id="transform-upppercase"> {{ $purpose }} </strong>
-                                    </P>
-
-                                    <p id="witness">
-                                        Witness my hand and seal, this <strong>
-                                            {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}</strong> at
-                                        <strong>
-                                            Barangay Bayog Los
-                                            Baños Laguna. </strong>
-                                    </p>
-
-                                    </p>
-                                </div>
-
-                                <div class="sign-part">
-                                    <div class=sign-wrapper>
-                                        <p id="signature">SIGNATURE</p>
-                                    </div>
-                                    <div class=tumb-wrapper>
-                                        <p id="tumb-box"></p>
-
-
-                                        <p>RIGHT THUMB MARK</p>
-                                    </div>
-                                </div>
-
-                                <div class="cap-sign-part">
-                                    <div class="cap-sign-wrapper">
-                                        <p>
-                                            <strong> CRISANTO A. TANDANG </strong>
-                                        </p>
-                                        <p>
-                                            Barangay Chairman
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="issued">
-                                    <div class="issued-wrapper">
-                                        <p>
-                                            CTC No.:
-                                        </p>
-                                    </div>
-                                </div>
-
                             </div>
-                            <div class="validity">
-                                <div class="validity-wrapper">
-                                    <p>
-                                        *VALID UNTIL THREE(3) MONTHS FROM THE DATE ISSUED*
-                                    </p>
+
+                            <div class="content" style="width: 5.55in;">
+                                <div class="content-wrapper">
+                                    <div class="top-part">
+                                        <p id="bayog">BAYOG 2021-1186</p>
+                                        {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
+                                        <div id="resident-picture">
+                                            {{-- webcam video snapshot --}}
+                                            <canvas id="canvas" width="120" height="120"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-part">
+                                        <p id="to-whom">TO WHOM IT MAY CONCERN,</p>
+                                        <p id="content">
+
+                                            This is to certify that according to our records available in this barangay and
+                                            to
+                                            the
+                                            best
+                                            of
+                                            my actual knowledge, reliable information and honest belief that <strong>
+                                                {{ $resident->first_name }} {{ $resident->middle_name }}
+                                                {{ $resident->last_name }}, </strong> <strong>
+                                                {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
+                                                years
+                                                old,</strong>
+                                            <strong> {{ $resident->civil_status }} </strong> residing and with postal
+                                            address at <strong> {{ $resident->house_number }} {{ $resident->street }}
+                                                Bayog,
+                                                Los
+                                                Baños, Laguna</strong>
+                                            is a person of good moral character and reputation He/She is peacefull and law
+                                            abiding
+                                            citizen.
+                                        <P id="issue-for">
+                                            Issued upon request of subject person in connection with his/her application for
+                                            <strong id="transform-upppercase"> {{ $purpose }} </strong>
+                                        </P>
+
+                                        <p id="witness">
+                                            Witness my hand and seal, this <strong>
+                                                {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}</strong> at
+                                            <strong>
+                                                Barangay Bayog Los
+                                                Baños Laguna. </strong>
+                                        </p>
+
+                                        </p>
+                                    </div>
+
+                                    <div class="sign-part">
+                                        <div class=sign-wrapper>
+                                            <p id="signature">SIGNATURE</p>
+                                        </div>
+                                        <div class=tumb-wrapper>
+                                            <p id="tumb-box"></p>
+
+
+                                            <p>RIGHT THUMB MARK</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="cap-sign-part">
+                                        <div class="cap-sign-wrapper">
+                                            <p>
+                                                <strong> CRISANTO A. TANDANG </strong>
+                                            </p>
+                                            <p>
+                                                Barangay Chairman
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="issued">
+                                        <div class="issued-wrapper">
+                                            <p>
+                                                CTC No.:
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="validity">
+                                    <div class="validity-wrapper">
+                                        <p>
+                                            *VALID UNTIL THREE(3) MONTHS FROM THE DATE ISSUED*
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="camera-container d-flex mt-5 border border-dark p-3">
-        
-            <div class="camera-wrapper">
-                <h3 class = "text-center">Take a Picture</h3>
-                {{-- stream video via webcam --}}
-                <div class="video-wrap">
-                    <video id="video" playsinline autoplay></video>
+            <div class="camera-container d-flex mt-5 border border-dark p-3">
+
+                <div class="camera-wrapper">
+                    <h3 class="text-center">Take a Picture</h3>
+                    {{-- stream video via webcam --}}
+                    <div class="video-wrap">
+                        <video id="video" playsinline autoplay></video>
+                    </div>
+                    {{-- Trigger canvas web API --}}
+                    <div class="download-container d-flex justify-content-center mt-3">
+                        <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button>
+                        <button class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</button>
+                    </div>
+
                 </div>
-                {{-- Trigger canvas web API --}}
-                <div class="download-container d-flex justify-content-center mt-3">
-                    <button id="snap" class="btn btn-lg btn-icon icon-left btn-success text-dark mr-3">Capture</button>
-                    <button class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</button>
-                </div>
-              
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    p {
-        color: black;
-        font-family: 'STIX Two Text', serif;
-        padding: 0;
-        margin: 0;
-    }
+    <style>
+        p {
+            color: black;
+            font-family: 'STIX Two Text', serif;
+            padding: 0;
+            margin: 0;
+        }
 
-    .screen {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-    }
+        .screen {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    .certificate-container {
-        width: 60vw;
-        display: flex;
-        justify-content: center;
-        font-family: 'STIX Two Text', serif;
-        color: black;
-    }
+        .certificate-container {
+            width: 60vw;
+            display: flex;
+            justify-content: center;
+            font-family: 'STIX Two Text', serif;
+            color: black;
+        }
 
-    
 
-    .page {
-        /* padding: 10px; */
-    }
 
-    /* wrapper */
-    .wrapper {}
+        .page {
+            /* padding: 10px; */
+        }
 
-    .title-wrapper {
-        margin: 0 10px;
-    }
+        /* wrapper */
+        .wrapper {}
 
-    .title-wrapper h1{
-        font-family: 'STIX Two Text', serif;
-    }
+        .title-wrapper {
+            margin: 0 10px;
+        }
 
-    /* header */
-    .header p {
-        text-align: center;
-    }
+        .title-wrapper h1 {
+            font-family: 'STIX Two Text', serif;
+        }
 
-    .header h1 {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid black;
-    }
+        /* header */
+        .header p {
+            text-align: center;
+        }
 
-    /* body page */
-    .body {
-        display: flex;
-        justify-content: center;
-        margin: 10px;
-    }
+        .header h1 {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
 
-    /* officials */
-    .officials {
-        background-color: rgb(85, 197, 241);
-        border: 1px solid black;
-        margin-right: 5px;
-    }
+        /* body page */
+        .body {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
 
-    .official-wrapper {
-        padding: 5px;
-        text-align: center;
-    }
-    #logo-img {
-        width: 80px;
-        height: auto;
-    }
+        /* officials */
+        .officials {
+            background-color: rgb(85, 197, 241);
+            border: 1px solid black;
+            margin-right: 5px;
+        }
 
-    .officials p {
-        padding-top: 6px;
-        line-height: 20px;
-        font-size: 15px;
-    }
+        .official-wrapper {
+            padding: 5px;
+            text-align: center;
+        }
 
-    #councelor-label{
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
+        #logo-img {
+            width: 80px;
+            height: auto;
+        }
 
-    /* content */
-    .content {
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+        .officials p {
+            padding-top: 6px;
+            line-height: 20px;
+            font-size: 15px;
+        }
 
-    .content-wrapper {
-        margin: 10px;
-    }
+        #councelor-label {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
 
-    /* content top-part */
-    .content-wrapper .top-part {
-        display: flex;
-        justify-content: space-between;
-    }
+        /* content */
+        .content {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    #bayog {
-        margin-left: 20px;
-        padding-top: 20px;
-    }
+        .content-wrapper {
+            margin: 10px;
+        }
 
-    #resident-picture {
-        width: 120px;
-        height: 120px;
-        border: 1px solid black;
-        margin-right: 50px;
-        margin-left: auto; 
-    }
+        /* content top-part */
+        .content-wrapper .top-part {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    /* content text-part */
-    .content-wrapper .text-part {
-        margin-top: 20px;
-    }
+        #bayog {
+            margin-left: 20px;
+            padding-top: 20px;
+        }
 
-    #to-whom {
-        margin-left: 20px;
-    }
+        #resident-picture {
+            width: 120px;
+            height: 120px;
+            border: 1px solid black;
+            margin-right: 50px;
+            margin-left: auto;
+        }
 
-    #content {
-        margin-top: 20px;
-        text-indent: 50px;
-        line-height: 28px;
-        font-weight: 500;
-    }
+        /* content text-part */
+        .content-wrapper .text-part {
+            margin-top: 20px;
+        }
 
-    #issue-for {
-        text-indent: 50px;
-        margin-top: 20px;
-        line-height: 25px;
-    }
+        #to-whom {
+            margin-left: 20px;
+        }
 
-    #transform-upppercase {
-        text-transform: uppercase;
-    }
+        #content {
+            margin-top: 20px;
+            text-indent: 50px;
+            line-height: 28px;
+            font-weight: 500;
+        }
 
-    #witness {
-        text-indent: 50px;
-        margin-top: 20px;
-        line-height: 25px;
-    }
+        #issue-for {
+            text-indent: 50px;
+            margin-top: 20px;
+            line-height: 25px;
+        }
 
-    /* content sign-part */
-    .sign-part {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
+        #transform-upppercase {
+            text-transform: uppercase;
+        }
 
-    .sign-part .sign-wrapper {
-        margin-top: auto;
-    }
+        #witness {
+            text-indent: 50px;
+            margin-top: 20px;
+            line-height: 25px;
+        }
 
-    #signature {
-        padding: 0 20px;
-        border-top: 1px solid black;
-    }
+        /* content sign-part */
+        .sign-part {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
 
-    .sign-part .tumb-wrapper {
-        
-    }
+        .sign-part .sign-wrapper {
+            margin-top: auto;
+        }
 
-    #tumb-box {
-        margin: 0 auto;
-        width: 90px;
-        height: 75px;
-        border: 1px solid black;
-    }
+        #signature {
+            padding: 0 20px;
+            border-top: 1px solid black;
+        }
 
-    /* content cap-sign-part */
-    .cap-sign-part {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 70px;
-    }
+        .sign-part .tumb-wrapper {}
 
-    .cap-sign-part .cap-sign-wrapper {
-        text-align: center;
-        margin-right: 60px;
-        line-height: 17px;
-    }
+        #tumb-box {
+            margin: 0 auto;
+            width: 90px;
+            height: 75px;
+            border: 1px solid black;
+        }
 
-    .cap-sign-part .cap-sign-wrapper p{
-        line-height: 18px;
-    }
+        /* content cap-sign-part */
+        .cap-sign-part {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 70px;
+        }
 
-    /* content issue */
-    .issued {
-        margin-top: 40px;
-    }
-</style>
+        .cap-sign-part .cap-sign-wrapper {
+            text-align: center;
+            margin-right: 60px;
+            line-height: 17px;
+        }
+
+        .cap-sign-part .cap-sign-wrapper p {
+            line-height: 18px;
+        }
+
+        /* content issue */
+        .issued {
+            margin-top: 40px;
+        }
+
+    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
         integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
@@ -449,7 +392,7 @@
             html2pdf().set(opt).from(element).save();
         };
     </script>
-    
+
     <script>
         'use strict';
 
@@ -490,4 +433,3 @@
         });
     </script>
 @endsection
-

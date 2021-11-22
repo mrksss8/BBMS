@@ -29,85 +29,26 @@ Brgy PUI-PUM Issuance
                             <div class="officials" style="width: 2.95in;">
                                 <div class="official-wrapper">
                                     <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
-                                    <p>
-                                        <strong> HON. {{ $b_cap->brgy_official_name }}</strong><br>
-                                        {{ $b_cap->brgy_official_position }}
-                                    </p>
+                                    @foreach ($b_officials as $b_official)
 
-                                    </p>
-                                    <p id="councelor-label">
-                                        <strong>COUNCILORS</strong><br>
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor1->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor1->brgy_official_role }}
-                                    </p>
+                                    @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_position }}
+                                        </p>
 
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor2->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor2->brgy_official_role }}
-                                    </p>
-                                    </p>
+                                        <p id="councelor-label">
+                                            <strong>COUNCILORS</strong><br>
+                                        </p>
 
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor3->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor3->brgy_official_role }}
-                                    </p>
-                                    </p>
+                                    @else
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_position }}
+                                        </p>
+                                    @endif
 
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor4->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor4->brgy_official_role }}
-                                    </p>
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor5->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor5->brgy_official_role }}
-                                    </p>
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor6->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor6->brgy_official_role }}
-                                    </p>
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_councelor7->brgy_official_name }}</strong><br>
-                                        {{ $b_councelor7->brgy_official_role }}
-                                    </p>
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_sk->brgy_official_name }}</strong><br>
-                                        {{ $b_sk->brgy_official_position }} – {{ $b_sk->brgy_official_role }}
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_sec->brgy_official_name }}</strong><br>
-                                        {{ $b_sec->brgy_official_position }}
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_tres->brgy_official_name }}</strong><br>
-                                        {{ $b_tres->brgy_official_position }}
-                                    </p>
-
-                                    </p>
-                                    <p>
-                                        <strong> HON. {{ $b_clerk->brgy_official_name }}</strong><br>
-                                        {{ $b_clerk->brgy_official_position }}
-                                    </p>
+                                @endforeach
                                 </div>
                             </div>
     

@@ -132,7 +132,7 @@
                         </div>
                     </div>
                 </div>                
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
@@ -173,7 +173,7 @@
         <script>
             var ctx = document.getElementById('residenceMembership').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -210,7 +210,7 @@
                 data: {
                     datasets: [{
                         data: [
-                            50,
+                            {{ $std_Cnt}},
                             {{ $senior_Cnt }},
                             {{ $pwd_Cnt }},
                             {{ $fourPs_Cnt }},
@@ -299,7 +299,7 @@
         <script>
             var ctx = document.getElementById('Age').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -487,7 +487,7 @@
         <script>
             var ctx = document.getElementById('4psPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'bar',
                 data: {
                     datasets: [{
                         data: [
@@ -535,7 +535,7 @@
         <script>
             var ctx = document.getElementById('TUPADPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'bar',
                 data: {
                     datasets: [{
                         data: [

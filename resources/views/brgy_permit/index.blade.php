@@ -50,7 +50,7 @@ Brgy Permits
                 </div>
 
 
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
+                {{-- <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around"> 
                     <div class="card text-center" style="width: 18rem;">
                         <div class="card-body">
                           <h5 class="card-title">Fencing Permit Records</h5>
@@ -68,7 +68,7 @@ Brgy Permits
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                       </div>
-                </div>
+                </div> --}}
                 
             </div>
     </section>
