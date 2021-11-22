@@ -121,6 +121,8 @@ class ResidenceController extends Controller
     { 
         $resident = Residence::findOrfail($id);
         $resident ->delete();
+
+        return redirect()->route('residence.index')->with('swal_delete', 'Residence added sucessfully!');
     }
 
     public function import()

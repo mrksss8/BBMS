@@ -8,6 +8,7 @@
 @endsection
 
 @section('content')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Residence</h3>
@@ -20,11 +21,25 @@
                     function ok() {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Residence Added',
+                            title: 'Residence added',
                             showConfirmButton: true,
                         })
                     }
                 </script>
+            @endif
+
+            @if (Session::has('swal_delete'))
+                <script>
+                     window.addEventListener("load", ok, false);
+                    function ok() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Residence has been deleted',
+                            showConfirmButton: true,
+                        })
+                    }
+                </script>
+            
             @endif
             
             <div class="row">
