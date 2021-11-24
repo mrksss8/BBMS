@@ -10,34 +10,34 @@
         <div class="section-header">
             <h3 class="page__heading">Reports</h3>
         </div>
-        <div class="section-body ">
-            <div class="row d-flex justify-content-around">
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around">
-                    <a href="{{ route('residents.report') }}">
-                        <div class="card text-center" style="width: 24rem; border: 5px solid rgb(6, 123, 233); padding-bottom: 1.5rem; border-radius: 50px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Residents Reports</h5>
-                                <img src="{{ '../img/report.png' }}" alt="" style="width: 12.5em;" class="mt-3 ml-5">
+        <div class="section-body">
+            <div class = "row" style="display:flex; justify-content: space-evenly;">
+
+                    <div class="">
+                        <a href="{{ route('residents.report') }}">
+                            <div class="card text-center"
+                                style="width: 18rem; border: 5px solid rgba(103,119,239,255); border-radius: 25px;">
+                                <div class="card-body  d-flex justify-content-center flex-column align-items-center">
+                                    <h5 class="card-title">Resident Reports</h5>
+                                    <img src="{{ '../img/report.png' }}" alt="" style="width: 10em; margin-left: 30px;">
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around">
-                    <a href="{{ route('blotters.report') }}">
-                        <div class="card text-center" style="width: 24rem; border: 5px solid rgb(6, 123, 233); border-radius: 50px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Blotters Report</h5>
-                                <img src="{{ '../img/case-study.png' }}" alt="" style="width: 14em;"
-                                    class="mt-3 ml-3">
-
+                        </a>
+                    </div>
+                    <div class="">
+                        <a href="{{ route('blotters.report') }}">
+                            <div class="card text-center"
+                                style="width: 18rem; border: 5px solid rgba(103,119,239,255); border-radius: 25px;">
+                                <div class="card-body d-flex justify-content-center flex-column align-items-center">
+                                    <h5 class="card-title">Blotter Reports</h5>
+                                    <img src="{{ '../img/case-study.png' }}" alt="" style="width: 10em; margin-left: 15px;">
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-
+                        </a>
+                    </div>
+                    
             </div>
+        </div>
     </section>
 
 @endsection

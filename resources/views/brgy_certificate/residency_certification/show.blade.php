@@ -31,6 +31,7 @@
                                 <div class="official-wrapper">
                                     <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                         alt="brgy-bayog-logo">
+                                    <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
                                         @foreach ($b_officials as $b_official)
 
                                         @if ($b_official->brgy_official_position == 'Barangay Chairman')
@@ -46,7 +47,7 @@
                                         @else
                                             <p>
                                                 <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                                {{ $b_official->brgy_official_position }}
+                                                {{ $b_official->brgy_official_role }}
                                             </p>
                                         @endif
 
@@ -237,8 +238,13 @@
         }
 
         /* header */
+
+        .header{
+            margin-top: 10px;
+        }
         .header p {
             text-align: center;
+            line-height: 18px;
         }
 
         .header h1 {
@@ -274,12 +280,14 @@
         .officials p {
             padding-top: 6px;
             line-height: 20px;
-            font-size: 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
         #councelor-label {
             margin-bottom: 0;
             padding-bottom: 0;
+            margin-top: 15px;
         }
 
         /* content */

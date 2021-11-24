@@ -144,7 +144,7 @@
                         <div class="card-body bg-primary rounded p-1 ">
 
                             <div class="officials">
-                                <p id="brgy">Brgy. Bayog
+                                <p id="brgy">Barangay Bayog <br> Officials
                                 <p>
                                 <div class="official-wrapper">
                                     <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"

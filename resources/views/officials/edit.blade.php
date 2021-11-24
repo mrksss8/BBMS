@@ -183,8 +183,9 @@
                             {{-- <a href="{{route('officials.update', $b_cap->id, $b_councelor1->id, $b_councelor2->id)}}" class="btn btn-icon icon-left btn-success mr-3"><i
                                 class="fas fa-save"></i> Save </a> --}}
 
-                    <a href="#" class="btn btn-icon icon-left btn-danger mr-3"><i
-                        class="fas fa-trash"></i> Cancel </a>
+                        <a href="{{route('officials.index')}}" class="btn btn-icon icon-left btn-danger mr-3"><i
+                            class="fas fa-ban"></i> Cancel </a>
+                        
                 </div>
             </div>
     </section>

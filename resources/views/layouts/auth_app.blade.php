@@ -19,12 +19,17 @@
 
 <body>
 <div id="app">
-    <section class="section">
-        <div class="container mt-5">
+    <section class="section" style = "background-image: url('{{asset('../img/brgy_hall.jpg')}}'); background-size: cover;   background-repeat: no-repeat; height: 100vh; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pt-5 ">
+                    <h1 class = "text-dark text-center p-4 bg-primary rounded">Barangay Bayog Management System</h1>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="login-brand">
-                       <h1 class = "text-dark">BBMS</h1>
                     </div>
                     @yield('content')
                     <div class="simple-footer">

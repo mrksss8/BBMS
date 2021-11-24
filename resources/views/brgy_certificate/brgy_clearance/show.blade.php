@@ -13,15 +13,15 @@
         </div>
         <div class="d-flex">
             <div class="certificate-container">
-                <div class="page" style="width: 8.5in;" id="element-to-print">
+                <div class="page" style="width: 8.5in;"  id="element-to-print">
                     <div class="wrapper">
                         <div class="header">
-                            <p>REPUBLIC OF THE PHILIPPINES <br>
-                                PROVINCE OF LAGUNA <br>
-                                MUNICIPLITY LOS BAÑOS <br>
-                                BARANGAY BAYOG <br>
-                            </p>
-                            <div class="title-wrapper">
+                            <p>REPUBLIC OF THE PHILIPPINES</p>
+                            <p> PROVINCE OF LAGUNA </p>
+                            <p>   MUNICIPLITY LOS BAÑOS </p>
+                            <p> BARANGAY BAYOG  </p>
+                            
+                            <div class="title-wrapper" style="margin-top: 20px;">
                                 <h1>Barangay Clearance Certificate</h1>
                             </div>
                         </div>
@@ -30,8 +30,9 @@
                         <div class="body">
                             <div class="officials" style="width: 2.95in;">
                                 <div class="official-wrapper">
-                                    <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
-                                        alt="brgy-bayog-logo">
+                                        <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
+                                        alt="brgy-bayog-logo" >
+                                    <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
                                     @foreach ($b_officials as $b_official)
 
                                         @if ($b_official->brgy_official_position == 'Barangay Chairman')
@@ -47,7 +48,7 @@
                                         @else
                                             <p>
                                                 <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                                {{ $b_official->brgy_official_position }}
+                                                {{ $b_official->brgy_official_role }}
                                             </p>
                                         @endif
 
@@ -192,10 +193,7 @@
             color: black;
         }
 
-
-
         .page {
-            /* padding: 10px; */
         }
 
         /* wrapper */
@@ -210,8 +208,13 @@
         }
 
         /* header */
+
+        .header{
+            margin-top: 10px;
+        }
         .header p {
             text-align: center;
+            line-height: 18px;
         }
 
         .header h1 {
@@ -247,7 +250,10 @@
         .officials p {
             padding-top: 6px;
             line-height: 20px;
-            font-size: 15px;
+
+
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
         #councelor-label {

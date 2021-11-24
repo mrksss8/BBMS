@@ -29,12 +29,14 @@ Brgy Live-In Issuance
                             <div class="officials" style="width: 2.95in;">
                                 <div class="official-wrapper">
                                     <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
+                                    <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
+                                    
                                     @foreach ($b_officials as $b_official)
 
                                     @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                         <p>
                                             <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_position }}
+                                            {{ $b_official->brgy_official_role }}
                                         </p>
 
                                         <p id="councelor-label">
@@ -217,6 +219,7 @@ Brgy Live-In Issuance
     
         .title-wrapper {
             margin: 0 10px;
+            margin-top: 20px;
         }
     
         .title-wrapper h1{
@@ -224,8 +227,12 @@ Brgy Live-In Issuance
         }
     
         /* header */
+        .header{
+            margin-top: 10px;
+        }
         .header p {
             text-align: center;
+            line-height: 18px;
         }
     
         .header h1 {
@@ -260,7 +267,8 @@ Brgy Live-In Issuance
         .officials p {
             padding-top: 6px;
             line-height: 20px;
-            font-size: 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
     
         #councelor-label{

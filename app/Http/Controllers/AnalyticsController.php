@@ -18,7 +18,7 @@ class AnalyticsController extends Controller
                 $senior_Cnt = $senior_Cnt + 1;
             }  
         }
-        $std_Cnt = Residence::where('student' ,'=', 'Yes')->count();
+        $std_Cnt = Residence::where('student', '!=', null)->count();
         $pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->count();
         $fourPs_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->count();
         $tupad_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->count();
