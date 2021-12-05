@@ -8,40 +8,43 @@
 @endsection
 
 @section('content')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (Session::has('swal'))
+        <script>
+            window.addEventListener("load", ok, false);
+
+            function ok() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Residence added',
+                    showConfirmButton: true,
+                })
+            }
+        </script>
+    @endif
+
+    @if (Session::has('swal_delete'))
+        <script>
+            window.addEventListener("load", ok, false);
+
+            function ok() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Residence has been deleted',
+                    showConfirmButton: true,
+                })
+            }
+        </script>
+
+    @endif
+
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Residence</h3>
         </div>
         <div class="section-body">
 
-            @if (Session::has('swal'))
-                <script>
-                    window.addEventListener("load", ok, false);
-                    function ok() {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Residence added',
-                            showConfirmButton: true,
-                        })
-                    }
-                </script>
-            @endif
-
-            @if (Session::has('swal_delete'))
-                <script>
-                     window.addEventListener("load", ok, false);
-                    function ok() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Residence has been deleted',
-                            showConfirmButton: true,
-                        })
-                    }
-                </script>
-            
-            @endif
-            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
@@ -107,7 +110,7 @@
             </div>
         </div>
 
-        
+
     </section>
 @endsection
 

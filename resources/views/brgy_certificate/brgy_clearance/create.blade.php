@@ -17,10 +17,9 @@
                     </p>
 
 
-                    @foreach ($resident_with_blotter->blotter as $blotter)
+                    @foreach ($resident->blotters as $blotter)
 
-                        @if ($blotter->status === 'Settled')
-                        @else
+                        @if ($blotter->status == 'Unsettled')
                             <div class="row d-flex justify-content-center">
                                 <div class="col-8 ">
                                     <div class="alert alert-danger">
@@ -39,8 +38,6 @@
                         <div class="col-12 col-md-12 col-lg-6">
                             <div class="card profile-widget">
                                 <div class="profile-widget-header d-flex justify-content-center p-5">
-
-
 
                                     <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
                                         width="300px">
@@ -72,24 +69,25 @@
                                             <p>
                                         </div>
                                     </div>
-                                    @foreach ($resident_with_blotter->blotter as $blotter)
 
-                                    @if ($blotter->status === 'Settled')
-                                    @else
-                                    <div class="row">
-                                        <div class="col-sm-12 col-lg-12 mt-5">
-                                            <h5 class="text-center text-danger">Blotters Information</h5>
-                                            <p class="ml-5">
-                                                <strong>Complained By:
-                                                </strong>{{ $blotter->complainant_name }}<br>
-                                                <strong>Blotter Complain:
-                                                </strong>{{ $blotter->Blotters_info }}<br>
-                                                <strong>Incident:
-                                                </strong>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}
-                                            <p>
-                                        </div>
-                                    </div>
-                                    @endif   
+                                    @foreach ($resident_with_blotter->blotters as $blotter)
+
+                                        @if ($blotter->status == 'Unsettled')
+                                            <div class="row">
+                                                <div class="col-sm-12 col-lg-12 mt-5">
+                                                    <h5 class="text-center text-danger">Blotters Information</h5>
+                                                    <p class="ml-5">
+                                                        <strong>Complained By:
+                                                        </strong>{{ $blotter->complainant_name }}<br>
+                                                        <strong>Blotter Complain:
+                                                        </strong>{{ $blotter->Blotters_info }}<br>
+                                                        <strong>Incident:
+                                                        </strong>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}
+                                                    <p>
+                                                </div>
+                                            </div>
+                                        @endif
+
                                     @endforeach
                                 </div>
                             </div>

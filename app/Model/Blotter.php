@@ -3,16 +3,23 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Residence;
+use App\Model\Resident;
 class Blotter extends Model
 {
 
     protected $table = 'blotters';
     protected $guarded = ['']; 
 
-    public function residence()
+    public function residents()
     {
-      return $this->belongsTo('App\Model\Residence','person_to_complain_id');
+      return $this->belongsToMany('App\Model\Resident');
     }
+
+    protected $casts = [
+      'person_to_complain_id' => 'array',
+  ];
+
+  protected $dates = [
+];
 
 }

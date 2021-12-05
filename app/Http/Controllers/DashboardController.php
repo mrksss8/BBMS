@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 use App\Model\Business;
 use App\Model\Blotter;
 use App\Model\Officials;
@@ -20,16 +20,16 @@ class DashboardController extends Controller
         $b_officials= Officials::where('batch_id',$latest_id)->get();
         //
 
-        $total_res = Residence::get()->count();
-        $female_Cnt = Residence::where('gender' , 'female')->count();
-        $male_Cnt = Residence::where('gender' , 'male')->count();   
+        $total_res = Resident::get()->count();
+        $female_Cnt = Resident::where('gender' , 'female')->count();
+        $male_Cnt = Resident::where('gender' , 'male')->count();   
 
         $total_business = Business::get()->count();
-        $PWD_Cnt = Residence::where('pwd' , 'Yes')->count();
-        $fourPs = Residence::where('membership_prog' , '4Ps')->count();
-        $TUPAD_Cnt = Residence::where('membership_prog' , 'TUPAD')->count();
+        $PWD_Cnt = Resident::where('pwd' , 'Yes')->count();
+        $fourPs = Resident::where('membership_prog' , '4Ps')->count();
+        $TUPAD_Cnt = Resident::where('membership_prog' , 'TUPAD')->count();
 
-        $residence = Residence::all();
+        $residence = Resident::all();
         $senior_Cnt = 0;
         $senior_pwd_Cnt = 0;
         $senior_notpwd_Cnt = 0;

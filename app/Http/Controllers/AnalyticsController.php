@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 
 class AnalyticsController extends Controller
 {
     public function index(){
 
-        $residence = Residence::all();
+        $residence = Resident::all();
 
         //general analytics
         $senior_Cnt = 0;
@@ -18,11 +18,11 @@ class AnalyticsController extends Controller
                 $senior_Cnt = $senior_Cnt + 1;
             }  
         }
-        $std_Cnt = Residence::where('student', '!=', null)->count();
-        $pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->count();
-        $fourPs_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->count();
-        $tupad_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->count();
-        $MembershipProgram_None_Cnt = Residence::where('membership_prog' ,'=', 'None')->count();
+        $std_Cnt = Resident::where('student', '!=', null)->count();
+        $pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->count();
+        $fourPs_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->count();
+        $tupad_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->count();
+        $MembershipProgram_None_Cnt = Resident::where('membership_prog' ,'=', 'None')->count();
 
             //Reisdent per purok
         $purok_1_Cnt = 0; $purok_2_Cnt = 0; $purok_3_Cnt = 0; $purok_4_Cnt = 0; $purok_5_Cnt = 0;          
@@ -87,32 +87,32 @@ class AnalyticsController extends Controller
             }
 
             //PWD per Purok
-        $purok1_pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->where('purok',"=", "1")->count();
-        $purok2_pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->where('purok',"=", "2")->count();
-        $purok3_pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->where('purok',"=", "3")->count();
-        $purok4_pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->where('purok',"=", "4")->count();
-        $purok5_pwd_Cnt = Residence::where('PWD' ,'=', 'Yes')->where('purok',"=", "5")->count();
+        $purok1_pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->where('purok',"=", "1")->count();
+        $purok2_pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->where('purok',"=", "2")->count();
+        $purok3_pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->where('purok',"=", "3")->count();
+        $purok4_pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->where('purok',"=", "4")->count();
+        $purok5_pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->where('purok',"=", "5")->count();
 
             //4ps per Purok
-        $purok1_4ps_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "1")->count();
-        $purok2_4ps_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "2")->count();
-        $purok3_4ps_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "3")->count();
-        $purok4_4ps_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "4")->count();
-        $purok5_4ps_Cnt = Residence::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "5")->count();
+        $purok1_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "1")->count();
+        $purok2_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "2")->count();
+        $purok3_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "3")->count();
+        $purok4_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "4")->count();
+        $purok5_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "5")->count();
         
             //TUPAD per Purok
-        $purok1_TUPAD_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "1")->count();
-        $purok2_TUPAD_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "2")->count();
-        $purok3_TUPAD_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "3")->count();
-        $purok4_TUPAD_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "4")->count();
-        $purok5_TUPAD_Cnt = Residence::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "5")->count();
+        $purok1_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "1")->count();
+        $purok2_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "2")->count();
+        $purok3_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "3")->count();
+        $purok4_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "4")->count();
+        $purok5_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "5")->count();
 
         //student per Purok
-        $purok1_student_Cnt = Residence::where('student' ,'=', 'Yes')->where('purok',"=", "1")->count();
-        $purok2_student_Cnt = Residence::where('student' ,'=', 'Yes')->where('purok',"=", "2")->count();
-        $purok3_student_Cnt = Residence::where('student' ,'=', 'Yes')->where('purok',"=", "3")->count();
-        $purok4_student_Cnt = Residence::where('student' ,'=', 'Yes')->where('purok',"=", "4")->count();
-        $purok5_student_Cnt = Residence::where('student' ,'=', 'Yes')->where('purok',"=", "5")->count();
+        $purok1_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "1")->count();
+        $purok2_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "2")->count();
+        $purok3_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "3")->count();
+        $purok4_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "4")->count();
+        $purok5_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "5")->count();
 
 
 

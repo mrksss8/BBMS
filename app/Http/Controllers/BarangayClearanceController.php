@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 use App\Model\Blotter;
 use App\Model\Officials;
 
@@ -12,15 +12,16 @@ class BarangayClearanceController extends Controller
     public function index(){
 
         
-        $residence_list = Residence::all();
+        $residence_list = Resident::all();
         return view('brgy_certificate.brgy_clearance.index',compact ('residence_list'));
     }
 
 
     public function create($id){
-        $resident = Residence::findOrfail($id);
-        $resident_with_blotter = Residence::with('blotter')->findOrfail($id);
-        return view('brgy_certificate.brgy_clearance.create', compact('resident', 'resident_with_blotter' )); 
+        $resident = Resident::findOrfail($id);
+        $resident_with_blotter = Resident::with('blotters')->findOrfail($id); //where('status', '!=', 'Settled') in blotter table
+
+        return view('brgy_certificate.brgy_clearance.create', compact('resident','resident_with_blotter')); 
     }
 
 
@@ -31,7 +32,7 @@ class BarangayClearanceController extends Controller
         //
 
         $purpose = $request->purpose;
-        $resident = Residence::findOrfail($id);  
+        $resident = Resident::findOrfail($id);  
         return view('brgy_certificate.brgy_clearance.show', compact('resident', 'purpose', 'b_officials')); 
     }
 

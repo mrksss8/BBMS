@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Residence;
+use App\Model\Resident;
 class Business extends Model
 {
     protected $table = 'business';
@@ -11,6 +11,6 @@ class Business extends Model
 
     public function residence()
     {
-       return $this->belongsTo('App\Model\Residence','business_owner_id');
+       return $this->belongsTo('App\Model\Resident','business_owner_id');
     }
 }

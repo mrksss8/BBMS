@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 use Carbon\Carbon;
 
 class ResidenceController extends Controller
@@ -16,7 +16,7 @@ class ResidenceController extends Controller
     public function index()
     {
         
-        $residence_list = Residence::all();
+        $residence_list = Resident::all();
         return view('residence.index', compact('residence_list'));
         
     }
@@ -39,7 +39,7 @@ class ResidenceController extends Controller
      */
     public function store(Request $request)
     {
-            $residence = new Residence;
+            $residence = new Resident;
             $residence->last_name = $request->last_name;
             $residence->first_name = $request->first_name;
             $residence->middle_name = $request->middle_name;
@@ -84,7 +84,7 @@ class ResidenceController extends Controller
      */
     public function show($id)
     {
-        $resident = Residence::with('business')->findOrfail($id);
+        $resident = Resident::with('business')->findOrfail($id);
         return view('residence.show', compact('resident'));
     }
 
@@ -119,7 +119,9 @@ class ResidenceController extends Controller
      */
     public function destroy($id)
     { 
-        $resident = Residence::findOrfail($id);
+        $resident = Resident::findOrfail($id);
+
+        
         $resident ->delete();
 
         return redirect()->route('residence.index')->with('swal_delete', 'Residence added sucessfully!');

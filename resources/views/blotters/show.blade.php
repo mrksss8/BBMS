@@ -18,16 +18,25 @@
                                 <div class="d-flex justify-content-between">
                                     <h4>Blotters Case</h4>
 
-                                    @if ($blotter->bcp1 == null)
-                                        <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
-                                            data-target="#action"> <i class="far fa-edit"></i>
-                                            Add Action
-                                        </button>
+                                    @if ($blotter->status == 'Unsettled')
+
+                                        @if ($blotter->bcp1 == null)
+                                            <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
+                                                data-target="#action"> <i class="far fa-edit"></i>
+                                                Add Action
+                                            </button>
+                                        @else
+                                            <a class="btn btn-warning my-2">
+                                                Case is On-going
+                                            </a>
+
+                                        @endif
+
                                     @else
-                                        <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
-                                            data-target="#action" disabled> <i class="far fa-edit"></i>
-                                            Add Action
-                                        </button>
+
+                                        <span type="button" class="btn btn-success my-2 text-dark">
+                                            <strong>This Case is {{ $blotter->status }} </strong>
+                                        </span>
 
                                     @endif
 
@@ -39,7 +48,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-center">
                                 <div>
-                                    <strong>Case Number: </strong>{{ $blotter->id }}
+                                    <strong>Case Number: </strong>{{ $blotter->case_number }}
                                 </div>
                                 <div>
                                     <strong class="ml-5">Case Type: </strong>{{ $blotter->case_type }}
@@ -48,9 +57,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <strong>Complained Person:
-                            </strong>{{ $blotter->residence->first_name }}
-                            {{ $blotter->residence->middle_name }} {{ $blotter->residence->last_name }}<br>
+
+                            @foreach ($blotter->residents as $resident)
+                                <strong>Complained Person:</strong>
+                                {{ $resident->last_name }} {{ $resident->first_name }}
+                                {{ $resident->middle_name }} <br>
+                            @endforeach
+
                         </div>
                         <div class="card-body">
                             <strong>Blotters Description: </strong> {{ $blotter->Blotters_info }}
@@ -61,44 +74,6 @@
 
                     </div>
                 </div>
-                {{-- <div class="col-6">
-                    <div class="card">
-                        @if ($blotter->status == 'Settled')
-                            <div class="card-header">
-                                <h4>This Case is Settled</h4>
-                            </div>
-                            <div class="card-body">
-                                <p class = "text-center"> <strong>Case Information</strong> </p>
-                                <p>{{ $blotter->agreement }}</p>
-                            </div>
-                            <div class="card-bod d-flex justify-content-center pt-3">
-                                <a href="{{ route('settlement_agreement.show', $blotter->id) }}"
-                                    class="btn btn-outline-primary my-4"><i class="far fa-edit"></i> View Agreement </a>
-                            </div>
-                        @else
-                            <div class="card-header">
-                                <h4> Action </h4>
-                            </div>
-                            <div class="card-bod d-flex justify-content-center pt-3">
-                                <a href="{{ route('blotters.settelement', $blotter->id) }}"
-                                    class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Settle Blotter </a>
-                            </div>
-                           
-                        @endif
-                        <div class="card-header">
-                            <h4>Action</h4>
-
-                        </div>
-                        <div class="card-body">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
-                                data-target="#exampleModalCenter"> <i class="far fa-edit"></i>
-                                Add Action
-                            </button>
-                            {{-- <a href="" class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Add Action</a> --}}
-                {{-- </div>
-                    </div>
-                </div> --}}
 
             </div>
             <div class="row ">
@@ -116,7 +91,8 @@
                                                 <div>
 
                                                     <button type="button" class="btn btn-outline-primary my-2"
-                                                        data-toggle="modal" data-target="#"> <i class="far fa-edit"></i>
+                                                        data-toggle="modal" data-target="#luponpatawag3_manage"> <i
+                                                            class="far fa-edit"></i>
                                                         Manage
                                                     </button>
                                                     <button type="button" class="btn btn-outline-primary my-2"
@@ -124,24 +100,25 @@
                                                             class="far fa-edit"></i>
                                                         Action
                                                     </button>
-                                                    <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                        Letter</a>
                                                 </div>
 
                                             </div>
                                         </div>
 
                                     </div>
+
                                     <div class="card-body">
                                         <div class="col-12">
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+
+                                            <p><strong>Date of Patawag:</strong> {{ $blotter->lbp3_date ? \Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->lbp3_note }}</p>
+
                                         </div>
-                                    </div>
 
-                                    <div class="card-footer">
-
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -161,7 +138,7 @@
                                                 <div>
                                                     @if ($blotter->lbp3 == null)
                                                         <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#"> <i
+                                                            data-toggle="modal" data-target="#luponpatawag2_manage"> <i
                                                                 class="far fa-edit"></i>
                                                             Manage
                                                         </button>
@@ -170,8 +147,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     @else
                                                         <button type="button" class="btn btn-outline-primary my-2"
                                                             data-toggle="modal" data-target="#" disabled> <i
@@ -183,8 +159,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     @endif
 
                                                 </div>
@@ -195,14 +170,18 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+                                            
+                                            <p><strong>Date of Patawag:</strong> {{ $blotter->lbp2_date ? \Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->lbp2_note }}</p>
+
                                         </div>
-                                    </div>
 
-                                    <div class="card-footer">
-
+                                        @if ($blotter->lbp3 == null)
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -222,7 +201,7 @@
                                                 <div>
                                                     @if ($blotter->lbp2 == null)
                                                         <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#"> <i
+                                                            data-toggle="modal" data-target="#luponpatawag1_manage"> <i
                                                                 class="far fa-edit"></i>
                                                             Manage
                                                         </button>
@@ -231,8 +210,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     @else
                                                         <button type="button" class="btn btn-outline-primary my-2"
                                                             data-toggle="modal" data-target="#" disabled> <i
@@ -244,8 +222,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     @endif
 
                                                 </div>
@@ -256,14 +233,17 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+
+                                            <p><strong>Date of Patawag:</strong>  {{ $blotter->lbp1_date ? \Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->lbp1_note }}</p>
+
                                         </div>
-                                    </div>
-
-                                    <div class="card-footer">
-
+                                        @if ($blotter->lbp2 == null)
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -283,7 +263,7 @@
                                                 <div>
                                                     @if ($blotter->lbp1 == null)
                                                         <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#"> <i
+                                                            data-toggle="modal" data-target="#patawag3_manage"> <i
                                                                 class="far fa-edit"></i>
                                                             Manage
                                                         </button>
@@ -292,8 +272,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     @else
                                                         <button type="button" class="btn btn-outline-primary my-2"
                                                             data-toggle="modal" data-target="#" disabled> <i
@@ -305,8 +284,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
 
                                                     @endif
 
@@ -318,14 +296,19 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+
+                                            <p><strong>Date of Patawag:</strong> {{ $blotter->bcp3_date ? \Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->bcp3_note }}</p>
+
                                         </div>
-                                    </div>
 
-                                    <div class="card-footer">
 
+                                        @if ($blotter->lbp1 == null)
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -346,7 +329,7 @@
                                                 @if ($blotter->bcp3 == null)
                                                     <div>
                                                         <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#"> <i
+                                                            data-toggle="modal" data-target="#patawag2_manage"> <i
                                                                 class="far fa-edit"></i>
                                                             Manage
                                                         </button>
@@ -355,8 +338,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     </div>
                                                 @else
                                                     <div>
@@ -370,8 +352,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     </div>
 
                                                 @endif
@@ -383,16 +364,19 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+
+                                            <p><strong>Date of Patawag:</strong> {{ $blotter->bcp2_date ? \Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->bcp2_note }}</p>
+
                                         </div>
+
+                                        @if ($blotter->bcp3 == null)
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
+                                        @endif
                                     </div>
-
-                                    <div class="card-footer">
-
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
@@ -412,7 +396,7 @@
                                                 @if ($blotter->bcp2 == null)
                                                     <div>
                                                         <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#"> <i
+                                                            data-toggle="modal" data-target="#patawag1_manage"> <i
                                                                 class="far fa-edit"></i>
                                                             Manage
                                                         </button>
@@ -421,8 +405,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     </div>
                                                 @else
                                                     <div>
@@ -435,8 +418,7 @@
                                                                 class="far fa-edit"></i>
                                                             Action
                                                         </button>
-                                                        <a href="" class="btn btn-outline-success btn-sm px-3">Generate
-                                                            Letter</a>
+
                                                     </div>
                                                 @endif
 
@@ -446,12 +428,17 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-
-                                            <p><strong>Date:</strong> October 12, 2020</p>
-                                            <strong>Note: <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                    Dignissimos quidem aliquam veniam.</p></strong>
+                                        
+                                            <p><strong> Date of Patawag:</strong> {{ $blotter->bcp1_date ? \Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Note:</strong> {{ $blotter->bcp1_note }}</p>
 
                                         </div>
+                                        @if ($blotter->bcp2 == null)
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
+                                                Letter</a>
+                                        </div>
+                                        @endif
                                     </div>
 
                                 </div>
@@ -466,46 +453,7 @@
     </section>
 
 
-    <!-- Modal -->
-    {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Make Action for this Blotters Record!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Please Select an Action</label>
-                        <form method="POST" action="{{ route('blotters.update', $blotter->id) }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                </div>
-                                <select class="form-control" name="patawag">
-                                    <option disabled selected></option>
-                                    <option value="bcp1"> Brgy Captain Patawag 1</option>
-                                    <option value="bcp2"> Brgy Captain Patawag 2</option>
-                                    <option value="bcp3"> Brgy Captain Patawag 3</option>
-                                    <option value="lbp1"> Lupon ng Barangay Patawag 1</option>
-                                    <option value="lbp2"> Lupon ng Barangay Patawag 2</option>
-                                    <option value="lbp3"> Lupon ng Barangay Patawag 3</option>
-                                </select>
-                            </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div> --}}
+
     <!-- Lupon Patawag 3 MODAL-->
     <div class="modal fade" id="luponpatawag3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -529,9 +477,9 @@
                                 <select class="form-control" name="patawag">
                                     <option disabled selected></option>
 
-                                    <option value=""> File to Action</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="File to Action"> File to Action</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -545,6 +493,46 @@
             </div>
         </div>
     </div>
+    <!-- Lupon Patawag 2 Manage MODAL-->
+    <div class="modal fade" id="luponpatawag3_manage" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="lbp3_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="lbp3_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- Lupon Patawag 2 MODAL-->
     <div class="modal fade" id="luponpatawag2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -570,8 +558,8 @@
                                     <option disabled selected></option>
 
                                     <option value="lbp3"> Brgy Lupon Patawag 3</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -585,6 +573,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Lupon Patawag 2 Manage MODAL-->
+    <div class="modal fade" id="luponpatawag2_manage" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="lbp2_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="lbp2_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Lupon Patawag 1 MODAL-->
     <div class="modal fade" id="luponpatawag1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -610,8 +638,8 @@
                                     <option disabled selected></option>
 
                                     <option value="lbp2"> Brgy Lupon Patawag 2</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -625,6 +653,49 @@
             </div>
         </div>
     </div>
+    <!-- Lupon Patawag 1 Manage MODAL-->
+    <div class="modal fade" id="luponpatawag1_manage" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="lbp1_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="lbp1_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
 
     <!-- Patawag 3 MODAL-->
     <div class="modal fade" id="patawag3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -650,8 +721,8 @@
                                     <option disabled selected></option>
 
                                     <option value="lbp1"> Brgy Lupon Patawag 1</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -665,6 +736,47 @@
             </div>
         </div>
     </div>
+    <!-- Patawag 3 Manage MODAL-->
+    <div class="modal fade" id="patawag3_manage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="bcp3_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="bcp3_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <!-- Patawag 2 MODAL-->
     <div class="modal fade" id="patawag2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -690,8 +802,8 @@
                                     <option disabled selected></option>
 
                                     <option value="bcp3"> Add Brgy Captain Patawag 3</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -705,6 +817,47 @@
             </div>
         </div>
     </div>
+    <!-- Patawag 2 Manage MODAL-->
+    <div class="modal fade" id="patawag2_manage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="bcp2_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="bcp2_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <!-- Patawag 1 MODAL-->
     <div class="modal fade" id="patawag1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -730,8 +883,8 @@
                                     <option disabled selected></option>
 
                                     <option value="bcp2"> Add Brgy Captain Patawag 2</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>
@@ -745,6 +898,49 @@
             </div>
         </div>
     </div>
+
+    <!-- Patawag 1 Manage MODAL-->
+    <div class="modal fade" id="patawag1_manage" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label></label>
+                        <form method="POST" action="{{ route('blotters.manage', $blotter->id) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label>Date of patawag</label>
+                                <input type="datetime-local" class="form-control" name="bcp1_date"
+                                    placeholder="araw ng patawag">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Note</label>
+                                <input type="text" class="form-control" name="bcp1_note" placeholder="Note">
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
     <!-- Action MODAL-->
     <div class="modal fade" id="action" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -770,8 +966,8 @@
                                     <option disabled selected></option>
 
                                     <option value="bcp1"> Add Brgy Captain Patawag 1</option>
-                                    <option value=""> Settle Case</option>
-                                    <option value=""> Cancel Case</option>
+                                    <option value="Settled"> Settle Case</option>
+                                    <option value="Cancelled"> Cancel Case</option>
 
                                 </select>
                             </div>

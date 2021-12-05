@@ -15,9 +15,12 @@ class CreateBusinessTable extends Migration
     {
         
         Schema::create('business', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('business_owner_id')->unsigned()->index()->nullable();
-            $table->foreign('business_owner_id')->references('id')->on('residence');
+            $table->id();
+            // $table->integer('business_owner_id')->unsigned()->index()->nullable();
+            // $table->foreign('business_owner_id')->references('id')->on('residence');
+
+            $table->unsignedBigInteger('business_owner_id');
+            $table->foreign('business_owner_id')->references('id')->on('residents');
             $table->string('business_name');
             $table->string('business_address');
             $table->string('business_type')->nullable();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Business;
-use App\Model\Residence;
+use App\Model\Resident;
 use App\model\Officials;
 
 class BusinessClearanceController extends Controller
@@ -25,7 +25,7 @@ class BusinessClearanceController extends Controller
     }
 
     public function create_business(){
-        $residence = Residence::all();
+        $residence = Resident::all();
         return view('brgy_permit.business_clearance.create_business', compact('residence'));
     }
 

@@ -13,7 +13,7 @@
         </div>
         <div class="d-flex">
             <div class="certificate-container">
-                <div class="page" style="width: 8.5in;"  id="element-to-print">
+                <div class="page" style="width: 8.3in; hieght: 11.7in;"  id="element-to-print">
                     <div class="wrapper">
                         <div class="header">
                             <p>REPUBLIC OF THE PHILIPPINES</p>
@@ -21,14 +21,14 @@
                             <p>   MUNICIPLITY LOS BAÑOS </p>
                             <p> BARANGAY BAYOG  </p>
                             
-                            <div class="title-wrapper" style="margin-top: 20px;">
-                                <h1>Barangay Clearance Certificate</h1>
+                            <div class="title-wrapper">
+                                <h1 class = "mb-0">Barangay Clearance Certificate</h1>
                             </div>
                         </div>
 
 
                         <div class="body">
-                            <div class="officials" style="width: 2.95in;">
+                            <div class="officials" style="width: 2.75in;">
                                 <div class="official-wrapper">
                                         <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                         alt="brgy-bayog-logo" >
@@ -37,7 +37,7 @@
 
                                         @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                             <p>
-                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
                                                 {{ $b_official->brgy_official_position }}
                                             </p>
 
@@ -45,11 +45,31 @@
                                                 <strong>COUNCILORS</strong><br>
                                             </p>
 
+                                        
+                                        @elseif($b_official->brgy_official_position == 'Barangay Secretary')
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_role }}
+                                        </p>
+
+                                        @elseif($b_official->brgy_official_position == 'Barangay Treasurer')
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_role }}
+                                        </p>
+
+                                        @elseif($b_official->brgy_official_position == 'Barangay Clerk')
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_role }}
+                                        </p>
+
                                         @else
                                             <p>
-                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
                                                 {{ $b_official->brgy_official_role }}
                                             </p>
+                                            
                                         @endif
 
                                     @endforeach
@@ -123,7 +143,7 @@
                                     <div class="cap-sign-part">
                                         <div class="cap-sign-wrapper">
                                             <p>
-                                                <strong> CRISANTO A. TANDANG </strong>
+                                                <strong> Hon. CRISANTO A. TANDANG </strong>
                                             </p>
                                             <p>
                                                 Barangay Chairman
@@ -182,7 +202,6 @@
         .screen {
             display: flex;
             justify-content: center;
-            padding: 20px;
         }
 
         .certificate-container {
@@ -194,13 +213,16 @@
         }
 
         .page {
+
         }
 
         /* wrapper */
-        .wrapper {}
+        .wrapper {
+            margin-top: 30px; 
+         }
 
         .title-wrapper {
-            margin: 0 10px;
+            margin: 20px 10px 0px 10px;
         }
 
         .title-wrapper h1 {
@@ -210,7 +232,6 @@
         /* header */
 
         .header{
-            margin-top: 10px;
         }
         .header p {
             text-align: center;
@@ -227,7 +248,9 @@
         .body {
             display: flex;
             justify-content: center;
-            margin: 10px;
+            padding: 10px;
+            font-family: 'STIX Two Text', serif;
+        
         }
 
         /* officials */
@@ -371,6 +394,10 @@
             margin-top: 40px;
         }
 
+        .validity {
+            text-align: center;
+        }
+
     </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
@@ -391,7 +418,7 @@
                 },
                 jsPDF: {
                     unit: 'in',
-                    format: 'letter',
+                    format: 'a4',
                     orientation: 'portrait'
                 }
             };

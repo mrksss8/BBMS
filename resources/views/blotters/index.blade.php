@@ -9,6 +9,20 @@
 @endsection
 
 @section('content')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            @if (Session::has('swal'))
+                <script>
+                    window.addEventListener("load", ok, false);
+                    function ok() {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Blotter Added',
+                            showConfirmButton: true,
+                        })
+                    }
+                </script>
+            @endif
 
     <section class="section">
         <div class="section-header">
@@ -56,8 +70,12 @@
 
                                                 </div>
                                             </td>
-                                            <td>{{$blotter->id}}</td>
-                                            <td>{{$blotter->residence->last_name}} {{$blotter->residence->first_name}} {{$blotter->residence->middle_name}}</td>
+                                            <td>{{$blotter->case_number}}</td>
+                                            <td>
+                                                @foreach ($blotter->residents as $resident)
+                                                    <p>{{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</p>
+                                                @endforeach 
+                                            </td>
                                             <td>{{$blotter->Blotters_info}}</td>
                                             <td>{{$blotter->complainant_name}}</td>
                                             <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>

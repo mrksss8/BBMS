@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 use App\Model\Officials;
 use App\Model\Blotter;
 

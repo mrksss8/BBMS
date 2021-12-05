@@ -7,9 +7,9 @@ use App\Model\Blotter;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Residence extends Model
+class Resident extends Model
 {
-    protected $table = 'residence';
+    protected $table = 'residents';
     protected $guarded = ['']; 
 
     public function business()
@@ -17,9 +17,9 @@ class Residence extends Model
        return $this->hasMany('App\Model\Business', 'business_owner_id');
     }
 
-    public function blotter()
+    public function blotters()
     {
-       return $this->hasMany('App\Model\Blotter', 'person_to_complain_id');
+       return $this->belongsToMany('App\Model\Blotter');
     }
 
 }

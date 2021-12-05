@@ -12,7 +12,7 @@ class ResidenceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('residence')->insert([
+        DB::table('residents')->insert([
             'res_num' => '123',
             'last_name' => 'Bautista',
             'first_name' => 'Mark Anthony',

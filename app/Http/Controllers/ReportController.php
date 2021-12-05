@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Residence;
+use App\Model\Resident;
 use App\Model\Blotter;
 
 class ReportController extends Controller
 {
     public function index(){
 
-        $residence_list = Residence::all();
+        $residence_list = Resident::all();
         return view('report.index',compact('residence_list'));
     }
 
     public function residents_report(){
 
-        $residence_list = Residence::all();
+        $residence_list = Resident::all();
         return view('report.residents_report.index',compact('residence_list'));
     }
 

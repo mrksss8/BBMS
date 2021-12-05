@@ -40,7 +40,7 @@
                                         </div> --}}
                                         <div class="form-group">
                                             <label>Complained Person/s</label>
-                                            <select class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="width: 100%">
+                                            <select name = "resident_id[]"class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="width: 100%">
                                                 @foreach ($residence as $resident)
                                                 <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</option>     
                                                 @endforeach
