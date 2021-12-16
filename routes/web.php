@@ -137,6 +137,15 @@ Route::get('/welcome', function(){
       // Route::get('/clearance/{id}', [App\Http\Controllers\BusinessClearanceController::class, 'show_clearance'])->name('business_clearance.show_clearance');
     });
 
+    Route::group(['prefix' => 'franchise_clearance','middleware' => 'auth'], function(){
+      Route::get('/index', [App\Http\Controllers\FranchiseClearanceController::class, 'index'])->name('franchise_clearance.index');
+      Route::get('/create', [App\Http\Controllers\FranchiseClearanceController::class, 'create'])->name('franchise_clearance.create');
+      Route::post('/store', [App\Http\Controllers\FranchiseClearanceController::class, 'store'])->name('franchise_clearance.store');
+      Route::get('/show/{id}', [App\Http\Controllers\FranchiseClearanceController::class, 'show'])->name('franchise_clearance.show');
+     
+      // Route::get('/clearance/{id}', [App\Http\Controllers\BusinessClearanceController::class, 'show_clearance'])->name('business_clearance.show_clearance');
+    });
+
     //import
     Route::post('residence/import', [App\Http\Controllers\ResidenceImportController::class, 'import'])->name('importResidence');
 

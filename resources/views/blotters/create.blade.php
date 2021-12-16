@@ -21,23 +21,7 @@
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-8">
                                     <div class="col-sm-12">
-                                        {{-- <div class="form-group">
-                                            <label>Person to Complain</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <i class="fas fa-user"></i>
-                                                    </div>
-                                                </div>
-                                                <select class="form-control" name = "person_to_complain" >
-                                                    <option disabled selected></option>
-                                                    @foreach ($residence as $resident)
-                                                    <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</option>     
-                                                    @endforeach                                       
-                                                  </select>
-                                                  <input type="text" class="form-control">
-                                            </div>
-                                        </div> --}}
+                                        
                                         <div class="form-group">
                                             <label>Complained Person/s</label>
                                             <select name = "resident_id[]"class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="width: 100%">

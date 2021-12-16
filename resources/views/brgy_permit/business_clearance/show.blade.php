@@ -18,8 +18,7 @@
                             </div>
                             <div class="card-body">
                                 <p><strong>  Business: </strong> {{ $business->business_name }}</p>
-                                <p><strong>  Business Owner: </strong> {{ $business->residence->last_name }},
-                                        {{ $business->residence->first_name }}</p>
+                                <p><strong>  Business Owner: </strong> {{$business->residence->last_name}}, {{$business->residence->first_name}}</p>
                                 <p><strong>  Business Address: </strong> {{ $business->business_address }}</p>
                                 <p><strong>  Business Type: </strong> Gulay Trading</p>
                             </div>
