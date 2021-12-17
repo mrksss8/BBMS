@@ -151,6 +151,13 @@ Route::get('/welcome', function(){
       Route::get('/show/{id}', [App\Http\Controllers\DiggingPermitController::class, 'show'])->name('digging_permit.show');
     });
 
+    Route::group(['prefix' => 'fencing_permit','middleware' => 'auth'], function(){
+      Route::get('/index', [App\Http\Controllers\FencingController::class, 'index'])->name('fencing_permit.index');
+      Route::get('/create', [App\Http\Controllers\FencingController::class, 'create'])->name('fencing_permit.create');
+      Route::post('/store', [App\Http\Controllers\FencingController::class, 'store'])->name('fencing_permit.store');
+      Route::get('/show/{id}', [App\Http\Controllers\FencingController::class, 'show'])->name('fencing_permit.show');
+    });
+
     //import
     Route::post('residence/import', [App\Http\Controllers\ResidenceImportController::class, 'import'])->name('importResidence');
 

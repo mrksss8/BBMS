@@ -2,12 +2,7 @@
 <html>
 <head>
 
-    <!-- My Custom Style -->
-    <style>
-        body{
-            font-family: 'Montserrat', sans-serif !important;
-        }
-    </style>
+    
 
             <!-- My Custom Import CSS -->
             @yield('data_tables_css')
@@ -52,6 +47,13 @@
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
     @yield('page_css')
     @yield('css')
+
+    <!-- My Custom Style -->
+    <style>
+        body{
+            font-family: 'Montserrat', sans-serif !important;
+        }
+    </style>
     
 </head>
 <body>
