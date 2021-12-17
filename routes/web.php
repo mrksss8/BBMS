@@ -142,8 +142,13 @@ Route::get('/welcome', function(){
       Route::get('/create', [App\Http\Controllers\FranchiseClearanceController::class, 'create'])->name('franchise_clearance.create');
       Route::post('/store', [App\Http\Controllers\FranchiseClearanceController::class, 'store'])->name('franchise_clearance.store');
       Route::get('/show/{id}', [App\Http\Controllers\FranchiseClearanceController::class, 'show'])->name('franchise_clearance.show');
-     
-      // Route::get('/clearance/{id}', [App\Http\Controllers\BusinessClearanceController::class, 'show_clearance'])->name('business_clearance.show_clearance');
+    });
+
+    Route::group(['prefix' => 'digging_permit','middleware' => 'auth'], function(){
+      Route::get('/index', [App\Http\Controllers\DiggingPermitController::class, 'index'])->name('digging_permit.index');
+      Route::get('/create', [App\Http\Controllers\DiggingPermitController::class, 'create'])->name('digging_permit.create');
+      Route::post('/store', [App\Http\Controllers\DiggingPermitController::class, 'store'])->name('digging_permit.store');
+      Route::get('/show/{id}', [App\Http\Controllers\DiggingPermitController::class, 'show'])->name('digging_permit.show');
     });
 
     //import

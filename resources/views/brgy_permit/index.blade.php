@@ -65,7 +65,7 @@ Brgy Permits
                         <div class="card-body">
                           <h5 class="card-title">Digging Permit Records</h5>
                           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="{{route('digging_permit.index')}}" class="btn btn-primary">Open Digging Permits Records</a>
                         </div>
                       </div>
                 </div>
