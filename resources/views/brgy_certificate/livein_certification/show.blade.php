@@ -8,7 +8,8 @@ Brgy Live-In Issuance
         <div class="section-header">
             <h3 class="page__heading">Brgy Live-In Certificate</h3>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-around">
+            <div style="border: 1px solid #6474ec;">
             <div class="certificate-container">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
@@ -20,7 +21,7 @@ Brgy Live-In Issuance
                             <p> BARANGAY BAYOG  </p>
                             
                             <div class="title-wrapper">
-                                <h1>SERTIPIKASYON NG PAGSASAMA</h1>
+                                <h1>Sertipikasyon ng Pagsasama</h1>
                             </div>
                         </div>
     
@@ -91,21 +92,18 @@ Brgy Live-In Issuance
                                         <p id="content">
                                             Ito ay pagpapatunay na sila <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
                                                 {{ $resident->last_name }} at {{ $partner }}</strong> nasa hustong taong gulang, residente ng <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna</strong> ay nagsasama bilang mag asawa.
-                                            Pagpapatunay pa din na sila ay nagsasama ng humigit kumulang <strong>{{$long}}</strong>  ng nagsama bilang mag asawa requirement para sa {{$purpose}}.                                                                                                                                                                      
+                                            Pagpapatunay pa din na sila ay nagsasama ng humigit kumulang <strong>{{$long}}</strong>  ng nagsama bilang mag asawa requirement para sa <strong>{{$purpose}}</strong>.                                                                                                                                                                      
                                
                                            
-                                        <P id="issue-for">
-                                            This certification is being issued upon the request of <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> for <strong><Strong>{{$purpose}}</Strong></strong>.
-                                        </P>
+                                        
                                         
                                         <p id="witness">
-                                            Given this <strong> {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
+                                            Ito ay pinagkaloob ngayong ika- <strong> {{ \Carbon\Carbon::today()->format(' jS l \\of F Y') }} </strong>
                                         </p>
     
                                        
                                         <p id="witness" style="margin-top: 70px;">
-                                            Certify By:
+                                            Pinatutunayan:
                                          </p>
                                     </div>
 
@@ -113,12 +111,17 @@ Brgy Live-In Issuance
                                     <div class="cap-sign-part">           
                                         <div class="cap-sign-wrapper">
                                             
-                                            <p>
-                                                <strong> HON. CRISANTO A. TANDANG </strong>
-                                            </p>
-                                            <p>
-                                                Barangay Chairman
-                                            </p>
+                                            @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Kgg.
+                                                        {{ $b_official->brgy_official_name }}</strong><br>
+                                                    Punong Barangay
+                                                </p>
+                                   
+                                            @endif
+                                     @endforeach
                                         </div>
                                     </div>
                                 </div>   
@@ -127,7 +130,8 @@ Brgy Live-In Issuance
                     </div>
                 </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
+            </div>
+            <div class="camera-container d-flex p-3"  style = "border: 1px solid #6474ec; ">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}
@@ -224,7 +228,7 @@ Brgy Live-In Issuance
         }
     
         .certificate-container {
-            width: 60vw;
+            width: 50vw;
             display: flex;
             justify-content: center;
             font-family: 'STIX Two Text', serif;
@@ -275,7 +279,9 @@ Brgy Live-In Issuance
     
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+            /* background-color: rgb(85, 197, 241); */
             border: 1px solid black;
             margin-right: 5px;
         }

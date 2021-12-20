@@ -20,7 +20,7 @@
         }
 
         .certificate-container {
-            width: 60vw;
+            width: 50vw;
             display: flex;
             justify-content: center;
             font-family: 'serif';
@@ -66,7 +66,8 @@
 
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+            /* background-color: rgb(85, 197, 241); */
             border: 1px solid black;
             margin-right: 5px;
         }
@@ -211,119 +212,126 @@
         <div class="section-header">
             <h3 class="page__heading">Brgy Indigency Certificate</h3>
         </div>
-        <div class="d-flex">
-            <div class="certificate-container">
-                <div class="page" style="width: 8.5in;" id="element-to-print">
-                    <div class="wrapper">
-                        <div class="header">
+        <div class="d-flex justify-content-around">
+            <div style = "border: 1px solid #6474ec;">
+                <div class="certificate-container">
+                    <div class="page" style="width: 8.3in;" id="element-to-print">
+                        <div class="wrapper">
+                            <div class="header">
 
-                            <p>REPUBLIC OF THE PHILIPPINES</p>
-                            <p> PROVINCE OF LAGUNA </p>
-                            <p>   MUNICIPLITY LOS BAÑOS </p>
-                            <p> BARANGAY BAYOG  </p>
+                                <p>REPUBLIC OF THE PHILIPPINES</p>
+                                <p> PROVINCE OF LAGUNA </p>
+                                <p>   MUNICIPLITY LOS BAÑOS </p>
+                                <p> BARANGAY BAYOG  </p>
 
-                            <div class="title-wrapper">
-                                <h3>SERTIPIKASYON NA NABIBILANG <br> SA MAHIHIRAP NA PAMILYA</h3>
-
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="officials" style="width: 2.75in;">
-                                <div class="official-wrapper">
-                                        <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
-                                        alt="brgy-bayog-logo" >
-                                    <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
-                                    @foreach ($b_officials as $b_official)
-
-                                        @if ($b_official->brgy_official_position == 'Barangay Chairman')
-                                            <p>
-                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
-                                                {{ $b_official->brgy_official_position }}
-                                            </p>
-
-                                            <p id="councelor-label">
-                                                <strong>COUNCILORS</strong><br>
-                                            </p>
-
-                                        
-                                        @elseif($b_official->brgy_official_position == 'Barangay Secretary')
-                                        <p>
-                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_role }}
-                                        </p>
-
-                                        @elseif($b_official->brgy_official_position == 'Barangay Treasurer')
-                                        <p>
-                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_role }}
-                                        </p>
-
-                                        @elseif($b_official->brgy_official_position == 'Barangay Clerk')
-                                        <p>
-                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_role }}
-                                        </p>
-
-                                        @else
-                                            <p>
-                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
-                                                {{ $b_official->brgy_official_role }}
-                                            </p>
-                                            
-                                        @endif
-
-                                    @endforeach
-
+                                <div class="title-wrapper">
+                                    <h3>SERTIPIKASYON NA NABIBILANG <br> SA MAHIHIRAP NA PAMILYA</h3>
 
                                 </div>
                             </div>
+                            <div class="body">
+                                <div class="officials" style="width: 2.75in;">
+                                    <div class="official-wrapper">
+                                            <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
+                                            alt="brgy-bayog-logo" >
+                                        <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
+                                        @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_position }}
+                                                </p>
+
+                                                <p id="councelor-label">
+                                                    <strong>COUNCILORS</strong><br>
+                                                </p>
+
+                                            
+                                            @elseif($b_official->brgy_official_position == 'Barangay Secretary')
+                                            <p>
+                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_role }}
+                                            </p>
+
+                                            @elseif($b_official->brgy_official_position == 'Barangay Treasurer')
+                                            <p>
+                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_role }}
+                                            </p>
+
+                                            @elseif($b_official->brgy_official_position == 'Barangay Clerk')
+                                            <p>
+                                                <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_role }}
+                                            </p>
+
+                                            @else
+                                                <p>
+                                                    <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_role }}
+                                                </p>
+                                                
+                                            @endif
+
+                                        @endforeach
 
 
-                            <div class="content" style="width: 5.55in;">
-                                <div class="content-wrapper">
-                                    <div class="top-part">
-                                        {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
-                                        <div id="resident-picture">
-                                            {{-- webcam video snapshot --}}
-                                            <canvas id="canvas" width="120" height="120"></canvas>
+                                    </div>
+                                </div>
+
+
+                                <div class="content" style="width: 5.55in;">
+                                    <div class="content-wrapper">
+                                        <div class="top-part">
+                                            {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
+                                            <div id="resident-picture">
+                                                {{-- webcam video snapshot --}}
+                                                <canvas id="canvas" width="120" height="120"></canvas>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="text-part">
-                                        <p id="content">
-                                            Ito ay nagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                            {{ $resident->last_name }}, {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}taong gulang </strong> ipinanganak noong
-                                        <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }} </strong> sa <strong> CAMARINE SUR </strong> at kasalukuyang nakatira sa Tagpuan St., Bayog, Los
-                                            Baños, Laguna ay nabibilang sa mahihirap na pamilya sa aming Barangay at walang
-                                            pirmihang pinagkakakitaan.
-                                        <P id="issue-for">
-                                            Ang pagpapatunay na ito ay para sa kahilingan ni
-                                            <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> para magamit bilang requirement sa
-                                            <strong style="text-transform:uppercase;">{{ $purpose }}</strong>.
-                                        </P>
+                                        <div class="text-part">
+                                            <p id="content">
+                                                Ito ay nagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
+                                                {{ $resident->last_name }}, {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}taong gulang </strong> ipinanganak noong
+                                            <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }} </strong> sa <strong> CAMARINE SUR </strong> at kasalukuyang nakatira sa Tagpuan St., Bayog, Los
+                                                Baños, Laguna ay nabibilang sa mahihirap na pamilya sa aming Barangay at walang
+                                                pirmihang pinagkakakitaan.
+                                            <P id="issue-for">
+                                                Ang pagpapatunay na ito ay para sa kahilingan ni
+                                                <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
+                                                    {{ $resident->last_name }}</strong> para magamit bilang requirement sa
+                                                <strong style="text-transform:uppercase;">{{ $purpose }}</strong>.
+                                            </P>
 
-                                        <p id="witness">
-                                            Ipinagkaloob ngayong <strong>
-                                                {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
-                                        </p>
-
-
-                                        <p id="witness" style="margin-top: 70px;">
-                                            Pinatutunayan
-                                        </p>
-                                    </div>
-
-
-                                    <div class="cap-sign-part">
-                                        <div class="cap-sign-wrapper">
-
-                                            <p>
-                                                <strong> CRISANTO A. TANDANG </strong>
+                                            <p id="witness">
+                                                Ipinagkaloob ngayong <strong>
+                                                    {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
                                             </p>
-                                            <p>
-                                                Barangay Chairman
+
+
+                                            <p id="witness" style="margin-top: 70px;">
+                                                Pinatutunayan
                                             </p>
+                                        </div>
+
+
+                                        <div class="cap-sign-part">
+                                            <div class="cap-sign-wrapper">
+
+                                                @foreach ($b_officials as $b_official)
+
+                                                @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                    <p>
+                                                        <strong>Kgg.
+                                                            {{ $b_official->brgy_official_name }}</strong><br>
+                                                        Punong Barangay
+                                                    </p>
+                                       
+                                                @endif
+                                         @endforeach
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -331,8 +339,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="camera-container d-flex justify-content-center mt-5 border border-dark p-3">
+        </div>
+            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}

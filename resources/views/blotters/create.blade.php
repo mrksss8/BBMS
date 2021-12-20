@@ -11,7 +11,7 @@
         <div class="section-body">
             <div class="card">
                 <div class="card-body">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header">
                             <h4>Blotters Information</h4>
                         </div>

@@ -9,9 +9,10 @@
         <div class="section-header">
             <h3 class="page__heading">Brgy Residency Certificate</h3>
         </div>
-        <div class="d-flex">
-            <div class="certificate-container">
-                <div class="page" style="width: 8.5in;" id="element-to-print">
+        <div class="d-flex justify-content-around">
+            <div style="border: 1px solid #6474ec;">
+             <div class="certificate-container">
+                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">
 
@@ -100,12 +101,17 @@
                                     <div class="cap-sign-part">
                                         <div class="cap-sign-wrapper">
 
-                                            <p>
-                                                <strong> KGG. CRISANTO A. TANDANG </strong>
-                                            </p>
-                                            <p>
-                                                Punong Barangay
-                                            </p>
+                                            @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Kgg.
+                                                        {{ $b_official->brgy_official_name }}</strong><br>
+                                                    Punong Barangay
+                                                </p>
+                                   
+                                            @endif
+                                     @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +121,8 @@
                     </div>
                 </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
+            </div>
+            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}
@@ -149,7 +156,7 @@
                     },
                     jsPDF: {
                         unit: 'in',
-                        format: 'letter',
+                        format: 'a4',
                         orientation: 'portrait'
                     }
                 };
@@ -214,7 +221,7 @@
         }
 
         .certificate-container {
-            width: 60vw;
+            width: 50vw;
             display: flex;
             justify-content: center;
             font-family: 'STIX Two Text', serif;
@@ -228,7 +235,9 @@
         }
 
         /* wrapper */
-        .wrapper {}
+        .wrapper {
+            margin-top: 30px;
+        }
 
         .title-wrapper {
             margin: 20px 10px 0px 10px;
@@ -263,7 +272,8 @@
 
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+            /* background-color: rgb(85, 197, 241); */
             border: 1px solid black;
             margin-right: 5px;
         }

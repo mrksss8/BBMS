@@ -1,19 +1,17 @@
 @extends('layouts.app')
 @section('title')
-    Residence Registration
+    Residents Registration
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Residence Registration</h3>
+            <h3 class="page__heading">Residents Registration</h3>
         </div>
         <div class="section-body">
-            <div class="card">
-                <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card" style = "border: 1px solid #6474ec;">
                                 <div class="card-body">
 
                                     <div class="row">
@@ -320,8 +318,7 @@
                     <input type="hidden"  name="image" class="image-tag">
                     
                 </div> --}}
-        </div>
-        </div>
+
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
         <script language="JavaScript">

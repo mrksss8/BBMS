@@ -18,8 +18,8 @@
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
-                            <div class="card profile-widget">
-                                <div class="profile-widget-header d-flex justify-content-center p-5">
+                            <div class="card profile-widget" style = "border: 1px solid #6474ec;">
+                                <div class="profile-widget-header d-flex justify-content-center  px-5 pt-5">
 
 
 
@@ -28,7 +28,7 @@
 
                                 </div>
                                 <div class="profile-widget-description">
-                                    <div class="profile-widget-name">{{ $resident->last_name }}
+                                    <div class="profile-widget-name text-center mb-4" >{{ $resident->last_name }}
                                         {{ $resident->first_name }}
                                         {{ $resident->middle_name }} <div class="text-muted d-inline font-weight-normal">
                                             <div class="slash"></div>{{ $resident->occupation }}
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="col-12 col-md-12 col-lg-6">
-                            <div class="card mt-4">
+                            <div class="card"  style = "border: 1px solid #6474ec; margin-top: 35px;">
                                 <div class="card-header">
                                     <h4> Requesting for </h4>
                                 </div>

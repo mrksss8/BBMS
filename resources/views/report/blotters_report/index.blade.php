@@ -35,7 +35,11 @@
                                         @foreach ($blotters as $blotter)
                                         <tr>
                                             <td>{{$blotter->id}}</td>
-                                            <td>{{$blotter->residence->last_name}} {{$blotter->residence->first_name}} {{$blotter->residence->middle_name}}</td>
+                                            <td>
+                                            @foreach ($blotter->residents as $resident)
+                                            {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}, 
+                                            @endforeach
+                                            </td>
                                             <td>{{$blotter->Blotters_info}}</td>
                                             <td>{{$blotter->complainant_name}}</td>
                                             <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>

@@ -33,20 +33,38 @@ class DashboardController extends Controller
         $senior_Cnt = 0;
         $senior_pwd_Cnt = 0;
         $senior_notpwd_Cnt = 0;
-        
+        $senior_and_pwd_total_cnt = 0;
+
+        $PWD_Cnt_two = 0;
+
         foreach($residence as $resident){
             if (\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60){
 
                 $senior_Cnt = $senior_Cnt +1;
-
                 if($resident->pwd == 'No'){
                     $senior_notpwd_Cnt = $senior_notpwd_Cnt + 1;
+                    
                 } 
                 elseif($resident->pwd == 'Yes'){
                     $senior_pwd_Cnt = $senior_pwd_Cnt + 1;
                 }
             }  
+
+            else{
+
+                if($resident->pwd == 'Yes'){
+
+                    $PWD_Cnt_two = $PWD_Cnt_two + 1;
+                    
+                } 
+                
+            }
+
+            $senior_and_pwd_total_cnt =  $PWD_Cnt_two + $senior_Cnt;
+           
         }
+
+        
 
         $blotters = Blotter::all();
         $total_blotters = 0;
@@ -66,6 +84,6 @@ class DashboardController extends Controller
             
         }
 
-        return view('dashboard.index', compact('total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','total_blotters','unsettled_blotters','settled_blotters','b_officials'));
+        return view('dashboard.index', compact('total_res','female_Cnt','male_Cnt', 'total_business','PWD_Cnt', 'fourPs', 'TUPAD_Cnt', 'senior_Cnt','senior_pwd_Cnt','senior_notpwd_Cnt','senior_and_pwd_total_cnt','PWD_Cnt_two','total_blotters','unsettled_blotters','settled_blotters','b_officials'));
     }
 }

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Residence Profile
+    Residents Profile
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Residence Profile</h3>
+            <h3 class="page__heading">Residents Profile</h3>
         </div>
         <div class="section-body">
 
@@ -16,7 +16,7 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-8">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-center px-5 pt-5">
                             <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
                                 width="300px">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header justify-content-center">
                             <h5>Issue Certification</h5>
 
@@ -122,14 +122,15 @@
                             <a href="{{ route('brgy_goodmoral.create', $resident->id) }}"
                                 class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Good Moral Certification
                             </a>
+                            <a href="{{ route('brgy_live-in.create', $resident->id) }}"
+                                class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Live In Certification
+                            </a>
+                            <a href="{{ route('brgy_income.create', $resident->id) }}"
+                                class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Income Certification
+                            </a>
                             <a href="{{ route('brgy_puipum.create', $resident->id) }}"
                                 class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> PUI - PUM Certification
                             </a>
-                            <a href="{{ route('brgy_live-in.create', $resident->id) }}"
-                                class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Live In
-                                Certification</a>
-                            <a href="{{ route('brgy_income.create', $resident->id) }}"
-                                class="btn btn-outline-primary my-2"><i class="far fa-edit"></i> Income Certification</a>
                         </div>
                     </div>
 

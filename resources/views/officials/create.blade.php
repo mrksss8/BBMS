@@ -151,7 +151,7 @@
                                                 placeholder="Councelor 6 Name" name="bc6_name"></h5>
                                         <p class="mb-3 mt-1"><input type="text" class="form-control"
                                                 placeholder="Role" name="bc6_role"></p>
-                                        <input type="file" name="img" class="form-control phone-number">
+                                    
                                     </div>
                                 </div>
                             </div>
@@ -226,15 +226,16 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-4">
                             <div class="card radius-15">
                                 <div class="card-body text-center p-3">
                                     <div class="p-3 border radius-15">
-                                        
+                                       
                                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="110"
                                         height="110" class="rounded-circle shadow" alt="avatar" id="bclerk_img-tag">
                                         <input id="bclerk_img" type="file" class="form-control" name="bclerk_img">
-                                        
+
                                         <h5 class="mb-0 mt-3"><input type="text" class="form-control"
                                                 placeholder="Brgy Clerk Name" name="bclerk_name"></h5>
                                        
@@ -242,6 +243,7 @@
                                 </div>
                             </div>
                         </div>
+                       
                     </div>
                     <div class=" d-flex justify-content-center pt-5 pb-2">
                         <button type="submit" class="btn btn-icon icon-left btn-success mr-3"><i
@@ -253,24 +255,10 @@
         </div>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-        {{-- <script>
-           function readURL(input){
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#bcap_img-tag').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#bcap_img").change(function() {
-                readURL(this);
-            });
-        </script> --}}
         <script>
-             $(function () {
+            
+        $(function () {
+
         $("#bcap_img").change(function () {
             readURLForBrgyCaptain(this);
         });
@@ -315,9 +303,10 @@
             readURLForbtres(this);
         });
 
-        $("#bclrek_img").change(function () {
-            readURLForbclrek(this);
+        $("#bclerk_img").change(function () {
+            readURLForbclerk(this);
         });
+  
     });
 
 
@@ -477,12 +466,7 @@
         }
     }
     
-    
     </script>
-
-        
-
-
 
     </section>
 

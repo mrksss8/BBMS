@@ -8,7 +8,8 @@ Brgy Income Issuance
         <div class="section-header">
             <h3 class="page__heading">Brgy Income Certificate</h3>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-around">
+            <div style="border: 1px solid #6474ec;">
             <div class="certificate-container">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
@@ -111,12 +112,17 @@ Brgy Income Issuance
                                     <div class="cap-sign-part">           
                                         <div class="cap-sign-wrapper">
                                             
-                                            <p>
-                                                <strong> HON. CRISANTO A. TANDANG </strong>
-                                            </p>
-                                            <p>
-                                                Barangay Chairman
-                                            </p>
+                                            @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Kgg.
+                                                        {{ $b_official->brgy_official_name }}</strong><br>
+                                                    Punong Barangay
+                                                </p>
+                                   
+                                            @endif
+                                     @endforeach
                                         </div>
                                     </div>
                                 </div>   
@@ -125,7 +131,8 @@ Brgy Income Issuance
                     </div>
                 </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
+            </div>
+            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}
@@ -224,7 +231,7 @@ Brgy Income Issuance
         }
     
         .certificate-container {
-            width: 60vw;
+            width:50vw;
             display: flex;
             justify-content: center;
             font-family: 'STIX Two Text', serif;
@@ -271,7 +278,8 @@ Brgy Income Issuance
     
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            /* background-color: rgb(85, 197, 241); */
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
             border: 1px solid black;
             margin-right: 5px;
         }
@@ -400,7 +408,7 @@ Brgy Income Issuance
     
         .cap-sign-part .cap-sign-wrapper {
             text-align: center;
-            margin-right: 60px;
+            margin-right: 50px;
             line-height: 17px;
         }
     

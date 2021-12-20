@@ -11,7 +11,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents General Analytics</h4>
@@ -31,7 +31,7 @@
 
         <div class="row">
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents By Age
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents with Membership Program
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents By Purok
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Students By Purok
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Senior By Purok
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>PWD by Purok
@@ -133,7 +133,7 @@
                     </div>
                 </div>                
                 <div class="col-lg-6">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>4ps Member By Purok
@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Tupad Member By Purok
@@ -158,7 +158,7 @@
                             </div>
                         </div>
 
-                        <div class="card-body p-1">
+                        <div class="card-body p-1" >
                             <canvas id="TUPADPerPurok"></canvas>
                         </div>
                         <div class="card-footer">
@@ -345,7 +345,7 @@
         <script>
             var ctx = document.getElementById('studentPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -392,7 +392,7 @@
         <script>
             var ctx = document.getElementById('seniorPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -439,7 +439,7 @@
         <script>
             var ctx = document.getElementById('pwdPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -487,7 +487,7 @@
         <script>
             var ctx = document.getElementById('4psPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [
@@ -535,7 +535,7 @@
         <script>
             var ctx = document.getElementById('TUPADPerPurok').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     datasets: [{
                         data: [

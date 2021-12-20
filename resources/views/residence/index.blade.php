@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Residence
+    Residents
 @endsection
 
 @section('data_tables_css')
@@ -41,22 +41,22 @@
 
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Residence</h3>
+            <h3 class="page__heading">Residents Record</h3>
         </div>
         <div class="section-body">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
-                                <h4>List of Residence</h4>
+                                <h4>List of Residents</h4>
                             </div>
                             <div class="mr-5">
                                 <a href="{{ route('residence.import') }}" class="btn btn-outline-primary mr-3"><i
-                                        class="far fa-edit"></i> Import Residence </a>
+                                        class="far fa-edit"></i> Import Residents </a>
                                 <a href="{{ route('residence.create') }}" class="btn btn-outline-primary mr-3"><i
-                                        class="far fa-edit"></i> Register Residence </a>
+                                        class="far fa-edit"></i> Register Resident </a>
                             </div>
                         </div>
 
@@ -67,12 +67,11 @@
                                         <tr>
                                             <th>View</th>
                                             <th>Image</th>
-                                            <th>Last Name</th>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
+                                            <th>Full Name</th>
                                             <th>Gender</th>
                                             <th>Birthday</th>
                                             <th>Age</th>
+                                            <th>Address</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -91,14 +90,13 @@
                                                         <img src="{{ $residence->path }}">
                                                     </figure>
                                                 </td>
-                                                <td>{{ $residence->last_name }}</td>
-                                                <td>{{ $residence->first_name }}</td>
-                                                <td>{{ $residence->middle_name }}</td>
+                                                <td>{{ $residence->last_name }} {{ $residence->first_name }} {{ $residence->middle_name }}</td>
                                                 <td>{{ $residence->gender }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->format('F d, Y') }}
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                 </td>
+                                                <td>{{$residence->house_number }} {{$residence->street }}, Purok{{$residence->purok }}, Bayog<br></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

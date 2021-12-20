@@ -21,7 +21,7 @@ class ReportController extends Controller
     }
 
     public function blotters_report(){
-        $blotters = Blotter::all();
+        $blotters = Blotter::with('residents')->get();
         return view('report.blotters_report.index',compact('blotters'));
     }
     

@@ -23,12 +23,12 @@
                     @if ($b_official->brgy_official_position == 'Barangay Chairman')
                         <div class="row d-flex justify-content-center">
                             <div class="col-4">
-                                <div class="card radius-15">
+                                <div class="card radius-15" style = "border: 1px solid #6474ec;">
                                     <div class="card-body text-center p-3">
-                                        <div class="p-3 border radius-15">
+                                        <div class="p-3">
                                             <img src="{{ $b_official->path }}" width="110"
                                                 height="110" class="rounded-circle shadow" alt="">
-                                            <h5 class="mb-0 mt-3">{{ $b_official->brgy_official_name }}</h5>
+                                            <h5 class="mb-0 mt-3">Hon. {{ $b_official->brgy_official_name }}</h5>
                                             <p class="mb-3">{{ $b_official->brgy_official_role }}</p>
                                             <p class="mb-1">{{ $b_official->brgy_official_position }}</p>
                                         </div>
@@ -44,12 +44,12 @@
                     @foreach ($b_officials as $b_official)
                         @if ($b_official->brgy_official_position != 'Barangay Chairman')
                             <div class="col-4">
-                                <div class="card radius-15">
+                                <div class="card radius-15" style = "border: 1px solid #6474ec;">
                                     <div class="card-body text-center p-3">
-                                        <div class="p-3 border radius-15">
+                                        <div class="p-3">
                                             <img src="{{ $b_official->path }}" width="110"
                                                 height="110" class="rounded-circle shadow" alt="">
-                                            <h5 class="mb-0 mt-3">{{ $b_official->brgy_official_name }}</h5>
+                                            <h5 class="mb-0 mt-3">Hon. {{ $b_official->brgy_official_name }}</h5>
                                             <p class="mb-3">{{ $b_official->brgy_official_role }}</p>
                                             <p class="mb-1">{{ $b_official->brgy_official_position }}</p>
                                         </div>

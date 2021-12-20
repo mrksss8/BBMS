@@ -8,8 +8,9 @@ Brgy Good Moral Issuance
         <div class="section-header">
             <h3 class="page__heading">Brgy Good Moral Certificate</h3>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-around">
             <div class="certificate-container">
+                <div style="border: 1px solid #6474ec;">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">  
@@ -107,13 +108,17 @@ Brgy Good Moral Issuance
 
                                     <div class="cap-sign-part">           
                                         <div class="cap-sign-wrapper">
-                                            
-                                            <p>
-                                                <strong> HON. CRISANTO A. TANDANG </strong>
-                                            </p>
-                                            <p>
-                                                Barangay Chairman
-                                            </p>
+                                            @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Hon.
+                                                        {{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_position }}
+                                                </p>
+                                   
+                                            @endif
+                                        @endforeach
                                         </div>
                                     </div>
                                 </div>   
@@ -122,8 +127,9 @@ Brgy Good Moral Issuance
 
                     </div>
                 </div>
+                </div>
             </div>
-            <div class="camera-container d-flex mt-5 border border-dark p-3">
+            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}
@@ -205,9 +211,11 @@ Brgy Good Moral Issuance
         </script>
     </section>
     <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
         p {
             color: black;
-            font-family: 'STIX Two Text', serif;
+            font-family: 'Tinos', serif;
             
             padding: 0;
             margin: 0;
@@ -220,7 +228,7 @@ Brgy Good Moral Issuance
         }
     
         .certificate-container {
-            width: 60vw;
+            width: 50vw;
             display: flex;
             justify-content: center;
             font-family: 'STIX Two Text', serif;
@@ -268,7 +276,9 @@ Brgy Good Moral Issuance
     
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+
+            /* background-color: rgb(85, 197, 241); */
             border: 1px solid black;
             margin-right: 5px;
         }
