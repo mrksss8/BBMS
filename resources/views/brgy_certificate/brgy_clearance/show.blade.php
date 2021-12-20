@@ -192,11 +192,14 @@
     </section>
 
     <style>
+  @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
+      
         p {
             color: black;
-            font-family: 'STIX Two Text', serif;
+            font-family: 'Tinos', serif;
             padding: 0;
             margin: 0;
+           
         }
 
         .screen {
@@ -208,7 +211,6 @@
             width: 60vw;
             display: flex;
             justify-content: center;
-            font-family: 'STIX Two Text', serif;
             color: black;
         }
 
@@ -226,7 +228,7 @@
         }
 
         .title-wrapper h1 {
-            font-family: 'STIX Two Text', serif;
+            font-family: 'serif';
         }
 
         /* header */

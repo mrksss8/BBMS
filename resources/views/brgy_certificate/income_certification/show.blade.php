@@ -10,44 +10,68 @@ Brgy Income Issuance
         </div>
         <div class="d-flex">
             <div class="certificate-container">
-                <div class="page" style="width: 8.5in;" id="element-to-print">
+                <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">
     
-                            <p>REPUBLIC OF THE PHILIPPINES <br>
-                                PROVINCE OF LAGUNA <br>
-                                MUNICIPLITY LOS BAÑOS <br>
-                                BARANGAY BAYOG <br>
-                            </p>
+                            <p>REPUBLIC OF THE PHILIPPINES</p>
+                            <p> PROVINCE OF LAGUNA </p>
+                            <p>   MUNICIPLITY LOS BAÑOS </p>
+                            <p> BARANGAY BAYOG  </p>
+                            
                             <div class="title-wrapper">
                                 <h1>Barangay Income Certificate</h1>
                             </div>
                         </div>
        
                         <div class="body">
-                            <div class="officials" style="width: 2.95in;">
+                            <div class="officials" style="width: 2.75in;">
                                 <div class="official-wrapper">
-                                    <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
+                                        <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
+                                        alt="brgy-bayog-logo" >
+                                    <p style = "margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
                                     @foreach ($b_officials as $b_official)
 
-                                    @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                        @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                            <p>
+                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_position }}
+                                            </p>
+
+                                            <p id="councelor-label">
+                                                <strong>COUNCILORS</strong><br>
+                                            </p>
+
+                                        
+                                        @elseif($b_official->brgy_official_position == 'Barangay Secretary')
                                         <p>
                                             <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_position }}
+                                            {{ $b_official->brgy_official_role }}
                                         </p>
 
-                                        <p id="councelor-label">
-                                            <strong>COUNCILORS</strong><br>
-                                        </p>
-
-                                    @else
+                                        @elseif($b_official->brgy_official_position == 'Barangay Treasurer')
                                         <p>
                                             <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_position }}
+                                            {{ $b_official->brgy_official_role }}
                                         </p>
-                                    @endif
 
-                                @endforeach
+                                        @elseif($b_official->brgy_official_position == 'Barangay Clerk')
+                                        <p>
+                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                            {{ $b_official->brgy_official_role }}
+                                        </p>
+
+                                        @else
+                                            <p>
+                                                <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                {{ $b_official->brgy_official_role }}
+                                            </p>
+                                            
+                                        @endif
+
+                                    @endforeach
+
+
                                 </div>
                             </div>
     
@@ -135,7 +159,7 @@ Brgy Income Issuance
                     },
                     jsPDF: {
                         unit: 'in',
-                        format: 'letter',
+                        format: 'a4',
                         orientation: 'portrait'
                     }
                 };
@@ -184,9 +208,11 @@ Brgy Income Issuance
     </script>
     </section>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
         p {
+            
             color: black;
-            font-family: 'STIX Two Text', serif;
+            font-family: 'Tinos', serif;
             padding: 0;
             margin: 0;
         }
@@ -212,10 +238,12 @@ Brgy Income Issuance
         }
     
         /* wrapper */
-        .wrapper {}
+        .wrapper {
+            margin-top: 30px; 
+         }
     
-        .title-wrapper {
-            margin: 0 10px;
+         .title-wrapper {
+            margin: 20px 10px 0px 10px;
         }
     
         .title-wrapper h1{
@@ -225,6 +253,7 @@ Brgy Income Issuance
         /* header */
         .header p {
             text-align: center;
+            line-height: 18px;
         }
     
         .header h1 {
@@ -256,11 +285,16 @@ Brgy Income Issuance
             height: auto;
         }
     
+        
         .officials p {
             padding-top: 6px;
             line-height: 20px;
-            font-size: 15px;
+
+
+            font-size: 16px;
+            margin-bottom: 10px;
         }
+
     
         #councelor-label{
             margin-bottom: 0;

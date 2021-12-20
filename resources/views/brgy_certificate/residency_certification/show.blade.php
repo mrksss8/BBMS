@@ -199,9 +199,10 @@
     </section>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
         p {
             color: black;
-            font-family: 'STIX Two Text', serif;
+            font-family: 'Tinos', serif;
             padding: 0;
             margin: 0;
         }
@@ -230,7 +231,7 @@
         .wrapper {}
 
         .title-wrapper {
-            margin: 0 10px;
+            margin: 20px 10px 0px 10px;
         }
 
         .title-wrapper h1 {
@@ -283,6 +284,7 @@
             font-size: 16px;
             margin-bottom: 10px;
         }
+  
 
         #councelor-label {
             margin-bottom: 0;

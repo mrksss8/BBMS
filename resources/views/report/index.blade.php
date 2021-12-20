@@ -14,7 +14,7 @@
             <div class = "row" style="display:flex; justify-content: space-evenly;">
 
                     <div class="">
-                        <a href="{{ route('residents.report') }}">
+                        <a href="{{ route('residents.report') }}" target="_blank">
                             <div class="card text-center"
                                 style="width: 18rem; border: 5px solid rgba(103,119,239,255); border-radius: 25px;">
                                 <div class="card-body  d-flex justify-content-center flex-column align-items-center">
