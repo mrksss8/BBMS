@@ -15,10 +15,10 @@
 
         </div>
         <div class="section-body">
-
-            {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css"> --}}
-
+            @foreach ($b_officials_batch_ids as $b_officials_batch_id)
+            
             <div class="container">
+                <h2 class = "text-center mb-5 bgcolor-primary">Barangay Officials of {{$b_officials_batch_id->batch_id}}</h2>
                 @foreach ($b_officials as $b_official)
                     @if ($b_official->brgy_official_position == 'Barangay Chairman')
                         <div class="row d-flex justify-content-center">
@@ -38,7 +38,6 @@
                         </div>
                     @endif
                 @endforeach
-
 
                 <div class="row d-flex justify-content-center">
                     @foreach ($b_officials as $b_official)
@@ -68,5 +67,10 @@
                 @endif
                
             </div>
+            @endforeach
+            
+
+           
+
     </section>
 @endsection

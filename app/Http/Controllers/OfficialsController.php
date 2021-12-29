@@ -11,22 +11,11 @@ class OfficialsController extends Controller
 
         $latest_id= Officials::max('batch_id');
         $b_officials= Officials::where('batch_id',$latest_id)->get();
+        $b_officials_batch_ids = Officials::orderby('batch_id','Desc')->distinct()->get(['batch_id']);
 
-        return view('officials.index', compact('b_officials'));
+        return view('officials.index', compact('b_officials','b_officials_batch_ids'));
 
-        //$b_cap = Officials::where('brgy_official_position','Barangay Chairman')->first();
-        // $b_councelor1 = Officials::where('brgy_official_position','Councilor 1')->first();
-        // $b_councelor2 = Officials::where('brgy_official_position','Councilor 2')->first();
-        // $b_councelor3 = Officials::where('brgy_official_position','Councilor 3')->first();
-        // $b_councelor4 = Officials::where('brgy_official_position','Councilor 4')->first();
-        // $b_councelor5 = Officials::where('brgy_official_position','Councilor 5')->first();
-        // $b_councelor6 = Officials::where('brgy_official_position','Councilor 6')->first();
-        // $b_councelor7 = Officials::where('brgy_official_position','Councilor 7')->first();
-        // $b_sk = Officials::where('brgy_official_position','SK Chairperson')->first();
-        // $b_sec = Officials::where('brgy_official_position','Barangay Secretary')->first();
-        // $b_tres = Officials::where('brgy_official_position','Barangay Treasurer')->first();
-        // $b_clerk = Officials::where('brgy_official_position','Barangay Clerk')->first();
-        // return view('officials.index', compact('b_cap','b_councelor1','b_councelor2','b_councelor3','b_councelor4','b_councelor5','b_councelor6' ,'b_councelor7', 'b_sk', 'b_sec' , 'b_tres', 'b_clerk'));
+       
     }
 
     public function edit(){
@@ -193,7 +182,7 @@ class OfficialsController extends Controller
         $batch_id = $request->batch_id;
 
         $officials = [
-            ['brgy_official_name' => $request->bcap_name, 'brgy_official_position' => 'Barangay Chairman', 'brgy_official_role' =>'cap', 'path' =>'/storage/'.$bcap_path, 'img' => $bcap_imageName, 'batch_id' => $batch_id,],
+            ['brgy_official_name' => $request->bcap_name, 'brgy_official_position' => 'Barangay Chairman', 'brgy_official_role' =>'Barangay Chairman', 'path' =>'/storage/'.$bcap_path, 'img' => $bcap_imageName, 'batch_id' => $batch_id,],
             ['brgy_official_name' => $request->bc1_name, 'brgy_official_position' => 'Brgy Councelor 1', 'brgy_official_role' =>$request->bc1_role, 'path' =>'/storage/'.$bc1_path, 'img' => $bc1_imageName, 'batch_id' => $batch_id,],
             ['brgy_official_name' => $request->bc2_name, 'brgy_official_position' => 'Brgy Councelor 2', 'brgy_official_role' =>$request->bc2_role, 'path' =>'/storage/'.$bc2_path, 'img' => $bc2_imageName, 'batch_id' => $batch_id,],
             ['brgy_official_name' => $request->bc3_name, 'brgy_official_position' => 'Brgy Councelor 3', 'brgy_official_role' =>$request->bc3_role, 'path' =>'/storage/'.$bc3_path, 'img' => $bc3_imageName, 'batch_id' => $batch_id,],
@@ -203,9 +192,9 @@ class OfficialsController extends Controller
             ['brgy_official_name' => $request->bc7_name, 'brgy_official_position' => 'Brgy Councelor 7', 'brgy_official_role' =>$request->bc7_role, 'path' =>'/storage/'.$bc7_path, 'img' => $bc7_imageName, 'batch_id' => $batch_id,],
 
             ['brgy_official_name' => $request->bsk_name, 'brgy_official_position' => 'SK Chairperson', 'brgy_official_role' =>$request->bsk_role, 'path' =>'/storage/'.$bsk_path, 'img' => $bsk_imageName, 'batch_id' => $batch_id,],
-            ['brgy_official_name' => $request->bsec_name, 'brgy_official_position' => 'Brgy Secretary', 'brgy_official_role' =>$request->bsec_role, 'path' =>'/storage/'.$bsec_path, 'img' => $bsec_imageName, 'batch_id' => $batch_id,],
-            ['brgy_official_name' => $request->btres_name, 'brgy_official_position' => 'Brgy Treasurer', 'brgy_official_role' =>$request->tres_role, 'path' =>'/storage/'.$btres_path, 'img' => $btres_imageName, 'batch_id' => $batch_id,],
-            ['brgy_official_name' => $request->bclerk_name, 'brgy_official_position' => 'Brgy Clerk', 'brgy_official_role' =>$request->bclerk_role, 'path' =>'/storage/'.$bclerk_path, 'img' => $bclerk_imageName, 'batch_id' => $batch_id,],
+            ['brgy_official_name' => $request->bsec_name, 'brgy_official_position' => 'Brgy Secretary', 'brgy_official_role' =>'Brgy Secretary', 'path' =>'/storage/'.$bsec_path, 'img' => $bsec_imageName, 'batch_id' => $batch_id,],
+            ['brgy_official_name' => $request->btres_name, 'brgy_official_position' => 'Brgy Treasurer', 'brgy_official_role' =>'Brgy Treasurer', 'path' =>'/storage/'.$btres_path, 'img' => $btres_imageName, 'batch_id' => $batch_id,],
+            ['brgy_official_name' => $request->bclerk_name, 'brgy_official_position' => 'Brgy Clerk', 'brgy_official_role' =>'Brgy Clerk', 'path' =>'/storage/'.$bclerk_path, 'img' => $bclerk_imageName, 'batch_id' => $batch_id,],
           ];
 
         Officials::insert($officials);

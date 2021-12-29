@@ -17,7 +17,7 @@
                     @csrf
                     <div class="row d-flex justify-content-end">
                         <div class="col-4">
-                            <input type="text" class="form-control" placeholder="Elected Year" name="batch_id" >
+                            <input type="text" class="form-control" placeholder="Elected Year" name="batch_id" required >
                             <br>
                         </div>
                     </div>
