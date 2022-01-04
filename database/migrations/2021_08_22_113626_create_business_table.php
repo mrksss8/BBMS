@@ -21,6 +21,8 @@ class CreateBusinessTable extends Migration
 
             $table->unsignedBigInteger('business_owner_id');
             $table->foreign('business_owner_id')->references('id')->on('residents');
+            
+            $table->string('business_number');
             $table->string('business_name');
             $table->string('business_address');
             $table->string('business_type')->nullable();

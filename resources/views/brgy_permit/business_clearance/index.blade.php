@@ -14,28 +14,10 @@
         </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                          <div>
-                          <h4>Notice</h4>
-                          </div>
-                        </div>
+                
+                   
 
-                          <div class="card-body d-flex">
-                            <div class="card border border-danger mb-3 mr-3" style="max-width: 18rem;">
-                                <div class="card-header">No. of Expired Business Clearance</div>
-                                <div class="card-body border-top border-danger text-danger">
-                                  <h2 class = "text-danger text-center">{{$expired_business}}</h2>
-                                </div>
-                              </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card">
+                    <div class="card" style="border: 1px solid #6474ec;">
                       <div class="card-header d-flex justify-content-between mb-4">
                         <div>
                         <h4>List of Business</h4>
@@ -50,7 +32,8 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th> View</th>
+                                            <th>Business Number</th>
                                             <th>
                                                 Business Owner
                                             </th>
@@ -77,6 +60,9 @@
                                                     class="btn btn-primary btn-sm"><i class="fas fa-file-alt"></i>
                                                     View</a>
 
+                                            </td>
+                                            <td>
+                                                {{$business->business_number}}
                                             </td>
                                             <td>
                                                 {{$business->residence->last_name}}, {{$business->residence->first_name}}   {{$business->residence->middle_name}}    

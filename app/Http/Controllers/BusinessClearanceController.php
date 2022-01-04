@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Business;
 use App\Model\Resident;
 use App\model\Officials;
+use Carbon\Carbon;
 
 class BusinessClearanceController extends Controller
 {
@@ -30,7 +31,17 @@ class BusinessClearanceController extends Controller
     }
 
     public function store_business(Request $request){
+
+        $year = Carbon::now()->year;  
+        $business_cnt = Business::all()->count();
+
+        $business_cnt =  $business_cnt + 1;    
+        $business_number = $year . '- BAYOG -' . $business_cnt;
+
+
+        
             $business = new Business;     
+            $business->business_number = $business_number;
             $business->business_owner_id = $request->business_owner;
             $business->business_name = $request->business_name;
             $business->business_address = $request->business_address;
@@ -51,13 +62,17 @@ class BusinessClearanceController extends Controller
     }
 
 
-    public function show_clearance($id){
+    public function show_clearance($id, Request $request){
+      
         // officials
         $latest_id= Officials::max('batch_id');
         $b_officials= Officials::where('batch_id',$latest_id)->get();
         //
 
         $business = Business::with('residence')->findOrfail($id);  
-        return view('brgy_permit.business_clearance.clearance',compact('business', 'b_officials')); 
+
+        $amount = $request->amount;
+        $or_number = $request->or_number;
+        return view('brgy_permit.business_clearance.clearance',compact('business', 'b_officials','amount', 'or_number')); 
     }
 }

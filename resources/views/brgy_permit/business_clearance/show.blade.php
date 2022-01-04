@@ -11,10 +11,11 @@
         <div class="section-body">
         
                 <div class="row">
-                    <div class="col-8">
-                        <div class="card">
+                    <div class="col-6">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
-                                <h4>Business Information</h4>
+                                <h4>Business Information
+                                </h4>
                             </div>
                             <div class="card-body">
                                 <p><strong>  Business: </strong> {{ $business->business_name }}</p>
@@ -32,14 +33,53 @@
 
                     
 
-                    <div class="col-4">
-                        <div class="card">
+                    <div class="col-6">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Business Clearance</h4>
                             </div>
-                            <div class="card-body text-center">
-                                <a href="{{route('business_clearance.show_clearance', $business->id)}}" class="btn btn-success">Generate Certificate</a>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-12">
+
+                                        <form action="{{route('business_clearance.show_clearance', $business->id)}}" method="POST" >
+                                    @csrf
+                                        <div class="form-group">
+                                            <label>OR Number</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" name="or_number" class="form-control phone-number"
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Amount</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="amount" class="form-control phone-number"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                             </div>
+
+                            <div class = "d-flex justify-content-center">
+                                <button type = "submit"class="btn btn-success">Generate Certificate</button>
+                            </div>
+                        </form>
                         </div>
 
                     </div>

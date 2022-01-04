@@ -1,136 +1,194 @@
 @extends('layouts.app')
 @section('title')
-Brgy Income Issuance
+Barangay Business Clearance
 @endsection
 @section('content')
 
     <section class="section">
-        <div class="section-header">
-            <h3 class="page__heading">Brgy Business Clearance Certificate</h3>
+        <div class="section-header d-flex justify-content-between">
+            <h3 class="page__heading">Barangay Business Clearance</h3>
+            <button class="btn btn-lg btn-icon icon-left btn-success mr-5" onclick="generatepdf()">Download</button>
         </div>
         <div class="d-flex justify-content-center">
-            <div class="certificate-container">
-                <div class="page" style="width: 8in;" id="element-to-print">
-                    <div class="wrapper">
-                        <div class="header">
-    
-                            <p>REPUBLIC OF THE PHILIPPINES <br>
-                                PROVINCE OF LAGUNA <br>
-                                MUNICIPLITY LOS BAÑOS <br>
-                                BARANGAY BAYOG <br>
-                            </p>
-                            <div class="title-wrapper">
-                                <h1>Brgy Business Clearance Certificate</h1>
-                            </div>
-                        </div>
-       
-                        <div class="body">
-                            <div class="officials" style="width: 2.95in;">
-                                <div class="official-wrapper">
-                                    <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}" alt="brgy-bayog-logo">
-                                    @foreach ($b_officials as $b_official)
+            <div style="border: 1px solid #6474ec;">
+                <div class="certificate-container">
+                    <div class="page" style="width: 8.3in;" id="element-to-print">
+                        <div class="wrapper">
+                            <div class="header">
 
-                                    @if ($b_official->brgy_official_position == 'Barangay Chairman')
-                                        <p>
-                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_position }}
-                                        </p>
-
-                                        <p id="councelor-label">
-                                            <strong>COUNCILORS</strong><br>
-                                        </p>
-
-                                    @else
-                                        <p>
-                                            <strong>{{ $b_official->brgy_official_name }}</strong><br>
-                                            {{ $b_official->brgy_official_position }}
-                                        </p>
-                                    @endif
-
-                                @endforeach
+                                <p>REPUBLIC OF THE PHILIPPINES <br>
+                                    PROVINCE OF LAGUNA <br>
+                                    MUNICIPLITY LOS BAÑOS <br>
+                                    BARANGAY BAYOG <br>
+                                </p>
+                                <div class="title-wrapper">
+                                    <h1>Barangay Business Clearance</h1>
                                 </div>
                             </div>
-    
-                            <div class="content" style="width: 5.55in;">
-                                <div class="content-wrapper">
-                                    <div class="top-part">
-                                    <p style = "margin-left:auto; margin-right:50px;">2021-BAYOG-113</p>
-                                    </div>
-    
-                                    <div class="text-part">
-                                        <p style= "text-align:center; line-height:4px;">
-                                            CYNTHIA ANGKO FOOD PRODUCTS
-                                               <p style= "text-align:center;"><strong>  BUSINESS NAME </strong></p> <br>
-                                        </p>
 
-                                        <p style= "text-align:center; line-height:4px;">
-                                            TAGPUAN ST BAYOG LOS BAÑOS LAGUNA </p>
-                                               <p style= "text-align:center;"> <strong> BUSINESS ADDRESS </strong> </p> <br>
-                                        </p>
-                                        <p>
-                                           <p style= "text-align:center; line-height:4px;">CYNTHIA LLANDER CARIÑO</p> 
-                                           <p style= "text-align:center;"><strong> NAME OF OWNER</strong></p>
-                                            
-                                        </p>
-                                        <P id="issue-for">
-                                            This certifies that the above Business Establishment conforms to the requirement for putting up business enterprises with the jurisdiction of this Barangay.
-                                        </P>
-                                        <br>
-                                        <p style="text-align:center; font-size: 18px;">
-                                            Issued this 6TH  day of AUGUST, 2021.
-                                        </p>
- 
-                                        <p id="witness" style="margin-top: 30px;">
-                                            CONFORMED BY: 
-                                        </p>
-                                        <br>
-                                        <br>
-                                        <p><strong>
-                                            <p style= "line-height:4px; margin-left:50px;">
-                                                CYNTHIA L. CARIÑO </p>
-                                                   <p style= "margin-left:80px;"> <strong> APPLICANT</strong> </p> <br>
-                                            </p>
-                                        </strong>
-                                        </p>                            
-                                    </div>
+                            <div class="body">
 
-                                    
-                                    <div class="cap-sign-part">           
-                                        <div class="cap-sign-wrapper">
-                                            
-                                            <p>
-                                                <strong> HON. CRISANTO A. TANDANG </strong>
+                                <div class="officials" style="width: 2.75in;">
+                                    <div class="official-wrapper">
+                                        <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
+                                            alt="brgy-bayog-logo">
+                                        <p style="margin-bottom: 20px;"> <strong> Barangay Bayog </strong></p>
+                                        @foreach ($b_officials as $b_official)
+
+                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                <p>
+                                                    <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_position }}
+                                                </p>
+
+                                                <p id="councelor-label">
+                                                    <strong>COUNCILORS</strong><br>
+                                                </p>
+
+
+                                            @elseif($b_official->brgy_official_position == 'Barangay Secretary')
+                                                <p>
+                                                    <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_role }}
+                                                </p>
+
+                                            @elseif($b_official->brgy_official_position == 'Barangay Treasurer')
+                                                <p>
+                                                    <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_role }}
+                                                </p>
+
+                                            @elseif($b_official->brgy_official_position == 'Barangay Clerk')
+                                                <p>
+                                                    <strong>{{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_role }}
+                                                </p>
+
+                                            @else
+                                                <p>
+                                                    <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
+                                                    {{ $b_official->brgy_official_role }}
+                                                </p>
+
+                                            @endif
+
+                                        @endforeach
+
+
+                                    </div>
+                                </div>
+
+                                <div class="content" style="width: 5.55in;">
+                                    <div class="content-wrapper">
+                                        <div class="top-part">
+                                            <p style="margin-left:auto; margin-right:50px;">
+                                                {{ $business->business_number }}</p>
+                                        </div>
+
+                                        <div class="text-part">
+                                            <p style="text-align:center; line-height:10px;  text-transform: uppercase;">
+                                                {{ $business->business_name }}
+                                            <p style="text-align:center;"><strong> BUSINESS NAME </strong></p> <br>
+                                            </p>
+
+                                            <p style="text-align:center; line-height:10px; text-transform: uppercase;">
+                                                {{ $business->business_address }} </p>
+                                            <p style="text-align:center;"> <strong> BUSINESS ADDRESS </strong> </p> <br>
                                             </p>
                                             <p>
-                                                Barangay Chairman
+                                            <p style="text-align:center; line-height:10px; text-transform: uppercase;">
+                                                {{ $business->residence->first_name }}
+                                                {{ $business->residence->middle_name }}
+                                                {{ $business->residence->last_name }}</p>
+                                            </p>
+                                            <p style="text-align:center;"><strong> NAME OF OWNER</strong></p>
+
+                                            </p>
+                                            <P id="issue-for">
+                                                This certifies that the above Business Establishment conforms to the
+                                                requirement for putting up business enterprises with the jurisdiction of
+                                                this Barangay.
+                                            </P>
+                                            <br>
+                                            <p style="text-align:center; font-size: 18px;">
+                                                Issued this {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}.
+                                            </p>
+
+                                            <p id="witness" style="margin-top: 30px;">
+                                                CONFORMED BY:
+                                            </p>
+                                            <br>
+                                            <br>
+                                            <p><strong>
+                                                    <p
+                                                        style="line-height:10px; margin-left:50px; text-transform: uppercase;">
+                                                        {{ $business->residence->first_name }}
+                                                        {{ $business->residence->middle_name }}
+                                                        {{ $business->residence->last_name }}</p>
+                                                </strong>
+                                            <p style="margin-left:120px;"> APPLICANT</p> <br>
+                                            </p>
+
                                             </p>
                                         </div>
-                                    </div>
-                                    <p id="witness" style="margin-top: 30px; text-align:center;">
-                                        RELEASE BY: 
-                                    </p>
-                                    <br>
-                                    <div class="cap-sign-part">           
-                                        <div class="cap-sign-wrapper"> 
-                                            <p>
-                                                <strong> TERESA P. LOPEZ </strong>  
-                                            </p>
-                                            <p>
-                                                Treasurer
-                                            </p>
+
+
+                                        <div class="cap-sign-part">
+                                            <div class="cap-sign-wrapper">
+
+                                                <p>
+                                                    @foreach ($b_officials as $b_official)
+
+                                                        @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                            <p style="text-transform: uppercase;">
+                                                                <strong>Hon.
+                                                                    {{ $b_official->brgy_official_name }}</strong><br>
+
+                                                            </p>
+
+                                                        @endif
+                                                    @endforeach
+                                                </p>
+                                                <p>
+                                                    Barangay Chairman
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p id="witness" style="margin-top: 30px; text-align:center;">
+                                            RELEASE BY:
+                                        </p>
+                                        <br>
+                                        <div class="cap-sign-part">
+                                            <div class="cap-sign-wrapper">
+                                                @foreach ($b_officials as $b_official)
+
+                                                    @if ($b_official->brgy_official_position == 'Barangay Treasurer')
+                                                        <p style="text-transform: uppercase;">
+                                                            <strong>
+                                                                {{ $b_official->brgy_official_name }}</strong><br>
+
+                                                        </p>
+
+                                                    @endif
+                                                @endforeach
+                                                <p>
+                                                    Treasurer
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="issued">
+                                            <div class="issued-wrapper">
+                                                <p style="font-size: 20px; text-transform: uppercase; margin-left: 20px;">
+                                                    <strong>OR. No.:</strong> <u>{{ $or_number }} </u><br>
+                                                    <strong>Amount: </strong><u>{{ $amount }}</u>
+                                                </p>
+                                                <p id="year">
+                                                    {{ \Carbon\Carbon::today()->format('Y') }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="issued">
-                                        <div class="issued-wrapper">
-                                            <p>
-                                                CTC No.:
-                                            </p>
-                                            <p id="year">
-                                               2021
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>   
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -155,14 +213,14 @@ Brgy Income Issuance
         </div>
         <div>
             <div class="camera-container d-flex mt-5 justify-content-center">
-        
-            <div class="camera-wrapper">
-            
-                    <button class="btn btn-lg btn-icon icon-left btn-success" onclick="generatepdf()">Download</button>
-              
+
+                <div class="camera-wrapper">
+
+
+
+                </div>
             </div>
         </div>
-    </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
                 integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -171,8 +229,8 @@ Brgy Income Issuance
             function generatepdf() {
                 var element = document.getElementById('element-to-print');
                 var opt = {
-                    margin: .25,
-                    filename: 'Income.pdf',
+                    margin: 0,
+                    filename: 'BusinessClearance.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
@@ -182,7 +240,7 @@ Brgy Income Issuance
                     },
                     jsPDF: {
                         unit: 'in',
-                        format: 'letter',
+                        format: 'a4',
                         orientation: 'portrait'
                     }
                 };
@@ -191,19 +249,22 @@ Brgy Income Issuance
         </script>
     </section>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap');
+
         p {
+
             color: black;
-            font-family: 'STIX Two Text', serif;
+            font-family: 'Tinos', serif;
             padding: 0;
             margin: 0;
         }
-    
+
         .screen {
             display: flex;
             justify-content: center;
             padding: 20px;
         }
-    
+
         .certificate-container {
             width: 60vw;
             display: flex;
@@ -211,69 +272,79 @@ Brgy Income Issuance
             font-family: 'STIX Two Text', serif;
             color: black;
         }
-    
-        
-    
+
+
+
         .page {
             /* padding: 10px; */
         }
-    
+
         /* wrapper */
-        .wrapper {}
-    
-        .title-wrapper {
-            margin: 0 10px;
+        .wrapper {
+            margin-top: 30px;
         }
-    
-        .title-wrapper h1{
+
+        .title-wrapper {
+            margin: 20px 10px 0px 10px;
+        }
+
+        .title-wrapper h1 {
             font-family: 'STIX Two Text', serif;
         }
-    
+
         /* header */
         .header p {
             text-align: center;
+            line-height: 18px;
         }
-    
+
         .header h1 {
             padding: 10px;
             text-align: center;
             border: 1px solid black;
         }
-    
+
         /* body page */
         .body {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin: 10px;
         }
-    
+
         /* officials */
         .officials {
-            background-color: rgb(85, 197, 241);
+            /* background-color: rgb(85, 197, 241); */
+            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
             border: 1px solid black;
             margin-right: 5px;
         }
-    
+
         .official-wrapper {
             padding: 5px;
             text-align: center;
         }
+
         #logo-img {
             width: 80px;
             height: auto;
         }
-    
+
+
         .officials p {
             padding-top: 6px;
             line-height: 20px;
-            font-size: 15px;
+
+
+            font-size: 16px;
+            margin-bottom: 10px;
         }
-    
-        #councelor-label{
+
+
+        #councelor-label {
             margin-bottom: 0;
             padding-bottom: 0;
         }
-    
+
         /* content */
         .content {
             border: 1px solid black;
@@ -281,120 +352,125 @@ Brgy Income Issuance
             flex-direction: column;
             justify-content: space-between;
         }
-    
+
         .content-wrapper {
             margin: 10px;
         }
-    
+
         /* content top-part */
         .content-wrapper .top-part {
             display: flex;
             justify-content: space-between;
         }
-    
+
         #bayog {
             margin-left: 20px;
             padding-top: 20px;
         }
-    
+
         #resident-picture {
             width: 120px;
             height: 120px;
             border: 1px solid black;
             margin-right: 50px;
-            margin-left: auto; 
+            margin-left: auto;
         }
-    
+
         /* content text-part */
         .content-wrapper .text-part {
-            margin-top: 20px;
+            margin-top: 50px;
         }
-    
+
+        .text-part p {
+            font-size: 16px;
+        }
+
+
         #to-whom {
             margin-left: 20px;
         }
-    
+
         #content {
             margin-top: 20px;
             text-indent: 50px;
             line-height: 28px;
             font-weight: 500;
         }
-    
+
         #issue-for {
             text-indent: 50px;
             margin-top: 20px;
             line-height: 25px;
-            font-size: 18px;
         }
-    
+
         #transform-upppercase {
             text-transform: uppercase;
         }
-    
+
         #witness {
             text-indent: 50px;
             margin-top: 20px;
             line-height: 25px;
         }
-    
+
         /* content sign-part */
         .sign-part {
             display: flex;
             justify-content: space-around;
             margin-top: 20px;
         }
-    
+
         .sign-part .sign-wrapper {
             margin-top: auto;
         }
-    
+
         #signature {
             padding: 0 20px;
             border-top: 1px solid black;
         }
-    
-        .sign-part .tumb-wrapper {
-            
-        }
-    
+
+        .sign-part .tumb-wrapper {}
+
         #tumb-box {
             margin: 0 auto;
             width: 90px;
             height: 75px;
             border: 1px solid black;
         }
-    
+
         /* content cap-sign-part */
         .cap-sign-part {
             display: flex;
             justify-content: flex-end;
-            margin-top: 10px;
+            margin-top: 40px;
         }
-    
+
         .cap-sign-part .cap-sign-wrapper {
             text-align: center;
-            margin-right: 60px;
+            margin-right: 70px;
             line-height: 17px;
         }
-    
-        .cap-sign-part .cap-sign-wrapper p{
+
+        .cap-sign-part .cap-sign-wrapper p {
             line-height: 18px;
         }
-    
+
         /* content issue */
         .issued {
             margin-top: 40px;
         }
-        .issued-wrapper{
+
+        .issued-wrapper {
             display: flex;
             justify-content: space-between;
         }
-        #year{
-            font-size:48px;
+
+        #year {
+            font-size: 48px;
             padding: 15px;
             border: 1px solid green;
             margin-right: 50px;
         }
+
     </style>
 @endsection
