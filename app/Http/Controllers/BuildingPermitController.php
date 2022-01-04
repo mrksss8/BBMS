@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Building;
+use App\Model\Officials;
+use Carbon\Carbon;
 
 class BuildingPermitController extends Controller
 {
@@ -28,7 +30,18 @@ class BuildingPermitController extends Controller
     }
 
      public function store(Request $request){
-             $building = new Building;     
+
+        $year = Carbon::now()->year;  
+        $building_cnt = Building::all()->count();
+
+        $building_cnt =  $building_cnt + 1;    
+        $building_number = $year . '- BAYOG -' . $building_cnt;
+
+
+
+             $building = new Building;  
+             $building->building_number = $building_number;
+             $building->building_type = $request->building_type;
              $building->building_owner = $request->building_owner;
              $building->building_address = $request->building_address;
              $building->reg_date = $request->reg_date;
@@ -40,6 +53,19 @@ class BuildingPermitController extends Controller
         $building  = Building::findOrfail($id);  
          return view('brgy_permit.building_permit.show',compact('building'));
 }
+
+    public function clearance($id){
+        // officials
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
+        //
+
+        $building = Building::findorfail($id);
+        return view('brgy_permit.building_permit.clearance',compact('building','b_officials')); 
+        }
+
+
+
      //public function create_clearance($id){
      //    return view('brgy_permit.business_clearance.clearance'); 
      //}

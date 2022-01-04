@@ -18,13 +18,9 @@
                             </div>
                             <div class="card-body">
                                 <p> Building Owner: <strong> {{ $building->building_owner }}</strong></p>
+                                <p> Building Type: <strong> {{ $building->building_type }}</strong></p>
                                 <p> Building Address: <strong> {{ $building->building_address }}</strong></p>
-                                {{-- <p> Registration Date: <strong> {{ $business->business_address }}</strong></p> --}}
-                                <p>Date Register: {{ \Carbon\Carbon::parse($building->regs_date)->format('F d, Y') }}</p>
-                            </div>
-                            <div class="card-footer">
-                                
-                                
+                                <p>Date Register: <strong>{{ \Carbon\Carbon::parse($building->regs_date)->format('F d, Y') }}</strong></p>
                             </div>
                         </div>
                         
@@ -38,7 +34,7 @@
                                 <h4 class = "text-center">Issue Building Clearance</h4>
                             </div>
                             <div class="card-body text-center">
-                                <a href="" class="btn btn-success">Generate Certificate</a>
+                                <a href="{{route('building_permit.clearance',$building->id)}}" class="btn btn-success">Generate Certificate</a>
                             </div>
                         </div>
 

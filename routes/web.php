@@ -134,7 +134,7 @@ Route::get('/welcome', function(){
        Route::get('/create', [App\Http\Controllers\BuildingPermitController::class, 'create'])->name('building_permit.create');
        Route::post('/store', [App\Http\Controllers\BuildingPermitController::class, 'store'])->name('building_permit.store');
        Route::get('/show/{id}', [App\Http\Controllers\BuildingPermitController::class, 'show'])->name('building_permit.show');
-      // Route::get('/clearance/{id}', [App\Http\Controllers\BusinessClearanceController::class, 'show_clearance'])->name('business_clearance.show_clearance');
+       Route::get('/clearance/{id}', [App\Http\Controllers\BuildingPermitController::class, 'clearance'])->name('building_permit.clearance');
     });
 
     Route::group(['prefix' => 'franchise_clearance','middleware' => 'auth'], function(){

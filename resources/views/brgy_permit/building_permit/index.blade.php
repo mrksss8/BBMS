@@ -29,9 +29,14 @@
                                 <table class="table table-bordered" id="table">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>View</th>
+                                            <th>Building Permit No.</th>
+                                            
                                             <th>
                                                 Building Owner
+                                            </th>
+                                            <th>
+                                                Building Type
                                             </th>
                                             <th>
                                                 Building Address
@@ -52,7 +57,13 @@
 
                                             </td>
                                             <td>
+                                                {{$building->building_number}}    
+                                            </td>
+                                            <td>
                                                 {{$building->building_owner}}    
+                                            </td>
+                                            <td>
+                                                {{$building->building_type}}    
                                             </td>
                                             <td>
                                                 {{$building->building_address}}    

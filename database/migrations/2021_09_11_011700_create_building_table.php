@@ -14,11 +14,15 @@ class CreateBuildingTable extends Migration
     public function up()
     {
         Schema::create('building', function (Blueprint $table) {
+
             $table->id();
+            $table->string('building_number');
             $table->string('building_owner');
+            $table->string('building_type');
             $table->string('building_address');
             $table->string('reg_date');
             $table->timestamps();
+            
         });
     }
 
