@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Certificates / Brgy Digging
+Permits / Brgy Digging
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Certificates / Digging</h3>
+            <h3 class="page__heading">Digging Permits</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -32,6 +32,7 @@
                                             <th>Name</th>
                                             <th>Address</th>
                                             <th>Digging Location</th>
+                                            <th>Purpose</th>
                                         </tr>
                                     </thead>
 

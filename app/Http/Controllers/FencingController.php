@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Fencing;
+use App\Model\Officials;
 use Carbon\Carbon;
 
 class FencingController extends Controller
@@ -40,6 +41,26 @@ class FencingController extends Controller
 
         return redirect()->route('fencing_permit.index');
 
+    }
+
+
+    public function show($id){
+
+        $fencing = Fencing::findorfail($id);
+        return view('brgy_permit.fencing_permit.show',compact('fencing'));
+    }
+
+    public function clearance($id){
+        // officials
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
+        //
+
+        $fencing = Fencing::findorfail($id);
+
+
+       
+        return view('brgy_permit.fencing_permit.clearance',compact('fencing','b_officials')); 
     }
     
 }

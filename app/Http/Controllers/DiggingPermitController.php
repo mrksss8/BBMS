@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Digging;
+use App\Model\Officials;
 use Carbon\Carbon;
 class DiggingPermitController extends Controller
 {
@@ -45,5 +46,19 @@ class DiggingPermitController extends Controller
 
         $digging = Digging::findorfail($id);
         return view('brgy_permit.digging_permit.show',compact('digging'));
+    }
+
+    
+    public function clearance($id){
+        // officials
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
+        //
+
+        $digging = Digging::findorfail($id);
+
+
+       
+        return view('brgy_permit.digging_permit.clearance',compact('digging','b_officials')); 
     }
 }

@@ -149,6 +149,7 @@ Route::get('/welcome', function(){
       Route::get('/create', [App\Http\Controllers\DiggingPermitController::class, 'create'])->name('digging_permit.create');
       Route::post('/store', [App\Http\Controllers\DiggingPermitController::class, 'store'])->name('digging_permit.store');
       Route::get('/show/{id}', [App\Http\Controllers\DiggingPermitController::class, 'show'])->name('digging_permit.show');
+      Route::get('/clearance/{id}', [App\Http\Controllers\DiggingPermitController::class, 'clearance'])->name('digging_permit.clearance');
     });
 
     Route::group(['prefix' => 'fencing_permit','middleware' => 'auth'], function(){
@@ -156,6 +157,7 @@ Route::get('/welcome', function(){
       Route::get('/create', [App\Http\Controllers\FencingController::class, 'create'])->name('fencing_permit.create');
       Route::post('/store', [App\Http\Controllers\FencingController::class, 'store'])->name('fencing_permit.store');
       Route::get('/show/{id}', [App\Http\Controllers\FencingController::class, 'show'])->name('fencing_permit.show');
+      Route::get('/clearance/{id}', [App\Http\Controllers\FencingController::class, 'clearance'])->name('fencing_permit.clearance');
     });
 
     //import

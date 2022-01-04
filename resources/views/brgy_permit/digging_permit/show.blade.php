@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-   Digging
+   Permits / Brgy Digging
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Digging Show</h3>
+            <h3 class="page__heading">Digging Permit</h3>
         </div>
         <div class="section-body">
         
@@ -39,7 +39,7 @@
                                 <h4 class = "text-center">Issue Digging Permit</h4>
                             </div>
                             <div class="card-body text-center">
-                                <a href="#" class="btn btn-success">Generate Certificate</a>
+                                <a href="{{route('digging_permit.clearance', $digging->id)}}" class="btn btn-success">Generate Certificate</a>
                             </div>
                         </div>
 
