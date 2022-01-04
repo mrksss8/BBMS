@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Franchise;
+use App\Model\Officials;
 use App\Model\Resident;
 use Carbon\Carbon;
 
@@ -53,5 +54,15 @@ class FranchiseClearanceController extends Controller
 
         return view('brgy_permit.franchise_clearance.show',compact('franchise'));
 
+    }
+
+    public function clearance($id){
+        // officials
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
+        //
+
+        $franchise  = Franchise::with('resident')->findorfail($id);
+        return view('brgy_permit.franchise_clearance.clearance',compact('franchise','b_officials')); 
     }
 }

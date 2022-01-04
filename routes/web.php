@@ -142,6 +142,7 @@ Route::get('/welcome', function(){
       Route::get('/create', [App\Http\Controllers\FranchiseClearanceController::class, 'create'])->name('franchise_clearance.create');
       Route::post('/store', [App\Http\Controllers\FranchiseClearanceController::class, 'store'])->name('franchise_clearance.store');
       Route::get('/show/{id}', [App\Http\Controllers\FranchiseClearanceController::class, 'show'])->name('franchise_clearance.show');
+      Route::get('/clearance/{id}', [App\Http\Controllers\FranchiseClearanceController::class, 'clearance'])->name('franchise_clearance.clearance');
     });
 
     Route::group(['prefix' => 'digging_permit','middleware' => 'auth'], function(){

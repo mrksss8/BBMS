@@ -42,7 +42,7 @@
                                 <h4 class = "text-center">Issue Business Clearance</h4>
                             </div>
                             <div class="card-body text-center">
-                                <a href="#" class="btn btn-success">Generate Certificate</a>
+                                <a href="{{route('franchise_clearance.clearance',$franchise->id)}}" class="btn btn-success">Generate Certificate</a>
                             </div>
                         </div>
 

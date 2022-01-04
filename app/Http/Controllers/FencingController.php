@@ -57,9 +57,6 @@ class FencingController extends Controller
         //
 
         $fencing = Fencing::findorfail($id);
-
-
-       
         return view('brgy_permit.fencing_permit.clearance',compact('fencing','b_officials')); 
     }
     
