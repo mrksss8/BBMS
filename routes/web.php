@@ -137,6 +137,14 @@ Route::get('/welcome', function(){
        Route::get('/clearance/{id}', [App\Http\Controllers\BuildingPermitController::class, 'clearance'])->name('building_permit.clearance');
     });
 
+    Route::group(['prefix' => 'meralco_clearance','middleware' => 'auth'], function(){
+      Route::get('/index', [App\Http\Controllers\MeralcoClearanceController::class, 'index'])->name('meralco_clearance.index');
+       Route::get('/create', [App\Http\Controllers\MeralcoClearanceController::class, 'create'])->name('meralco_clearance.create');
+       Route::post('/store', [App\Http\Controllers\MeralcoClearanceController::class, 'store'])->name('meralco_clearance.store');
+       Route::get('/show/{id}', [App\Http\Controllers\MeralcoClearanceController::class, 'show'])->name('meralco_clearance.show');
+       Route::get('/clearance/{id}', [App\Http\Controllers\MeralcoClearanceController::class, 'clearance'])->name('meralco_clearance.clearance');
+    });
+
     Route::group(['prefix' => 'franchise_clearance','middleware' => 'auth'], function(){
       Route::get('/index', [App\Http\Controllers\FranchiseClearanceController::class, 'index'])->name('franchise_clearance.index');
       Route::get('/create', [App\Http\Controllers\FranchiseClearanceController::class, 'create'])->name('franchise_clearance.create');

@@ -34,7 +34,7 @@ Brgy Permits
                         <div class="card-body" style=" border: 1px solid #6474ec;  border-radius: 4px;">
                           <h5 class="card-title">Brgy Meralco Clearance Records</h5>
                           <img src="{{ '../img/Completed-rafiki.png' }}" alt="" style = "width: 200px;" class = "p-3">
-                          <a href="#" class="btn btn-primary">Open Meralco Clearance Records</a>
+                          <a href="{{route('meralco_clearance.index')}}" class="btn btn-primary">Open Meralco Clearance Records</a>
                         </div>
                       </div>
                 </div>
