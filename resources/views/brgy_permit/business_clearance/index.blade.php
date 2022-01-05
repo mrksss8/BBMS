@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Brgy Business Clearance
+    Brgy Business Clearance Records
 @endsection
 
 @section('data_tables_css')
@@ -10,7 +10,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Brgy Business Clearance</h3>
+            <h3 class="page__heading">Brgy Business Clearance Records</h3>
         </div>
         <div class="section-body">
             <div class="row">

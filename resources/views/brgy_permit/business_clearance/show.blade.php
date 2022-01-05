@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Business
+Brgy Business Clearance Records
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Business</h3>
+            <h3 class="page__heading">Issue Business Clearance</h3>
         </div>
         <div class="section-body">
         

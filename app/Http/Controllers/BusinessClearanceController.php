@@ -49,7 +49,7 @@ class BusinessClearanceController extends Controller
             $business->regs_date = $request->reg_date;
             $business->save();        
 
-            return back();
+            return redirect()->route('business_clearance.index');
     }
     public function show($id){
 

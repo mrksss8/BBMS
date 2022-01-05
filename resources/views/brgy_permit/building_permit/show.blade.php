@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('title')
-    Business
+Building Permit
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Building</h3>
+            <h3 class="page__heading">Issue Building Permit</h3>
         </div>
         <div class="section-body">
         
                 <div class="row">
                     <div class="col-8">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4>Building Information</h4>
                             </div>
@@ -29,7 +29,7 @@
                     
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Building Clearance</h4>
                             </div>

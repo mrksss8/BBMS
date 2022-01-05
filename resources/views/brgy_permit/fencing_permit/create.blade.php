@@ -6,15 +6,15 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Fencing</h3>
+            <h3 class="page__heading">Add Fencing Information</h3>
         </div>
         <div class="section-body">
             <div class="card">
                 <div class="row">
                     <div class="col-12 ">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
-                                <h4>Fencing</h4>
+                                <h4>Fencing Information</h4>
                             </div>
                             <form action="{{route('fencing_permit.store')}}" method="POST">
                                 @csrf
@@ -88,7 +88,7 @@
                                     <div class="container d-flex justify-content-center">
                                         <button type="submit" class="btn btn-icon icon-left btn-primary mr-3"><i
                                                 class="far fa-save"></i> Save</button>
-                                        <a href=""
+                                        <a href="{{route('fencing_permit.index')}}"
                                             class="btn btn-icon icon-left btn-danger mr-3"><i class="fas fa-ban"></i>
                                             Cancel</a>
                                     </div>

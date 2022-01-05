@@ -6,10 +6,10 @@ Meralco Clearnace
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Meralco Clearnace</h3>
+            <h3 class="page__heading">Add Meralco Clearnace</h3>
         </div>
         <div class="section-body">
-            <div class="card">
+            <div class="card" style="border: 1px solid #6474ec;">
                 <div class="row">
                     <div class="col-12 ">
                         <div class="card">
@@ -72,7 +72,7 @@ Meralco Clearnace
                                     <div class="container d-flex justify-content-center">
                                         <button type="submit" class="btn btn-icon icon-left btn-primary mr-3"><i
                                                 class="far fa-save"></i> Save</button>
-                                        <a href=""
+                                        <a href="{{route('meralco_clearance.index')}}"
                                             class="btn btn-icon icon-left btn-danger mr-3"><i class="fas fa-ban"></i>
                                             Cancel</a>
                                     </div>

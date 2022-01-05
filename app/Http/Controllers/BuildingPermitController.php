@@ -47,7 +47,7 @@ class BuildingPermitController extends Controller
              $building->reg_date = $request->reg_date;
              $building ->save();        
 
-           return back();
+           return redirect()->route('building_permit.index');
     }
      public function show($id){
         $building  = Building::findOrfail($id);  

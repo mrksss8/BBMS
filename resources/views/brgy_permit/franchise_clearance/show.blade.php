@@ -12,7 +12,7 @@
         
                 <div class="row">
                     <div class="col-8">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4>Franchise Information</h4>
                             </div>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Business Clearance</h4>
                             </div>

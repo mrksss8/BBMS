@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Residence Registration
+    Brgy Business Clearance
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Register Business</h3>
+            <h3 class="page__heading">Add Business Clearance</h3>
         </div>
         <div class="section-body">
             <div class="card">

@@ -46,7 +46,7 @@ class MeralcoClearanceController extends Controller
             $meralco->meralaco_clearance_building_type = $request->building_type;
             $meralco ->save();        
 
-          return back();
+          return redirect()->route('meralco_clearance.index');
    }
     public function show($id){
        $meralco  = MeralcoClearance::findOrfail($id);  

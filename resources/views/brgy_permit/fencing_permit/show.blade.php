@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('title')
-Permits / Brgy Fencing 
+Brgy Fencing 
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Fencing Permit</h3>
+            <h3 class="page__heading">Issue Fencing Permit</h3>
         </div>
         <div class="section-body">
         
                 <div class="row">
                     <div class="col-8">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4>Fencing Information</h4>
                             </div>
@@ -34,7 +34,7 @@ Permits / Brgy Fencing
                     
 
                     <div class="col-4">
-                        <div class="card">
+                        <div class="card" style="border: 1px solid #6474ec;">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Fencing Permit</h4>
                             </div>
