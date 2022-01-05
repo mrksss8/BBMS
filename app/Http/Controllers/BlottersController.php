@@ -96,7 +96,7 @@ class BlottersController extends Controller
 
 
         if($request->patawag === "Settled"){
-            return redirect()->route('blotters.settelement',1);
+            return redirect()->route('blotters.settelement',$id);
         }  
 
         if($request->patawag === "Cancelled"){

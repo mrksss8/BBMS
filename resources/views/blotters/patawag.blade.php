@@ -154,7 +154,7 @@
             var element = document.getElementById('element-to-print');
             var opt = {
                 margin: 0,
-                filename: 'BarangayClearance.pdf',
+                filename: 'BarangayPatawag.pdf',
                 image: {
                     type: 'jpeg',
                     quality: 0.98

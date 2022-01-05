@@ -73,6 +73,15 @@
                         </div>
 
                     </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class = "text-success">Settlement Information:</h4>
+                        </div>
+                        <div class="card-body">
+                          <p>{{ $blotter->agreement}}</p>
+                        </div>
+                    </div>
+                    
                 </div>
 
             </div>
@@ -89,17 +98,18 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Lupon Patawag 3 </h4>
                                                 <div>
-
-                                                    <button type="button" class="btn btn-outline-primary my-2"
-                                                        data-toggle="modal" data-target="#luponpatawag3_manage"> <i
-                                                            class="far fa-edit"></i>
-                                                        Manage
-                                                    </button>
-                                                    <button type="button" class="btn btn-outline-primary my-2"
-                                                        data-toggle="modal" data-target="#luponpatawag3"> <i
-                                                            class="far fa-edit"></i>
-                                                        Action
-                                                    </button>
+                                                    @if ($blotter->status == 'Unsettled')
+                                                        <button type="button" class="btn btn-outline-primary my-2"
+                                                            data-toggle="modal" data-target="#luponpatawag3_manage"> <i
+                                                                class="far fa-edit"></i>
+                                                            Manage
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-primary my-2"
+                                                            data-toggle="modal" data-target="#luponpatawag3"> <i
+                                                                class="far fa-edit"></i>
+                                                            Action
+                                                        </button>
+                                                    @endif
                                                 </div>
 
                                             </div>
@@ -110,14 +120,19 @@
                                     <div class="card-body">
                                         <div class="col-12">
 
-                                            <p><strong>Date of Patawag:</strong> {{ $blotter->lbp3_date ? \Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Date of Patawag:</strong>
+                                                {{ $blotter->lbp3_date ? \Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp3_note }}</p>
 
                                         </div>
 
                                         <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
+                                            @if ($blotter->status == 'Unsettled')
+                                                <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    class="btn btn-outline-success btn-sm px-3">Generate
+                                                    Letter</a>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -136,30 +151,32 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Lupon Patawag 2 </h4>
                                                 <div>
-                                                    @if ($blotter->lbp3 == null)
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag2_manage"> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag2"> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                    @if ($blotter->status == 'Unsettled')
+                                                        @if ($blotter->lbp3 == null)
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag2_manage"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag2"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    @else
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag2" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag2" disabled>
+                                                                <i class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
+                                                        @endif
                                                     @endif
 
                                                 </div>
@@ -170,18 +187,23 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                            
-                                            <p><strong>Date of Patawag:</strong> {{ $blotter->lbp2_date ? \Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y') : null }}</p>
+
+                                            <p><strong>Date of Patawag:</strong>
+                                                {{ $blotter->lbp2_date ? \Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp2_note }}</p>
 
                                         </div>
-
-                                        @if ($blotter->lbp3 == null)
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
-                                        </div>
+                                        @if ($blotter->status == 'Unsettled')
+                                            @if ($blotter->lbp3 == null)
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y'), $blotter->id]) }}"
+                                                        class="btn btn-outline-success btn-sm px-3">Generate
+                                                        Letter</a>
+                                                </div>
+                                            @endif
                                         @endif
+
                                     </div>
 
                                 </div>
@@ -199,30 +221,32 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Lupon Patawag 1 </h4>
                                                 <div>
-                                                    @if ($blotter->lbp2 == null)
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag1_manage"> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag1"> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                    @if ($blotter->status == 'Unsettled')
+                                                        @if ($blotter->lbp2 == null)
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag1_manage"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag1"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    @else
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#luponpatawag1" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#luponpatawag1" disabled>
+                                                                <i class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
+                                                        @endif
                                                     @endif
 
                                                 </div>
@@ -234,15 +258,20 @@
                                     <div class="card-body">
                                         <div class="col-12">
 
-                                            <p><strong>Date of Patawag:</strong>  {{ $blotter->lbp1_date ? \Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Date of Patawag:</strong>
+                                                {{ $blotter->lbp1_date ? \Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp1_note }}</p>
 
                                         </div>
-                                        @if ($blotter->lbp2 == null)
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
-                                        </div>
+                                        @if ($blotter->status == 'Unsettled')
+                                            @if ($blotter->lbp2 == null)
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y'), $blotter->id]) }}"
+                                                        class="btn btn-outline-success btn-sm px-3">Generate
+                                                        Letter</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
 
@@ -261,31 +290,33 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Captain Patawag 3 </h4>
                                                 <div>
-                                                    @if ($blotter->lbp1 == null)
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag3_manage"> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag3"> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                    @if ($blotter->status == 'Unsettled')
+                                                        @if ($blotter->lbp1 == null)
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag3_manage"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag3"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    @else
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag3" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag3" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
 
+                                                        @endif
                                                     @endif
 
                                                 </div>
@@ -297,17 +328,21 @@
                                     <div class="card-body">
                                         <div class="col-12">
 
-                                            <p><strong>Date of Patawag:</strong> {{ $blotter->bcp3_date ? \Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Date of Patawag:</strong>
+                                                {{ $blotter->bcp3_date ? \Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp3_note }}</p>
 
                                         </div>
 
-
-                                        @if ($blotter->lbp1 == null)
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
-                                        </div>
+                                        @if ($blotter->status == 'Unsettled')
+                                            @if ($blotter->lbp1 == null)
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y'), $blotter->id]) }}"
+                                                        class="btn btn-outline-success btn-sm px-3">Generate
+                                                        Letter</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
 
@@ -326,35 +361,38 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Captain Patawag 2 </h4>
 
-                                                @if ($blotter->bcp3 == null)
-                                                    <div>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag2_manage"> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag2"> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                @if ($blotter->status == 'Unsettled')
 
-                                                    </div>
-                                                @else
-                                                    <div>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag2" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                    @if ($blotter->bcp3 == null)
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag2_manage"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag2"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    </div>
+                                                        </div>
+                                                    @else
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag2" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
+                                                        </div>
+
+                                                    @endif
                                                 @endif
 
 
@@ -365,16 +403,20 @@
                                     <div class="card-body">
                                         <div class="col-12">
 
-                                            <p><strong>Date of Patawag:</strong> {{ $blotter->bcp2_date ? \Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y') : null }}</p>
+                                            <p><strong>Date of Patawag:</strong>
+                                                {{ $blotter->bcp2_date ? \Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp2_note }}</p>
 
                                         </div>
-
-                                        @if ($blotter->bcp3 == null)
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
-                                        </div>
+                                        @if ($blotter->status == 'Unsettled')
+                                            @if ($blotter->bcp3 == null)
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y'), $blotter->id]) }}"
+                                                        class="btn btn-outline-success btn-sm px-3">Generate
+                                                        Letter</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>
@@ -393,33 +435,36 @@
                                             <div class="d-flex justify-content-between">
                                                 <h4 class="d-flex align-items-center"> Barangay Captain Patawag 1 </h4>
 
-                                                @if ($blotter->bcp2 == null)
-                                                    <div>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag1_manage"> <i
-                                                                class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag1"> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                @if ($blotter->status == 'Unsettled')
+                                                    @if ($blotter->bcp2 == null)
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag1_manage"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag1"> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    </div>
-                                                @else
-                                                    <div>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            disabled> <i class="far fa-edit"></i>
-                                                            Manage
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary my-2"
-                                                            data-toggle="modal" data-target="#patawag1" disabled> <i
-                                                                class="far fa-edit"></i>
-                                                            Action
-                                                        </button>
+                                                        </div>
+                                                    @else
+                                                        <div>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                disabled> <i class="far fa-edit"></i>
+                                                                Manage
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-primary my-2"
+                                                                data-toggle="modal" data-target="#patawag1" disabled> <i
+                                                                    class="far fa-edit"></i>
+                                                                Action
+                                                            </button>
 
-                                                    </div>
+                                                        </div>
+                                                    @endif
+
                                                 @endif
 
                                             </div>
@@ -428,16 +473,21 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="col-12">
-                                        
-                                            <p><strong> Date of Patawag:</strong> {{ $blotter->bcp1_date ? \Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y') : null }}</p>
+
+                                            <p><strong> Date of Patawag:</strong>
+                                                {{ $blotter->bcp1_date ? \Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y') : null }}
+                                            </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp1_note }}</p>
 
                                         </div>
-                                        @if ($blotter->bcp2 == null)
-                                        <div class="col-12 d-flex justify-content-center">
-                                            <a href="{{route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y'), $blotter->id])}}" class="btn btn-outline-success btn-sm px-3">Generate
-                                                Letter</a>
-                                        </div>
+                                        @if ($blotter->status == 'Unsettled')
+                                            @if ($blotter->bcp2 == null)
+                                                <div class="col-12 d-flex justify-content-center">
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y'), $blotter->id]) }}"
+                                                        class="btn btn-outline-success btn-sm px-3">Generate
+                                                        Letter</a>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
 

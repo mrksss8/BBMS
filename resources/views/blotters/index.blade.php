@@ -54,6 +54,7 @@
                                             <th>Complainant</th>
                                             <th>Incident Date</th>
                                             <th>Case Type</th>
+                                            <th>Status</th>
                                             
                                         </tr>
                                     </thead>
@@ -80,6 +81,7 @@
                                             <td>{{$blotter->complainant_name}}</td>
                                             <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>
                                             <td>{{$blotter->case_type}}</td>
+                                            <td>{{$blotter->status}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>
