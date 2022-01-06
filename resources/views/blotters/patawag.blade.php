@@ -51,7 +51,7 @@
 
                                             <p style="text-align: center; padding: 0px 20px 0px 20px; margin-top: 50px;">
                                                 Ikaw ay hinihilingan na humarap sa akin sa  {{$date}}. Sa
-                                                ganap na ika 6 ng hapon para sa pagdinig sa isang usapin.</p>
+                                                ganap na ika {{ \Carbon\Carbon::today()->format(' h:i A')  }} ng hapon para sa pagdinig sa isang usapin.</p>
 
                                             <div style="margin-right: 50px; margin-top: 100px;">
                                                 <p style="text-align: right;  line-height: 10px;"> <strong>Hon. Crisanto A.
@@ -65,7 +65,7 @@
                                             </p>
 
                                             <p style="margin-top: 50px;">(Mga) Nagrereklamo: </p>
-                                            <p>Erlinda B. Banasihan</p>
+                                            <p>{{$blotter->complainant_name}}</p>
                                         </div>
 
                                     </div>
