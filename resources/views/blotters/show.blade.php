@@ -61,8 +61,9 @@
                             @foreach ($blotter->residents as $resident)
                                 <strong>Complained Person:</strong>
                                 {{ $resident->last_name }} {{ $resident->first_name }}
-                                {{ $resident->middle_name }} <br>
+                                {{ $resident->middle_name }},<span class = mx-2></span>
                             @endforeach
+                            {{$blotter->complained_resident}}
 
                         </div>
                         <div class="card-body">

@@ -45,8 +45,9 @@
                                             <p style="margin-top: 50px;">Kay:  
                                                 @foreach ($blotter->residents as $resident)
                                                 {{ $resident->last_name }} {{ $resident->first_name }}
-                                                {{ $resident->middle_name }}, <span class = mx-3></span>
-                                         @endforeach</p>
+                                                {{ $resident->middle_name }}, <span class = mx-2></span>
+                                                @endforeach
+                                                 {{ $resident->middle_name }}</p>
                                             <p>(Mga) Inerereklamo</p>
 
                                             <p style="text-align: center; padding: 0px 20px 0px 20px; margin-top: 50px;">

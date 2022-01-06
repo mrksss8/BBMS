@@ -20,8 +20,10 @@ class ResidenceImportController extends Controller
          if($import->failures()->isNotEmpty()){
              return back()->withFailures($import->failures());
          }
+
+         return back()->withStatus('Excel file imported successfully');
      
-        return back()->withStatus('Excel file imported successfully');
+       
          
     }
 }

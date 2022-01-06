@@ -18,8 +18,22 @@
                 <div class="col-12 col-md-8 col-lg-8">
                     <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-center px-5 pt-5">
-                            <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
+
+                            @if ($resident->path != null)
+                            
+                                <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
                                 width="300px">
+                      
+                            @else
+                            
+                                <img alt="image" src="{{ asset('../img/avatar.jpg') }}" class="rounded-circle" height="300px"
+                                width="300px">
+                       
+                            @endif
+
+
+
+                           
                         </div>
 
                         <div class="profile-widget-name text-center">

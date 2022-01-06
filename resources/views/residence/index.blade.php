@@ -87,9 +87,17 @@
                                                     </div>
                                                 </td>
                                                 <td>
+                                                    @if ($residence->path != null)
                                                     <figure class="avatar avatar-md">
                                                         <img src="{{ $residence->path }}">
                                                     </figure>
+                                                    @else
+                                                    <figure class="avatar avatar-md">
+                                                        <img id="logo-img" src="{{ asset('../img/avatar.jpg') }}"
+                                                        alt="brgy-bayog-logo">
+                                                    </figure>
+                                                    @endif
+                                                    
                                                 </td>
                                                 <td>{{ $residence->last_name }} {{ $residence->first_name }} {{ $residence->middle_name }}</td>
                                                 <td>{{ $residence->gender }}</td>

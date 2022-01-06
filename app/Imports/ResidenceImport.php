@@ -35,27 +35,27 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
     {
         return new Resident([
                 
-               'last_name'          => $row['lastname'],
-               'first_name'         => $row['firstname'],
-               'middle_name'        => $row['middlename'],
-               'gender'             => $row['gender'],
-               'birthday'           => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthday']),
-               'civil_status'       => $row['civil status'],
-               'house_number'       => $row['house number'],
-               'purok'              => $row['purok'],
-               'street'             => $row['street'],
-               'occupation'         => $row['occupation'],
-               'type_of_house'      => $row['type of house'],
-               'pwd'                => $row['pwd'],
-               'membership_prog'    => $row['membership program'],
-               'res_num'            => $row['resident number'],
-               'student'            => 'N/A'
+               'last_name'          => $row['Lastname'],
+               'first_name'         => $row['Firstname'],
+               'middle_name'        => $row['Middlename'],
+               'gender'             => $row['Gender'],
+               'birthday'           => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['Birthday']),
+               'civil_status'       => $row['Civil Status'],
+               'occupation'        => $row['Occupation'],
+               'student'            => $row['Student'],
+               'house_number'       => $row['House Number'],
+               'purok'              => $row['Purok'],
+               'street'             => $row['Street'],
+               'type_of_house'      => $row['Type Of House'],
+               'pwd'                => $row['PWD'],
+               'membership_prog'    => $row['Subsidy Program'],
+               'res_num'            => $row['Resident Number'],
         ]);
     }
 
       public function rules(): array{
           return [
-            '*.resident number' => ['unique:residents,res_num']
+             '*.Resident Number' => ['unique:residents,res_num']
           ];
       }
 }

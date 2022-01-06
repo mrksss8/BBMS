@@ -24,6 +24,7 @@ class BlottersController extends Controller
         
         $blotterReq = [
             'complainant_name' => $request->complainant_name,
+            'complained_resident' => $request->complained_resident,
             'blotter_info' => $request->blotter_info,
             'date_of_incident' => $request->date_of_incident,
             'case_type' => $request->case_type,
@@ -42,6 +43,7 @@ class BlottersController extends Controller
 
             'case_number' => $case_number,
             'complainant_name' => $blotterReq['complainant_name'],
+            'complained_resident' => $blotterReq['complained_resident'],       
             'Blotters_info' => $blotterReq['blotter_info'],
             'case_type' => $blotterReq['case_type'],
             'status' => $blotterReq['status'],

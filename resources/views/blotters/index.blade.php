@@ -74,8 +74,9 @@
                                             <td>{{$blotter->case_number}}</td>
                                             <td>
                                                 @foreach ($blotter->residents as $resident)
-                                                    <p>{{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</p>
+                                                    <p>{{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}} </p>
                                                 @endforeach 
+                                                    <p>{{$blotter->complained_resident}}</p>
                                             </td>
                                             <td>{{$blotter->Blotters_info}}</td>
                                             <td>{{$blotter->complainant_name}}</td>
