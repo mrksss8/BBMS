@@ -12,7 +12,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" style="border: 1px solid #6474ec;" style="border: 1px solid #6474ec;">
                         <div class="card-header">
                             <div class="col-12">
                                 <div class="d-flex justify-content-between">
@@ -71,27 +71,33 @@
                         <div class="card-body">
                             <strong>Complainant: </strong>{{ $blotter->complainant_name }}<br>
                         </div>
+                        
+                        @if ($blotter->status == 'Settled')
+                        <hr>
+                        <div class="card m-5" style="border: 1px solid #6474ec;">
+                            <div class="card-header">
+                                <h4 class = "text-success">Settlement Information:</h4>
+                            </div>
+                            <div class="card-body">
+                              <p>{{ $blotter->agreement}}</p>
+                            </div>
+                        </div>
+                        @endif
 
                     </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class = "text-success">Settlement Information:</h4>
-                        </div>
-                        <div class="card-body">
-                          <p>{{ $blotter->agreement}}</p>
-                        </div>
-                    </div>
+
+                   
+                    
                     
                 </div>
 
             </div>
             <div class="row ">
                 <div class="col-12">
-
                     @if ($blotter->lbp3 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -144,7 +150,7 @@
                     @if ($blotter->lbp2 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -214,7 +220,7 @@
                     @if ($blotter->lbp1 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -283,7 +289,7 @@
                     @if ($blotter->bcp3 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -354,7 +360,7 @@
                     @if ($blotter->bcp2 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -427,7 +433,7 @@
                     @if ($blotter->bcp1 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card border border-primary">
+                                <div class="card" style="border: 1px solid #6474ec;">
                                     <div class="card-header">
 
                                         <div class="col-12">

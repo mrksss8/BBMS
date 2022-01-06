@@ -145,8 +145,8 @@
                                                                             <i class="fas fa-address-card"></i>
                                                                         </div>
                                                                         <select class="form-control" name="student">
-                                                                            <option selected="true" disabled="disabled">
-                                                                            </option>
+                                                                            <option selected="true" disabled="disabled"></option>
+                                                                            <option value="N/A"> N/A </option>
                                                                             <option value="Elementary">Elementary</option>
                                                                             <option value="High Schhol">High Schhol</option>
                                                                             <option value="College">College</option>
@@ -294,20 +294,22 @@
                                                             </div>
 
                                                     </div>
+                                                    
                                             </div>
+                                            <div class="container d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-icon icon-left btn-primary mr-3"><i
+                                                        class="far fa-save"></i> Save</button>
+                                                <a href="{{ route('residence.index') }}" class="btn btn-icon icon-left btn-danger mr-3"><i
+                                                        class="fas fa-ban"></i>
+                                                    Cancel</a>
+                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container d-flex justify-content-center">
-                            <button type="submit" class="btn btn-icon icon-left btn-primary mr-3"><i
-                                    class="far fa-save"></i> Save</button>
-                            <a href="{{ route('residence.index') }}" class="btn btn-icon icon-left btn-danger mr-3"><i
-                                    class="fas fa-ban"></i>
-                                Cancel</a>
-                        </div>
-                        </form>
+                        
                     </div>
                 </div>
             </div>

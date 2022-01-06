@@ -11,7 +11,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card">
+                    <div class="card" style="border: 1px solid #6474ec;">
                         <div class="card-header">
                             <h4>Residence</h4>
                         </div>

@@ -2,7 +2,8 @@
 
 namespace App\Imports;
 
-use App\Residence;
+use App\Model\Resident;
+use Illuminate\Validation\Rule;
 use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -19,7 +20,9 @@ use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 
 HeadingRowFormatter::default('none');
 
-class ResidenceImport implements ToModel, WithHeadingRow , SkipsOnError, WithValidation, SkipsOnFailure
+class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, SkipsOnFailure
+
+
 {
     use Importable, SkipsErrors, SkipsFailures;
 
@@ -30,28 +33,29 @@ class ResidenceImport implements ToModel, WithHeadingRow , SkipsOnError, WithVal
     */
     public function model(array $row)
     {
-        return new Residence([
+        return new Resident([
                 
-               'last_name'          => $row['last_name'],
-               'first_name'         => $row['first_name'],
-               'middle_name'        => $row['middle_name'],
+               'last_name'          => $row['lastname'],
+               'first_name'         => $row['firstname'],
+               'middle_name'        => $row['middlename'],
                'gender'             => $row['gender'],
-               'birthday'           => $row['birthday'],
-               'civil_status'       => $row['civil_status'],
-               'house_number'       => $row['house_number'],
+               'birthday'           => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['birthday']),
+               'civil_status'       => $row['civil status'],
+               'house_number'       => $row['house number'],
                'purok'              => $row['purok'],
                'street'             => $row['street'],
                'occupation'         => $row['occupation'],
-               'type_of_house'      => $row['type_of_house'],
+               'type_of_house'      => $row['type of house'],
                'pwd'                => $row['pwd'],
-               'membership_prog'    => $row['membership_prog'],
-               'res_num'          => $row['res_num'],
+               'membership_prog'    => $row['membership program'],
+               'res_num'            => $row['resident number'],
+               'student'            => 'N/A'
         ]);
     }
 
-    public function rules(): array{
-        return [
-            '*.res_num' => ['unique:residence,res_num']
-        ];
-    }
+      public function rules(): array{
+          return [
+            '*.resident number' => ['unique:residents,res_num']
+          ];
+      }
 }
