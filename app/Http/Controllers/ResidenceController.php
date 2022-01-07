@@ -71,7 +71,7 @@ class ResidenceController extends Controller
     
             $residence->save();   
 
-            return redirect()->route('residence.index')->with('swal', 'Residence added sucessfully!');
+            return redirect()->route('residence.index')->withStatus('Resident Register Succesfully!');
             
             // ;
     }
@@ -96,7 +96,8 @@ class ResidenceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $resident = Resident::findorfail($id);
+        return view('residence.edit',compact('resident'));
     }
 
     /**
@@ -108,7 +109,24 @@ class ResidenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $resident = Resident::findorfail($id);
+            $resident->last_name = $request->last_name;
+            $resident->first_name = $request->first_name;
+            $resident->middle_name = $request->middle_name;
+            $resident->gender = $request->gender;
+            $resident->birthday = $request->birthday;
+            $resident->birthplace= $request->birthplace;
+            $resident->civil_status = $request->civil_status;
+            $resident->house_number = $request->house_number;
+            $resident->purok = $request->purok;
+            $resident->street = $request->street;
+            $resident->occupation = $request->occupation;
+            $resident->student = $request->student;
+            $resident->type_of_house = $request->type_of_house;
+            $resident->pwd = $request->pwd;
+            $resident->membership_prog = $request->membership_prog;
+            $resident->save();  
+            return redirect()->route('residence.show',$id)->withStatus('Resident Update Succesfully!');
     }
 
     /**

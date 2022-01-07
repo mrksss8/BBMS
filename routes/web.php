@@ -33,7 +33,9 @@ Route::get('/welcome', function(){
     Route::group(['prefix' => 'residence','middleware' => 'auth'], function(){
       Route::get('/index', [App\Http\Controllers\ResidenceController::class, 'index'])->name('residence.index');
       Route::get('/create', [App\Http\Controllers\ResidenceController::class, 'create'])->name('residence.create');
+      Route::get('/edit/{id}', [App\Http\Controllers\ResidenceController::class, 'edit'])->name('residence.edit');
       Route::post('/store', [App\Http\Controllers\ResidenceController::class, 'store'])->name('residence.store');
+      Route::put('/update/{id}', [App\Http\Controllers\ResidenceController::class, 'update'])->name('residence.update');
       Route::get('/show/{id}', [App\Http\Controllers\ResidenceController::class, 'show'])->name('residence.show');
       Route::delete('/delete/{id}', [App\Http\Controllers\ResidenceController::class, 'destroy'])->name('residence.delete');
 

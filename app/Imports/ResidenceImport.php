@@ -41,7 +41,7 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
                'gender'             => $row['Gender'],
                'birthday'           => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['Birthday']),
                'civil_status'       => $row['Civil Status'],
-               'occupation'        => $row['Occupation'],
+               'occupations'        => $row['Occupation'],
                'student'            => $row['Student'],
                'house_number'       => $row['House Number'],
                'purok'              => $row['Purok'],
@@ -55,7 +55,7 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
 
       public function rules(): array{
           return [
-             '*.Resident Number' => ['unique:residents,res_num']
+            '*.Resident Number' => ['unique:residents,res_num']
           ];
       }
 }

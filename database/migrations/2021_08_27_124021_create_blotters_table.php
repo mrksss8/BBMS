@@ -18,6 +18,7 @@ class CreateBlottersTable extends Migration
             
             $table->string('case_number');
             $table->string('complainant_name');
+            $table->string('complained_resident');  
             $table->string('Blotters_info');
             $table->string('case_type');
             $table->date('date_of_incident');

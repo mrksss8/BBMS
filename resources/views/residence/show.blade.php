@@ -5,10 +5,19 @@
 
 @section('content')
     <section class="section">
+        
         <div class="section-header">
             <h3 class="page__heading">Residents Profile</h3>
         </div>
         <div class="section-body">
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
 
             <h2 class="section-title">Mr/Ms. {{ $resident->first_name }} {{ $resident->middle_name }}
                 {{ $resident->last_name }}
@@ -95,6 +104,12 @@
                         <div class="card-footer text-center">
 
                             <div class=" d-flex justify-content-center pt-5 pb-2">
+                                <a class="btn btn-icon icon-left btn-primary mr-3" href="{{route('residence.edit',$resident->id)}}" ><i
+                                    class="far fa-edit"></i>
+                                   Edit
+                                </a>
+
+                                
 
                                 <a class="btn btn-icon icon-left btn-danger mr-3" data-toggle="modal"
                                     data-target="#deleteModal"><i class="fas fa-trash"></i>

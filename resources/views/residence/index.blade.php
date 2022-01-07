@@ -10,7 +10,7 @@
 @section('content')
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    @if (Session::has('swal'))
+    {{-- @if (Session::has('swal'))
         <script>
             window.addEventListener("load", ok, false);
 
@@ -22,7 +22,7 @@
                 })
             }
         </script>
-    @endif
+    @endif --}}
 
     @if (Session::has('swal_delete'))
         <script>
@@ -44,6 +44,15 @@
             <h3 class="page__heading">Residents Record</h3>
         </div>
         <div class="section-body">
+
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
 
             <div class="row">
                 <div class="col-lg-12">
