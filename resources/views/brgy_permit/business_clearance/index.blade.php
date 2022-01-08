@@ -65,7 +65,11 @@
                                                 {{$business->business_number}}
                                             </td>
                                             <td>
+                                                @if ($business->business_owner_id != null)            
                                                 {{$business->residence->last_name}}, {{$business->residence->first_name}}   {{$business->residence->middle_name}}    
+                                                @endif
+                                                {{$business->business_owner_not_resident}}
+
                                             </td>
                                             <td>
                                                 {{$business->business_name}}

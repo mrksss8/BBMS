@@ -30,6 +30,7 @@
                                                             <i class="fas fa-user"></i>
                                                         </div>
                                                         <select name = "business_owner" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" style="width: 560px">
+                                                            <option selected disabled></option>
                                                             @foreach ($residence as $resident)
                                                             <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} </option>     
                                                             @endforeach                                 
@@ -37,9 +38,21 @@
                                                     </div>  
                                                 </div>
                                             </div>
-
-                                            
-                                        </div>                    
+                                        </div>        
+                                        
+                                        <div class="col-sm-12 col-lg-6">
+                                            <div class="form-group">
+                                                <label>Business Owner (Not Resident)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="business_owner_not_resident" class="form-control phone-number">
+                                                </div>
+                                            </div>
+                                        </div>
                                         
                                         <div class="col-sm-12 col-lg-6">
                                             <div class="form-group">

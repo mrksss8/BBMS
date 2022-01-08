@@ -43,6 +43,7 @@ class BusinessClearanceController extends Controller
             $business = new Business;     
             $business->business_number = $business_number;
             $business->business_owner_id = $request->business_owner;
+            $business->business_owner_not_resident = $request->business_owner_not_resident;
             $business->business_name = $request->business_name;
             $business->business_address = $request->business_address;
             $business->business_type = $request->business_type;

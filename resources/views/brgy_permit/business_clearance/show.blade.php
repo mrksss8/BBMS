@@ -19,7 +19,10 @@ Brgy Business Clearance Records
                             </div>
                             <div class="card-body">
                                 <p><strong>  Business: </strong> {{ $business->business_name }}</p>
+                                @if ($business->business_owner_id != null)
                                 <p><strong>  Business Owner: </strong> {{$business->residence->last_name}}, {{$business->residence->first_name}}</p>
+                                @endif
+                                <p><strong>  Business Owner: </strong>{{$business->business_owner_not_resident}}</p>
                                 <p><strong>  Business Address: </strong> {{ $business->business_address }}</p>
                                 <p><strong>  Business Type: </strong> Gulay Trading</p>
                             </div>

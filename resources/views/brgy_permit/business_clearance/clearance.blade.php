@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Barangay Business Clearance
+    Barangay Business Clearance
 @endsection
 @section('content')
 
@@ -96,11 +96,15 @@ Barangay Business Clearance
                                             <p style="text-align:center;"> <strong> BUSINESS ADDRESS </strong> </p> <br>
                                             </p>
                                             <p>
-                                            <p style="text-align:center; line-height:10px; text-transform: uppercase;">
-                                                {{ $business->residence->first_name }}
-                                                {{ $business->residence->middle_name }}
-                                                {{ $business->residence->last_name }}</p>
-                                            </p>
+                                                @if ($business->business_owner_id != null)
+                                                    <p style="text-align:center; line-height:10px; text-transform: uppercase;">
+                                                        {{ $business->residence->first_name }}
+                                                        {{ $business->residence->middle_name }}
+                                                        {{ $business->residence->last_name }}</p>
+                                                    </p>
+                                                @endif
+
+                                                <p style="text-align:center; line-height:10px; text-transform: uppercase;">{{$business->business_owner_not_resident}} </p>
                                             <p style="text-align:center;"><strong> NAME OF OWNER</strong></p>
 
                                             </p>
@@ -119,15 +123,24 @@ Barangay Business Clearance
                                             </p>
                                             <br>
                                             <br>
-                                            <p><strong>
-                                                    <p
-                                                        style="line-height:10px; margin-left:50px; text-transform: uppercase;">
+                                         
+                                            <p>
+                                                @if ($business->business_owner_id != null)
+                                                <strong>
+                                                    <p style="line-height:10px; margin-left:50px; text-transform: uppercase;">
                                                         {{ $business->residence->first_name }}
                                                         {{ $business->residence->middle_name }}
-                                                        {{ $business->residence->last_name }}</p>
+                                                        {{ $business->residence->last_name }}
+                                                    </p>
                                                 </strong>
-                                            <p style="margin-left:120px;"> APPLICANT</p> <br>
+                                                @endif
+                                                <p style="line-height:10px; margin-left:50px; text-transform: uppercase;">
+
+                                                </p>
+                                                {{$business->business_owner_not_resident}}
+                                                <p style="margin-left:120px;"> APPLICANT</p> <br>
                                             </p>
+                                            
 
                                             </p>
                                         </div>

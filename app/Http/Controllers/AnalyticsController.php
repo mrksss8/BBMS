@@ -108,11 +108,11 @@ class AnalyticsController extends Controller
         $purok5_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "5")->count();
 
         //student per Purok
-        $purok1_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "1")->count();
-        $purok2_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "2")->count();
-        $purok3_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "3")->count();
-        $purok4_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "4")->count();
-        $purok5_student_Cnt = Resident::where('student' ,'=', 'Yes')->where('purok',"=", "5")->count();
+        $purok1_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "1")->count();
+        $purok2_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "2")->count();
+        $purok3_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "3")->count();
+        $purok4_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "4")->count();
+        $purok5_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "5")->count();
 
 
 
