@@ -11,7 +11,7 @@ class BuildingPermitController extends Controller
 {
     public function index(){
 
-         $buildings = Building::all();
+         $buildings = Building::orderBy('id','desc')->get();
         // $expired_business = 0;
         // foreach ($businesses as $businesse){
         //     $registration_date = \Carbon\Carbon::parse($businesse->regs_date)->diff(\Carbon\Carbon::now())->format('%y');
@@ -47,7 +47,7 @@ class BuildingPermitController extends Controller
              $building->reg_date = $request->reg_date;
              $building ->save();        
 
-           return redirect()->route('building_permit.index');
+           return redirect()->route('building_permit.index')->withStatus('Building Added Succesfully!');
     }
      public function show($id){
         $building  = Building::findOrfail($id);  

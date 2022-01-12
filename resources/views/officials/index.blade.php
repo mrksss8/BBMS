@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Residence Profile
+    Officials
 @endsection
 
 @section('content')
@@ -15,6 +15,15 @@
 
         </div>
         <div class="section-body">
+
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
 
 
             @foreach ($b_officials_batch_ids as $b_officials_batch_id)

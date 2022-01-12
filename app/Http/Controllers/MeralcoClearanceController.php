@@ -11,7 +11,7 @@ class MeralcoClearanceController extends Controller
 {
     public function index(){
 
-        $meralcos = MeralcoClearance::all();
+        $meralcos = MeralcoClearance::orderBy('id','desc')->get();
        // $expired_business = 0;
        // foreach ($businesses as $businesse){
        //     $registration_date = \Carbon\Carbon::parse($businesse->regs_date)->diff(\Carbon\Carbon::now())->format('%y');
@@ -46,7 +46,7 @@ class MeralcoClearanceController extends Controller
             $meralco->meralaco_clearance_building_type = $request->building_type;
             $meralco ->save();        
 
-          return redirect()->route('meralco_clearance.index');
+          return redirect()->route('meralco_clearance.index')->withStatus('Meralco Clearance Added Succesfully!');
    }
     public function show($id){
        $meralco  = MeralcoClearance::findOrfail($id);  

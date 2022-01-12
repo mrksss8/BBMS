@@ -14,7 +14,7 @@ class FranchiseClearanceController extends Controller
 
       
 
-        $franchises = Franchise::with('resident')->get();
+        $franchises = Franchise::with('resident')->orderBy('id','desc')->get();
 
         
 
@@ -45,7 +45,7 @@ class FranchiseClearanceController extends Controller
 
         $franchise->save();        
 
-        return redirect()->route('franchise_clearance.index');
+        return redirect()->route('franchise_clearance.index')->withStatus('Franschise Added Succesfully!');
     }
 
     public function show($id){

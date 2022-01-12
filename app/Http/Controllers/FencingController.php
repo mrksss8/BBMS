@@ -11,7 +11,7 @@ class FencingController extends Controller
 {
     public function index(){
 
-        $fencings = Fencing::all();
+        $fencings = Fencing::orderBy('id','desc')->get();
 
         return view('brgy_permit.fencing_permit.index',compact('fencings'));
 
@@ -39,7 +39,7 @@ class FencingController extends Controller
 
         $fencing->save();
 
-        return redirect()->route('fencing_permit.index');
+        return redirect()->route('fencing_permit.index')->withStatus('Fencing Added Succesfully!');
 
     }
 

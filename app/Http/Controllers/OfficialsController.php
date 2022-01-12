@@ -100,7 +100,7 @@ class OfficialsController extends Controller
          $bclerk->brgy_official_name = $request->bclerk_name;
          $bclerk->save();
 
-         return redirect()->route('officials.index');
+         return redirect()->route('officials.index')->withStatus('Officials has been Update Succesfully!');
     }
 
     public function create(){
@@ -206,7 +206,7 @@ class OfficialsController extends Controller
 
         Officials::insert($officials);
 
-        return redirect()->route('officials.index');
+        return redirect()->route('officials.index')->withStatus('New Officials Added Succesfully!');
 
     }
 }

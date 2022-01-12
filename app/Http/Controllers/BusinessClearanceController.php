@@ -12,7 +12,7 @@ class BusinessClearanceController extends Controller
 {
     public function index(){
 
-        $businesses = Business::with('residence')->get();
+        $businesses = Business::with('residence')->orderBy('id','desc')->get();
         $expired_business = 0;
         foreach ($businesses as $businesse){
             $registration_date = \Carbon\Carbon::parse($businesse->regs_date)->diff(\Carbon\Carbon::now())->format('%y');
@@ -50,7 +50,7 @@ class BusinessClearanceController extends Controller
             $business->regs_date = $request->reg_date;
             $business->save();        
 
-            return redirect()->route('business_clearance.index');
+            return redirect()->route('business_clearance.index')->withStatus('Business Added Succesfully!');
     }
     public function show($id){
 

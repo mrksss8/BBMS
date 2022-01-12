@@ -10,7 +10,7 @@ class BlottersController extends Controller
 {
     public function index(){
         // $blotters = Blotter::with('residents')->where('status', '!=', 'Settled')->get();
-        $blotters = Blotter::with('residents')->get();
+        $blotters = Blotter::with('residents')->orderby('id','desc')->get();
         return view('blotters.index', compact('blotters'));
     }
 
@@ -50,7 +50,7 @@ class BlottersController extends Controller
             'date_of_incident' =>$blotterReq['date_of_incident'],
         ])->residents()->attach($blotterReq['resident_id']);
 
-        return redirect()->route('blotters.index')->with('swal', 'Blotter Added !');
+        return redirect()->route('blotters.index')->withStatus('Blotter Added Succesfully!');
     }
 
     public function show($id){
@@ -70,7 +70,7 @@ class BlottersController extends Controller
         $blotter->status = $request->status;
         $blotter->save();
 
-        return redirect()->route('blotters.index');
+        return redirect()->route('blotters.show',$id)->withStatus('Case has been settlled!');
     }
 
     public function update(Request $request, $id){
@@ -79,21 +79,33 @@ class BlottersController extends Controller
         $blotter = Blotter::findOrfail($id);
         if($request->patawag === "bcp1"){
             $blotter->bcp1 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Brgy Captain Patawag 1 has been created!');
         }      
         elseif($request->patawag === "bcp2"){
             $blotter->bcp2 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Brgy Captain Patawag 2 has been created!');
         }
         elseif($request->patawag === "bcp3"){
             $blotter->bcp3 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Brgy Captain Patawag 3 has been created!');
         }
         elseif($request->patawag === "lbp1"){
             $blotter->lbp1 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Lupon ng Tagapamayapa Patawag 1 has been created!');
         }  
         elseif($request->patawag === "lbp2"){
             $blotter->lbp2 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Lupon ng Tagapamayapa Patawag 2 has been created!');
         }  
         elseif($request->patawag === "lbp3"){
             $blotter->lbp3 = $request->patawag;
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Lupon ng Tagapamayapa Patawag 3 has been created!');
         }  
 
 
@@ -103,11 +115,14 @@ class BlottersController extends Controller
 
         if($request->patawag === "Cancelled"){
             $blotter->status = $request->patawag;
-        } 
+            $blotter->save();
+            return redirect()->route('blotters.show',$id)->withStatus('Case has been cancelled!');
+        }  
+         
 
-        $blotter->save();
+       
 
-        return redirect()->back();
+        
     }
 
     public function Manage(Request $request, $id){

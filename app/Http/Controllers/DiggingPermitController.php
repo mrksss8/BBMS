@@ -11,7 +11,7 @@ class DiggingPermitController extends Controller
     public function index(){
 
 
-        $diggings = Digging::all();
+        $diggings = Digging::orderBy('id','desc')->get();
 
         return view('brgy_permit.digging_permit.index',compact('diggings'));
     }
@@ -38,7 +38,7 @@ class DiggingPermitController extends Controller
 
         $digging->save();
 
-        return redirect()->route('digging_permit.index');
+        return redirect()->route('digging_permit.index')->withStatus('Digging Added Succesfully!');
 
     }
 

@@ -9,26 +9,22 @@
 @endsection
 
 @section('content')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            @if (Session::has('swal'))
-                <script>
-                    window.addEventListener("load", ok, false);
-                    function ok() {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Blotter Added',
-                            showConfirmButton: true,
-                        })
-                    }
-                </script>
-            @endif
 
     <section class="section">
+        
         <div class="section-header">
             <h3 class="page__heading">Blotters Record</h3>
         </div>
         <div class="section-body">
+            @if (session('status'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('status') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card" style = "border: 1px solid #6474ec;">
