@@ -17,10 +17,10 @@
                                 <h4>Meralco Clearance Information</h4>
                             </div>
                             <div class="card-body">
-                                <p> Meralco Clearance Control No.: <strong>  {{ $meralco->meralaco_clearance_number }}</strong></p>
-                                <p> Meralco Clearance Requestor: <strong>{{ $meralco->meralaco_clearance_applicant }}</strong></p>
-                                <p> Building Type: <strong>    {{ $meralco->meralaco_clearance_building_type }}</strong></p>
-                                <p> Building Address: <strong>  {{ $meralco->meralaco_clearance_address }}</strong></p>
+                                <p><strong>Meralco Clearance Control No.:</strong>    {{ $meralco->meralaco_clearance_number }}</p>
+                                <p><strong>Meralco Clearance Requestor:</strong>  {{ $meralco->meralaco_clearance_applicant }}</p>
+                                <p><strong>Building Type:</strong>      {{ $meralco->meralaco_clearance_building_type }}</p>
+                                <p><strong>Building Address:</strong>    {{ $meralco->meralaco_clearance_address }}</p>
                             </div>
                         </div>
                         

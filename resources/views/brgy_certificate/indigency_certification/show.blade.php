@@ -312,7 +312,7 @@
 
 
                                             <p id="witness" style="margin-top: 70px;">
-                                                Pinatutunayan
+                                                Pinatutunayan ni:
                                             </p>
                                         </div>
 

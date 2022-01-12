@@ -95,16 +95,17 @@ Brgy Income Issuance
                                            
                                         <P id="issue-for">
                                             Pagpapatunay din na si  <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong>, ay {{ $resident->occupation}}  na kanyang pinagkakakitaan requirement para sa <strong>{{ $purpose}}</strong>.
+                                                {{ $resident->last_name }}</strong>, ay {{ $resident->occupation}}  na kanyang pinagkakakitaan. </strong>
+                                                {{-- requirement para sa <strong>{{ $purpose}} --}}
                                         </P>
                                         
                                         <p id="witness">
-                                            Given this <strong> {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }} </strong>
+                                            Pinagkakaloon ngayong <strong> {{ \Carbon\Carbon::today()->format('F j,\\ Y') }} </strong>
                                         </p>
     
                                        
                                         <p id="witness" style="margin-top: 70px;">
-                                            Certify By:
+                                            Pinatutunayan ni:
                                          </p>
                                     </div>
 
@@ -156,7 +157,7 @@ Brgy Income Issuance
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin: 0,
-                    filename: 'Income.pdf',
+                    filename: 'BarangayIncome.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98

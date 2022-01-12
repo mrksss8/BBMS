@@ -17,10 +17,10 @@ Building Permit
                                 <h4>Building Information</h4>
                             </div>
                             <div class="card-body">
-                                <p> Building Owner: <strong> {{ $building->building_owner }}</strong></p>
-                                <p> Building Type: <strong> {{ $building->building_type }}</strong></p>
-                                <p> Building Address: <strong> {{ $building->building_address }}</strong></p>
-                                <p>Date Register: <strong>{{ \Carbon\Carbon::parse($building->regs_date)->format('F d, Y') }}</strong></p>
+                                <p><strong>Building Owner:</strong>   {{ $building->building_owner }}</p>
+                                <p><strong>Building Type:</strong>   {{ $building->building_type }}</p>
+                                <p><strong>Building Address:</strong>   {{ $building->building_address }}</p>
+                                <p><strong>Date Register:</strong>  {{ \Carbon\Carbon::parse($building->regs_date)->format('F d, Y') }}</strong></p>
                             </div>
                         </div>
                         
