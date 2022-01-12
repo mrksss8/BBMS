@@ -23,7 +23,7 @@
                                     <div class="col-sm-12">
                                         
                                         <div class="form-group">
-                                            <label>Complained Person/s</label>
+                                            <label>Respondent/s</label>
                                             <select name = "resident_id[]"class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true" style="width: 100%">
                                                 @foreach ($residence as $resident)
                                                 <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}</option>     
@@ -34,15 +34,14 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Complained Person/s not resident</label>
+                                            <label>Respondent/s not resident</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
                                                         <i class="fas fa-user"></i>
                                                     </div>
                                                 </div>
-                                                <input type="text" name="complained_resident" class="form-control phone-number"
-                                                required>
+                                                <input type="text" name="complained_resident" class="form-control phone-number">
                                                 
                                             </div>
                                         </div>
