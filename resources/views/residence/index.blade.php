@@ -96,7 +96,12 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    @if ($residence->path != null)
+
+                                                    <figure class="avatar avatar-md">
+                                                    <img alt="image" src="{{ url('storage/residence/'.$residence->image) }}" class="rounded-circle" height="300px"width="300px">
+                                                    </figure>
+                                                    
+                                                    {{-- @if ($residence->path != null)
                                                     <figure class="avatar avatar-md">
                                                         <img src="{{ $residence->path }}">
                                                     </figure>
@@ -105,7 +110,7 @@
                                                         <img id="logo-img" src="{{ asset('../img/avatar.jpg') }}"
                                                         alt="brgy-bayog-logo">
                                                     </figure>
-                                                    @endif
+                                                    @endif --}}
                                                     
                                                 </td>
                                                 <td>{{ $residence->last_name }} {{ $residence->first_name }} {{ $residence->middle_name }}</td>

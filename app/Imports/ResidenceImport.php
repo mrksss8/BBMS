@@ -41,7 +41,7 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
                'gender'             => $row['Gender'],
                'birthday'           => \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($row['Birthday']),
                'civil_status'       => $row['Civil Status'],
-               'occupation'        => $row['Occupation'],
+               'occupation'         => $row['Occupation'],
                'student'            => $row['Student'],
                'house_number'       => $row['House Number'],
                'purok'              => $row['Purok'],

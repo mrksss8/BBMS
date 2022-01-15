@@ -27,6 +27,18 @@ Residents Update
                                                     <div class="card-body">
 
                                                         <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div id="my_camera"></div>
+                                                                <br />
+                                                                <input type=button class="btn btn-sm btn-primary" value="Take Snapshot"
+                                                                    onClick="take_snapshot()">
+                                                                <input type="hidden" name="image" class="image-tag">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div id="results">Your captured image will appear here...</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="col-sm-12 col-lg-6">
                                                                 <div class="form-group">
                                                                     <label>Last name</label>
@@ -77,10 +89,10 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-venus-mars"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="gender" value="{{$resident->gender}}"required>
+                                                                        <select class="form-control" name="gender"required>
                                                                            
-                                                                            <option value="Male">Male</option>
-                                                                            <option value="Female">Female</option>
+                                                                            <option {{ $resident->gender == 'Male' ? 'selected' : '' }}  value="Male">Male</option>
+                                                                            <option {{ $resident->gender == 'Female' ? 'selected' : '' }}  value="Female">Female</option>
                                                                         </select>
                                                                     </div>
 
@@ -111,13 +123,13 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-id-badge"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="civil_status" value="{{$resident->civil_status}}">
+                                                                        <select class="form-control" name="civil_status">
                                                                             
-                                                                            <option value="Single">Single</option>
-                                                                            <option value="Married">Married</option>
-                                                                            <option value="Divorced">Divorced</option>
-                                                                            <option value="Widowed">Widowed</option>
-                                                                            <option value="Separated">Separated</option>
+                                                                            <option {{ $resident->civil_status == 'Single' ? 'selected' : '' }} value="Single">Single</option>
+                                                                            <option {{ $resident->civil_status == 'Married' ? 'selected' : '' }} value="Married">Married</option>
+                                                                            <option {{ $resident->civil_status == 'Annulled' ? 'selected' : '' }} value="Annulled">Annulled</option>
+                                                                            <option {{ $resident->civil_status == 'Widowed' ? 'selected' : '' }} value="Widowed">Widowed</option>
+                                                                            <option {{ $resident->civil_status == 'Separated' ? 'selected' : '' }} value="Separated">Separated</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -143,13 +155,13 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-address-card"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="student" value="{{$resident->student}}">
+                                                                        <select class="form-control" name="student">
                                                                             
-                                                                            <option value="N/A"> N/A </option>
-                                                                            <option value="Elementary">Elementary</option>
-                                                                            <option value="High Schhol">High Schhol</option>
-                                                                            <option value="College">College</option>
-                                                                            <option value="Other">Other</option>
+                                                                            <option {{ $resident->student == 'N/A' ? 'selected' : '' }} value="N/A" > N/A </option>
+                                                                            <option {{ $resident->student == 'Elementary' ? 'selected' : '' }} value="Elementary">Elementary</option>
+                                                                            <option {{ $resident->student == 'High School' ? 'selected' : '' }} value="High School">High School</option>
+                                                                            <option {{ $resident->student == 'College' ? 'selected' : '' }} value="College">College</option>
+                                                                            <option {{ $resident->student == 'Other' ? 'selected' : '' }} value="Other">Other</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -173,7 +185,7 @@ Residents Update
                                                                                 <i class="fas fa-address-card"></i>
                                                                             </div>
                                                                         </div>
-                                                                        <input type="number" name="house_number" value="{{$resident->house_number}}"
+                                                                        <input type="text" name="house_number" value="{{$resident->house_number}}"
                                                                             class="form-control phone-number">
                                                                     </div>
                                                                 </div>
@@ -185,13 +197,13 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-address-card"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="purok" value="{{$resident->purok}}">
+                                                                        <select class="form-control" name="purok">
                                                                          
-                                                                            <option value="1">Purok 1</option>
-                                                                            <option value="2">Purok 2</option>
-                                                                            <option value="3">Purok 3</option>
-                                                                            <option value="4">Purok 4</option>
-                                                                            <option value="5">Purok 5</option>
+                                                                            <option value="1" {{ $resident->purok == '1' ? 'selected' : '' }}>Purok 1</option>
+                                                                            <option value="2" {{ $resident->purok == '2' ? 'selected' : '' }}>Purok 2</option>
+                                                                            <option value="3" {{ $resident->purok == '3' ? 'selected' : '' }}>Purok 3</option>
+                                                                            <option value="4" {{ $resident->purok == '4' ? 'selected' : '' }}>Purok 4</option>
+                                                                            <option value="5" {{ $resident->purok == '5' ? 'selected' : '' }}>Purok 5</option>
 
                                                                         </select>
                                                                     </div>
@@ -218,10 +230,10 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-address-card"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="type_of_house" value="{{$resident->type_of_house}}">
+                                                                        <select class="form-control" name="type_of_house">
                                                                            
-                                                                            <option value="Owned">Owned</option>
-                                                                            <option value="Rental">Rental</option>
+                                                                            <option value="Owned" {{ $resident->type_of_house == 'Owned' ? 'selected' : '' }}>Owned</option>
+                                                                            <option value="Rental" {{ $resident->type_of_house == 'Rental' ? 'selected' : '' }}>Rental</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -240,11 +252,12 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-venus-mars"></i>
                                                                         </div>
-                                                                        <select class="form-control" name="pwd" value="{{$resident->pwd}}">
+                                                                        <select class="form-control" name="pwd">
                                                                            
-                                                                            <option value="Yes">Yes</option>
-                                                                            <option value="No">No</option>
+                                                                            <option value="Yes" {{ $resident->pwd == 'Yes' ? 'selected' : '' }}>Yes</option>
+                                                                            <option value="No" {{ $resident->pwd == 'No' ? 'selected' : '' }}>No</option>
                                                                         </select>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -255,12 +268,12 @@ Residents Update
                                                                         <div class="input-group-text">
                                                                             <i class="fas fa-venus-mars"></i>
                                                                         </div>
-                                                                        <select class="form-control"
-                                                                            name="membership_prog" value="{{$resident->membership_prog}}">
-                                                                            
-                                                                            <option value="None">None</option>
-                                                                            <option value="4Ps">4Ps</option>
-                                                                            <option value="TUPAD">TUPAD</option>
+                                                                        <select class="form-control" name="membership_prog">
+                                                                
+                                                                            <option value="None" {{ $resident->membership_prog == 'None' ? 'selected' : '' }}>None</option>
+                                                                            <option value="4Ps" {{ $resident->membership_prog == '4Ps' ? 'selected' : '' }}>4Ps</option>
+                                                                            <option value="TUPAD" {{ $resident->membership_prog == 'TUPAD' ? 'selected' : '' }}>TUPAD</option>
+
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -287,31 +300,26 @@ Residents Update
                     </div>
                 </div>
             </div>
-            {{-- <div class="">
-                    <div id="my_camera"></div>
-                    <br/>
-                    <input type=button class="btn btn-sm btn-primary" value="Take Snapshot" onClick="take_snapshot()">
-                    <input type="hidden"  name="image" class="image-tag">
-                    
-                </div> --}}
 
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
-        <script language="JavaScript">
-            Webcam.set({
-                width: 490,
-                height: 390,
-                image_format: 'jpeg',
-                jpeg_quality: 90
-            });
-            Webcam.attach( '#my_camera' );
-            function take_snapshot() {
-                Webcam.snap( function(data_uri) {
-                    $(".image-tag").val(data_uri);
-                    document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-                } );
-            }
-        </script> --}}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+            <!-- Configure a few settings and attach camera -->
+            <script language="JavaScript">
+                Webcam.set({
+                    width: 490,
+                    height: 390,
+                    image_format: 'jpeg',
+                    jpeg_quality: 90
+                });
+                Webcam.attach('#my_camera');
+    
+                function take_snapshot() {
+                    Webcam.snap(function(data_uri) {
+                        $(".image-tag").val(data_uri);
+                        document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+                    });
+                }
+            </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         

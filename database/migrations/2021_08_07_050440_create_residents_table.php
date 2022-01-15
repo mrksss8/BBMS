@@ -36,10 +36,8 @@ class CreateResidentsTable extends Migration
             $table->string('pwd');
             $table->string('membership_prog');
 
-            
-
             $table->string('image')->nullable();
-            $table->string('path')->nullable();
+
             $table->timestamps();
         });
     }

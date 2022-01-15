@@ -27,20 +27,8 @@
                 <div class="col-12 col-md-8 col-lg-8">
                     <div class="card" style = "border: 1px solid #6474ec;">
                         <div class="card-header d-flex justify-content-center px-5 pt-5">
-
-                            @if ($resident->path != null)
                             
-                                <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
-                                width="300px">
-                      
-                            @else
-                            
-                                <img alt="image" src="{{ asset('../img/avatar.jpg') }}" class="rounded-circle" height="300px"
-                                width="300px">
-                       
-                            @endif
-
-
+                                <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}" class="rounded-circle" height="400px" width="400px">
 
                            
                         </div>

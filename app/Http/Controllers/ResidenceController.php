@@ -40,6 +40,20 @@ class ResidenceController extends Controller
     public function store(Request $request)
     {
             $residence = new Resident;
+
+            $img =  $request->get('image');
+            $folderPath = "C:/xampp/htdocs/project/BBMS/storage/app/public/residence/";
+            $image_parts = explode(";base64,", $img);
+
+            foreach ($image_parts as $key => $image){
+                $image_base64 = base64_decode($image);
+            }
+
+            $fileName = uniqid() . '.png';
+            $file = $folderPath . $fileName;
+            file_put_contents($file, $image_base64);
+
+            $residence->image = $fileName;
             $residence->last_name = $request->last_name;
             $residence->first_name = $request->first_name;
             $residence->middle_name = $request->middle_name;
@@ -57,20 +71,20 @@ class ResidenceController extends Controller
             $residence->type_of_house = $request->type_of_house;
             $residence->pwd = $request->pwd;
             $residence->membership_prog = $request->membership_prog;
-            $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-              ]);
+            $residence->save();  
+            
+            // $request->validate([
+            //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //   ]);
 
-            if ($request->file('image')) {
-                $imagePath = $request->file('image');
-                $imageName = $imagePath->getClientOriginalName();
-                $path = $request->file('image')->storeAs('residence', $imageName, 'public');
-              }
-              $residence->image = $imageName;
-              $residence->path = '/storage/'.$path;
+            // if ($request->file('image')) {
+            //     $imagePath = $request->file('image');
+            //     $imageName = $imagePath->getClientOriginalName();
+            //     $path = $request->file('image')->storeAs('residence', $imageName, 'public');
+            //   }
+            //   $residence->image = $imageName;
+            //   $residence->path = '/storage/'.$path;
     
-            $residence->save();   
-
             return redirect()->route('residence.index')->withStatus('Resident Register Succesfully!');
             
             // ;
@@ -109,7 +123,28 @@ class ResidenceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $resident = Resident::findorfail($id);
+            $resident = Resident::findorfail($id);
+
+            if ($request->image != null)
+            {
+                
+                $img =  $request->get('image');
+                $folderPath = "C:/xampp/htdocs/project/BBMS/storage/app/public/residence/";
+                $image_parts = explode(";base64,", $img);
+    
+                foreach ($image_parts as $key => $image){
+                    $image_base64 = base64_decode($image);
+                }
+    
+                $fileName = uniqid() . '.png';
+                $file = $folderPath . $fileName;
+                file_put_contents($file, $image_base64);
+    
+                $resident->image = $fileName;
+            }
+
+
+
             $resident->last_name = $request->last_name;
             $resident->first_name = $request->first_name;
             $resident->middle_name = $request->middle_name;
