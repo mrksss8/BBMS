@@ -23,13 +23,13 @@
                                 <p> BARANGAY BAYOG </p>
 
                                 <div class="title-wrapper">
-                                    <h1 class="mb-0">Barangay Clearance Certificate</h1>
+                                    <h1 class="mb-0" style="border-left: 2px solid black; border-right: 2px solid black;">Barangay Clearance Certificate</h1>
                                 </div>
                             </div>
 
 
                             <div class="body">
-                                <div class="officials" style="width: 2.75in;">
+                                <div class="officials" style="width: 2.75in; border-left: 2px solid black;">
                                     <div class="official-wrapper">
                                         <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                             alt="brgy-bayog-logo">
@@ -79,10 +79,10 @@
                                     </div>
                                 </div>
 
-                                <div class="content" style="width: 5.55in;">
+                                <div class="content" style="width: 5.55in; border-right: 2px solid black;">
                                     <div class="content-wrapper">
                                         <div class="top-part">
-                                            <p id="bayog">BAYOG 2021-1186</p>
+                                            <p id="bayog">.</p>
                                             {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
                                             <div id="resident-picture">
                                                 {{-- webcam video snapshot --}}

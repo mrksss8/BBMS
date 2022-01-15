@@ -295,7 +295,7 @@
                                             <p id="content">
                                                 Ito ay nagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
                                                 {{ $resident->last_name }}, {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}taong gulang </strong> ipinanganak noong
-                                            <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }} </strong> sa <strong> CAMARINE SUR </strong> at kasalukuyang nakatira sa Tagpuan St., Bayog, Los
+                                            <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }} </strong> sa <strong> {{$resident->birthplace}} </strong> at kasalukuyang nakatira sa Tagpuan St., Bayog, Los
                                                 Baños, Laguna ay nabibilang sa mahihirap na pamilya sa aming Barangay at walang
                                                 pirmihang pinagkakakitaan.
                                             <P id="issue-for">
