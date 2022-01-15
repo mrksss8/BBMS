@@ -27,27 +27,27 @@ class CreateBlottersTable extends Migration
 
             $table->string('bcp1')->nullable();
             $table->string('bcp1_note')->nullable();
-            $table->date('bcp1_date')->nullable();
+            $table->dateTime('bcp1_date')->nullable();
 
             $table->string('bcp2')->nullable();
             $table->string('bcp2_note')->nullable();
-            $table->date('bcp2_date')->nullable();
+            $table->dateTime('bcp2_date')->nullable();
 
             $table->string('bcp3')->nullable();
             $table->string('bcp3_note')->nullable();
-            $table->date('bcp3_date')->nullable();
+            $table->dateTime('bcp3_date')->nullable();
 
             $table->string('lbp1')->nullable();
             $table->string('lbp1_note')->nullable();
-            $table->date('lbp1_date')->nullable();
+            $table->dateTime('lbp1_date')->nullable();
 
             $table->string('lbp2')->nullable();
             $table->string('lbp2_note')->nullable();
-            $table->date('lbp2_date')->nullable();
+            $table->dateTime('lbp2_date')->nullable();
 
             $table->string('lbp3')->nullable();
             $table->string('lbp3_note')->nullable();
-            $table->date('lbp3_date')->nullable();
+            $table->dateTime('lbp3_date')->nullable();
             $table->timestamps();
 
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Blotter;
+use App\Model\Officials;
 use Carbon\Carbon;
 class BlottersController extends Controller
 {
@@ -164,8 +165,10 @@ class BlottersController extends Controller
     }
 
     public function patawag($date, $id){
-        $blotter = Blotter::with('residents')->findOrfail($id);
+        $latest_id= Officials::max('batch_id');
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
 
-        return view('blotters.patawag',compact('date','blotter'));
+        $blotter = Blotter::with('residents')->findOrfail($id);
+        return view('blotters.patawag',compact('date','blotter','b_officials'));
     }
 }

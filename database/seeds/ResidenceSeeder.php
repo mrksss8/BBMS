@@ -13,6 +13,7 @@ class ResidenceSeeder extends Seeder
     public function run()
     {
         DB::table('residents')->insert([
+
             'res_num' => '123',
             'last_name' => 'Bautista',
             'first_name' => 'Mark Anthony',
@@ -26,16 +27,14 @@ class ResidenceSeeder extends Seeder
             'purok' => '1',
             'street' => 'Silangan',
 
-            
             'occupation' => 'Vendor',
             'Student' => 'Yes',
             'type_of_house' => 'Owned',
 
             'pwd' => 'Yes',
             'membership_prog' => 'TUPAD',
+            'image' => 'avatar-mark.jpg'
 
-            'image' => 'avatar-mark.jpg',
-            'path' => '/storage/residence/avatar-mark.jpg',
 
         ]);
     }

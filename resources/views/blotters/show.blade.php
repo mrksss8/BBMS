@@ -491,7 +491,7 @@
                                         <div class="col-12">
 
                                             <p><strong> Date of Patawag:</strong>
-                                                {{ $blotter->bcp1_date ? \Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y') : null }}
+                                                {{ $blotter->bcp1_date ? \Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp1_note }}</p>
 
@@ -499,7 +499,7 @@
                                         @if ($blotter->status == 'Unsettled')
                                             @if ($blotter->bcp2 == null)
                                                 <div class="col-12 d-flex justify-content-center">
-                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp1_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                         class="btn btn-outline-success btn-sm px-3">Generate
                                                         Letter</a>
                                                 </div>

@@ -58,30 +58,6 @@
                             <div class="col-12">
                                 <div class="d-flex justify-content-between">
                                     <h4>Blotters Case</h4>
-
-                                    @if ($blotter->status == 'Unsettled')
-
-                                            @if ($blotter->bcp1 == null)
-                                                <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
-                                                    data-target="#action"> <i class="far fa-edit"></i>
-                                                    Add Action
-                                                </button>
-                                            @else
-                                                <button type="button" class="btn btn-outline-primary my-2" data-toggle="modal"
-                                                    data-target="#action" disabled> <i class="far fa-edit"></i>
-                                                    Add Action
-                                                </button>
-
-                                            @endif
-
-                                    @else
-
-                                            <span type="button" class="btn btn-success my-2 text-dark">
-                                                <strong>This Case is {{ $blotter->status }} </strong>
-                                            </span>
-
-                                    @endif
-
                                 </div>
                             </div>
                         </div>
@@ -99,12 +75,13 @@
                             </div>
                         </div>
                         <div class="card-body">
-       
-                                @foreach ($blotter->residents as $resident)
-                                    <strong>Complained Person:</strong>
-                                    {{ $resident->last_name }} {{ $resident->first_name }}
-                                    {{ $resident->middle_name }} <br>
-                                @endforeach
+                            <strong>Complained Person:</strong>
+                            
+                            @foreach ($blotter->residents as $resident)
+                                {{ $resident->last_name }} {{ $resident->first_name }}
+                                {{ $resident->middle_name }},<span class = mx-2></span>
+                            @endforeach
+                            {{$blotter->complained_resident}}
 
                         </div>
                         <div class="card-body">

@@ -6,7 +6,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <div class="d-flex justify-content-between" style = "width: 100%;">
+            <div class="d-flex justify-content-between" style="width: 100%;">
                 <div>
                     <h3 class="page__heading">Blotter Patawag Letter</h3>
                 </div>
@@ -33,40 +33,140 @@
                                         <p> BARANGAY BAYOG </p>
 
                                         <div class="title-wrapper">
-                                            <h1 class="mb-0" style="margin-top: 30px;">Tanggapan ng Lupong Tagapamayapa</h1>
+                                            <h1 class="mb-0" style="margin-top: 30px;">Tanggapan ng Lupong
+                                                Tagapamayapa</h1>
                                         </div>
                                     </div>
                                     <div class="body" style="padding: 50px;">
                                         <div class="petsa">
-                                            <p style="text-align: right; margin-right: 3.5rem;">Petsa: {{ \Carbon\Carbon::today()->format('F d, Y')  }}</p>
-                                            <p style="margin-top: 50px;">Usapin Blg. 2022-448</p>
+                                            <p style="text-align: right; margin-right: 3.5rem;">Petsa:
+                                                @if (date('F', strtotime($date)) == 'January')
+                                                    Enero
+                                                @elseif (date('F', strtotime($date)) == 'February')
+                                                    Pebrero
+                                                @elseif (date('F', strtotime($date)) == 'March')
+                                                    Marso
+                                                @elseif (date('F', strtotime($date)) == 'April')
+                                                    Abril
+                                                @elseif (date('F', strtotime($date)) == 'May')
+                                                    Mayo
+                                                @elseif (date('F', strtotime($date)) == 'June')
+                                                    Hunyo
+                                                @elseif (date('F', strtotime($date)) == 'July')
+                                                    Hulyo
+                                                @elseif (date('F', strtotime($date)) == 'August')
+                                                    Agosto
+                                                @elseif (date('F', strtotime($date)) == 'September')
+                                                    Setyembre
+                                                @elseif (date('F', strtotime($date)) == 'October')
+                                                    Octobre
+                                                @elseif (date('F', strtotime($date)) == 'November')
+                                                    Nobyembre
+                                                @elseif (date('F', strtotime($date)) == 'December')
+                                                    Disyembre
+                                                @else
+
+                                                @endif
+
+                                                {{ \Carbon\Carbon::today()->format('d, Y') }}
+                                            </p>
+                                            <p style="margin-top: 50px;">Usapin Blg. {{ $blotter->case_number }}</p>
                                             <p>Tungkol sa: Paglilinaw</p>
                                             <h2 style="text-align: center; margin-top: 20px;">PAABISO NG PAGDINIG</h2>
-                                            <p style="margin-top: 50px;">Kay:  
+                                            <p style="margin-top: 50px;">Kay:
                                                 @foreach ($blotter->residents as $resident)
-                                                {{ $resident->last_name }} {{ $resident->first_name }}
-                                                {{ $resident->middle_name }}, <span class = mx-2></span>
+                                                    {{ $resident->last_name }} {{ $resident->first_name }}
+                                                    {{ $resident->middle_name }}, <span class=mx-2></span>
                                                 @endforeach
-                                                 {{ $resident->middle_name }}</p>
+                                                {{ $blotter->complained_resident }}
+                                            </p>
                                             <p>(Mga) Inerereklamo</p>
 
+
                                             <p style="text-align: center; padding: 0px 20px 0px 20px; margin-top: 50px;">
-                                                Ikaw ay hinihilingan na humarap sa akin sa  {{$date}}. Sa
-                                                ganap na ika {{ \Carbon\Carbon::today()->format(' h:i A')  }} ng hapon para sa pagdinig sa isang usapin.</p>
+                                                Ikaw ay hinihilingan na humarap sa akin sa
+                                                @if (date('F', strtotime($date)) == 'January')
+                                                    Enero
+                                                @elseif (date('F', strtotime($date)) == 'February')
+                                                    Pebrero
+                                                @elseif (date('F', strtotime($date)) == 'March')
+                                                    Marso
+                                                @elseif (date('F', strtotime($date)) == 'April')
+                                                    Abril
+                                                @elseif (date('F', strtotime($date)) == 'May')
+                                                    Mayo
+                                                @elseif (date('F', strtotime($date)) == 'June')
+                                                    Hunyo
+                                                @elseif (date('F', strtotime($date)) == 'July')
+                                                    Hulyo
+                                                @elseif (date('F', strtotime($date)) == 'August')
+                                                    Agosto
+                                                @elseif (date('F', strtotime($date)) == 'September')
+                                                    Setyembre
+                                                @elseif (date('F', strtotime($date)) == 'October')
+                                                    Octobre
+                                                @elseif (date('F', strtotime($date)) == 'November')
+                                                    Nobyembre
+                                                @elseif (date('F', strtotime($date)) == 'December')
+                                                    Disyembre
+                                                @else
+
+                                                @endif
+
+                                                {{ date(' d, Y', strtotime($date)) }}. Sa
+                                                ganap na ika {{ date('h:i', strtotime($date)) }} ng
+                                                {{ date('A', strtotime($date)) == 'AM' ? 'umaga' : 'hapon' }} para sa
+                                                pagdinig sa isang usapin.
+                                            </p>
 
                                             <div style="margin-right: 50px; margin-top: 100px;">
-                                                <p style="text-align: right;  line-height: 10px;"> <strong>Hon. Crisanto A.
-                                                        Tandang</strong></p>
+                                                <p style="text-align: right;  line-height: 10px;"> <strong>Hon.
+                                                        @foreach ($b_officials as $b_official)
+
+                                                            @if ($b_official->brgy_official_position == 'Barangay Chairman')
+                                                                
+                                                                        {{ $b_official->brgy_official_name }}
+                                                                        
+                                                            @endif
+                                                        @endforeach
+                                                    </strong></p>
                                                 <p style="text-align: right; margin-right: 20px;">Punong Barangay</p>
                                             </div>
 
 
 
-                                            <p style="margin-top: 50px;">Ipinagbibigay alam ngayong darating na {{$date}}.
+                                            <p style="margin-top: 50px;">Ipinagbibigay alam ngayong darating na @if (date('F', strtotime($date)) == 'January')
+                                                    Enero
+                                                @elseif (date('F', strtotime($date)) == 'February')
+                                                    Pebrero
+                                                @elseif (date('F', strtotime($date)) == 'March')
+                                                    Marso
+                                                @elseif (date('F', strtotime($date)) == 'April')
+                                                    Abril
+                                                @elseif (date('F', strtotime($date)) == 'May')
+                                                    Mayo
+                                                @elseif (date('F', strtotime($date)) == 'June')
+                                                    Hunyo
+                                                @elseif (date('F', strtotime($date)) == 'July')
+                                                    Hulyo
+                                                @elseif (date('F', strtotime($date)) == 'August')
+                                                    Agosto
+                                                @elseif (date('F', strtotime($date)) == 'September')
+                                                    Setyembre
+                                                @elseif (date('F', strtotime($date)) == 'October')
+                                                    Octobre
+                                                @elseif (date('F', strtotime($date)) == 'November')
+                                                    Nobyembre
+                                                @elseif (date('F', strtotime($date)) == 'December')
+                                                    Disyembre
+                                                @else
+
+                                                @endif
+                                                {{ date(' d, Y', strtotime($date)) }}.
                                             </p>
 
                                             <p style="margin-top: 50px;">(Mga) Nagrereklamo: </p>
-                                            <p>{{$blotter->complainant_name}}</p>
+                                            <p>{{ $blotter->complainant_name }}</p>
                                         </div>
 
                                     </div>
