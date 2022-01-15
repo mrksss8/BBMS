@@ -39,7 +39,7 @@
                             <div class="card profile-widget" style = "border: 1px solid #6474ec;" >
                                 <div class="profile-widget-header d-flex justify-content-center px-5 pt-5">
 
-                                    <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
+                                    <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}"  class="rounded-circle" height="300px"
                                         width="300px">
 
                                 </div>

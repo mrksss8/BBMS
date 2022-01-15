@@ -23,7 +23,7 @@
 
 
 
-                                    <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
+                                    <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}"  class="rounded-circle" height="300px"
                                         width="300px">
 
                                 </div>
