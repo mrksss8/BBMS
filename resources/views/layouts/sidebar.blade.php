@@ -32,13 +32,14 @@
         <!-- menu header -->
           <hr class = "mx-4 my-0">
         <!-- menu item -->
-        <li class ="mx-2"><a class="nav-link" href = "{{route ('dashboard.index')}}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route ('analytics.index')}}"><i class="fas fa-chart-pie"></i><span>Brgy Analytics</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route ('residence.index')}}"><i class="fas fa-users"></i><span>Residents Record</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route('blotters.index')}}"><i class="fas fa-user-lock"></i><span>Blotters Record</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route('certificate')}}"><i class="fas fa-file-alt"></i><span>Permits Record</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route('officials.index')}}"><i class="fas fa-user-tie"></i><span>Brgy Officials</span></a></li>
-        <li class ="mx-2"><a class="nav-link" href ="{{route('reports.index')}}"><i class="fas fa-file"></i><span>Reports</span></a></li>
+        <li class ="mx-2 {{ request()->is('dashboard') ? 'active-nav' : '' }}"><a class="nav-link" href = "{{route ('dashboard.index')}}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+        <li class ="mx-2 {{ request()->is('Brgy-Analytics/index') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route ('analytics.index')}}"><i class="fas fa-chart-pie"></i><span>Brgy Analytics</span></a></li>
+        <li class ="mx-2 {{ request()->is('residence/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route ('residence.index')}}"><i class="fas fa-users"></i><span>Residents Record</span></a></li>
+        <li class ="mx-2 {{ request()->is('Blotters/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('blotters.index')}}"><i class="fas fa-user-lock"></i><span>Blotters Record</span></a></li>
+        <li class ="mx-2 {{ request()->is('permits') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('certificate')}}"><i class="fas fa-file-alt"></i><span>Permits Record</span></a></li>
+        <li class ="mx-2 {{ request()->is('officials/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('officials.index')}}"><i class="fas fa-user-tie"></i><span>Brgy Officials</span></a></li>
+        <li class ="mx-2 {{ request()->is('Reports/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('reports.index')}}"><i class="fas fa-file"></i><span>Reports</span></a></li>
+        <li class ="mx-2 {{ request()->is('ActivityLog/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('activity_logs.index')}}"><i class="fas fa-clipboard-list"></i><span>Activity Logs</span></a></li>
       </ul>
     </aside>
   </div>
@@ -48,7 +49,7 @@
       background-color: #6777ef !important;
     }
 
-    li a:active{
+    .active-nav{
       background-color: #6777ef !important;
     }
   </style>
