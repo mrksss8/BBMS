@@ -7,7 +7,7 @@
 </ul>
 
 <div class = "d-flex align-items-center">
-    <div class = "mr-5">{{Carbon\Carbon::now()->format('l\\, F d\\, Y -\\ h:i')}}</div>
+    <div class = "mr-5">{{Carbon\Carbon::now()->format('l\\, F d\\, Y -\\ h:i:A')}}</div>
     <ul class="navbar-nav navbar-right">
     
         @if(\Illuminate\Support\Facades\Auth::user())
