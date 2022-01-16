@@ -30,7 +30,7 @@ Route::get('/welcome', function(){
 
 
 
-    Route::group(['prefix' => 'residence','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents','middleware' => 'auth'], function(){
       Route::get('/index', [App\Http\Controllers\ResidenceController::class, 'index'])->name('residence.index');
       Route::get('/create', [App\Http\Controllers\ResidenceController::class, 'create'])->name('residence.create');
       Route::get('/edit/{id}', [App\Http\Controllers\ResidenceController::class, 'edit'])->name('residence.edit');
@@ -42,43 +42,43 @@ Route::get('/welcome', function(){
       Route::get('/import', [App\Http\Controllers\ResidenceController::class, 'import'])->name('residence.import');
     });
 
-    Route::group(['prefix' => 'brgy_clearance','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_clearance','middleware' => 'auth'], function(){
       Route::get('/index', [App\Http\Controllers\BarangayClearanceController::class, 'index'])->name('brgy_clearance.index');
       Route::get('/create/{id}', [App\Http\Controllers\BarangayClearanceController::class, 'create'])->name('brgy_clearance.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayClearanceController::class, 'show'])->name('brgy_clearance.show');
     });
 
-    Route::group(['prefix' => 'brgy_indigency','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_indigency','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayIndigencyController::class, 'create'])->name('brgy_indigency.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayIndigencyController::class, 'show'])->name('brgy_indigency.show');
     });
 
-    Route::group(['prefix' => 'brgy_residency','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/residents/brgy_residency','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayResidencyController::class, 'create'])->name('brgy_residency.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayResidencyController::class, 'show'])->name('brgy_residency.show');
     });
 
-    Route::group(['prefix' => 'brgy_goodmoral','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_goodmoral','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayGoodmoralController::class, 'create'])->name('brgy_goodmoral.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayGoodmoralController::class, 'show'])->name('brgy_goodmoral.show');
     });
 
-    Route::group(['prefix' => 'brgy_PUI-PUM','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_PUI-PUM','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayPUIPUMController::class, 'create'])->name('brgy_puipum.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayPUIPUMController::class, 'show'])->name('brgy_puipum.show');
     });
 
-    Route::group(['prefix' => 'brgy_live-in','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_live-in','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayLiveinController::class, 'create'])->name('brgy_live-in.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayLiveinController::class, 'show'])->name('brgy_live-in.show');
     });
 
-    Route::group(['prefix' => 'brgy_income','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'residents/brgy_income','middleware' => 'auth'], function(){
       Route::get('/create/{id}', [App\Http\Controllers\BarangayIncomeController::class, 'create'])->name('brgy_income.create');
       Route::post('/show/{id}', [App\Http\Controllers\BarangayIncomeController::class, 'show'])->name('brgy_income.show');
     });
 
-    Route::group(['prefix' => 'settlement_agreement','middleware' => 'auth'], function(){
+    Route::group(['prefix' => 'Blotters/settlement_agreement','middleware' => 'auth'], function(){
       Route::get('/show/{id}', [App\Http\Controllers\BarangaySettlementAgreementController::class, 'show'])->name('settlement_agreement.show');
     });
 
