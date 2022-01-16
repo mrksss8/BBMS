@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\Building;
 use App\Model\Officials;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BuildingPermitController extends Controller
 {
@@ -59,6 +61,11 @@ class BuildingPermitController extends Controller
         $latest_id= Officials::max('batch_id');
         $b_officials= Officials::where('batch_id',$latest_id)->get();
         //
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Building Clearance',
+        ]);
 
         $building = Building::findorfail($id);
         return view('brgy_permit.building_permit.clearance',compact('building','b_officials')); 

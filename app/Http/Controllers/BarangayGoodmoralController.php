@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayGoodmoralController extends Controller
 {
@@ -23,6 +25,13 @@ class BarangayGoodmoralController extends Controller
 
         $resident = Resident::findOrfail($id);  
         $purpose  = $request->purpose;
+
+        
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Goodmoral Certificate',
+        ]);
+        
         return view('brgy_certificate.goodmoral_certification.show',compact('resident' ,'purpose', 'b_officials')); 
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\Digging;
 use App\Model\Officials;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 class DiggingPermitController extends Controller
 {
     public function index(){
@@ -58,7 +60,11 @@ class DiggingPermitController extends Controller
         $digging = Digging::findorfail($id);
 
 
-       
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Digging Permit',
+        ]);
+
         return view('brgy_permit.digging_permit.clearance',compact('digging','b_officials')); 
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayPUIPUMController extends Controller
 {
@@ -21,6 +23,12 @@ class BarangayPUIPUMController extends Controller
         //
 
         $resident = Resident::findOrfail($id);  
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy PUI-PUM Certificate',
+        ]);
+
         return view('brgy_certificate.PUI_PUM_certification.show',compact('resident', 'b_officials')); 
     }
 }

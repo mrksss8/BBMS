@@ -21,6 +21,7 @@ class ResidenceImportController extends Controller
              return back()->withFailures($import->failures());
          }
 
+
          return back()->withStatus('Excel file imported successfully');
      
        

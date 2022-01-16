@@ -7,6 +7,8 @@ use App\Model\Franchise;
 use App\Model\Officials;
 use App\Model\Resident;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class FranchiseClearanceController extends Controller
 {
@@ -63,6 +65,12 @@ class FranchiseClearanceController extends Controller
         //
 
         $franchise  = Franchise::with('resident')->findorfail($id);
+        
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Franchise Clearance',
+        ]);
+
         return view('brgy_permit.franchise_clearance.clearance',compact('franchise','b_officials')); 
     }
 }

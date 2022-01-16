@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Blotter;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayClearanceController extends Controller
 {
@@ -33,6 +35,12 @@ class BarangayClearanceController extends Controller
 
         $purpose = $request->purpose;
         $resident = Resident::findOrfail($id);  
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Clearance Certificate',
+        ]);
+
         return view('brgy_certificate.brgy_clearance.show', compact('resident', 'purpose', 'b_officials')); 
     }
 

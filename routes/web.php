@@ -175,6 +175,11 @@ Route::get('/welcome', function(){
     Route::post('residence/import', [App\Http\Controllers\ResidenceImportController::class, 'import'])->name('importResidence');
 
 
+    Route::group(['prefix' => 'ActivityLog','middleware' => 'auth'], function(){
+    Route::get('/index', [App\Http\Controllers\ActivityLogController::class, 'index'])->name('activity_logs.index');
+    Route::post('/Log_Brgy_Clearance', [App\Http\Controllers\ActivityLogController::class, 'Log_Brgy_Clearance'])->name('Log_Brgy_Clearance');
+    });
+
     Route::get('try', [App\Http\Controllers\BarangayClearanceController::class, 'try']);
 
 Auth::routes();

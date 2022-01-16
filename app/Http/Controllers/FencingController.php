@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\Fencing;
 use App\Model\Officials;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class FencingController extends Controller
 {
@@ -57,6 +59,12 @@ class FencingController extends Controller
         //
 
         $fencing = Fencing::findorfail($id);
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Fencing Permit',
+        ]);
+
         return view('brgy_permit.fencing_permit.clearance',compact('fencing','b_officials')); 
     }
     

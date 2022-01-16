@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayIncomeController extends Controller
 {
@@ -21,6 +23,13 @@ class BarangayIncomeController extends Controller
         //
         $resident = Resident::findOrfail($id);  
         $purpose = $request->purpose;
+
+
+                ActivityLog::create([
+                    'user' => Auth::user()->name,
+                    'description' => 'Issue Brgy Income Certificate',
+                ]);
+                
         return view('brgy_certificate.income_certification.show',compact('resident','purpose', 'b_officials')); 
     }
 }

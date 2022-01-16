@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Model\MeralcoClearance;
 use App\Model\Officials;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class MeralcoClearanceController extends Controller
 {
@@ -60,6 +62,13 @@ class MeralcoClearanceController extends Controller
        //
 
        $meralco = MeralcoClearance::findorfail($id);
+
+       
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Meralco Clearance',
+        ]);
+
        return view('brgy_permit.meralco_clearance.clearance',compact('meralco','b_officials')); 
        }
 }

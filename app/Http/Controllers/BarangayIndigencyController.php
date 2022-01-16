@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayIndigencyController extends Controller
 {  
@@ -22,6 +24,13 @@ class BarangayIndigencyController extends Controller
 
         $resident = Resident::findOrfail($id);  
         $purpose = $request->purpose;
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Indigency Certificate',
+        ]);
+
+
         return view('brgy_certificate.indigency_certification.show',compact('resident' , 'purpose', 'b_officials')); 
     }
 }

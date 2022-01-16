@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use App\Model\Officials;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BarangayResidencyController extends Controller
 {
@@ -20,6 +22,11 @@ class BarangayResidencyController extends Controller
         $b_officials= Officials::where('batch_id',$latest_id)->get();
         //
         $resident = Resident::findOrfail($id);  
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Residency Certificate',
+        ]);
         return view('brgy_certificate.residency_certification.show',compact('resident', 'b_officials')); 
     }
 }

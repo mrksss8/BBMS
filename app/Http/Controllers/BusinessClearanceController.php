@@ -7,6 +7,8 @@ use App\Model\Business;
 use App\Model\Resident;
 use App\model\Officials;
 use Carbon\Carbon;
+use App\Model\ActivityLog;
+use Illuminate\Support\Facades\Auth;
 
 class BusinessClearanceController extends Controller
 {
@@ -74,6 +76,12 @@ class BusinessClearanceController extends Controller
 
         $amount = $request->amount;
         $or_number = $request->or_number;
+
+        ActivityLog::create([
+            'user' => Auth::user()->name,
+            'description' => 'Issue Brgy Business Clearance',
+        ]);
+
         return view('brgy_permit.business_clearance.clearance',compact('business', 'b_officials','amount', 'or_number')); 
     }
 }
