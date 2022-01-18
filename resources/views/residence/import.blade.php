@@ -27,7 +27,7 @@
                     </button>
                 </div>
             @endif
-            <div class="card" style = "border: 1px solid #6474ec;">
+            <div class="card" id = "border-blue">
                 <div class="card-body d-flex justify-content-center">
                     <form action="{{ route('importResidence') }}" method="post" enctype="multipart/form-data">
                         @csrf
@@ -43,7 +43,7 @@
 
             @if (session()->has('failures'))
 
-            <div class="card" style = "border: 1px solid #6474ec;">
+            <div class="card" id = "border-blue">
                 <div class="card-header">
                     <h4>Failed Residents to Import</h4>
                 </div>

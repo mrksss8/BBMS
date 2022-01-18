@@ -9,7 +9,7 @@
             <h3 class="page__heading">Add Franchise Clearance</h3>
         </div>
         <div class="section-body">
-            <div class="card" style="border: 1px solid #6474ec;">
+            <div class="card" id = "border-blue">
                 <div class="row">
                     <div class="col-12 ">
                         <div class="card">

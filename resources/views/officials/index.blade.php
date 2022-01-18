@@ -27,7 +27,7 @@
 
 
             @foreach ($b_officials_batch_ids as $b_officials_batch_id)
-                <div class="card pt-4" style="border: 1px solid #6474ec;">
+                <div class="card pt-4" id = "border-blue">
                     <div class="container">
                         <h2 class="text-center mb-5 bgcolor-primary">Barangay Officials of
                             {{ $b_officials_batch_id->batch_id }}</h2>
@@ -38,7 +38,7 @@
                                 @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-4">
-                                            <div class="card radius-15" style="border: 1px solid #6474ec;">
+                                            <div class="card radius-15" id = "border-blue">
                                                 <div class="card-body text-center p-3">
                                                     <div class="p-3">
                                                         <img src="{{ $b_official->path }}" width="110" height="110"
@@ -65,7 +65,7 @@
                                 @if ($b_official->batch_id == $b_officials_batch_id->batch_id)
                                     @if ($b_official->brgy_official_position != 'Barangay Chairman')
                                         <div class="col-4">
-                                            <div class="card radius-15" style="border: 1px solid #6474ec;">
+                                            <div class="card radius-15" id = "border-blue">
                                                 <div class="card-body text-center p-3">
                                                     <div class="p-3">
                                                         <img src="{{ $b_official->path }}" width="110" height="110"

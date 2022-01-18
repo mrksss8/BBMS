@@ -12,7 +12,7 @@
         /* officials */
         .officials {
             background-color: whitesmoke;
-            border: 1px solid #6474ec;
+            border: 1px solid #017cfd;
             border-radius: 3px;
         }
 
@@ -56,13 +56,13 @@
                 <div class="col-lg-9">
                     <div class="card">
 
-                        <div class="card-body rounded" style = "border: 1px solid #6474ec;">
+                        <div class="card-body rounded" id="border-blue">
                             <div class="row">
                                 
                                
 
                                 <div class="col-lg-4">
-                                    <div class="card card-primary" style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary" id="border-blue" >
 
                                         <div class="pt-2">
                                             <h5 class="text-center">Total Population</h5>
@@ -75,7 +75,7 @@
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <div class="card card-primary" style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary" id="border-blue" >
                                         <div class="pt-2">
                                             <h5 class="text-center">Total Senior and PWD</h5>
                                         </div>
@@ -87,7 +87,7 @@
                                 </div>      
                                 
                                 <div class="col-lg-4"> 
-                                    <div class="card card-primary" style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary" id="border-blue" >
                                         <div class="pt-2">
                                             <h5 class="text-center">No. of Blotters</h5>
                                         </div>
@@ -99,7 +99,7 @@
                                 </div>
                                 
                                 <div class="col-lg-4" >
-                                    <div class="card card-primary " style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary " id="border-blue" >
                                             <div class="card-body py-0">
                                                 <img src="{{ '../img/Projections-bro.png' }}" alt="" style = "width: 200px;" class = "p-2">
                                             </div>
@@ -115,7 +115,7 @@
                                 </div>
                                 
                                 <div class="col-lg-4">
-                                    <div class="card card-primary" style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary" id="border-blue" >
                                         <div class="card-body py-0">
                                             <img src="{{ '../img/pwd-bro.png' }}" alt="" style = "width: 200px;">
                                         </div>
@@ -129,7 +129,7 @@
                                 </div>
 
                                 <div class="col-lg-4">
-                                    <div class="card card-primary" style = "border-left: 1px solid #6474ec; border-right: 1px solid #6474ec; border-bottom: 1px solid #6474ec;" >
+                                    <div class="card card-primary" id="border-blue" >
                                         <div class="card-body py-0">
                                             <img src="{{ '../img/Plain credit card-pana.png' }}" alt="" style = "width: 200px;">
                                         </div>

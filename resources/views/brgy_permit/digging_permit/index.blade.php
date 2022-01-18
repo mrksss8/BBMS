@@ -21,7 +21,7 @@ Permits / Brgy Digging
             
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card" style="border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>List of Digging</h4>

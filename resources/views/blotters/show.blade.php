@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card" style="border: 1px solid #6474ec;" style="border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header">
                             <div class="col-12">
                                 <div class="d-flex justify-content-between">

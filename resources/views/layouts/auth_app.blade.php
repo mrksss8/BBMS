@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 pt-5 ">
-                    <h1 class = "text-dark text-center p-4 bg-primary rounded">Barangay Bayog Management System</h1>
+                    <h1 class = "text-dark text-center p-4 rounded" style="background-color: #017cfd">Barangay Bayog Management System</h1>
                 </div>
             </div>
 

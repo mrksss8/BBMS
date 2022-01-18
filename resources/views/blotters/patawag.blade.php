@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="section-body">
-            <div class="card">
+            <div class="card" id = "border-blue">
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
                         <div class="certificate-container">

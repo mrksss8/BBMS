@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="row">
                     <div class="col-12 ">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4>Business Information</h4>
                             </div>

@@ -46,10 +46,10 @@
 
   <style>
     li a:hover{
-      background-color: #6777ef !important;
+      background-color: #017cfd !important;
     }
 
     .active-nav{
-      background-color: #6777ef !important;
+      background-color: #017cfd !important;
     }
   </style>

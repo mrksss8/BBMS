@@ -12,7 +12,7 @@ Building Permit
         
                 <div class="row">
                     <div class="col-8">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4>Building Information</h4>
                             </div>
@@ -29,7 +29,7 @@ Building Permit
                     
 
                     <div class="col-4">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Building Clearance</h4>
                             </div>

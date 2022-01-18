@@ -9,7 +9,7 @@ Brgy Income Issuance
             <h3 class="page__heading">Brgy Income Certificate</h3>
         </div>
         <div class="d-flex justify-content-around">
-            <div style="border: 1px solid #6474ec;">
+            <div id = "border-blue">
             <div class="certificate-container">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
@@ -133,7 +133,7 @@ Brgy Income Issuance
                 </div>
             </div>
             </div>
-            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
+            <div class="camera-container d-flex p-3" id = "border-blue">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}

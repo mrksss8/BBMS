@@ -25,7 +25,7 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-8">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-center px-5 pt-5">
                             
                                 <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}" class="rounded-circle" height="400px" width="400px">
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header justify-content-center">
                             <h5>Issue Certification</h5>
 

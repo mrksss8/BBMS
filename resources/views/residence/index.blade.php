@@ -56,7 +56,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>List of Residents</h4>
@@ -90,8 +90,7 @@
                                                 <td>
                                                     <div class="row d-flex justify-content-center">
                                                         <a href="{{ route('residence.show', $residence->id) }}"
-                                                            class="btn btn-primary btn-sm" data-toggle="tooltip"
-                                                            title="View"><i class="fas fa-eye"></i></a>
+                                                            class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 
                                                     </div>
                                                 </td>

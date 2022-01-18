@@ -10,7 +10,7 @@ Brgy Good Moral Issuance
         </div>
         <div class="d-flex justify-content-around">
             <div class="certificate-container">
-                <div style="border: 1px solid #6474ec;">
+                <div id = "border-blue">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">
                         <div class="header">  

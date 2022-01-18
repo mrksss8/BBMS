@@ -13,7 +13,7 @@
             <div class="row">
                 
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" id = "border-blue">
                         <div class="card-header">
                             <h4> Action </h4>
                         </div>
@@ -53,7 +53,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" id = "border-blue">
                         <div class="card-header">
                             <div class="col-12">
                                 <div class="d-flex justify-content-between">

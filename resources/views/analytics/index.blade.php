@@ -11,7 +11,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents General Analytics</h4>
@@ -31,7 +31,7 @@
 
         <div class="row">
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents By Age
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents with Membership Program
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Residents By Purok
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Students By Purok
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Senior By Purok
@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>PWD by Purok
@@ -133,7 +133,7 @@
                     </div>
                 </div>                
                 <div class="col-lg-6">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>4ps Member By Purok
@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card" style = "border: 1px solid #6474ec;">
+                    <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>Tupad Member By Purok
@@ -182,7 +182,7 @@
                             {{$MembershipProgram_None_Cnt}},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                         ],
@@ -217,12 +217,12 @@
                             {{ $tupad_Cnt }},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
+                            '#017cfd',
                         ],
                         label: 'Residents General Analytics'
                     }],
@@ -263,12 +263,11 @@
                             {{ $purok_5_Cnt }},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
                         ],
                     }],
                     labels: [
@@ -310,7 +309,7 @@
                             {{ $senior_Cnt }},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
@@ -356,12 +355,11 @@
                             {{$purok5_student_Cnt}},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
                         ],
                     }],
                     labels: [
@@ -403,12 +401,11 @@
                             {{$purok5_senior_Cnt}},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
                         ],
                     }],
                     labels: [
@@ -451,12 +448,11 @@
                             
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
                         ],
                     }],
                     labels: [
@@ -499,12 +495,12 @@
                            
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
+                            '#017cfd',
                         ],
                     }],
                     labels: [
@@ -546,12 +542,12 @@
                             {{$purok5_TUPAD_Cnt}},
                         ],
                         backgroundColor: [
-                            '#6777ef',
+                            '#017cfd',
                             '#191d21',
                             '#63ed7a',
                             '#ffa426',
                             '#fc544b',
-                            '#6777ef',
+                            '#017cfd',
                         ],
                     }],
                     labels: [

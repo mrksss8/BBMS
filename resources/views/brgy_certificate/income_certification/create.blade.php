@@ -18,7 +18,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
-                            <div class="card profile-widget" style = "border: 1px solid #6474ec;">
+                            <div class="card profile-widget" id = "border-blue">
                                 <div class="profile-widget-header d-flex justify-content-center  px-5 pt-5">
 
 

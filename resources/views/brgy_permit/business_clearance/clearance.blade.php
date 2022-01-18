@@ -10,7 +10,7 @@
             <button class="btn btn-lg btn-icon icon-left btn-success mr-5" onclick="generatepdf()">Download</button>
         </div>
         <div class="d-flex justify-content-center">
-            <div style="border: 1px solid #6474ec;">
+            <div id = "border-blue">
                 <div class="certificate-container">
                     <div class="page" style="width: 8.3in;" id="element-to-print">
                         <div class="wrapper">

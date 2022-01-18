@@ -15,7 +15,7 @@ Brgy Digging Permit
       
         </div>
         <div class="d-flex justify-content-around">
-            <div style="border: 1px solid #6474ec;">
+            <div id = "border-blue">
             <div class="certificate-container">
                 <div class="page" style="width: 8.3in;" id="element-to-print">
                     <div class="wrapper">

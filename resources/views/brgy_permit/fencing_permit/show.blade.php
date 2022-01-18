@@ -12,7 +12,7 @@ Brgy Fencing
         
                 <div class="row">
                     <div class="col-8">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4>Fencing Information</h4>
                             </div>
@@ -34,7 +34,7 @@ Brgy Fencing
                     
 
                     <div class="col-4">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Fencing Permit</h4>
                             </div>

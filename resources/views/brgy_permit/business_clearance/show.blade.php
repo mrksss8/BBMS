@@ -12,7 +12,7 @@ Brgy Business Clearance Records
         
                 <div class="row">
                     <div class="col-6">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4>Business Information
                                 </h4>
@@ -37,7 +37,7 @@ Brgy Business Clearance Records
                     
 
                     <div class="col-6">
-                        <div class="card" style="border: 1px solid #6474ec;">
+                        <div class="card" id = "border-blue">
                             <div class="card-header">
                                 <h4 class = "text-center">Issue Business Clearance</h4>
                             </div>
