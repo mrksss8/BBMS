@@ -18,12 +18,12 @@
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
-                            <div class="card profile-widget">
+                            <div class="card profile-widget" id = "border-blue">
                                 <div class="profile-widget-header d-flex justify-content-center p-5">
 
 
 
-                                    <img alt="image" src="{{ $resident->path }}" class="rounded-circle" height="300px"
+                                    <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}" class="rounded-circle" height="300px"
                                         width="300px">
 
                                 </div>
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="col-12 col-md-12 col-lg-6">
-                            <div class="card mt-4">
+                            <div class="card" style = "margin-top: 35px;" id = "border-blue">
                                 <div class="card-header">
                                     <h4> Requesting for </h4>
                                 </div>

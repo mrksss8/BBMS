@@ -123,7 +123,7 @@ Barangay Building Clearance
                                     </div>
 
                                     <div style ="margin-top: 60px;">
-                                        <strong>Date Issued: </strong>{{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}
+                                        <strong>Date Issued: </strong>{{ \Carbon\Carbon::today()->format('jS \\of F Y') }}
                                     </div>
                                 </div> 
                             </div>

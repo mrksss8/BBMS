@@ -98,7 +98,7 @@ Barangay Building Clearance
                                             And after inspection conducted, it was found that said structure has no encroachment on any public property and has not yet violated any Barangay or Municipal Ordinance, therefore this office interpose no objection to the construction and recommend the same from approval.
                                         </P>
 
-                                        <P id="issue-for">This certification is being issued upon request of the above mentioned name on this <strong>{{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}</strong> in compliance with the requirement of <strong>MERALCO.</strong> </p>                            
+                                        <P id="issue-for">This certification is being issued upon request of the above mentioned name on this <strong>{{ \Carbon\Carbon::today()->format('jS \\of F Y') }}</strong> in compliance with the requirement of <strong>MERALCO.</strong> </p>                            
                                        
                                     </div>
 

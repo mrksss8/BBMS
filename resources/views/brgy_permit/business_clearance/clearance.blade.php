@@ -115,7 +115,7 @@
                                             </P>
                                             <br>
                                             <p style="text-align:center; font-size: 18px;">
-                                                Issued this {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}.
+                                                Issued this {{ \Carbon\Carbon::today()->format('jS \\of F Y') }}.
                                             </p>
 
                                             <p id="witness" style="margin-top: 30px;">

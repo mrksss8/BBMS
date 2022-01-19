@@ -124,7 +124,7 @@
 
                                             <p id="witness">
                                                 Witness my hand and seal, this <strong>
-                                                    {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}</strong> at
+                                                    {{ \Carbon\Carbon::today()->format('jS \\of F Y') }}</strong> at
                                                 <strong>
                                                     Barangay Bayog Los
                                                     Baños Laguna. </strong>
@@ -185,7 +185,7 @@
                 </div>
             </div>
 
-            <div class="camera-container d-flex p-3" style="border: 1px solid #6474ec;">
+            <div class="camera-container d-flex p-3"id = "border-blue">
 
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
@@ -221,7 +221,7 @@
         }
 
         .certificate-container {
-            width: 55vw;
+            width: 53vw;
             display: flex;
             justify-content: center;
             color: black;

@@ -84,7 +84,7 @@
                         
                         @if ($blotter->status == 'Settled')
                         <hr>
-                        <div class="card m-5" style="border: 1px solid #6474ec;">
+                        <div class="card m-5" id = "border-blue">
                             <div class="card-header">
                                 <h4 class = "text-success">Settlement Information:</h4>
                             </div>
@@ -107,7 +107,7 @@
                     @if ($blotter->lbp3 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -137,7 +137,7 @@
                                         <div class="col-12">
 
                                             <p><strong>Date of Patawag:</strong>
-                                                {{ $blotter->lbp3_date ? \Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y') : null }}
+                                                {{ $blotter->lbp3_date ? \Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp3_note }}</p>
 
@@ -145,7 +145,7 @@
 
                                         <div class="col-12 d-flex justify-content-center">
                                             @if ($blotter->status == 'Unsettled')
-                                                <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y'), $blotter->id]) }}"
+                                                <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp3_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                     class="btn btn-outline-success btn-sm px-3">Generate
                                                     Letter</a>
                                             @endif
@@ -160,7 +160,7 @@
                     @if ($blotter->lbp2 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -205,7 +205,7 @@
                                         <div class="col-12">
 
                                             <p><strong>Date of Patawag:</strong>
-                                                {{ $blotter->lbp2_date ? \Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y') : null }}
+                                                {{ $blotter->lbp2_date ? \Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp2_note }}</p>
 
@@ -213,7 +213,7 @@
                                         @if ($blotter->status == 'Unsettled')
                                             @if ($blotter->lbp3 == null)
                                                 <div class="col-12 d-flex justify-content-center">
-                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp2_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                         class="btn btn-outline-success btn-sm px-3">Generate
                                                         Letter</a>
                                                 </div>
@@ -230,7 +230,7 @@
                     @if ($blotter->lbp1 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -275,7 +275,7 @@
                                         <div class="col-12">
 
                                             <p><strong>Date of Patawag:</strong>
-                                                {{ $blotter->lbp1_date ? \Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y') : null }}
+                                                {{ $blotter->lbp1_date ? \Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->lbp1_note }}</p>
 
@@ -283,7 +283,7 @@
                                         @if ($blotter->status == 'Unsettled')
                                             @if ($blotter->lbp2 == null)
                                                 <div class="col-12 d-flex justify-content-center">
-                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->lbp1_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                         class="btn btn-outline-success btn-sm px-3">Generate
                                                         Letter</a>
                                                 </div>
@@ -299,7 +299,7 @@
                     @if ($blotter->bcp3 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -345,7 +345,7 @@
                                         <div class="col-12">
 
                                             <p><strong>Date of Patawag:</strong>
-                                                {{ $blotter->bcp3_date ? \Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y') : null }}
+                                                {{ $blotter->bcp3_date ? \Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp3_note }}</p>
 
@@ -354,7 +354,7 @@
                                         @if ($blotter->status == 'Unsettled')
                                             @if ($blotter->lbp1 == null)
                                                 <div class="col-12 d-flex justify-content-center">
-                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp3_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                         class="btn btn-outline-success btn-sm px-3">Generate
                                                         Letter</a>
                                                 </div>
@@ -370,7 +370,7 @@
                     @if ($blotter->bcp2 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">
@@ -420,7 +420,7 @@
                                         <div class="col-12">
 
                                             <p><strong>Date of Patawag:</strong>
-                                                {{ $blotter->bcp2_date ? \Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y') : null }}
+                                                {{ $blotter->bcp2_date ? \Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y h:i A') : null }}
                                             </p>
                                             <p><strong>Note:</strong> {{ $blotter->bcp2_note }}</p>
 
@@ -428,7 +428,7 @@
                                         @if ($blotter->status == 'Unsettled')
                                             @if ($blotter->bcp3 == null)
                                                 <div class="col-12 d-flex justify-content-center">
-                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y'), $blotter->id]) }}"
+                                                    <a href="{{ route('blotters.patawag', [\Carbon\Carbon::parse($blotter->bcp2_date)->format('F d, Y h:i A'), $blotter->id]) }}"
                                                         class="btn btn-outline-success btn-sm px-3">Generate
                                                         Letter</a>
                                                 </div>
@@ -443,7 +443,7 @@
                     @if ($blotter->bcp1 !== null)
                         <div class="row d-flex justify-content-center">
                             <div class="col-9">
-                                <div class="card" style="border: 1px solid #6474ec;">
+                                <div class="card" id = "border-blue">
                                     <div class="card-header">
 
                                         <div class="col-12">

@@ -96,7 +96,7 @@ Brgy Good Moral Issuance
                                         </P>
                                         
                                         <p id="witness">
-                                            Given this <strong> {{ \Carbon\Carbon::today()->format('l, jS \\of F Y') }} </strong>
+                                            Given this <strong> {{ \Carbon\Carbon::today()->format('jS \\of F Y') }} </strong>
                                         </p>
     
                                        
@@ -129,7 +129,7 @@ Brgy Good Moral Issuance
                 </div>
                 </div>
             </div>
-            <div class="camera-container d-flex p-3" style = "border: 1px solid #6474ec;">
+            <div class="camera-container d-flex p-3" id = "border-blue">
                 <div class="camera-wrapper">
                     <h3 class="text-center">Take a Picture</h3>
                     {{-- stream video via webcam --}}
@@ -228,7 +228,7 @@ Brgy Good Moral Issuance
         }
     
         .certificate-container {
-            width: 50vw;
+            width: 53vw;
             display: flex;
             justify-content: center;
             font-family: 'STIX Two Text', serif;

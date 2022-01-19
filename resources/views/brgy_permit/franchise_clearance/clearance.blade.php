@@ -215,7 +215,7 @@
         }
 
         .certificate-container {
-            width: 55vw;
+            width: 53vw;
             display: flex;
             justify-content: center;
             color: black;

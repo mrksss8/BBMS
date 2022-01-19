@@ -96,7 +96,45 @@ Brgy Fencing Permit
                                         </P>
                                         
                                         <p id="witness">
-                                            Ipinagkaloob ngayong {{ \Carbon\Carbon::today()->format('l jS \\of F Y') }}. 
+                                            Ipinagkaloob ngayong ika - 
+
+                                            <strong>
+                                            
+                                            {{\Carbon\Carbon::today()->format('d')}}
+                                              
+                                            ng
+
+                                            @if ((\Carbon\Carbon::today()->format('F')) == 'January')
+                                                Enero,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'February')
+                                                Pebrero,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'March')
+                                                Marso,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'April')
+                                                Abril,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'May')
+                                                Mayo,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'June')
+                                                Hunyo,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'July')
+                                                Hulyo,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'August')
+                                                Agosto,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'September')
+                                                Setyembre,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'October')
+                                                Octobre,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'November')
+                                                Nobyembre,
+                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'December')
+                                                Disyembre,
+                                            @else
+
+                                            @endif
+
+                                            {{\Carbon\Carbon::today()->format('Y')}}
+                                 
+                                            </strong>
                                         </p>
     
                                        
