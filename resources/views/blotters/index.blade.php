@@ -45,9 +45,9 @@
                                         <tr>
                                             <th>View</th>
                                             <th>Case Number</th>
-                                            <th>Complained Person</th>
-                                            <th>Blotter Information</th>
                                             <th>Complainant</th>
+                                            <th>Respondents</th>
+                                            <th>Blotter Information</th>
                                             <th>Incident Date</th>
                                             <th>Case Type</th>
                                             <th>Status</th>
@@ -68,6 +68,7 @@
                                                 </div>
                                             </td>
                                             <td>{{$blotter->case_number}}</td>
+                                            <td>{{$blotter->complainant_name}}</td>
                                             <td>
                                                 @foreach ($blotter->residents as $resident)
                                                     <p>{{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}} </p>
@@ -75,7 +76,6 @@
                                                     <p>{{$blotter->complained_resident}}</p>
                                             </td>
                                             <td>{{$blotter->Blotters_info}}</td>
-                                            <td>{{$blotter->complainant_name}}</td>
                                             <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>
                                             <td>{{$blotter->case_type}}</td>
                                             <td>{{$blotter->status}}</td>

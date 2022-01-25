@@ -129,35 +129,25 @@ class BlottersController extends Controller
     public function Manage(Request $request, $id){
         $blotter = Blotter::findOrfail($id);
 
-        if($request->bcp1_date){
+        
             $blotter->bcp1_date = $request->bcp1_date;
             $blotter->bcp1_note = $request->bcp1_note;
-        } 
-        
-        if($request->bcp2_date){
+            
             $blotter->bcp2_date = $request->bcp2_date;
             $blotter->bcp2_note = $request->bcp2_note;
-        }
-
-        if($request->bcp3_date){
+        
             $blotter->bcp3_date = $request->bcp3_date;
             $blotter->bcp3_note = $request->bcp3_note;
-        }
-
-        if($request->lbp1_date){
+         
             $blotter->lbp1_date = $request->lbp1_date;
             $blotter->lbp1_note = $request->lbp1_note;
-        }
 
-        if($request->lbp2_date){
             $blotter->lbp2_date = $request->lbp2_date;
             $blotter->lbp2_note = $request->lbp2_note;
-        }
 
-        if($request->lbp3_date){
             $blotter->lbp3_date = $request->lbp3_date;
             $blotter->lbp3_note = $request->lbp3_note;
-        }
+        
 
         $blotter->save();
 

@@ -60,7 +60,7 @@
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Respondent</label>
+                                            <label>Complainant</label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text">
