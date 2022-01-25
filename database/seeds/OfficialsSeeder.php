@@ -94,5 +94,13 @@ class OfficialsSeeder extends Seeder
              'batch_id' => '2018'
            
          ]);
+
+         DB::table('officials')->insert([
+            'brgy_official_name' => 'Mary Grace B. Egildo',
+            'brgy_official_position' => 'Barangay Clerk',
+            'brgy_official_role' => 'Barangay Clerk',
+            'batch_id' => '2018'
+          
+        ]);
     }
 }

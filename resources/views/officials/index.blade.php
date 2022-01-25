@@ -37,11 +37,11 @@
                             @if ($b_official->batch_id == $b_officials_batch_id->batch_id)
                                 @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                     <div class="row d-flex justify-content-center">
-                                        <div class="col-4">
+                                        <div class="col-md-4">
                                             <div class="card radius-15" id = "border-blue">
                                                 <div class="card-body text-center p-3">
                                                     <div class="p-3">
-                                                        <img src="{{ $b_official->path }}" width="110" height="110"
+                                                        <img src="{{ $b_official->path != null ? $b_official->path : asset('../img/brgy-bayog-logo.png') }}" width="110" height="110"
                                                             class="rounded-circle shadow" alt="">
                                                         <h5 class="mb-0 mt-3">Hon.
                                                             {{ $b_official->brgy_official_name }}
@@ -64,11 +64,11 @@
                             @foreach ($b_officials as $b_official)
                                 @if ($b_official->batch_id == $b_officials_batch_id->batch_id)
                                     @if ($b_official->brgy_official_position != 'Barangay Chairman')
-                                        <div class="col-4">
+                                        <div class="col-md-4">
                                             <div class="card radius-15" id = "border-blue">
                                                 <div class="card-body text-center p-3">
                                                     <div class="p-3">
-                                                        <img src="{{ $b_official->path }}" width="110" height="110"
+                                                        <img src="{{ $b_official->path != null ? $b_official->path : asset('../img/brgy-bayog-logo.png') }}" width="110" height="110"
                                                             class="rounded-circle shadow" alt="">
                                                         <h5 class="mb-0 mt-3">Hon.
                                                             {{ $b_official->brgy_official_name }}

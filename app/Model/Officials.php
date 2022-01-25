@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Officials extends Model
 {
     protected $table = ('officials');
-    protected $guarded = [];  
+    protected $guarded = [''];  
 }

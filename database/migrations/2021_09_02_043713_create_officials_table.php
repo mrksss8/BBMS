@@ -23,7 +23,6 @@ class CreateOfficialsTable extends Migration
             $table->string('path')->nullable();
             $table->string('img')->nullable();
             $table->integer('batch_id')->nullable();
-
             $table->timestamps();
 
         });
