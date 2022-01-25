@@ -19,26 +19,7 @@
 
 <body>
 <div id="app">
-    <section class="section" style = "background-image: url('{{asset('../img/brgy_hall.jpg')}}'); background-size: cover;   background-repeat: no-repeat; height: 100vh; ">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 pt-5 ">
-                    <h1 class = "text-dark text-center p-4 rounded" style="background-color: #017cfd">Barangay Bayog Management System</h1>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="login-brand">
-                    </div>
                     @yield('content')
-                    <div class="simple-footer">
-{{--                        Copyright &copy; {{ getSettingValue('application_name') }}  {{ date('Y') }}--}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 
 <!-- General JS Scripts -->
