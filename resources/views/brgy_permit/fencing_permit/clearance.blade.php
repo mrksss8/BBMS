@@ -122,7 +122,7 @@ Brgy Fencing Permit
                                                 Agosto,
                                             @elseif ((\Carbon\Carbon::today()->format('F')) == 'September')
                                                 Setyembre,
-                                            @elseif ((\Carbon\Carbon::today()->format('F')) == 'October')
+                                            @elseif ((\Carbon\Carbon::today()->format(  'F')) == 'October')
                                                 Octobre,
                                             @elseif ((\Carbon\Carbon::today()->format('F')) == 'November')
                                                 Nobyembre,

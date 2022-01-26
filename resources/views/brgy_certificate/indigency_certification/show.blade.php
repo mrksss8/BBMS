@@ -20,7 +20,7 @@
         }
 
         .certificate-container {
-            width: 50vw;
+            width: 53vw;
             display: flex;
             justify-content: center;
             font-family: 'serif';
