@@ -39,6 +39,7 @@
                                             @foreach ($blotter->residents as $resident)
                                             {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}, 
                                             @endforeach
+                                            <p>{{$blotter->complained_resident}}</p>
                                             </td>
                                             <td>{{$blotter->Blotters_info}}</td>
                                             <td>{{$blotter->complainant_name}}</td>

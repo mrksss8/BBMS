@@ -100,8 +100,8 @@
                                                 </div>
                                                 <select class="form-control" name = "case_type" >
                                                     <option disabled selected></option>       
-                                                    <option value = "civil"> Civil </option>      
-                                                    <option value = "crime"> Crime </option>                                  
+                                                    <option value = "Civil"> Civil </option>      
+                                                    <option value = "Crime"> Crime </option>                                  
                                                   </select>
                                             </div>
                                         </div>
