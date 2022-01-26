@@ -8,31 +8,31 @@
     "packages": [
         {
             "name": "asm89/stack-cors",
-            "version": "v2.0.5",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/asm89/stack-cors.git",
-                "reference": "7a198ec737e926eab15d29368fc6fff66772b0e2"
+                "reference": "73e5b88775c64ccc0b84fb60836b30dc9d92ac4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/7a198ec737e926eab15d29368fc6fff66772b0e2",
-                "reference": "7a198ec737e926eab15d29368fc6fff66772b0e2",
+                "url": "https://api.github.com/repos/asm89/stack-cors/zipball/73e5b88775c64ccc0b84fb60836b30dc9d92ac4a",
+                "reference": "73e5b88775c64ccc0b84fb60836b30dc9d92ac4a",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0|^8.0",
-                "symfony/http-foundation": "~2.7|~3.0|~4.0|~5.0|~6.0",
-                "symfony/http-kernel": "~2.7|~3.0|~4.0|~5.0|~6.0"
+                "php": "^7.2|^8.0",
+                "symfony/http-foundation": "^4|^5|^6",
+                "symfony/http-kernel": "^4|^5|^6"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6|^7|^8|^9",
+                "phpunit/phpunit": "^7|^9",
                 "squizlabs/php_codesniffer": "^3.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -58,9 +58,9 @@
             ],
             "support": {
                 "issues": "https://github.com/asm89/stack-cors/issues",
-                "source": "https://github.com/asm89/stack-cors/tree/v2.0.5"
+                "source": "https://github.com/asm89/stack-cors/tree/v2.1.1"
             },
-            "time": "2022-01-03T15:27:13+00:00"
+            "time": "2022-01-18T09:12:03+00:00"
         },
         {
             "name": "brick/math",
@@ -215,32 +215,28 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042"
+                "reference": "9c50f840f257bbb941e6f4a0e94ccf5db5c3f76c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/e864bbf5904cb8f5bb334f99209b48018522f042",
-                "reference": "e864bbf5904cb8f5bb334f99209b48018522f042",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/9c50f840f257bbb941e6f4a0e94ccf5db5c3f76c",
+                "reference": "9c50f840f257bbb941e6f4a0e94ccf5db5c3f76c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0"
+                "php": "^7.1 || ^8.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^6.0",
-                "phpstan/phpstan": "^0.11.8",
-                "phpunit/phpunit": "^8.2"
+                "doctrine/coding-standard": "^9.0",
+                "phpstan/phpstan": "1.3",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "vimeo/psalm": "^4.11"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
@@ -275,7 +271,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
-                "source": "https://github.com/doctrine/lexer/tree/1.2.1"
+                "source": "https://github.com/doctrine/lexer/tree/1.2.2"
             },
             "funding": [
                 {
@@ -291,7 +287,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-05-25T17:44:05+00:00"
+            "time": "2022-01-12T08:27:12+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -1204,32 +1200,32 @@
         },
         {
             "name": "laravel/tinker",
-            "version": "v2.6.3",
+            "version": "v2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "a9ddee4761ec8453c584e393b393caff189a3e42"
+                "reference": "5f2f9815b7631b9f586a3de7933c25f9327d4073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/a9ddee4761ec8453c584e393b393caff189a3e42",
-                "reference": "a9ddee4761ec8453c584e393b393caff189a3e42",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/5f2f9815b7631b9f586a3de7933c25f9327d4073",
+                "reference": "5f2f9815b7631b9f586a3de7933c25f9327d4073",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
+                "illuminate/console": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
                 "php": "^7.2.5|^8.0",
-                "psy/psysh": "^0.10.4",
-                "symfony/var-dumper": "^4.3.4|^5.0"
+                "psy/psysh": "^0.10.4|^0.11.1",
+                "symfony/var-dumper": "^4.3.4|^5.0|^6.0"
             },
             "require-dev": {
                 "mockery/mockery": "~1.3.3|^1.4.2",
                 "phpunit/phpunit": "^8.5.8|^9.3.3"
             },
             "suggest": {
-                "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0)."
+                "illuminate/database": "The Illuminate Database package (^6.0|^7.0|^8.0|^9.0)."
             },
             "type": "library",
             "extra": {
@@ -1266,9 +1262,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/tinker/issues",
-                "source": "https://github.com/laravel/tinker/tree/v2.6.3"
+                "source": "https://github.com/laravel/tinker/tree/v2.7.0"
             },
-            "time": "2021-12-07T16:41:42+00:00"
+            "time": "2022-01-10T08:52:49+00:00"
         },
         {
             "name": "laravel/ui",
@@ -1327,16 +1323,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.6.6",
+            "version": "1.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf"
+                "reference": "2b8185c13bc9578367a5bf901881d1c1b5bbd09b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c4228d11e30d7493c6836d20872f9582d8ba6dcf",
-                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2b8185c13bc9578367a5bf901881d1c1b5bbd09b",
+                "reference": "2b8185c13bc9578367a5bf901881d1c1b5bbd09b",
                 "shasum": ""
             },
             "require": {
@@ -1400,10 +1396,6 @@
             },
             "funding": [
                 {
-                    "url": "https://enjoy.gitstore.app/repositories/thephpleague/commonmark",
-                    "type": "custom"
-                },
-                {
                     "url": "https://www.colinodell.com/sponsor",
                     "type": "custom"
                 },
@@ -1416,15 +1408,11 @@
                     "type": "github"
                 },
                 {
-                    "url": "https://www.patreon.com/colinodell",
-                    "type": "patreon"
-                },
-                {
                     "url": "https://tidelift.com/funding/github/packagist/league/commonmark",
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-17T17:13:23+00:00"
+            "time": "2022-01-13T17:18:13+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1993,16 +1981,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.55.2",
+            "version": "2.56.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8c2a18ce3e67c34efc1b29f64fe61304368259a2"
+                "reference": "626ec8cbb724cd3c3400c3ed8f730545b744e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8c2a18ce3e67c34efc1b29f64fe61304368259a2",
-                "reference": "8c2a18ce3e67c34efc1b29f64fe61304368259a2",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/626ec8cbb724cd3c3400c3ed8f730545b744e3f4",
+                "reference": "626ec8cbb724cd3c3400c3ed8f730545b744e3f4",
                 "shasum": ""
             },
             "require": {
@@ -2019,7 +2007,7 @@
                 "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.54",
+                "phpstan/phpstan": "^0.12.54 || ^1.0",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.14",
                 "squizlabs/php_codesniffer": "^3.4"
             },
@@ -2085,7 +2073,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-03T14:59:52+00:00"
+            "time": "2022-01-21T17:08:38+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2744,29 +2732,29 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.10.12",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "a0d9981aa07ecfcbea28e4bfa868031cca121e7d"
+                "reference": "570292577277f06f590635381a7f761a6cf4f026"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/a0d9981aa07ecfcbea28e4bfa868031cca121e7d",
-                "reference": "a0d9981aa07ecfcbea28e4bfa868031cca121e7d",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/570292577277f06f590635381a7f761a6cf4f026",
+                "reference": "570292577277f06f590635381a7f761a6cf4f026",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "nikic/php-parser": "~4.0|~3.0|~2.0|~1.3",
-                "php": "^8.0 || ^7.0 || ^5.5.9",
-                "symfony/console": "~5.0|~4.0|~3.0|^2.4.2|~2.3.10",
-                "symfony/var-dumper": "~5.0|~4.0|~3.0|~2.7"
+                "nikic/php-parser": "^4.0 || ^3.1",
+                "php": "^8.0 || ^7.0.8",
+                "symfony/console": "^6.0 || ^5.0 || ^4.0 || ^3.4",
+                "symfony/var-dumper": "^6.0 || ^5.0 || ^4.0 || ^3.4"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.2",
-                "hoa/console": "3.17.*"
+                "hoa/console": "3.17.05.02"
             },
             "suggest": {
                 "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)",
@@ -2781,7 +2769,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "0.10.x-dev"
+                    "dev-main": "0.11.x-dev"
                 }
             },
             "autoload": {
@@ -2813,9 +2801,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.10.12"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.1"
             },
-            "time": "2021-11-30T14:05:36+00:00"
+            "time": "2022-01-03T13:58:38+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5648,16 +5636,16 @@
         },
         {
             "name": "voku/portable-ascii",
-            "version": "1.5.6",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/voku/portable-ascii.git",
-                "reference": "80953678b19901e5165c56752d087fc11526017c"
+                "reference": "1f8b372a927ab2d17dbdab443aefbfe6a5354284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/80953678b19901e5165c56752d087fc11526017c",
-                "reference": "80953678b19901e5165c56752d087fc11526017c",
+                "url": "https://api.github.com/repos/voku/portable-ascii/zipball/1f8b372a927ab2d17dbdab443aefbfe6a5354284",
+                "reference": "1f8b372a927ab2d17dbdab443aefbfe6a5354284",
                 "shasum": ""
             },
             "require": {
@@ -5694,7 +5682,7 @@
             ],
             "support": {
                 "issues": "https://github.com/voku/portable-ascii/issues",
-                "source": "https://github.com/voku/portable-ascii/tree/1.5.6"
+                "source": "https://github.com/voku/portable-ascii/tree/1.6.0"
             },
             "funding": [
                 {
@@ -5718,7 +5706,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-12T00:07:28+00:00"
+            "time": "2022-01-24T09:37:53+00:00"
         }
     ],
     "packages-dev": [
@@ -6074,16 +6062,16 @@
         },
         {
             "name": "fakerphp/faker",
-            "version": "v1.17.0",
+            "version": "v1.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669"
+                "reference": "2e77a868f6540695cf5ebf21e5ab472c65f47567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/b85e9d44eae8c52cca7aa0939483611f7232b669",
-                "reference": "b85e9d44eae8c52cca7aa0939483611f7232b669",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/2e77a868f6540695cf5ebf21e5ab472c65f47567",
+                "reference": "2e77a868f6540695cf5ebf21e5ab472c65f47567",
                 "shasum": ""
             },
             "require": {
@@ -6108,7 +6096,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "v1.17-dev"
+                    "dev-main": "v1.18-dev"
                 }
             },
             "autoload": {
@@ -6133,22 +6121,22 @@
             ],
             "support": {
                 "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.17.0"
+                "source": "https://github.com/FakerPHP/Faker/tree/v1.18.0"
             },
-            "time": "2021-12-05T17:14:47+00:00"
+            "time": "2022-01-23T17:56:23+00:00"
         },
         {
             "name": "filp/whoops",
-            "version": "2.14.4",
+            "version": "2.14.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "f056f1fe935d9ed86e698905a957334029899895"
+                "reference": "a63e5e8f26ebbebf8ed3c5c691637325512eb0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/f056f1fe935d9ed86e698905a957334029899895",
-                "reference": "f056f1fe935d9ed86e698905a957334029899895",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a63e5e8f26ebbebf8ed3c5c691637325512eb0dc",
+                "reference": "a63e5e8f26ebbebf8ed3c5c691637325512eb0dc",
                 "shasum": ""
             },
             "require": {
@@ -6198,7 +6186,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.14.4"
+                "source": "https://github.com/filp/whoops/tree/2.14.5"
             },
             "funding": [
                 {
@@ -6206,7 +6194,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-10-03T12:00:00+00:00"
+            "time": "2022-01-07T12:00:00+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -6326,16 +6314,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.4.4",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "e01123a0e847d52d186c5eb4b9bf58b0c6d00346"
+                "reference": "c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/e01123a0e847d52d186c5eb4b9bf58b0c6d00346",
-                "reference": "e01123a0e847d52d186c5eb4b9bf58b0c6d00346",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac",
+                "reference": "c10a5f6e06fc2470ab1822fa13fa2a7380f8fbac",
                 "shasum": ""
             },
             "require": {
@@ -6392,9 +6380,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mockery/mockery/issues",
-                "source": "https://github.com/mockery/mockery/tree/1.4.4"
+                "source": "https://github.com/mockery/mockery/tree/1.5.0"
             },
-            "time": "2021-09-13T15:28:59+00:00"
+            "time": "2022-01-20T13:18:17+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -7200,16 +7188,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.11",
+            "version": "9.5.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2406855036db1102126125537adb1406f7242fdd"
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2406855036db1102126125537adb1406f7242fdd",
-                "reference": "2406855036db1102126125537adb1406f7242fdd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/597cb647654ede35e43b137926dfdfef0fb11743",
+                "reference": "597cb647654ede35e43b137926dfdfef0fb11743",
                 "shasum": ""
             },
             "require": {
@@ -7287,7 +7275,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.11"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.13"
             },
             "funding": [
                 {
@@ -7299,7 +7287,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-25T07:07:57+00:00"
+            "time": "2022-01-24T07:33:35+00:00"
         },
         {
             "name": "sebastian/cli-parser",
