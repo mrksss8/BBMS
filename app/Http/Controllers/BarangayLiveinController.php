@@ -31,6 +31,7 @@ class BarangayLiveinController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Live In Certificate',
+            'subject' => 'Brgy Live In',
         ]);
 
 

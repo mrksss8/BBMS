@@ -55,11 +55,6 @@
                                     </div>
 
                                 </div>
-                                <div class="card-footer text-center">
-                                    <div class="font-weight-bold mb-2">Follow Ujang On</div>
-
-
-                                </div>
 
                             </div>
                         </div>

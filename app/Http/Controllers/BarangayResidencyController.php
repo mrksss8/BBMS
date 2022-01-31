@@ -26,6 +26,8 @@ class BarangayResidencyController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Residency Certificate',
+            'subject' => 'Brgy Residency',
+            
         ]);
         return view('brgy_certificate.residency_certification.show',compact('resident', 'b_officials')); 
     }

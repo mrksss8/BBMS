@@ -27,6 +27,7 @@ class BarangayPUIPUMController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy PUI-PUM Certificate',
+            'subject' => 'Brgy PUI-PUM',
         ]);
 
         return view('brgy_certificate.PUI_PUM_certification.show',compact('resident', 'b_officials')); 

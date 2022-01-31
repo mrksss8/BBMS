@@ -80,6 +80,7 @@ class BusinessClearanceController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Business Clearance',
+            'subject' => 'Brgy Business',
         ]);
 
         return view('brgy_permit.business_clearance.clearance',compact('business', 'b_officials','amount', 'or_number')); 

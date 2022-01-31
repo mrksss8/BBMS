@@ -8,6 +8,7 @@ use App\Model\Blotter;
 use App\Model\Officials;
 use App\Model\ActivityLog;
 use Illuminate\Support\Facades\Auth;
+use Carbon\carbon;
 
 class BarangayClearanceController extends Controller
 {
@@ -34,14 +35,22 @@ class BarangayClearanceController extends Controller
         //
 
         $purpose = $request->purpose;
-        $resident = Resident::findOrfail($id);  
+        $resident = Resident::findOrfail($id); 
+
+        $clearance_cnt = ActivityLog::where('subject', '=', 'Brgy Clearance')
+        ->whereBetween('created_at', [
+            Carbon::now()->startOfYear(),
+            Carbon::now()->endOfYear(),
+        ])->count();
 
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Clearance Certificate',
+            'subject' => 'Brgy Clearance',
+
         ]);
 
-        return view('brgy_certificate.brgy_clearance.show', compact('resident', 'purpose', 'b_officials')); 
+        return view('brgy_certificate.brgy_clearance.show', compact('resident', 'purpose', 'b_officials','clearance_cnt')); 
     }
 
     

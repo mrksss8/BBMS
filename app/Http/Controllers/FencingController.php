@@ -63,6 +63,7 @@ class FencingController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Fencing Permit',
+            'subject' => 'Brgy Fencing',
         ]);
 
         return view('brgy_permit.fencing_permit.clearance',compact('fencing','b_officials')); 

@@ -69,6 +69,7 @@ class FranchiseClearanceController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Franchise Clearance',
+            'subject' => 'Brgy Franchise',
         ]);
 
         return view('brgy_permit.franchise_clearance.clearance',compact('franchise','b_officials')); 

@@ -28,6 +28,7 @@ class BarangayIncomeController extends Controller
                 ActivityLog::create([
                     'user' => Auth::user()->name,
                     'description' => 'Issue Brgy Income Certificate',
+                    'subject' => 'Brgy Income',
                 ]);
                 
         return view('brgy_certificate.income_certification.show',compact('resident','purpose', 'b_officials')); 

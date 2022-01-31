@@ -67,6 +67,7 @@ class MeralcoClearanceController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Meralco Clearance',
+            'subject' => 'Brgy Meralco',
         ]);
 
        return view('brgy_permit.meralco_clearance.clearance',compact('meralco','b_officials')); 

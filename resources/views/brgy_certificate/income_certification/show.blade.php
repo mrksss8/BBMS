@@ -90,7 +90,7 @@ Brgy Income Issuance
                                         <p id="to-whom">Sa Kinauukulan,</p>
                                         <p id="content">
                                             Ito ay pagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong>,   <strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}</strong> taong gulang  ipinanganak noong <strong>{{ date('M d, Y', strtotime($resident->birthday)) }} sa BIÑAN LAGUNA at nakatira sa <strong>Purok-{{ $resident->purok}} {{ $resident->street}}</strong>, Barangay Bayog, Los Baños, Laguna.</strong>.                                                                                
+                                                {{ $resident->last_name }}</strong>,   <strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}</strong> taong gulang  ipinanganak noong <strong>{{ date('M d, Y', strtotime($resident->birthday)) }} sa {{ $resident->birthplace}} at nakatira sa <strong>Purok-{{ $resident->purok}} {{ $resident->street}}</strong>, Barangay Bayog, Los Baños, Laguna.</strong>.                                                                                
                                
                                            
                                         <P id="issue-for">

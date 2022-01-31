@@ -404,7 +404,7 @@
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin: 0,
-                    filename: 'IndigencyCertificate.pdf',
+                    filename: 'Indigency - {{ $resident->last_name }}, {{ $resident->first_name }}.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98

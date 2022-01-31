@@ -30,6 +30,8 @@ class BarangayGoodmoralController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Goodmoral Certificate',
+            'subject' => 'Brgy Goodmoral',
+            
         ]);
         
         return view('brgy_certificate.goodmoral_certification.show',compact('resident' ,'purpose', 'b_officials')); 

@@ -82,7 +82,7 @@
                                 <div class="content" style="width: 5.55in; border-right: 2px solid black;">
                                     <div class="content-wrapper">
                                         <div class="top-part">
-                                            <p id="bayog">.</p>
+                                            <p id="bayog">BAYOG-{{\Carbon\Carbon::now()->format('Y')}}-{{$clearance_cnt}}</p>
                                             {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
                                             <div id="resident-picture">
                                                 {{-- webcam video snapshot --}}
@@ -422,7 +422,7 @@
             var element = document.getElementById('element-to-print');
             var opt = {
                 margin: 0,
-                filename: 'BarangayClearance.pdf',
+                filename: 'Barangay Clearance - {{ $resident->last_name }}, {{ $resident->first_name }}.pdf',
                 image: {
                     type: 'jpeg',
                     quality: 0.98

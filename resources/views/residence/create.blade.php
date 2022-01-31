@@ -17,25 +17,34 @@
                             <div class="row">
                                 <div class="col-12 ">
                                     <div class="card">
-                                        <div class="card-header bg-primary rounded mt-5 mb-3">
-                                            <h4 class="text-dark">Personal Information</h4>
-                                        </div>
+                                        
                                         <form action="{{ route('residence.store') }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="card-header rounded mt-5 mb-3" style="background: #017cfd">
+                                                        <h4 class="text-dark">Resident Picture</h4>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div class = "d-flex flex-column align-items-center ">
                                                         <div id="my_camera"></div>
-                                                        <br />
-                                                        <input type=button class="btn btn-sm btn-primary" value="Take Snapshot"
-                                                            onClick="take_snapshot()">
-                                                        <input type="hidden" name="image" class="image-tag">
-                                                    </div>
+                                                            <div>
+                                                                <input type=button class="btn btn-sm btn-primary" value="Capture"
+                                                                onClick="take_snapshot()">
+                                                            </div>
+                                                        </div>
+                                                            <input type="hidden" name="image" class="image-tag">
+                                                        </div>
+
                                                     <div class="col-md-6">
-                                                        <div id="results">Your captured image will appear here...</div>
+                                                        <div id="results"></div>
                                                     </div>
+                                                </div>
+
+                                                <div class="card-header rounded mt-5 mb-3" style="background: #017cfd">
+                                                    <h4 class="text-dark">Personal Information</h4>
                                                 </div>
 
                                                 <div class="row">
@@ -111,6 +120,21 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="date" name="birthday"
+                                                                    class="form-control phone-number" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-12 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Birth Place</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-address-card"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" name="birthplace"
                                                                     class="form-control phone-number" required>
                                                             </div>
                                                         </div>
@@ -196,7 +220,7 @@
 
 
 
-                                                    <div class="card-header bg-primary rounded mt-5 mb-3">
+                                                    <div class="card-header rounded mt-5 mb-3" style="background: #017cfd">
                                                         <h4 class="text-dark"> Address</h4>
                                                     </div>
 
@@ -266,7 +290,7 @@
                                                     </div>
 
 
-                                                    <div class="card-header bg-primary rounded mt-5 mb-3">
+                                                    <div class="card-header rounded mt-5 mb-3" style="background: #017cfd">
                                                         <h4 class="text-dark text-center"> Other Information</h4>
                                                     </div>
 
@@ -276,7 +300,7 @@
                                                             <label>PWD</label>
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <i class="fas fa-venus-mars"></i>
+                                                                    <i class="fas fa-user"></i>
                                                                 </div>
                                                                 <select class="form-control" name="pwd">
                                                                     <option selected="true" disabled="disabled">
@@ -292,7 +316,7 @@
                                                             <label>Subsidy Program</label>
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
-                                                                    <i class="fas fa-venus-mars"></i>
+                                                                    <i class="fas fa-user"></i>
                                                                 </div>
                                                                 <select class="form-control" name="membership_prog">
                                                                     <option selected="true" disabled="disabled">

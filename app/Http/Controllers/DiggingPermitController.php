@@ -63,6 +63,7 @@ class DiggingPermitController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Digging Permit',
+            'subject' => 'Brgy Digging',
         ]);
 
         return view('brgy_permit.digging_permit.clearance',compact('digging','b_officials')); 

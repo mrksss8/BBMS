@@ -28,6 +28,7 @@ class BarangayIndigencyController extends Controller
         ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Indigency Certificate',
+            'subject' => 'Brgy Indigency',
         ]);
 
 
