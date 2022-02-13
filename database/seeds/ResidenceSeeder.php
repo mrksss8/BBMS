@@ -28,7 +28,7 @@ class ResidenceSeeder extends Seeder
             'street' => 'Silangan',
 
             'occupation' => 'Vendor',
-            'Student' => 'Yes',
+            'Student' => 'Elementary',
             'type_of_house' => 'Owned',
 
             'pwd' => 'Yes',

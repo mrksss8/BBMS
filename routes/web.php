@@ -110,7 +110,9 @@ Route::get('/welcome', function(){
       Route::get('/PWD-report', [App\Http\Controllers\ReportController::class, 'PWD_report'])->name('PWD.report');
       Route::get('/student-report', [App\Http\Controllers\ReportController::class, 'student_report'])->name('student.report');
       Route::get('/membership-program-report', [App\Http\Controllers\ReportController::class, 'membership_program_report'])->name('membership-program.report');
-    
+      Route::get('/residents-occupation-report', [App\Http\Controllers\ReportController::class, 'residents_occupation_report'])->name('residents-occupation.report');
+
+      
     });
 
     Route::get('/permits', function () {

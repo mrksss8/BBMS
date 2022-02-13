@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('title')
-    Blotter Report
+   Residents Occupation Report
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Blotters Reports</h3>
+            <h3 class="page__heading">Residents Occupation Report</h3>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card" id = "border-blue">
                         <div class="card-header">
-                            <h4>Blotters</h4>
+                            <h4>Residence</h4>
                         </div>
 
                         <div class="card-body">
@@ -21,35 +21,33 @@
                                 <table class="table table-bordered" id="example">
                                     <thead>
                                         <tr>
-                                            <th>Case Number</th>
-                                            <th>Complained Person</th>
-                                            <th>Blotter Information</th>
-                                            <th>Complainant</th>
-                                            <th>Incident Date</th>
-                                            <th>Case Type</th>
-                                            
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>Address</th>
+                                            <th>Occupation</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                                        @foreach ($blotters as $blotter)
-                                        <tr>
-                                            <td>{{$blotter->id}}</td>
-                                            <td>
-                                            @foreach ($blotter->residents as $resident)
-                                            {{$resident->last_name}} {{$resident->first_name}} {{$resident->middle_name}}, 
-                                            @endforeach
-                                            <p>{{$blotter->complained_resident}}</p>
-                                            </td>
-                                            <td>{{$blotter->Blotters_info}}</td>
-                                            <td>{{$blotter->complainant_name}}</td>
-                                            <td>{{ \Carbon\Carbon::parse($blotter->date_of_incident)->format('F d, Y') }}</td>
-                                            <td>{{$blotter->case_type}}</td>
-                                        </tr>
+                                        @foreach ($residence_list as $residence)
+                                            <tr>
+                                                <td>{{ $residence->last_name }}, {{ $residence->first_name }}
+                                                    {{ $residence->middle_name }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
+                                                </td>
+                                                <td>{{ $residence->gender }}</td>
+                                                <td>{{ $residence->house_number }} {{ $residence->street }} Street, Purok
+                                                    {{ $residence->purok }}</td>
+                                                <td>{{ $residence->occupation }}</td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> 
+
+                            
+
                         </div>
                         <div class="card-footer text-right">
 
@@ -62,7 +60,7 @@
 
     </section>
 
-    
+
 @endsection
 
 @section('report_CSS_&_JS')

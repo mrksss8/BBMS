@@ -142,6 +142,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="text" name="birthplace"
+                                                            value="{{ $resident->birthday }}"
                                                                 class="form-control phone-number" required>
                                                         </div>
                                                     </div>

@@ -5,7 +5,7 @@
 
 @section('content')
     <section class="section">
-        
+
         <div class="section-header">
             <h3 class="page__heading">Residents Profile</h3>
         </div>
@@ -25,12 +25,13 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-8 col-lg-8">
-                    <div class="card" id = "border-blue">
+                    <div class="card" id="border-blue">
                         <div class="card-header d-flex justify-content-center px-5 pt-5">
-                            
-                                <img alt="image" src="{{ url('storage/residence/'.$resident->image) }}" class="rounded-circle" height="400px" width="400px">
 
-                           
+                            <img alt="image" src="{{ url('storage/residence/' . $resident->image) }}" class="rounded-circle"
+                                height="400px" width="400px">
+
+
                         </div>
 
                         <div class="profile-widget-name text-center">
@@ -42,25 +43,71 @@
                                 </strong>
                             </h5>
                         </div>
-                        <div class="card-body ml-3 mt-4">
+                        <div class="card-body m-5">
 
                             <div class="row">
-                                <div class="col-sm-12 col-lg-6">
-                                    <p class="ml-5">
-                                        <strong>Age:
-                                        </strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}<br>
-                                        <strong>Birthday:
-                                        </strong>{{ date('M d, Y', strtotime($resident->birthday)) }}<br>
-                                        <strong>Sex: </strong>{{ $resident->gender }}<br>
-                                        <strong>Status: </strong>{{ $resident->civil_status }}
+                                <div class="col-md-6">
+
                                     <p>
-                                </div>
-                                <div class="col-sm-12 col-lg-6">
+                                        <strong>Fullname: </strong> {{ $resident->last_name }}, {{ $resident->first_name }}
+                                        {{ $resident->middle_name }}
+                                    </p>
+
+                                    <p>
+                                        <strong>Birthday: </strong>{{ date('M d, Y', strtotime($resident->birthday)) }}
+                                    </p>
+                                    <p>
+                                        <strong>Sex: </strong>{{ $resident->gender }}
+                                    </p>
+                                    <p>
+                                        <strong>Occupation: </strong>{{ $resident->occupation }}
+
+                                    </p>
+
+
                                     <p>
                                         <strong>Address: </strong>{{ $resident->house_number }}
-                                        {{ $resident->street }}, Purok{{ $resident->purok }}, Bayog, Los Baños <br>
-                                        <strong>Type of house: </strong>{{ $resident->type_of_house }}<br>
+                                        {{ $resident->street }}, Purok{{ $resident->purok }}, Bayog
+                                    </p>
+
                                     <p>
+
+                                        <strong>PWD: </strong>{{ $resident->pwd }}
+                                    </p>
+
+
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <strong>Age: </strong>
+                                        {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
+                                    </p>
+                                    <p>
+                                        <strong>Birthplace: </strong>{{ $resident->birthplace }}
+                                    </p>
+
+                                    <p>
+                                        <strong>Status: </strong>{{ $resident->civil_status }}
+
+                                    </p>
+
+
+                                    <p>
+                                        <strong>Student: </strong>{{ $resident->student }}
+
+                                    </p>
+                                    <p>
+
+                                        <strong>Type of house: </strong>{{ $resident->type_of_house }}
+                                    </p>
+
+                                    <p>
+
+                                        <strong>Membership Program: </strong>{{ $resident->membership_prog }}
+                                    </p>
+
 
                                 </div>
                             </div>
@@ -92,12 +139,12 @@
                         <div class="card-footer text-center">
 
                             <div class=" d-flex justify-content-center pt-5 pb-2">
-                                <a class="btn btn-icon icon-left btn-primary mr-3" href="{{route('residence.edit',$resident->id)}}" ><i
-                                    class="far fa-edit"></i>
-                                   Edit
+                                <a class="btn btn-icon icon-left btn-primary mr-3"
+                                    href="{{ route('residence.edit', $resident->id) }}"><i class="far fa-edit"></i>
+                                    Edit
                                 </a>
 
-                                
+
 
                                 <a class="btn btn-icon icon-left btn-danger mr-3" data-toggle="modal"
                                     data-target="#deleteModal"><i class="fas fa-trash"></i>
@@ -121,7 +168,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 col-lg-4">
-                    <div class="card" id = "border-blue">
+                    <div class="card" id="border-blue">
                         <div class="card-header justify-content-center">
                             <h5>Issue Certification</h5>
 
@@ -178,7 +225,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class = "p-5">
+                    <div class="p-5">
                         <p> <strong> Resident: </strong> {{ $resident->first_name }}
                             {{ $resident->middle_name }} {{ $resident->last_name }}</p>
                         <p> <strong> Age: </strong>

@@ -28,7 +28,7 @@
                         <h4>List of Business</h4>
                         </div>
                         <div class="mr-5" >
-                            <a type="button" class="btn btn-outline-primary mr-3" href  = "{{route('create_business')}}"> Add Business</a>
+                            <a type="button" class="btn btn-outline-primary mr-3" href  = "{{route('create_business')}}"> Register Business</a>
                         </div>
                       </div>
                         <div class="card-body">

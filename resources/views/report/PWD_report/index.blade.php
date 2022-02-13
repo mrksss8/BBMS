@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Reports
+    PWD Report
 @endsection
 
 @section('content')

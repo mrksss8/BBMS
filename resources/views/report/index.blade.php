@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Reports
+    Students Report
 @endsection
 
 
@@ -67,8 +67,19 @@
                         <a href="{{ route('membership-program.report') }}"  style = "text-decoration: none;">
                             <div class="card text-center" id = "border-blue">
                                 <div class="card-body d-flex justify-content-center flex-column align-items-center">
-                                    <h5 class="card-title">Membership Program Report</h5>
+                                    <h5 class="card-title">Subsidy Program Report</h5>
                                     <img src="{{ '../img/Analyze-rafiki.png' }}" alt="" style="width: 24em; margin-left: 15px;">
+                                </div>
+                            </div>
+                        </a>
+                    </div> 
+
+                    <div class="col-md-4">
+                        <a href="{{ route('residents-occupation.report') }}"  style = "text-decoration: none;">
+                            <div class="card text-center" id = "border-blue">
+                                <div class="card-body d-flex justify-content-center flex-column align-items-center">
+                                    <h5 class="card-title">Occupation Report</h5>
+                                    <img src="{{ '../img/audit-pana.png' }}" alt="" style="width: 24em; margin-left: 15px;">
                                 </div>
                             </div>
                         </a>

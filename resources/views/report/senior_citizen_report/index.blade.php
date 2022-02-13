@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Reports
+    Senior Citizen Report
 @endsection
 
 @section('content')

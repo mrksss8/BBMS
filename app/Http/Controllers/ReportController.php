@@ -46,5 +46,11 @@ class ReportController extends Controller
         $residence_list = Resident::where('student','!=','Other')->where('student','!=','N/A')->get();
         return view('report.student_report.index',compact('residence_list'));
     }
+
+    public function residents_occupation_report(){
+
+        $residence_list = Resident::all();
+        return view('report.occupation_report.index',compact('residence_list'));
+    }
     
 }

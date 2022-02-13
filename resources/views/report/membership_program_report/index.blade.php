@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title')
-    Reports
+    Subsidy Program Report
 @endsection
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Membership Program Report</h3>
+            <h3 class="page__heading">Subsidy Program Report</h3>
         </div>
         <div class="section-body">
             <div class="row">
