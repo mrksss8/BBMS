@@ -64,6 +64,7 @@ class BuildingPermitController extends Controller
 
         ActivityLog::create([
             'user' => Auth::user()->name,
+            'subject' => 'Brgy Building',
             'description' => 'Issue Brgy Building Clearance',
         ]);
 
