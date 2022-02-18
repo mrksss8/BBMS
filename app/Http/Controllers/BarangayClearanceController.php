@@ -43,12 +43,16 @@ class BarangayClearanceController extends Controller
             Carbon::now()->endOfYear(),
         ])->count();
 
-        ActivityLog::create([
+        $clearance_cnt = $clearance_cnt +1;
+
+        $ActivityLog = ActivityLog::create([
             'user' => Auth::user()->name,
             'description' => 'Issue Brgy Clearance Certificate',
             'subject' => 'Brgy Clearance',
 
         ]);
+
+        $ActivityLog_id = $ActivityLog->id;
 
         return view('brgy_certificate.brgy_clearance.show', compact('resident', 'purpose', 'b_officials','clearance_cnt')); 
     }

@@ -543,8 +543,8 @@
                                 <select class="form-control" name="patawag">
                                     <option disabled selected></option>
 
-                                    <option value="File to Action"> File to Action</option>
-                                    <option value="Settled"> Settle Case</option>
+                                    {{-- <option value="File to Action"> File to Action</option> --}}
+                                    <option value="Settled"> Settle Case (File to Action)</option>
                                     <option value="Cancelled"> Cancel Case</option>
 
                                 </select>

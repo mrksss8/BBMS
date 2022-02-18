@@ -81,8 +81,8 @@
                                 <div class="content" style="width: 5.55in;">
                                     <div class="content-wrapper">
                                         <div class="top-part">
-                                            <p style="margin-left:auto; margin-right:50px;">
-                                                {{ $business->business_number }}</p>
+                                            {{-- <p style="margin-left:auto; margin-right:50px;">
+                                                {{ $business->business_number }}</p> --}}
                                         </div>
 
                                         <div class="text-part">

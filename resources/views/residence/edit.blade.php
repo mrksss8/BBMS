@@ -142,7 +142,7 @@
                                                                 </div>
                                                             </div>
                                                             <input type="text" name="birthplace"
-                                                            value="{{ $resident->birthday }}"
+                                                            value="{{ $resident->birthplace }}"
                                                                 class="form-control phone-number" required>
                                                         </div>
                                                     </div>

@@ -17,10 +17,10 @@ class CreateBlotterResidentTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('resident_id');
-            $table->foreign('resident_id')->references('id')->on('residents');
+            $table->foreign('resident_id')->references('id')->on('residents')->onDelete('cascade');
 
             $table->unsignedBigInteger('blotter_id');
-            $table->foreign('blotter_id')->references('id')->on('blotters');
+            $table->foreign('blotter_id')->references('id')->on('blotters')->onDelete('cascade');
 
             $table->timestamps();
         });

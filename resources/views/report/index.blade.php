@@ -5,8 +5,8 @@
 
 
 @section('content')
-
     <section class="section">
+        
         <div class="section-header">
             <h3 class="page__heading">Reports</h3>
         </div>
@@ -87,5 +87,7 @@
             </div>
         </div>
     </section>
+
+
 
 @endsection
