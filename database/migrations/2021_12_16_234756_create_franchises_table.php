@@ -17,10 +17,10 @@ class CreateFranchisesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('franchisee_id');
             $table->foreign('franchisee_id')->references('id')->on('residents');
-            $table->string('franchise_number');
-            $table->string('motor_number');
-            $table->string('chasis_number');
-            $table->string('plate_number');
+            $table->string('franchise_number', 32);
+            $table->string('motor_number', 32);
+            $table->string('chasis_number', 32);
+            $table->string('plate_number', 32);
             $table->timestamps();
         });
     }

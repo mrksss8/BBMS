@@ -18,10 +18,20 @@
                                 <div class="col-12 ">
                                     <div class="card">
                                         
+                                        
                                         <form action="{{ route('residence.store') }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="card-body">
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
 
                                                 <div class="row">
                                                     <div class="card-header rounded mt-5 mb-3" style="background: #017cfd">
@@ -58,7 +68,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="last_name"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" value="{{old('last_name')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -72,7 +82,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="first_name"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" value="{{old('first_name')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -87,22 +97,40 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="middle_name"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" value="{{old('middle_name')}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                     <div class="col-sm-12 col-lg-6">
+                                                        <div class="form-group">
+                                                            <label>Suffix name</label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <i class="fas fa-user"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" name="suffix_name"
+                                                                    class="form-control phone-number" value="{{old('suffix_name')}}">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 col-lg-6">
                                                         <div class="form-group">
-                                                            <label>Gender</label>
+                                                            <label>Sex</label>
                                                             <div class="input-group-prepend">
                                                                 <div class="input-group-text">
                                                                     <i class="fas fa-venus-mars"></i>
                                                                 </div>
-                                                                <select class="form-control" name="gender" required>
+                                                                <select class="form-control" name="gender">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="Male">Male</option>
-                                                                    <option value="Female">Female</option>
+                                                                     
+                                                                    <option value="Male" {{ old('gender') === 'Male' ? 'selected' : '' }}>Male</option>
+                                                                    <option value="Female" {{ old('gender') === 'Female' ? 'selected' : '' }}>Female</option>
+                    
+                                                                    {{-- <option value="Female">Female</option> --}}
                                                                 </select>
                                                             </div>
 
@@ -120,7 +148,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="date" name="birthday"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" required value="{{old('birthday')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -135,7 +163,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="birthplace"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" required value="{{old('birthplace')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -151,11 +179,11 @@
                                                                 <select class="form-control" name="civil_status">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="Single">Single</option>
-                                                                    <option value="Married">Married</option>
-                                                                    <option value="Annulled">Annulled</option>
-                                                                    <option value="Widowed">Widowed</option>
-                                                                    <option value="Separated">Separated</option>
+                                                                    <option value="Single" {{ old('civil_status') === 'Single' ? 'selected' : '' }} >Single</option>
+                                                                    <option value="Married" {{ old('civil_status') === 'Married' ? 'selected' : '' }} >Married</option>
+                                                                    <option value="Annulled" {{ old('civil_status') === 'Annulled' ? 'selected' : '' }} >Annulled</option>
+                                                                    <option value="Widowed" {{ old('civil_status') === 'Widowed' ? 'selected' : '' }} >Widowed</option>
+                                                                    <option value="Separated" {{ old('civil_status') === 'Separated' ? 'selected' : '' }} >Separated</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -170,7 +198,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="occupation"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" required value="{{old('occupation')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -183,11 +211,11 @@
                                                                 </div>
                                                                 <select class="form-control" name="student">
                                                                     <option selected="true" disabled="disabled"></option>
-                                                                    <option value="N/A"> N/A </option>
-                                                                    <option value="Elementary">Elementary</option>
-                                                                    <option value="High School">High School</option>
-                                                                    <option value="College">College</option>
-                                                                    <option value="Other">Other</option>
+                                                                    <option value="N/A" {{ old('student') === 'N/A' ? 'selected' : '' }}> N/A </option>
+                                                                    <option value="Elementary" {{ old('student') === 'Elementary' ? 'selected' : '' }}>Elementary</option>
+                                                                    <option value="High School" {{ old('student') === 'High School' ? 'selected' : '' }}>High School</option>
+                                                                    <option value="College" {{ old('student') === 'College' ? 'selected': '' }}>College</option>
+                                                                    <option value="Other" {{ old('student') === 'Other' ? 'selected' : '' }}>Other</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -233,8 +261,8 @@
                                                                         <i class="fas fa-address-card"></i>
                                                                     </div>
                                                                 </div>
-                                                                <input type="number" name="house_number"
-                                                                    class="form-control phone-number">
+                                                                <input type="text" name="house_number"
+                                                                    class="form-control phone-number" value="{{old('house_number')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -245,14 +273,14 @@
                                                                 <div class="input-group-text">
                                                                     <i class="fas fa-address-card"></i>
                                                                 </div>
-                                                                <select class="form-control" name="purok">
+                                                                <select class="form-control" name="purok" ">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="1">Purok 1</option>
-                                                                    <option value="2">Purok 2</option>
-                                                                    <option value="3">Purok 3</option>
-                                                                    <option value="4">Purok 4</option>
-                                                                    <option value="5">Purok 5</option>
+                                                                    <option value="1" {{ old('purok') === '1' ? 'Selected' : '' }}>Purok 1</option>
+                                                                    <option value="2" {{ old('purok') === '2' ? 'Selected' : '' }}>Purok 2</option>
+                                                                    <option value="3" {{ old('purok') === '3' ? 'Selected' : '' }}>Purok 3</option>
+                                                                    <option value="4" {{ old('purok') === '4' ? 'Selected' : '' }}>Purok 4</option>
+                                                                    <option value="5" {{ old('purok') === '5' ? 'Selected' : '' }}>Purok 5</option>
 
                                                                 </select>
                                                             </div>
@@ -268,7 +296,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <input type="text" name="street"
-                                                                    class="form-control phone-number" required>
+                                                                    class="form-control phone-number" required value="{{old('street')}}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -282,8 +310,8 @@
                                                                 <select class="form-control" name="type_of_house">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="Owned">Owned</option>
-                                                                    <option value="Rental">Rental</option>
+                                                                    <option value="Owned" {{ old('type_of_house') === 'Owned' ? 'Selected' : '' }}>Owned</option>
+                                                                    <option value="Rental" {{ old('type_of_house') === 'Rental' ? 'Selected' : '' }}>Rental</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -305,8 +333,8 @@
                                                                 <select class="form-control" name="pwd">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="Yes">Yes</option>
-                                                                    <option value="No">No</option>
+                                                                    <option value="Yes" {{ old('pwd') === 'Yes' ? 'Selected' : '' }}>Yes</option>
+                                                                    <option value="No" {{ old('pwd') === 'No' ? 'Selected' : '' }}>No</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -321,9 +349,9 @@
                                                                 <select class="form-control" name="membership_prog">
                                                                     <option selected="true" disabled="disabled">
                                                                     </option>
-                                                                    <option value="None">None</option>
-                                                                    <option value="4Ps">4Ps</option>
-                                                                    <option value="TUPAD">TUPAD</option>
+                                                                    <option value="None" {{ old('membership_prog') === 'None' ? 'Selected' : '' }}>None</option>
+                                                                    <option value="4Ps" {{ old('membership_prog') === '4Ps' ? 'Selected' : '' }}>4Ps</option>
+                                                                    <option value="TUPAD" {{ old('membership_prog') === 'TUPAD' ? 'Selected' : '' }}>TUPAD</option>
                                                                 </select>
                                                             </div>
                                                         </div>

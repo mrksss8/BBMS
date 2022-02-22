@@ -92,14 +92,14 @@
                                             <p id="content">
                                                 This is to certify that <strong>{{ $resident->first_name }}
                                                     {{ $resident->middle_name }}
-                                                    {{ $resident->last_name }}</strong> of legal age and bonafide
+                                                    {{ $resident->last_name }} {{ $resident->suffix_name }} </strong> of legal age and bonafide
                                                 resident of <strong>Purok-{{ $resident->purok }}
                                                     {{ $resident->street }}, Barangay Bayog, Los Baños, Laguna.</strong>
                                             </p>
                                             <p id="content">
                                                 This is to certify further that <strong>{{ $resident->first_name }}
                                                     {{ $resident->middle_name }}
-                                                    {{ $resident->last_name }}</strong> is not a Person Under Monitoring
+                                                    {{ $resident->last_name }} {{ $resident->suffix_name }}</strong> is not a Person Under Monitoring
                                                 (PUM) nor a Person Under Investigation (PUI) in relation to COVID 19 while
                                                 he/she is in the barangay.
                                             </p>

@@ -22,10 +22,10 @@ class CreateBusinessTable extends Migration
             $table->unsignedBigInteger('business_owner_id')->nullable();
             $table->foreign('business_owner_id')->references('id')->on('residents');
             $table->string('business_owner_not_resident')->nullable();
-            $table->string('business_number');
-            $table->string('business_name');
-            $table->string('business_address');
-            $table->string('business_type')->nullable();
+            $table->string('business_number', 32);
+            $table->string('business_name', 32);
+            $table->string('business_address', 64);
+            $table->string('business_type', 32)->nullable();
             $table->date('regs_date');
             $table->timestamps();
         });

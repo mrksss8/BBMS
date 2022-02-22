@@ -294,14 +294,14 @@
                                         <div class="text-part">
                                             <p id="content">
                                                 Ito ay nagpapatunay na si <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}, {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}taong gulang </strong> ipinanganak noong
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }}, {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }} taong gulang </strong> ipinanganak noong
                                             <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }} </strong> sa <strong> {{$resident->birthplace}} </strong> at kasalukuyang nakatira sa Tagpuan St., Bayog, Los
                                                 Baños, Laguna ay nabibilang sa mahihirap na pamilya sa aming Barangay at walang
                                                 pirmihang pinagkakakitaan.
                                             <P id="issue-for">
                                                 Ang pagpapatunay na ito ay para sa kahilingan ni
                                                 <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                    {{ $resident->last_name }}</strong> para magamit bilang requirement sa
+                                                    {{ $resident->last_name }} {{ $resident->suffix_name }}</strong> para magamit bilang requirement sa
                                                 <strong style="text-transform:uppercase;">{{ $purpose }}</strong>.
                                             </P>
 

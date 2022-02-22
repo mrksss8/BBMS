@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use Carbon\Carbon;
+use App\Http\Requests\ResidentRequest;
 
 class ResidenceController extends Controller
 {
@@ -37,27 +38,35 @@ class ResidenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(ResidentRequest $request){
+
             $residence = new Resident;
 
+            //image Request
             $img =  $request->get('image');
-            
             $folderPath = storage_path("app/public/residence/");
             $image_parts = explode(";base64,", $img);
-
             foreach ($image_parts as $key => $image){
                 $image_base64 = base64_decode($image);
             }
-
             $fileName = uniqid() . '.png';
             $file = $folderPath . $fileName;
             file_put_contents($file, $image_base64);
 
+     
+            //resident Number
+            $year = Carbon::now()->year;  
+            $resident_cnt = Resident::all()->count();
+            $resident_cnt = $resident_cnt + 1;
+
+            $resident_number = 'Byg' . '-' .  $year . '-' . $resident_cnt;
+
+            $residence->res_num = $resident_number;
             $residence->image = $fileName;
             $residence->last_name = $request->last_name;
             $residence->first_name = $request->first_name;
             $residence->middle_name = $request->middle_name;
+            $residence->suffix_name = $request->suffix_name;
             $residence->gender = $request->gender;
             $residence->birthday = $request->birthday;
             $residence->birthplace= $request->birthplace;

@@ -16,10 +16,10 @@ class CreateBuildingTable extends Migration
         Schema::create('building', function (Blueprint $table) {
 
             $table->id();
-            $table->string('building_number');
-            $table->string('building_owner');
-            $table->string('building_type');
-            $table->string('building_address');
+            $table->string('building_number', 32);
+            $table->string('building_owner', 32);
+            $table->string('building_type', 32);
+            $table->string('building_address', 64);
             $table->string('reg_date');
             $table->timestamps();
             

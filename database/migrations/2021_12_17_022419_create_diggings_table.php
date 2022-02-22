@@ -15,11 +15,11 @@ class CreateDiggingsTable extends Migration
     {
         Schema::create('diggings', function (Blueprint $table) {
             $table->id();
-            $table->string('digging_number');
-            $table->string('name');
-            $table->string('address');
-            $table->string('digging_location');
-            $table->string('purpose');
+            $table->string('digging_number', 32);
+            $table->string('name', 32);
+            $table->string('address', 64);
+            $table->string('digging_location', 64);
+            $table->string('purpose', 32);
             $table->timestamps();
         });
     }

@@ -126,6 +126,7 @@ Route::get('/welcome', function(){
       Route::put('/update/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}/{id7}/{id8}/{id9}/{id10}/{id11}/{id12}/{id13}', [App\Http\Controllers\OfficialsController::class, 'update'])->name('officials.update');
       Route::get('/create', [App\Http\Controllers\OfficialsController::class, 'create'])->name('officials.create');
       Route::post('/store', [App\Http\Controllers\OfficialsController::class, 'store'])->name('officials.store');
+      Route::post('/officials-history', [App\Http\Controllers\OfficialsController::class, 'history'])->name('officials.history');
 
     });
 

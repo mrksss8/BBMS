@@ -29,14 +29,6 @@
                         @endif
                     @endforeach
 
-                    @foreach ($resident->blotters as $blotter)
-                        @if ($blotter->status == 'Unsettled')
-                        @endif
-                    @endforeach
-
-
-
-
 
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-6">
@@ -51,7 +43,7 @@
                                     <div class="profile-widget-name text-center mb-4">
                                         <h5>
                                             <strong>{{ $resident->last_name }} {{ $resident->first_name }}
-                                                {{ $resident->middle_name }} <div
+                                                {{ $resident->middle_name }} {{ $resident->suffix_name }} <div
                                                     class="text-muted d-inline font-weight-normal">
                                                     <div class="slash"></div>{{ $resident->occupation }}
                                                 </div>
@@ -64,7 +56,7 @@
                                             <p>
                                                 <strong>Fullname: </strong> {{ $resident->last_name }},
                                                 {{ $resident->first_name }}
-                                                {{ $resident->middle_name }}
+                                                {{ $resident->middle_name }} {{ $resident->suffix_name }}
                                             </p>
 
                                             <p>
@@ -126,6 +118,7 @@
 
                                         </div>
                                     </div>
+                                    
 
                                     @foreach ($resident_with_blotter->blotters as $blotter)
                                         @if ($blotter->status == 'Unsettled')
@@ -177,18 +170,9 @@
                                     </div>
                                     <div class="card-footer d-flex justify-content-center">
 
-                                        @foreach ($resident->blotters as $blotter)
-                                            @if ($blotter->status == 'Unsettled')
-                                            <button type="submit" class="btn btn-lg btn-icon icon-left btn-success" disabled><i
-                                                class="far fa-edit"></i> Generate Brgy Clearance </a>
-                                            @else
                                             <button type="submit" class="btn btn-lg btn-icon icon-left btn-success"><i
                                                 class="far fa-edit"></i> Generate Brgy Clearance </a>
-                                            @endif
-                                        @endforeach
 
-
-                                        
                                     </div>
                                 </form>
                             </div>

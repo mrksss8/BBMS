@@ -88,11 +88,11 @@ Brgy Good Moral Issuance
                                         <p id="to-whom">To Whom It May Concern:</p>
                                         <p id="content">
                                             This is to certify that <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> of legal age and bonafide resident of <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna.</strong>  has not been charged of any misconduct in violation of Barangay rules and policies. Neither had I received any information that he/she has no pending case in court. He/she is observed to be of <strong>Good Moral Character</strong> .
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }}</strong> of legal age and bonafide resident of <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna.</strong>  has not been charged of any misconduct in violation of Barangay rules and policies. Neither had I received any information that he/she has no pending case in court. He/she is observed to be of <strong>Good Moral Character</strong> .
                                            
                                         <P id="issue-for">
                                             This certification is being issued upon the request of <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> for <strong>{{$purpose}}</strong>.
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }}</strong> for <strong>{{$purpose}}</strong>.
                                         </P>
                                         
                                         <p id="witness">

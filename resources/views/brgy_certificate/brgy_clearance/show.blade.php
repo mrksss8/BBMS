@@ -102,7 +102,7 @@
                                                 of
                                                 my actual knowledge, reliable information and honest belief that <strong>
                                                     {{ $resident->first_name }} {{ $resident->middle_name }}
-                                                    {{ $resident->last_name }}, </strong> <strong>
+                                                    {{ $resident->last_name }} {{ $resident->suffix_name }}, </strong> <strong>
                                                     {{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                     years
                                                     old,</strong>

@@ -10,17 +10,23 @@ class OfficialsController extends Controller
     public function index(){
 
         $latest_id= Officials::max('batch_id');
-        $b_officials= Officials::get();
+        $b_officials= Officials::where('batch_id',$latest_id)->get();
         $b_officials_batch_ids = Officials::orderby('batch_id','Desc')->distinct()->get('batch_id');
 
         return view('officials.index', compact('b_officials','b_officials_batch_ids','latest_id'));
+    }
 
-       
+    public function history(Request $request){
+
+        $b_officials= Officials::where('batch_id',$request->year)->get();
+        $b_officials_batch_ids = Officials::orderby('batch_id','Desc')->distinct()->get('batch_id');
+        return view('officials.officials_history', compact('b_officials','b_officials_batch_ids'));
+
     }
 
     public function edit(){
       
-         $latest_id= Officials::max('batch_id');
+        $latest_id= Officials::max('batch_id');
         $b_cap = Officials::where('brgy_official_position','Barangay Chairman')->where('batch_id',$latest_id)->first();
         $b_councelor1 = Officials::where('brgy_official_position','Barangay Councilor 1')->where('batch_id',$latest_id)->first();
         $b_councelor2 = Officials::where('brgy_official_position','Barangay Councilor 2')->where('batch_id',$latest_id)->first();

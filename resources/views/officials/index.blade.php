@@ -10,8 +10,17 @@
                 <h3 class="page__heading">Barangay Officials</h3>
             </div>
             <div class="mr-5">
-                <a href="{{ route('officials.create') }}" class="btn btn-md btn-primary">Add New Officials</a>
+                <div class="d-flex">
+
+                    <a href="{{ route('officials.create') }}" class="btn btn-md btn-primary mr-3">Add New Officials</a>
+                    <form action="{{ route('officials.history') }}" method="post">
+                        @csrf
+                        
+                        <button type = "submit" class = "btn btn-md btn-primary">View Officials History</button>
+                    </form>
+                </div>
             </div>
+            
 
         </div>
         <div class="section-body">
@@ -26,15 +35,15 @@
             @endif
 
 
-            @foreach ($b_officials_batch_ids as $b_officials_batch_id)
-                <div class="card pt-4" id = "border-blue">
-                    <div class="container">
-                        <h2 class="text-center mb-5 bgcolor-primary">Barangay Officials of
-                            {{ $b_officials_batch_id->batch_id }}</h2>
+            <div class="card pt-4" id = "border-blue">
+                <div class="container">
+                    
+                  
+                    <h2 class="text-center mb-5 bgcolor-primary">Barangay Officials of
+                        {{ $latest_id}}</h2>
 
                         @foreach ($b_officials as $b_official)
-
-                            @if ($b_official->batch_id == $b_officials_batch_id->batch_id)
+                          
                                 @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                     <div class="row d-flex justify-content-center">
                                         <div class="col-md-4">
@@ -57,12 +66,12 @@
                                         </div>
                                     </div>
                                 @endif
-                            @endif
+                       
                         @endforeach
 
                         <div class="row d-flex justify-content-center">
                             @foreach ($b_officials as $b_official)
-                                @if ($b_official->batch_id == $b_officials_batch_id->batch_id)
+                               
                                     @if ($b_official->brgy_official_position != 'Barangay Chairman')
                                         <div class="col-md-4">
                                             <div class="card radius-15" id = "border-blue">
@@ -83,25 +92,18 @@
                                             </div>
                                         </div>
                                     @endif
-                                @endif
+                              
                             @endforeach
                         </div>
-
-                        @if ($b_officials_batch_id->batch_id == $latest_id)
+             
                             <div class=" d-flex justify-content-center p-5 pb-2">
                                 <a href="{{ route('officials.edit') }}"
                                     class="btn btn-icon icon-left btn-primary btn-lg mr-3"><i
                                         class="fas fa-pencil-alt"></i>Update</a>
                             </div>
-                        @endif
-                    </div>
                 </div>
-            @endforeach
-
-
-
-
-
+            </div>
+                
 
     </section>
 @endsection

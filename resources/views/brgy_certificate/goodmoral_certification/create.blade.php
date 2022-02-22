@@ -29,8 +29,8 @@
                                 </div>
                                 <div class="profile-widget-description" >
                                     <div class="profile-widget-name text-center mb-4">{{ $resident->last_name }}
-                                        {{ $resident->first_name }}
-                                        {{ $resident->middle_name }} <div class="text-muted d-inline font-weight-normal">
+                                        {{ $resident->first_name }} 
+                                        {{ $resident->middle_name }} {{ $resident->suffix_name }} <div class="text-muted d-inline font-weight-normal">
                                             <div class="slash"></div>{{ $resident->occupation }}
                                         </div>
                                     </div>

@@ -15,28 +15,29 @@ class CreateResidentsTable extends Migration
     {
         Schema::create('residents', function (Blueprint $table) {
             $table->id();
-            $table->string('res_num')->nullable();
-            $table->string('last_name');
-            $table->string('first_name');
-            $table->string('middle_name')->nullable();
-            $table->string('gender');
+            $table->string('res_num', 32)->nullable();
+            $table->string('last_name', 32);
+            $table->string('first_name', 32);
+            $table->string('middle_name', 32)->nullable();
+            $table->string('suffix_name', 32)->nullable();
+            $table->string('gender', 32);
             $table->date('birthday');
-            $table->string('birthplace')->nullable();
-            $table->string('civil_status');
+            $table->string('birthplace', 32)->nullable();
+            $table->string('civil_status', 32);
             
 
-            $table->integer('house_number')->nullable();
-            $table->string('purok');
-            $table->string('street');
+            $table->string('house_number', 32)->nullable();
+            $table->string('purok', 32);
+            $table->string('street', 32);
 
-            $table->string('occupation');
-            $table->string('student');
-            $table->string('type_of_house');
+            $table->string('occupation', 32);
+            $table->string('student', 32);
+            $table->string('type_of_house', 32);
 
-            $table->string('pwd');
-            $table->string('membership_prog');
+            $table->string('pwd', 32);
+            $table->string('membership_prog', 32);
 
-            $table->string('image')->nullable();
+            $table->string('image', 64)->nullable();
 
             $table->timestamps();
         });

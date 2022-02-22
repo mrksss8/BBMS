@@ -70,7 +70,7 @@
                             
                             @foreach ($blotter->residents as $resident)
                                 {{ $resident->last_name }} {{ $resident->first_name }}
-                                {{ $resident->middle_name }},<span class = mx-2></span>
+                                {{ $resident->middle_name }} {{ $resident->suffix_name }},<span class = mx-2></span>
                             @endforeach
                             {{$blotter->complained_resident}}
 

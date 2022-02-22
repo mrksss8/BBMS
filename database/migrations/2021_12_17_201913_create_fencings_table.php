@@ -15,11 +15,11 @@ class CreateFencingsTable extends Migration
     {
         Schema::create('fencings', function (Blueprint $table) {
             $table->id();
-            $table->string('fencing_number');
-            $table->string('name');
-            $table->string('address');
-            $table->string('fencing_location');
-            $table->string('purpose');
+            $table->string('fencing_number', 32);
+            $table->string('name', 32);
+            $table->string('address', 64);
+            $table->string('fencing_location', 64);
+            $table->string('purpose', 32);
             $table->timestamps();
         });
     }

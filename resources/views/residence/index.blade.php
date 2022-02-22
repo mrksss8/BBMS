@@ -36,7 +36,6 @@
                 })
             }
         </script>
-
     @endif
 
     <section class="section">
@@ -54,9 +53,12 @@
                 </div>
             @endif
 
+          
+
+
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card" id = "border-blue">
+                    <div class="card" id="border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
                             <div>
                                 <h4>List of Residents</h4>
@@ -76,12 +78,13 @@
                                         <tr>
                                             <th>View</th>
                                             <th>Image</th>
+                                            <th>Resident ID</th>
                                             <th>Full Name</th>
                                             <th>Gender</th>
                                             <th>Birthday</th>
                                             <th>Age</th>
                                             <th>Address</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -90,18 +93,21 @@
                                                 <td>
                                                     <div class="row d-flex justify-content-center">
                                                         <a href="{{ route('residence.show', $residence->id) }}"
-                                                            class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                                            class="btn btn-primary btn-sm"><i
+                                                                class="fas fa-eye"></i></a>
 
-                                                    </div>
-                                                </td>
-                                                <td>
-
-                                                    <figure class="avatar avatar-md">
-                                                    <img alt="image" src="{{ url('storage/residence/'.$residence->image) }}" class="rounded-circle" height="300px"width="300px">
-                                                    </figure>
-                                                    
-                                                    {{-- @if ($residence->path != null)
-                                                    <figure class="avatar avatar-md">
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            
+                                                            <figure class="avatar avatar-md">
+                                                                <img alt="image"
+                                                                src="{{ url('storage/residence/' . $residence->image) }}"
+                                                                class="rounded-circle" height="300px" width="300px">
+                                                            </figure>
+                                                            
+                                                            {{-- @if ($residence->path != null)
+                                                                <figure class="avatar avatar-md">
                                                         <img src="{{ $residence->path }}">
                                                     </figure>
                                                     @else
@@ -112,13 +118,18 @@
                                                     @endif --}}
                                                     
                                                 </td>
-                                                <td>{{ $residence->last_name }} {{ $residence->first_name }} {{ $residence->middle_name }}</td>
+                                                <td>
+                                                    {{$residence->res_num}}
+                                                </td>
+                                                <td>{{ $residence->last_name }} {{ $residence->first_name }}
+                                                    {{ $residence->middle_name }} {{ $residence->suffix_name }}</td>
                                                 <td>{{ $residence->gender }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->format('F d, Y') }}
                                                 </td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                 </td>
-                                                <td>{{$residence->house_number }} {{$residence->street }}, Purok{{$residence->purok }}, Bayog<br></td>
+                                                <td>{{ $residence->house_number }} {{ $residence->street }},
+                                                    Purok{{ $residence->purok }}, Bayog<br></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

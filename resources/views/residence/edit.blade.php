@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="col-sm-12 col-lg-6">
                                                     <div class="form-group">
-                                                        <label>Gender</label>
+                                                        <label>Sex</label>
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
                                                                 <i class="fas fa-venus-mars"></i>

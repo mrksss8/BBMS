@@ -37,7 +37,7 @@
                         <div class="profile-widget-name text-center">
                             <h5>
                                 <strong>{{ $resident->last_name }} {{ $resident->first_name }}
-                                    {{ $resident->middle_name }} <div class="text-muted d-inline font-weight-normal">
+                                    {{ $resident->middle_name }} {{ $resident->suffix_name }} <div class="text-muted d-inline font-weight-normal">
                                         <div class="slash"></div>{{ $resident->occupation }}
                                     </div>
                                 </strong>
@@ -47,10 +47,10 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-
+                                
                                     <p>
                                         <strong>Fullname: </strong> {{ $resident->last_name }}, {{ $resident->first_name }}
-                                        {{ $resident->middle_name }}
+                                        {{ $resident->middle_name }} {{ $resident->suffix_name }}
                                     </p>
 
                                     <p>
@@ -106,6 +106,11 @@
                                     <p>
 
                                         <strong>Membership Program: </strong>{{ $resident->membership_prog }}
+                                    </p>
+
+                                    <p>
+
+                                        <strong>Resident Number: </strong> {{$resident->res_num}}
                                     </p>
 
 

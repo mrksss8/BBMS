@@ -91,7 +91,7 @@ Brgy Live-In Issuance
                                         <p id="to-whom">Sa Kinauukulan,</p>
                                         <p id="content">
                                             Ito ay pagpapatunay na sila <strong>{{ $resident->first_name }} {{ $resident->middle_name }}
-                                                {{ $resident->last_name }} at {{ $partner }}</strong> nasa hustong taong gulang, residente ng <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna</strong> ay nagsasama bilang mag asawa.
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }} at {{ $partner }}</strong> nasa hustong taong gulang, residente ng <strong>Purok-{{ $resident->purok}} {{ $resident->street}}, Barangay Bayog, Los Baños, Laguna</strong> ay nagsasama bilang mag asawa.
                                             Pagpapatunay pa din na sila ay nagsasama ng humigit kumulang <strong>{{$long}}</strong>  ng nagsama bilang mag asawa requirement para sa <strong>{{$purpose}}</strong>.                                                                                                                                                                      
                                
                                            

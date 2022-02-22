@@ -72,7 +72,7 @@
                                         <p id="content">
                                             Ito ay nagpapatunay na si <strong>{{ $resident->first_name }}
                                                 {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong> ,
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }} </strong> ,
                                             <strong>{{ \Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                             </strong> taong gulang ipinanganak noong
                                             <strong>{{ \Carbon\Carbon::parse($resident->birthday)->format('F d, Y') }}</strong>
@@ -82,7 +82,7 @@
                                         <P id="issue-for">
                                             Pagpapatunay pa din na si <strong>{{ $resident->first_name }}
                                                 {{ $resident->middle_name }}
-                                                {{ $resident->last_name }}</strong>, 8 buwan ng naninirahan sa Barangay
+                                                {{ $resident->last_name }} {{ $resident->suffix_name }} </strong>, 8 buwan ng naninirahan sa Barangay
                                             Bayog hangang sa kasalukuyan.
                                         </P>
 

@@ -36,7 +36,7 @@
                                         @foreach ($residence_list as $residence)
                                             <tr>
                                                 <td>{{ $residence->last_name }}, {{ $residence->first_name }}
-                                                    {{ $residence->middle_name }}</td>
+                                                    {{ $residence->middle_name }} {{ $residence->suffix_name }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($residence->birthday)->diff(\Carbon\Carbon::now())->format('%y') }}
                                                 </td>
                                                 <td>{{ $residence->gender }}</td>
