@@ -23,7 +23,7 @@
                                 <p><strong>  Motor Number: </strong> {{ $franchise->motor_number }}</p>
                             </div>
                             <div class="card-body">
-                                <p><strong>  Name: </strong> {{ $franchise->resident->first_name }} {{ $franchise->resident->middle_name }} {{ $franchise->resident->last_name }} {{ $resident->suffix_name }}</p>
+                                <p><strong>  Name: </strong> {{ $franchise->resident->first_name }} {{ $franchise->resident->middle_name }} {{ $franchise->resident->last_name }} {{ $franchise->resident->suffix_name }}</p>
                                 <p><strong>  Age: </strong> {{ \Carbon\Carbon::parse($franchise->resident->birthday)->diff(\Carbon\Carbon::now())->format('%y')}}</p>
                                 <p><strong>  Address: </strong>{{ $franchise->resident->house_number }} purok
                                     {{ $franchise->resident->purok }} {{ $franchise->resident->street }}</p>
