@@ -31,7 +31,6 @@
                             <img alt="image" src="{{ url('storage/residence/' . $resident->image) }}" class="rounded-circle"
                                 height="400px" width="400px">
 
-
                         </div>
 
                         <div class="profile-widget-name text-center">

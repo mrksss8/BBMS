@@ -31,7 +31,7 @@ class ResidentRequest extends FormRequest
             'middle_name' => 'required|regex:/[a-zA-Z\s]+/',
             'suffix_name' => 'required|regex:/[a-zA-Z\s]+/',
             'gender' => 'required|string',
-            'birthday' => 'required',
+            'birthday' => 'required|before:today',
             'birthplace'=> 'required|string',
             'civil_status' =>'required|string',
             'house_number' => 'required',

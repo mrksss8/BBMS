@@ -20,7 +20,7 @@
         }
 
         .certificate-container {
-            width: 53vw;
+            width: 56vw;
             display: flex;
             justify-content: center;
             font-family: 'serif';
@@ -66,8 +66,8 @@
 
         /* officials */
         .officials {
-            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
-            /* background-color: rgb(85, 197, 241); */
+            /* background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240)); */
+            background-color: #a0c4e4;
             border: 1px solid black;
             margin-right: 5px;
         }
@@ -225,12 +225,12 @@
                                 <p> BARANGAY BAYOG  </p>
 
                                 <div class="title-wrapper">
-                                    <h3>SERTIPIKASYON NA NABIBILANG <br> SA MAHIHIRAP NA PAMILYA</h3>
+                                    <h3 style="border-left: 2px solid black; border-right: 2px solid black;">SERTIPIKASYON NA NABIBILANG <br> SA MAHIHIRAP NA PAMILYA</h3>
 
                                 </div>
                             </div>
                             <div class="body">
-                                <div class="officials" style="width: 2.75in;">
+                                <div class="officials" style="width: 2.75in; border-left: 2px solid black;">
                                     <div class="official-wrapper">
                                             <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                             alt="brgy-bayog-logo" >
@@ -281,7 +281,7 @@
                                 </div>
 
 
-                                <div class="content" style="width: 5.55in;">
+                                <div class="content" style="width: 5.55in; border-right: 2px solid black;">
                                     <div class="content-wrapper">
                                         <div class="top-part">
                                             {{-- <img id="resident-picture" src="{{ asset('../img/brgy-logo.jpg') }}" alt=""> --}}
@@ -433,8 +433,8 @@
             const constraints = {
                 audio: false,
                 video: {
-                    width: 400,
-                    height: 400
+                    width: 300,
+                    height: 300
                 }
             };
 

@@ -10,8 +10,8 @@
     <!-- My Custom Import CSS -->
 
     <!-- sweet alert style -->
-    <link href="{{ asset('vendor/css/sweetalert/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('vendor/css/sweetalert/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('vendor/css/sweetalert/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/css/sweetalert/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" /> --}}
     <!-- sweet alert style -->
 
     <!-- My Custom Style -->
@@ -47,6 +47,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('web/css/custom.css') }}">
     @yield('page_css')
     @yield('css')
 

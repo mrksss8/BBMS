@@ -27,12 +27,12 @@ Brgy Fencing Permit
                             <p> BARANGAY BAYOG  </p>
                             
                             <div class="title-wrapper">
-                                <h1>SERTIPIKASYON NG PAGBABAKOD</h1>
+                                <h1 style="border-left: 2px solid black; border-right: 2px solid black;">SERTIPIKASYON NG PAGBABAKOD</h1>
                             </div>
                         </div>
        
                         <div class="body">
-                            <div class="officials" style="width: 2.75in;">
+                            <div class="officials" style="width: 2.75in; border-left: 2px solid black;">
                                 <div class="official-wrapper">
                                         <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                         alt="brgy-bayog-logo" >
@@ -82,7 +82,7 @@ Brgy Fencing Permit
                                 </div>
                             </div>
     
-                            <div class="content" style="width: 5.55in;">
+                            <div class="content" style="width: 5.55in; border-right: 2px solid black;">
                                 <div class="content-wrapper">
     
                                     <div class="text-part" style = "margin-top:100px;">
@@ -264,7 +264,8 @@ Brgy Fencing Permit
         /* officials */
         .officials {
             /* background-color: rgb(85, 197, 241); */
-            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+            /* background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240)); */
+            background: #a0c4e4;
             border: 1px solid black;
             margin-right: 5px;
         }

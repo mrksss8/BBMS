@@ -221,7 +221,7 @@
         }
 
         .certificate-container {
-            width: 53vw;
+            width: 56vw;
             display: flex;
             justify-content: center;
             color: black;
@@ -268,8 +268,8 @@
 
         /* officials */
         .officials {
-            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
-            /* background-color: rgb(85, 197, 241); */
+            /* background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240)); */
+             background-color: #a0c4e4;
             border: 1px solid black;
             margin-right: 5px;
         }
@@ -451,8 +451,8 @@
         const constraints = {
             audio: false,
             video: {
-                width: 400,
-                height: 400
+                width: 300,
+                height: 300
             }
         };
 

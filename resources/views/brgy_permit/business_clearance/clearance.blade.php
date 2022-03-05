@@ -22,13 +22,13 @@
                                     BARANGAY BAYOG <br>
                                 </p>
                                 <div class="title-wrapper">
-                                    <h1>Barangay Business Clearance</h1>
+                                    <h1 style="border-left: 2px solid black; border-right: 2px solid black;">Barangay Business Clearance</h1>
                                 </div>
                             </div>
 
                             <div class="body">
 
-                                <div class="officials" style="width: 2.75in;">
+                                <div class="officials" style="width: 2.75in; border-left: 2px solid black;">
                                     <div class="official-wrapper">
                                         <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                             alt="brgy-bayog-logo">
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
 
-                                <div class="content" style="width: 5.55in;">
+                                <div class="content" style="width: 5.55in; border-right: 2px solid black;">
                                     <div class="content-wrapper">
                                         <div class="top-part">
                                             {{-- <p style="margin-left:auto; margin-right:50px;">
@@ -327,7 +327,8 @@
         /* officials */
         .officials {
             /* background-color: rgb(85, 197, 241); */
-            background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240));
+            /* background-image: linear-gradient(to bottom right, rgb(28, 50, 245), rgb(75, 174, 240)); */
+            background: #a0c4e4;
             border: 1px solid black;
             margin-right: 5px;
         }
