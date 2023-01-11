@@ -34,7 +34,7 @@
                                                             @foreach ($residence as $resident)
                                                             <option value = {{$resident->id}}> {{$resident->last_name}} {{$resident->first_name}} </option>     
                                                             @endforeach                                 
-                                                          </select>
+                                                        </select>                            
                                                     </div>  
                                                 </div>
                                             </div>

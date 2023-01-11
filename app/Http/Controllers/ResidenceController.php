@@ -139,7 +139,7 @@ class ResidenceController extends Controller
             {
                 
                 $img =  $request->get('image');
-                $folderPath = "C:/xampp/htdocs/project/BBMS/storage/app/public/residence/";
+                $folderPath = storage_path("app/public/residence/");
                 $image_parts = explode(";base64,", $img);
     
                 foreach ($image_parts as $key => $image){
