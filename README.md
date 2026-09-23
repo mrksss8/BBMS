@@ -106,7 +106,7 @@ Your system will now be live and accessible at **`http://127.0.0.1:8000`**.
 *   **Resident Profiling:** Record and update detailed profiles of Barangay Bayog residents.
 *   **Certificate & Clearance Issuance:** Manage requests for Barangay Clearance, Indigency, and Residency certificates.
 *   **Blotter & Incident Reports:** Document and track local community disputes and resolutions.
-*   **User Roles & Permissions:** Admin dashboard for Barangay Officials and staff members.
+
 
 ---
 
